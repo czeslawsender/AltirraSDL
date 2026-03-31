@@ -1,0 +1,35 @@
+# SDL_GDKSuspendGPU
+
+Call this to suspend GPU operation on Xbox after receiving the [SDL_EVENT_DID_ENTER_BACKGROUND](SDL_EVENT_DID_ENTER_BACKGROUND)
+event.
+
+## Header File
+
+Defined in [<SDL3/SDL_gpu.h>](https://github.com/libsdl-org/SDL/blob/main/include/SDL3/SDL_gpu.h)
+
+## Syntax
+
+```c
+void SDL_GDKSuspendGPU(SDL_GPUDevice *device);
+```
+
+## Function Parameters
+
+| SDL_GPUDevice* | device | a GPU context. |
+| --- | --- | --- |
+
+## Remarks
+
+Do NOT call any [SDL_GPU](SDL_GPU) functions after
+calling this function! This must also be called before calling [SDL_GDKSuspendComplete](SDL_GDKSuspendComplete).
+
+This function MUST be called from the application's render
+thread.
+
+## Version
+
+This function is available since SDL 3.2.0.
+
+## See Also
+
+- [SDL_AddEventWatch](SDL_AddEventWatch)

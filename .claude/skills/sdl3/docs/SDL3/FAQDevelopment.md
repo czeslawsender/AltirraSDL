@@ -1,0 +1,298 @@
+# Frequently Asked Questions
+
+Check these out if your questions aren't directly about using the
+library as a developer.
+
+| General | General questions about SDL |
+| --- | --- |
+| Using SDL | Questions for people using SDL applications |
+| Licensing | Questions about licensing SDL with products |
+
+## Table of contents
+
+- [How do I do X? Is Y broken? (I couldn't
+find it on this page!)](#cant_find_answer)
+
+- [Do I #include <SDL.h> or
+#include <SDL3/SDL.h>?](#include)
+
+- [How do I load images, sounds, show
+UI, etc?](#asset_loading_and_ui)
+
+- [Can I call SDL video functions from
+multiple threads?](#video_on_threads)
+
+- [Can I call SDL event functions from
+multiple threads?](#events_on_threads)
+
+- [Why is my sleep/SDL-Delay function
+inaccurate? (Why am I getting 61/62/59 fps and not 60?):](#inaccurate_sleep)
+
+- [I'm getting an error about SDL_main, WinMain, main,
+etc:](#main)
+
+- [Why is my window not rendering while the
+Window is being resized or dragged/moved?](#frozen_window)
+
+- [Graphics](#graphics)
+
+Can I use shaders with the SDL 2D render
+API?
+What Graphics API Should I use?
+Can SDL_GPU run on OpenGL?
+Can SDL_GPU run on Android? 
+What should I do for shaders for SDL_GPU
+or SDL_Renderer with the GPU backend?
+I'm trying to use SDL_shadercross as
+an online (runtime) compiler.
+I'm on Linux and trying to run my SDL_GPU
+application under RenderDoc and don't get a Device, what's going
+on?
+
+## How
+do I do X? Is Y broken? (I couldn't find it on this page!)
+
+If something isn't covered here, it doesn't mean we don't know about
+it! It's difficult to collate everything between bugs, intended but
+perhaps unexpected behavior, and even many Frequently Asked
+Questions.
+
+When looking to do something, generally the first place to look is
+the [Category the API you're looking for is
+likely in](APIByCategory). If it has to do with a specific function, check the
+documentation for that, specifically the remarks section, there's
+fantastic information in those sections. If you still can't figure it
+out, SDL has several communities you can connect with to get help!
+
+Regarding something seeming to be broken, you can first [search on the bug
+tracker](https://github.com/libsdl-org/SDL/issues). If you don't find anything but would like to check with
+other folks before reporting, you can drop by [one of the SDL related Communities](FAQCommunities)
+
+## Do I#include <SDL.h>or#include <SDL3/SDL.h>?
+
+The most portable way to include SDL headers is to use angular quotes
+around the full header name:
+
+```c
+#include <SDL3/SDL.h>
+```
+
+This is new in SDL3! Previously, in SDL2, we recommended
+`#include "SDL.h"`, but this proved to be unfriendly to macOS
+frameworks and having the API version in the include line is useful for
+making dependency requirements clear.
+
+## How do I load images,
+sounds, show UI, etc?
+
+SDL provides the lower level of functionality that a cross-platform
+game engine needs, leaving higher level tasks to other libraries. The [libraries page](Libraries) has a non-exhaustive list of
+libraries that are known to work well with SDL.
+
+## Can I
+call SDL video functions from multiple threads?
+
+No, most graphics back ends are not thread-safe, so you should only
+call SDL video functions from the main thread of your application. [SDL_RunOnMainThread()](SDL_RunOnMainThread) can be used to
+dispatch code that needs to run on the main thread.
+
+## Can I
+call SDL event functions from multiple threads?
+
+The main event handling should be done on the main thread, though you
+can use [SDL_PushEvent()](SDL_PushEvent) and [SDL_PeepEvents()](SDL_PeepEvents) to interact with the
+event queue on other threads. Most SDL functions have their
+thread-safety noted in their documentation.
+
+## Why
+is my sleep/SDL-Delay function inaccurate? (Why am I getting 61/62/59
+fps and not 60?):
+
+Take a look at these blogs for an in-depth understanding of the
+problems of timing:
+
+- [https://blog.bearcats.nl/accurate-sleep-function/](https://blog.bearcats.nl/accurate-sleep-function/)
+(Recentlyish Updated)
+
+- [https://blog.bearcats.nl/perfect-sleep-function/](https://blog.bearcats.nl/perfect-sleep-function/)
+(Part 2, even better Sleeps!)
+
+In SDL3 you should be using [SDL_DelayPrecise](SDL_DelayPrecise) (which
+uses an algorithm similar to above) or [SDL_DelayNS](SDL_DelayNS) (More precise than
+SDL_Delay, but doesn't busy-wait)
+
+On a similar note, when doing timing, prefer using [SDL_GetPerformanceCounter](SDL_GetPerformanceCounter)
+and [SDL_GetPerformanceFrequency](SDL_GetPerformanceFrequency)
+, or [SDL_GetTicksNS](SDL_GetTicksNS) ,
+over using [SDL_GetTicks](SDL_GetTicks),
+which has only has millisecond precision. [SDL_GetTicksNS](SDL_GetTicksNS) uses [SDL_GetPerformanceCounter](SDL_GetPerformanceCounter)
+under the hood, but converted to nanoseconds for convenience.
+
+## I'm
+getting an error about SDL_main, WinMain, main, etc:
+
+NOTE: This answer is written for brevity, but this is a complex
+topic! For a full understanding of what's happening, please look over
+ourmain functions README.
+
+It's *most* likely you have
+`#include <SDL3/SDL_main.h>` included in the file with
+your `main` function, but your `main` function
+doesn't have the expected signature:
+`int main(int argc, char *argv[])`
+
+If you see an error about "a previous definition of
+`SDL_main`", there's pretty much two possibilities:
+
+- You've implemented `main` twice in one file yourself.
+Pretty unlikely, but it can happen!
+
+- More likely you have `#define SDL_MAIN_USE_CALLBACKS`
+somewhere, or have `SDL_MAIN_USE_CALLBACKS` defined through
+your build system as a switch to the compiler, but you're implementing
+`main` instead of or in addition to the callbacks.
+
+The last common issue here is you've placed
+`#include <SDL3/SDL_main.h>` in two Translation Units
+(c/cpp files).
+
+## Why
+is my window not rendering while the Window is being resized or
+dragged/moved?
+
+Please read [AppFreezeDuringDrag](AppFreezeDuringDrag) for a technical
+explanation and solutions.
+
+## Graphics
+
+### Can I use shaders
+with the SDL 2D render API?
+
+Once SDL 3.4.0 is available, you can get fragment shaders, take a
+look at [SDL_CreateGPURenderer](SDL_CreateGPURenderer)
+and [SDL_CreateGPURenderState](SDL_CreateGPURenderState).
+Until then you can try out this function using the main branch on [GitHub](https://github.com/libsdl-org/SDL)
+
+That said, there are many different ways to use shaders, and if you
+need more than the subset of shader functionality we expose there, we
+recommend using a full 3D API like [SDL
+GPU](CategoryGPU). You can look at how SDL uses the GPU API for 2D rendering if
+you'd like to expand on that: [SDL_render_gpu.c](https://github.com/libsdl-org/SDL/blob/main/src/render/gpu/SDL_render_gpu.c)
+
+### What Graphics API Should I use?
+
+This is a *very* difficult question to give a good answer to.
+We'll try to give some soft recommendations here, along with information
+on the other native APIs so that you can decide for yourself what feels
+right for you.
+
+We're quite proud of the new GPU API that was added in SDL3, and are
+confident it can handle the majority of use cases you'll run into. FNA
+has already shipped games on console using SDL3 and the GPU API for
+rendering. That said, since the API is relatively new, if you're
+intending to *learn* graphics, you may want to start with
+tutorials using OpenGL or another graphics API. In addition, while it
+has fairly wide platform support, including the big 3 console platforms,
+it currently does not support the web and has limited support on
+Android, which doesn't have the necessary driver support across many
+devices. On desktop, the GPU API supports Vulkan 1.0 capable hardware,
+which includes graphics cards made in the last 10-15 years. If you want
+features that are newer and have less wide-spread support, like mesh
+shaders and bindless textures, then you'll want to use Vulkan
+directly.
+
+In addition to the GPU API, here are some other alternatives that may
+work for you, depending on your needs.
+
+- OpenGL and it's versions and variants
+
+GL has it's problems, but if you're willing to put in the work, it's
+greatest strength is wide platform support. Between desktop
+OpenGL and it's extensions, OpenGL ES, and WebGL, you can hit
+essentially every desktop going back 15 years or more, phones and
+various embedded devices, the web browser, and even the Nintendo Switch.
+It wouldn't be easy, you'd need to do a lot of version checking and
+changing depending on exactly which version and variant of GL you're
+targetting, but it is possible.
+GL also has some of the best learning resources, in particular learnopengl.com, a graphics tutorial
+and treatise so good that it's wildly common to suggest it for folks
+learning graphics on entirely different APIs.
+The main downside is that by getting this wide platform support
+you're trading away both modern API design, and also modern APIs in
+general. Even targeting very new computers, it's likely you'd want to
+use the latest features in 4.6, which is unavailable on MacOS.
+
+- Vulkan
+
+Vulkan is unfortunately most known for the "1000 line triangle", but
+if you're coming from something like OpenGL, it's explicitness might
+come as a breath of fresh air. It has decent platform support with
+Windows, MacOS and iOS(through MoltenVk), Linux, Android, and the
+Nintendo Switch. Although it should be noted that Vulkan shares the
+problems GPU has on Android, as it's the API that powers GPU on android.
+Newer versions reduce some of the boilerplate, and there are helpful
+libraries like vma
+and vk-bootstrap
+to help with some of the more tedious aspects of the API.
+Vulkan tends to trail DirectX and Metal in new features, but it's
+still ahead of GPU, so if those features are important to you, it's well
+worth considering.
+
+- DirectX12
+
+If you're targetting only Windows 10 or 11, and the Xbox platform,
+DirectX might be worth considering. There's less boilerplate than
+Vulkan, but it's still quite explicit. It also tends to trade with Metal
+on bleeding edge features, but they're obviously mututally exclusive
+unless you're writing your own RHI (Render Hardware Interface) like
+GPU.
+
+- Metal
+
+The native API of Apples platforms, Graphics developers tend to be
+very happy with this API. It's got the least boilerplate of the 3 modern
+native APIs, tends to have excellent feature support and
+implementations, but is still very explicit so you're not leaving
+performance on the table.
+The obvious main downside is it's only available on Apple platforms,
+and it can be somewhat difficult to use from languages besides
+Objective-C and Swift.
+
+### Can SDL_GPU run on OpenGL?
+
+No, the backends are DX12, Metal, Vulkan. Although it should be noted
+that it's also supported on the NDA only console forks of SDL. (More
+information on how to get access on the [respective platform pages](README-platforms).)
+
+### Can SDL_GPU run on Android?
+
+Yes, but to get wide support, you'll need to give up on some
+features. Each Vulkan feature from the [properties you
+disable](SDL_CreateGPUDeviceWithProperties.html#remarks) when creating your [SDL_GPUDevice](SDL_GPUDevice) will get you wider Android
+support. In general if you're interested in Android you should just turn
+all of the Vulkan features here off. Hopefully in a year or two, things
+will improve as Google has announced somewhat agressive goals for
+upcoming Android versions.
+
+### What
+should I do for shaders for SDL_GPU or SDL_Renderer with the GPU
+backend?
+
+We recommend using SDL_shadercross, a shader compiler that tries to
+make it easy to go from HLSL to all the shader formats SDL_GPU needs for
+each backend. That said, we recommend not building it yourself, as the
+build process is complex and has large dependencies. You can find builds
+on the [actions
+page](https://github.com/libsdl-org/SDL_shadercross/actions?query=branch%3Amain), just be signed into GitHub, and select the latest build from
+main.
+
+### I'm
+on Linux and trying to run my SDL_GPU application under RenderDoc and
+don't get a Device, what's going on?
+
+It's likely that you're running Wayland. RenderDoc doesn't support
+Wayland, please force XWayland and give that a try!
+
+You can set this before calling `SDL_Init` to get that
+behavior if your system is set up as expected:
+`SDL_SetHint(SDL_HINT_VIDEO_DRIVER, "x11");`

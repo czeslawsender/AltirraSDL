@@ -1,0 +1,4 @@
+# SDL_PROP_TRAY_CREATE_MIDDLECLICK_CALLBACK_POINTER
+
+Please refer to [SDL_CreateTrayWithProperties](SDL_CreateTrayWithProperties)
+for details.

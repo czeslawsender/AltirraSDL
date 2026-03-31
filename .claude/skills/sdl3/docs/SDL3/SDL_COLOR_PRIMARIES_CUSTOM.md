@@ -1,0 +1,3 @@
+# SDL_COLOR_PRIMARIES_CUSTOM
+
+Please refer to [SDL_ColorPrimaries](SDL_ColorPrimaries) for details.

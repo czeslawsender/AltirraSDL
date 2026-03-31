@@ -1,0 +1,4 @@
+# SDL_SCANCODE_Z
+
+Please refer to [SDL_Scancode](SDL_Scancode) for
+details.

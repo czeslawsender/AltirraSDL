@@ -1,0 +1,4 @@
+# SDL_BLENDFACTOR_SRC_ALPHA
+
+Please refer to [SDL_BlendFactor](SDL_BlendFactor)
+for details.

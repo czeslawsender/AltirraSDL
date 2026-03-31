@@ -1,0 +1,29 @@
+// Force C locale to avoid this warning:
+//
+// mmreg.h : warning C4819: The file contains a character that cannot be represented in the current code page (932). Save the file in Unicode format to prevent data loss
+#if defined(_MSC_VER) && !defined(__clang__)
+#pragma setlocale("C")
+#endif
+
+#ifdef _WIN32
+// Select Windows Vista baseline.
+#define _WIN32_WINNT 0x0600
+
+struct IUnknown;
+#endif
+
+#include <vd2/system/vdtypes.h>
+#include <vd2/system/atomic.h>
+#include <vd2/system/thread.h>
+#include <vd2/system/error.h>
+#include <vd2/system/vdstl.h>
+#include <vd2/system/vdstl_hashmap.h>
+#ifdef _WIN32
+#include <windows.h>
+#include <process.h>
+#include <vd2/system/win32/intrin.h>
+#endif
+#include <string.h>
+#include <stdarg.h>
+#include <math.h>
+#include <ctype.h>

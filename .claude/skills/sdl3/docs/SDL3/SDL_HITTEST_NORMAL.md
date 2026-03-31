@@ -1,0 +1,3 @@
+# SDL_HITTEST_NORMAL
+
+Please refer to [SDL_HitTestResult](SDL_HitTestResult) for details.

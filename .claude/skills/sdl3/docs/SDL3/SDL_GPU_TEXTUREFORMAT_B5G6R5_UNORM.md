@@ -1,0 +1,4 @@
+# SDL_GPU_TEXTUREFORMAT_B5G6R5_UNORM
+
+Please refer to [SDL_GPUTextureFormat](SDL_GPUTextureFormat) for
+details.

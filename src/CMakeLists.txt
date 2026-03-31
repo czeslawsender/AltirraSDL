@@ -1,0 +1,18 @@
+# Core libraries in dependency order
+add_subdirectory(system)
+add_subdirectory(vdjson)
+add_subdirectory(Kasumi)
+add_subdirectory(ATCore)
+add_subdirectory(ATCPU)
+add_subdirectory(ATEmulation)
+add_subdirectory(ATDevices)
+add_subdirectory(ATIO)
+add_subdirectory(ATAudio)
+add_subdirectory(ATNetwork)
+add_subdirectory(ATDebugger)
+add_subdirectory(ATVM)
+
+# SDL3 frontend (Linux/macOS only)
+if(NOT WIN32)
+    add_subdirectory(AltirraSDL)
+endif()

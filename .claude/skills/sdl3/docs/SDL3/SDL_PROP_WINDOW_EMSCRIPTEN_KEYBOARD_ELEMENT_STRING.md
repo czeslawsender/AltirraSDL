@@ -1,0 +1,4 @@
+# SDL_PROP_WINDOW_EMSCRIPTEN_KEYBOARD_ELEMENT_STRING
+
+Please refer to [SDL_GetWindowProperties](SDL_GetWindowProperties) for
+details.

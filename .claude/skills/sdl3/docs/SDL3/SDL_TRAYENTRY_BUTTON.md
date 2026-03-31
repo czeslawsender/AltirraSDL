@@ -1,0 +1,3 @@
+# SDL_TRAYENTRY_BUTTON
+
+Please refer to [SDL_TrayEntryFlags](SDL_TrayEntryFlags) for details.

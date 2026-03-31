@@ -1,0 +1,4 @@
+# SDL_SCANCODE_EXSEL
+
+Please refer to [SDL_Scancode](SDL_Scancode) for
+details.

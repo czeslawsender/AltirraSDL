@@ -1,0 +1,4 @@
+# SDL_PROP_GPU_DEVICE_CREATE_XR_LAYER_NAMES_POINTER
+
+Please refer to [SDL_CreateGPUDeviceWithProperties](SDL_CreateGPUDeviceWithProperties)
+for details.

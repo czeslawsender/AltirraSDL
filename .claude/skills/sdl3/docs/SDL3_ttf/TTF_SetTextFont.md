@@ -1,0 +1,50 @@
+###### (This
+function is part of SDL_ttf, a separate library from SDL.)
+
+# TTF_SetTextFont
+
+Set the font used by a text object.
+
+## Header File
+
+Defined in [<SDL3_ttf/SDL_ttf.h>](https://github.com/libsdl-org/SDL_ttf/blob/main/include/SDL3_ttf/SDL_ttf.h)
+
+## Syntax
+
+```c
+bool TTF_SetTextFont(TTF_Text *text, TTF_Font *font);
+```
+
+## Function Parameters
+
+| TTF_Text* | text | theTTF_Textto modify. |
+| --- | --- | --- |
+| TTF_Font* | font | the font to use, may be NULL. |
+
+## Return Value
+
+(bool) Returns false if the text pointer is null; otherwise, true.
+call SDL_GetError() for more information.
+
+## Remarks
+
+When a text object has a font, any changes to the font will
+automatically regenerate the text. If you set the font to NULL, the text
+will continue to render but changes to the font will no longer affect
+the text.
+
+This function may cause the internal text representation to be
+rebuilt.
+
+## Thread Safety
+
+This function should be called on the thread that created the
+text.
+
+## Version
+
+This function is available since SDL_ttf 3.0.0.
+
+## See Also
+
+- [TTF_GetTextFont](TTF_GetTextFont)

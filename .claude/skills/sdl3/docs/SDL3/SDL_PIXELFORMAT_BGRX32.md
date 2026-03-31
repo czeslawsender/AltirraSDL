@@ -1,0 +1,4 @@
+# SDL_PIXELFORMAT_BGRX32
+
+Please refer to [SDL_PixelFormat](SDL_PixelFormat)
+for details.

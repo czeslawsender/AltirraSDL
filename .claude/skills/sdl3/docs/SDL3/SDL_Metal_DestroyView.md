@@ -1,0 +1,36 @@
+# SDL_Metal_DestroyView
+
+Destroy an existing [SDL_MetalView](SDL_MetalView)
+object.
+
+## Header File
+
+Defined in [<SDL3/SDL_metal.h>](https://github.com/libsdl-org/SDL/blob/main/include/SDL3/SDL_metal.h)
+
+## Syntax
+
+```c
+void SDL_Metal_DestroyView(SDL_MetalView view);
+```
+
+## Function Parameters
+
+| SDL_MetalView | view | theSDL_MetalViewobject. |
+| --- | --- | --- |
+
+## Remarks
+
+This should be called before [SDL_DestroyWindow](SDL_DestroyWindow), if [SDL_Metal_CreateView](SDL_Metal_CreateView) was called
+after [SDL_CreateWindow](SDL_CreateWindow).
+
+## Thread Safety
+
+This function should only be called on the main thread.
+
+## Version
+
+This function is available since SDL 3.2.0.
+
+## See Also
+
+- [SDL_Metal_CreateView](SDL_Metal_CreateView)

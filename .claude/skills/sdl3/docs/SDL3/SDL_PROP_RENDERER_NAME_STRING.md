@@ -1,0 +1,4 @@
+# SDL_PROP_RENDERER_NAME_STRING
+
+Please refer to [SDL_GetRendererProperties](SDL_GetRendererProperties) for
+details.

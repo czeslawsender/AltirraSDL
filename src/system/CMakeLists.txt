@@ -1,0 +1,81 @@
+set(SYSTEM_COMMON_SOURCES
+    source/binary.cpp
+    source/bitmath.cpp
+    source/cache.cpp
+    source/cmdline.cpp
+    source/constexpr.cpp
+    source/cpuaccel.cpp
+    source/Error.cpp
+    source/event.cpp
+    source/filestream.cpp
+    source/Fraction.cpp
+    source/function.cpp
+    source/halffloat.cpp
+    source/hash.cpp
+    source/int128.cpp
+    source/linearalloc.cpp
+    source/math.cpp
+    source/refcount.cpp
+    source/registrymemory.cpp
+    source/memory.cpp
+    source/stdaccel.cpp
+    source/stdafx.cpp
+    source/strutil.cpp
+    source/thread.cpp
+    source/tls.cpp
+    source/vdalloc.cpp
+    source/vdstl.cpp
+    source/vdstl_hash.cpp
+    source/vdstl_hashtable.cpp
+    source/VDString.cpp
+    source/vectors.cpp
+    source/zip.cpp
+)
+
+if(WIN32)
+    set(SYSTEM_PLATFORM_SOURCES
+        source/cpuaccel.cpp
+        source/date.cpp
+        source/debug.cpp
+        source/debugx86.cpp
+        source/error_win32.cpp
+        source/event.cpp
+        source/file.cpp
+        source/fileasync.cpp
+        source/filestream.cpp
+        source/filesys.cpp
+        source/filewatcher.cpp
+        source/math.cpp
+        source/process.cpp
+        source/registry.cpp
+        source/text.cpp
+        source/thunk.cpp
+        source/time.cpp
+        source/w32assist.cpp
+        source/zip.cpp
+    )
+else()
+    find_package(SDL3 REQUIRED)
+    set(SYSTEM_PLATFORM_SOURCES
+        source/date_sdl3.cpp
+        source/debug_sdl3.cpp
+        source/error_sdl3.cpp
+        source/file_sdl3.cpp
+        source/filesys_sdl3.cpp
+        source/registry_sdl3.cpp
+        source/text_sdl3.cpp
+        source/time_sdl3.cpp
+    )
+endif()
+
+add_library(system STATIC ${SYSTEM_COMMON_SOURCES} ${SYSTEM_PLATFORM_SOURCES})
+
+target_include_directories(system
+    PUBLIC ${ALTIRRA_INCLUDE_DIR}
+    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/h
+)
+
+if(NOT WIN32)
+    target_include_directories(system BEFORE PRIVATE ${ALTIRRA_COMPAT_DIR})
+    target_link_libraries(system PUBLIC SDL3::SDL3)
+endif()

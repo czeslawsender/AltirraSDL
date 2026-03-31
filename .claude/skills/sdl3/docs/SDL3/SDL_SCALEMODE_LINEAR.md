@@ -1,0 +1,4 @@
+# SDL_SCALEMODE_LINEAR
+
+Please refer to [SDL_ScaleMode](SDL_ScaleMode) for
+details.

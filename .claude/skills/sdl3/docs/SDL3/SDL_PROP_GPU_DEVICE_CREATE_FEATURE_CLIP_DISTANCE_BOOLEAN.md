@@ -1,0 +1,4 @@
+# SDL_PROP_GPU_DEVICE_CREATE_FEATURE_CLIP_DISTANCE_BOOLEAN
+
+Please refer to [SDL_CreateGPUDeviceWithProperties](SDL_CreateGPUDeviceWithProperties)
+for details.

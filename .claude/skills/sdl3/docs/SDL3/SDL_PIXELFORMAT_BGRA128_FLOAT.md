@@ -1,0 +1,4 @@
+# SDL_PIXELFORMAT_BGRA128_FLOAT
+
+Please refer to [SDL_PixelFormat](SDL_PixelFormat)
+for details.

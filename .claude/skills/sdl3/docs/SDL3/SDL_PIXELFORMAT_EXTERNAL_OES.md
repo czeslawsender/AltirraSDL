@@ -1,0 +1,4 @@
+# SDL_PIXELFORMAT_EXTERNAL_OES
+
+Please refer to [SDL_PixelFormat](SDL_PixelFormat)
+for details.

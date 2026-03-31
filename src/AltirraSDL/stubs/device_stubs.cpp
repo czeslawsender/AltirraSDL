@@ -1,0 +1,175 @@
+//	Altirra SDL3 frontend - Device and hardware stubs
+//	Stub implementations for Win32-only hardware devices, network,
+//	and IDE/VHD disk images. These are not needed for Phase 5 first-pixels.
+
+#include <stdafx.h>
+#include <vd2/system/vdtypes.h>
+#include <vd2/system/refcount.h>
+#include <vd2/system/VDString.h>
+#include <vd2/system/vdalloc.h>
+#include <vd2/system/function.h>
+#include <vd2/system/vdstl.h>
+#include <at/atcore/device.h>
+#include "devicemanager.h"
+#include <at/atcore/enumparseimpl.h>
+#include <at/atnetworksockets/nativesockets.h>
+#include <at/atnetworksockets/vxlantunnel.h>
+#include <at/atnetworksockets/worker.h>
+#include "cpuheatmap.h"
+#include "cs8900a.h"
+#include "directorywatcher.h"
+#include "idephysdisk.h"
+#include "idevhdimage.h"
+#include "modem.h"
+#include "oshelper.h"
+
+// ============================================================
+// ATCPUHeatMap stubs (cpuheatmap.cpp excluded)
+// ============================================================
+
+ATCPUHeatMap::ATCPUHeatMap() = default;
+ATCPUHeatMap::~ATCPUHeatMap() = default;
+void ATCPUHeatMap::Init(ATSimulatorEventManager *) {}
+void ATCPUHeatMap::SetEarlyState(bool) {}
+void ATCPUHeatMap::PresetMemoryRange(uint32, uint32) {}
+void ATCPUHeatMap::MarkMemoryRangeHardware(uint32, uint32) {}
+void ATCPUHeatMap::ResetMemoryRange(uint32, uint32) {}
+void ATCPUHeatMap::ProcessInsn(const ATCPUEmulator&, uint8, uint16, uint16) {}
+
+// ============================================================
+// ATCS8900AEmulator stubs (cs8900a.cpp excluded)
+// ============================================================
+
+ATCS8900AEmulator::ATCS8900AEmulator() : mReceiveReadPtr(0), mReceiveReadLen(0),
+	mTransmitWritePtr(0), mTransmitWriteLevel(0), mTransmitWriteLen(0),
+	mPacketPtr(0), mPacketPtrAutoInc(0), mTransmitState(kTransmitState_WaitForCmd),
+	mReceiveState(kReceiveState_WaitForFrame), mTransmitBufferReadPtr(0),
+	mTransmitBufferWritePtr(0), mTransmitBufferLevel(0), mReceiveBufferReadPtr(0),
+	mReceiveBufferWritePtr(0), mReceiveBufferLevel(0), mpEthernetSegment(nullptr),
+	mEthernetEndpointId(0), mEthernetClockIndex(0) {}
+ATCS8900AEmulator::~ATCS8900AEmulator() {}
+void ATCS8900AEmulator::Init(IATEthernetSegment*, uint32) {}
+void ATCS8900AEmulator::Shutdown() {}
+void ATCS8900AEmulator::ColdReset() {}
+void ATCS8900AEmulator::WarmReset() {}
+uint8 ATCS8900AEmulator::ReadByte(uint8) { return 0xFF; }
+uint8 ATCS8900AEmulator::DebugReadByte(uint8) { return 0xFF; }
+void ATCS8900AEmulator::WriteByte(uint8, uint8) {}
+void ATCS8900AEmulator::ReceiveFrame(const ATEthernetPacket&, ATEthernetFrameDecodedType, const void *) {}
+
+// ============================================================
+// ATDirectoryWatcher stubs (directorywatcher.cpp excluded)
+// ============================================================
+
+bool ATDirectoryWatcher::sbShouldUsePolling = false;
+void ATDirectoryWatcher::SetShouldUsePolling(bool enabled) { sbShouldUsePolling = enabled; }
+ATDirectoryWatcher::ATDirectoryWatcher() : mhDir(nullptr), mhExitEvent(nullptr),
+	mhDirChangeEvent(nullptr), mpChangeBuffer(nullptr), mChangeBufferSize(0),
+	mbRecursive(false), mbAllChanged(false) {}
+ATDirectoryWatcher::~ATDirectoryWatcher() {}
+void ATDirectoryWatcher::Init(const wchar_t*, bool) {}
+void ATDirectoryWatcher::Shutdown() {}
+bool ATDirectoryWatcher::CheckForChanges() { return false; }
+bool ATDirectoryWatcher::CheckForChanges(vdfastvector<wchar_t>&) { return false; }
+void ATDirectoryWatcher::ThreadRun() {}
+
+// ============================================================
+// IDE Physical Disk stubs (idephysdisk.cpp excluded)
+// ============================================================
+
+bool ATIDEIsPhysicalDiskPath(const wchar_t*) { return false; }
+sint64 ATIDEGetPhysicalDiskSize(const wchar_t*) { return 0; }
+ATIDEPhysicalDisk::ATIDEPhysicalDisk() : mhDisk(nullptr), mpBuffer(nullptr), mSectorCount(0) {}
+ATIDEPhysicalDisk::~ATIDEPhysicalDisk() {}
+int ATIDEPhysicalDisk::AddRef() { return ++mRefCount; }
+int ATIDEPhysicalDisk::Release() { int n = --mRefCount; if (!n) delete this; return n; }
+void *ATIDEPhysicalDisk::AsInterface(uint32) { return nullptr; }
+void ATIDEPhysicalDisk::GetDeviceInfo(ATDeviceInfo&) {}
+void ATIDEPhysicalDisk::GetSettings(ATPropertySet&) {}
+bool ATIDEPhysicalDisk::SetSettings(const ATPropertySet&) { return false; }
+void ATIDEPhysicalDisk::Shutdown() {}
+ATBlockDeviceGeometry ATIDEPhysicalDisk::GetGeometry() const { return {}; }
+uint32 ATIDEPhysicalDisk::GetSerialNumber() const { return 0; }
+void ATIDEPhysicalDisk::Init(const wchar_t*) {}
+void ATIDEPhysicalDisk::Flush() {}
+void ATIDEPhysicalDisk::ReadSectors(void*, uint32, uint32) {}
+void ATIDEPhysicalDisk::WriteSectors(const void*, uint32, uint32) {}
+
+// ============================================================
+// IDE VHD Image stubs (idevhdimage.cpp excluded)
+// ============================================================
+
+ATIDEVHDImage::ATIDEVHDImage() : mbReadOnly(true), mbSolidState(false),
+	mFooterLocation(0), mSectorCount(0), mBlockSizeShift(0), mBlockLBAMask(0),
+	mBlockSize(0), mBlockBitmapSize(0), mCurrentBlock(0), mCurrentBlockDataOffset(0),
+	mbCurrentBlockBitmapDirty(false), mbCurrentBlockAllocated(false), mFooter{}, mDynamicHeader{} {}
+ATIDEVHDImage::~ATIDEVHDImage() {}
+int ATIDEVHDImage::AddRef() { return ++mRefCount; }
+int ATIDEVHDImage::Release() { int n = --mRefCount; if (!n) delete this; return n; }
+void *ATIDEVHDImage::AsInterface(uint32) { return nullptr; }
+void ATIDEVHDImage::GetDeviceInfo(ATDeviceInfo&) {}
+void ATIDEVHDImage::GetSettingsBlurb(VDStringW&) {}
+void ATIDEVHDImage::GetSettings(ATPropertySet&) {}
+bool ATIDEVHDImage::SetSettings(const ATPropertySet&) { return false; }
+uint32 ATIDEVHDImage::GetSectorCount() const { return 0; }
+ATBlockDeviceGeometry ATIDEVHDImage::GetGeometry() const { return {}; }
+uint32 ATIDEVHDImage::GetSerialNumber() const { return 0; }
+void ATIDEVHDImage::Init(const wchar_t*, bool, bool) {}
+void ATIDEVHDImage::Shutdown() {}
+void ATIDEVHDImage::Flush() {}
+void ATIDEVHDImage::ReadSectors(void*, uint32, uint32) {}
+void ATIDEVHDImage::WriteSectors(const void*, uint32, uint32) {}
+VDStringW ATIDEVHDImage::GetVHDDirectAccessPath() const { return {}; }
+
+// ============================================================
+// Modem TCP driver stub (modemtcp.cpp excluded)
+// ============================================================
+
+IATModemDriver *ATCreateModemDriverTCP() { return nullptr; }
+
+// ============================================================
+// Device definitions stubs (from excluded files)
+// ============================================================
+
+static void ATCreateDeviceNullStub(const ATPropertySet&, IATDevice **pp) { if (pp) *pp = nullptr; }
+
+extern const ATDeviceDefinition g_ATDeviceDefCustom      = { "custom",   nullptr, L"Custom",        ATCreateDeviceNullStub };
+extern const ATDeviceDefinition g_ATDeviceDefIDEPhysDisk = { "idephys",  nullptr, L"IDE Phys Disk", ATCreateDeviceNullStub };
+extern const ATDeviceDefinition g_ATDeviceDefIDEVHDImage = { "idevhd",   nullptr, L"IDE VHD Image", ATCreateDeviceNullStub };
+extern const ATDeviceDefinition g_ATDeviceDefMidiMate    = { "midimate", nullptr, L"MidiMate",      ATCreateDeviceNullStub };
+extern const ATDeviceDefinition g_ATDeviceDefPipeSerial  = { "pipeser",  nullptr, L"Pipe Serial",   ATCreateDeviceNullStub };
+
+// ============================================================
+// Network socket stubs (ATNetworkSockets not yet ported)
+// ============================================================
+
+vdrefptr<IATStreamSocket> ATNetConnect(const wchar_t*, const wchar_t*, bool) { return {}; }
+vdrefptr<IATStreamSocket> ATNetConnect(const ATSocketAddress&, bool) { return {}; }
+vdrefptr<IATListenSocket> ATNetListen(const ATSocketAddress&, bool) { return {}; }
+vdrefptr<IATListenSocket> ATNetListen(ATSocketAddressType, uint16, bool) { return {}; }
+
+void ATCreateNetSockVxlanTunnel(uint32, uint16, uint16, IATEthernetSegment*, uint32,
+	IATAsyncDispatcher*, IATNetSockVxlanTunnel** pp) { if (pp) *pp = nullptr; }
+
+void ATCreateNetSockWorker(IATEmuNetUdpStack*, IATEmuNetTcpStack*, bool,
+	uint32, uint16, IATNetSockWorker** pp) { if (pp) *pp = nullptr; }
+
+// ============================================================
+// ATGetEnumLookupTable<ATProcessEfficiencyMode> stub
+// (defined in oshelper.cpp which is excluded)
+// ============================================================
+
+enum class ATProcessEfficiencyMode : uint8;  // forward declaration
+
+template<>
+const ATEnumLookupTable& ATGetEnumLookupTable<ATProcessEfficiencyMode>() {
+	static const ATEnumLookupEntry sEmpty[] = { { nullptr, 0, 0 } };
+	static const ATEnumLookupTable sTable { sEmpty, 0, 0 };
+	return sTable;
+}
+
+// ============================================================
+// ATSetProcessEfficiencyMode stub (oshelper.cpp excluded)
+// ============================================================
+
+void ATSetProcessEfficiencyMode(ATProcessEfficiencyMode) {}

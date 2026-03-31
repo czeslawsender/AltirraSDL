@@ -1,0 +1,39 @@
+# SDL_GetAtomicInt
+
+Get the value of an atomic variable.
+
+## Header File
+
+Defined in [<SDL3/SDL_atomic.h>](https://github.com/libsdl-org/SDL/blob/main/include/SDL3/SDL_atomic.h)
+
+## Syntax
+
+```c
+int SDL_GetAtomicInt(SDL_AtomicInt *a);
+```
+
+## Function Parameters
+
+| SDL_AtomicInt* | a | a pointer to anSDL_AtomicIntvariable. |
+| --- | --- | --- |
+
+## Return Value
+
+(int) Returns the current value of an atomic variable.
+
+## Remarks
+
+*Note: If you don't know what this function is for, you
+shouldn't use it!*
+
+## Thread Safety
+
+It is safe to call this function from any thread.
+
+## Version
+
+This function is available since SDL 3.2.0.
+
+## See Also
+
+- [SDL_SetAtomicInt](SDL_SetAtomicInt)

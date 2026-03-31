@@ -1,0 +1,4 @@
+# SDL_EVENT_WINDOW_RESIZED
+
+Please refer to [SDL_EventType](SDL_EventType) for
+details.
