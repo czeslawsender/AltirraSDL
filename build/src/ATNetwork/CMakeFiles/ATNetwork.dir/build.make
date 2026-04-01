@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 # Include any dependencies generated for this target.
 include src/ATNetwork/CMakeFiles/ATNetwork.dir/depend.make
@@ -73,158 +73,158 @@ src/ATNetwork/CMakeFiles/ATNetwork.dir/codegen:
 .PHONY : src/ATNetwork/CMakeFiles/ATNetwork.dir/codegen
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/dhcpd.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/dhcpd.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o -MF CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/dhcpd.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o -MF CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/dhcpd.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/dhcpd.cpp > CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/dhcpd.cpp > CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/dhcpd.cpp -o CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/dhcpd.cpp -o CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ethernetbus.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ethernetbus.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o -MF CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ethernetbus.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o -MF CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ethernetbus.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ethernetbus.cpp > CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ethernetbus.cpp > CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ethernetbus.cpp -o CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ethernetbus.cpp -o CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ethernetframe.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ethernetframe.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o -MF CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ethernetframe.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o -MF CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ethernetframe.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ethernetframe.cpp > CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ethernetframe.cpp > CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ethernetframe.cpp -o CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ethernetframe.cpp -o CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/gatewayserver.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/gatewayserver.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o -MF CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/gatewayserver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o -MF CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/gatewayserver.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/gatewayserver.cpp > CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/gatewayserver.cpp > CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/gatewayserver.cpp -o CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/gatewayserver.cpp -o CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ipstack.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ipstack.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o -MF CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ipstack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o -MF CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ipstack.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/ipstack.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ipstack.cpp > CMakeFiles/ATNetwork.dir/source/ipstack.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ipstack.cpp > CMakeFiles/ATNetwork.dir/source/ipstack.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/ipstack.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/ipstack.cpp -o CMakeFiles/ATNetwork.dir/source/ipstack.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/ipstack.cpp -o CMakeFiles/ATNetwork.dir/source/ipstack.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/socket.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/socket.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o -MF CMakeFiles/ATNetwork.dir/source/socket.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/socket.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/socket.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o -MF CMakeFiles/ATNetwork.dir/source/socket.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/socket.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/socket.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/socket.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/socket.cpp > CMakeFiles/ATNetwork.dir/source/socket.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/socket.cpp > CMakeFiles/ATNetwork.dir/source/socket.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/socket.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/socket.cpp -o CMakeFiles/ATNetwork.dir/source/socket.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/socket.cpp -o CMakeFiles/ATNetwork.dir/source/socket.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/stdafx.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/stdafx.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o -MF CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/stdafx.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o -MF CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/stdafx.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/stdafx.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/stdafx.cpp > CMakeFiles/ATNetwork.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/stdafx.cpp > CMakeFiles/ATNetwork.dir/source/stdafx.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/stdafx.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/stdafx.cpp -o CMakeFiles/ATNetwork.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/stdafx.cpp -o CMakeFiles/ATNetwork.dir/source/stdafx.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/tcp.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/tcp.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o -MF CMakeFiles/ATNetwork.dir/source/tcp.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/tcp.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/tcp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o -MF CMakeFiles/ATNetwork.dir/source/tcp.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/tcp.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/tcp.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/tcp.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/tcp.cpp > CMakeFiles/ATNetwork.dir/source/tcp.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/tcp.cpp > CMakeFiles/ATNetwork.dir/source/tcp.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/tcp.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/tcp.cpp -o CMakeFiles/ATNetwork.dir/source/tcp.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/tcp.cpp -o CMakeFiles/ATNetwork.dir/source/tcp.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/tcpstack.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/tcpstack.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o -MF CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/tcpstack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o -MF CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/tcpstack.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/tcpstack.cpp > CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/tcpstack.cpp > CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/tcpstack.cpp -o CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/tcpstack.cpp -o CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/udp.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/udp.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o -MF CMakeFiles/ATNetwork.dir/source/udp.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/udp.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/udp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o -MF CMakeFiles/ATNetwork.dir/source/udp.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/udp.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/udp.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/udp.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/udp.cpp > CMakeFiles/ATNetwork.dir/source/udp.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/udp.cpp > CMakeFiles/ATNetwork.dir/source/udp.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/udp.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/udp.cpp -o CMakeFiles/ATNetwork.dir/source/udp.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/udp.cpp -o CMakeFiles/ATNetwork.dir/source/udp.cpp.s
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/flags.make
-src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/udpstack.cpp
+src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/udpstack.cpp
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o: src/ATNetwork/CMakeFiles/ATNetwork.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o -MF CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/udpstack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o -MF CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o.d -o CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/udpstack.cpp
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATNetwork.dir/source/udpstack.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/udpstack.cpp > CMakeFiles/ATNetwork.dir/source/udpstack.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/udpstack.cpp > CMakeFiles/ATNetwork.dir/source/udpstack.cpp.i
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATNetwork.dir/source/udpstack.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATNetwork/source/udpstack.cpp -o CMakeFiles/ATNetwork.dir/source/udpstack.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork/source/udpstack.cpp -o CMakeFiles/ATNetwork.dir/source/udpstack.cpp.s
 
 # Object files for target ATNetwork
 ATNetwork_OBJECTS = \
@@ -256,19 +256,19 @@ src/ATNetwork/libATNetwork.a: src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.
 src/ATNetwork/libATNetwork.a: src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o
 src/ATNetwork/libATNetwork.a: src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make
 src/ATNetwork/libATNetwork.a: src/ATNetwork/CMakeFiles/ATNetwork.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX static library libATNetwork.a"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && $(CMAKE_COMMAND) -P CMakeFiles/ATNetwork.dir/cmake_clean_target.cmake
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATNetwork.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX static library libATNetwork.a"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && $(CMAKE_COMMAND) -P CMakeFiles/ATNetwork.dir/cmake_clean_target.cmake
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATNetwork.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/ATNetwork/CMakeFiles/ATNetwork.dir/build: src/ATNetwork/libATNetwork.a
 .PHONY : src/ATNetwork/CMakeFiles/ATNetwork.dir/build
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork && $(CMAKE_COMMAND) -P CMakeFiles/ATNetwork.dir/cmake_clean.cmake
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork && $(CMAKE_COMMAND) -P CMakeFiles/ATNetwork.dir/cmake_clean.cmake
 .PHONY : src/ATNetwork/CMakeFiles/ATNetwork.dir/clean
 
 src/ATNetwork/CMakeFiles/ATNetwork.dir/depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilm/Documents/GitHub/Altirra /home/ilm/Documents/GitHub/Altirra/src/ATNetwork /home/ilm/Documents/GitHub/Altirra/build /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork/CMakeFiles/ATNetwork.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilm/Documents/GitHub/AltirraSDL /home/ilm/Documents/GitHub/AltirraSDL/src/ATNetwork /home/ilm/Documents/GitHub/AltirraSDL/build /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork/CMakeFiles/ATNetwork.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : src/ATNetwork/CMakeFiles/ATNetwork.dir/depend
 

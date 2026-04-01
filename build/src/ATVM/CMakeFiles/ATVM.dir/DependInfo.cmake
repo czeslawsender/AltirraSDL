@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ilm/Documents/GitHub/Altirra/src/ATVM/source/compiler.cpp" "src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o" "gcc" "src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o.d"
-  "/home/ilm/Documents/GitHub/Altirra/src/ATVM/source/stdafx.cpp" "src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o" "gcc" "src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o.d"
-  "/home/ilm/Documents/GitHub/Altirra/src/ATVM/source/vm.cpp" "src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o" "gcc" "src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/compiler.cpp" "src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o" "gcc" "src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/stdafx.cpp" "src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o" "gcc" "src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/vm.cpp" "src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o" "gcc" "src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATIO//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATIO//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATIO/CMakeFiles/ATIO.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/CMakeFiles/ATIO.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/CMakeFiles/ATIO.dir/rule
 .PHONY : src/ATIO/CMakeFiles/ATIO.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATIO: src/ATIO/CMakeFiles/ATIO.dir/rule
 
 # fast build rule for target.
 ATIO/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/build
 .PHONY : ATIO/fast
 
 source/atfs.o: source/atfs.cpp.o
@@ -135,7 +135,7 @@ source/atfs.o: source/atfs.cpp.o
 
 # target to build an object file
 source/atfs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/atfs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/atfs.cpp.o
 .PHONY : source/atfs.cpp.o
 
 source/atfs.i: source/atfs.cpp.i
@@ -143,7 +143,7 @@ source/atfs.i: source/atfs.cpp.i
 
 # target to preprocess a source file
 source/atfs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/atfs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/atfs.cpp.i
 .PHONY : source/atfs.cpp.i
 
 source/atfs.s: source/atfs.cpp.s
@@ -151,7 +151,7 @@ source/atfs.s: source/atfs.cpp.s
 
 # target to generate assembly for a file
 source/atfs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/atfs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/atfs.cpp.s
 .PHONY : source/atfs.cpp.s
 
 source/audioreader.o: source/audioreader.cpp.o
@@ -159,7 +159,7 @@ source/audioreader.o: source/audioreader.cpp.o
 
 # target to build an object file
 source/audioreader.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreader.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreader.cpp.o
 .PHONY : source/audioreader.cpp.o
 
 source/audioreader.i: source/audioreader.cpp.i
@@ -167,7 +167,7 @@ source/audioreader.i: source/audioreader.cpp.i
 
 # target to preprocess a source file
 source/audioreader.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreader.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreader.cpp.i
 .PHONY : source/audioreader.cpp.i
 
 source/audioreader.s: source/audioreader.cpp.s
@@ -175,7 +175,7 @@ source/audioreader.s: source/audioreader.cpp.s
 
 # target to generate assembly for a file
 source/audioreader.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreader.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreader.cpp.s
 .PHONY : source/audioreader.cpp.s
 
 source/audioreaderflac.o: source/audioreaderflac.cpp.o
@@ -183,7 +183,7 @@ source/audioreaderflac.o: source/audioreaderflac.cpp.o
 
 # target to build an object file
 source/audioreaderflac.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac.cpp.o
 .PHONY : source/audioreaderflac.cpp.o
 
 source/audioreaderflac.i: source/audioreaderflac.cpp.i
@@ -191,7 +191,7 @@ source/audioreaderflac.i: source/audioreaderflac.cpp.i
 
 # target to preprocess a source file
 source/audioreaderflac.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac.cpp.i
 .PHONY : source/audioreaderflac.cpp.i
 
 source/audioreaderflac.s: source/audioreaderflac.cpp.s
@@ -199,7 +199,7 @@ source/audioreaderflac.s: source/audioreaderflac.cpp.s
 
 # target to generate assembly for a file
 source/audioreaderflac.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac.cpp.s
 .PHONY : source/audioreaderflac.cpp.s
 
 source/audioreaderflac_x86.o: source/audioreaderflac_x86.cpp.o
@@ -207,7 +207,7 @@ source/audioreaderflac_x86.o: source/audioreaderflac_x86.cpp.o
 
 # target to build an object file
 source/audioreaderflac_x86.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac_x86.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac_x86.cpp.o
 .PHONY : source/audioreaderflac_x86.cpp.o
 
 source/audioreaderflac_x86.i: source/audioreaderflac_x86.cpp.i
@@ -215,7 +215,7 @@ source/audioreaderflac_x86.i: source/audioreaderflac_x86.cpp.i
 
 # target to preprocess a source file
 source/audioreaderflac_x86.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac_x86.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac_x86.cpp.i
 .PHONY : source/audioreaderflac_x86.cpp.i
 
 source/audioreaderflac_x86.s: source/audioreaderflac_x86.cpp.s
@@ -223,7 +223,7 @@ source/audioreaderflac_x86.s: source/audioreaderflac_x86.cpp.s
 
 # target to generate assembly for a file
 source/audioreaderflac_x86.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac_x86.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderflac_x86.cpp.s
 .PHONY : source/audioreaderflac_x86.cpp.s
 
 source/audioreadervorbis.o: source/audioreadervorbis.cpp.o
@@ -231,7 +231,7 @@ source/audioreadervorbis.o: source/audioreadervorbis.cpp.o
 
 # target to build an object file
 source/audioreadervorbis.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreadervorbis.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreadervorbis.cpp.o
 .PHONY : source/audioreadervorbis.cpp.o
 
 source/audioreadervorbis.i: source/audioreadervorbis.cpp.i
@@ -239,7 +239,7 @@ source/audioreadervorbis.i: source/audioreadervorbis.cpp.i
 
 # target to preprocess a source file
 source/audioreadervorbis.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreadervorbis.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreadervorbis.cpp.i
 .PHONY : source/audioreadervorbis.cpp.i
 
 source/audioreadervorbis.s: source/audioreadervorbis.cpp.s
@@ -247,7 +247,7 @@ source/audioreadervorbis.s: source/audioreadervorbis.cpp.s
 
 # target to generate assembly for a file
 source/audioreadervorbis.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreadervorbis.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreadervorbis.cpp.s
 .PHONY : source/audioreadervorbis.cpp.s
 
 source/audioreaderwav.o: source/audioreaderwav.cpp.o
@@ -255,7 +255,7 @@ source/audioreaderwav.o: source/audioreaderwav.cpp.o
 
 # target to build an object file
 source/audioreaderwav.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderwav.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderwav.cpp.o
 .PHONY : source/audioreaderwav.cpp.o
 
 source/audioreaderwav.i: source/audioreaderwav.cpp.i
@@ -263,7 +263,7 @@ source/audioreaderwav.i: source/audioreaderwav.cpp.i
 
 # target to preprocess a source file
 source/audioreaderwav.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderwav.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderwav.cpp.i
 .PHONY : source/audioreaderwav.cpp.i
 
 source/audioreaderwav.s: source/audioreaderwav.cpp.s
@@ -271,7 +271,7 @@ source/audioreaderwav.s: source/audioreaderwav.cpp.s
 
 # target to generate assembly for a file
 source/audioreaderwav.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderwav.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioreaderwav.cpp.s
 .PHONY : source/audioreaderwav.cpp.s
 
 source/audioutils.o: source/audioutils.cpp.o
@@ -279,7 +279,7 @@ source/audioutils.o: source/audioutils.cpp.o
 
 # target to build an object file
 source/audioutils.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioutils.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioutils.cpp.o
 .PHONY : source/audioutils.cpp.o
 
 source/audioutils.i: source/audioutils.cpp.i
@@ -287,7 +287,7 @@ source/audioutils.i: source/audioutils.cpp.i
 
 # target to preprocess a source file
 source/audioutils.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioutils.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioutils.cpp.i
 .PHONY : source/audioutils.cpp.i
 
 source/audioutils.s: source/audioutils.cpp.s
@@ -295,7 +295,7 @@ source/audioutils.s: source/audioutils.cpp.s
 
 # target to generate assembly for a file
 source/audioutils.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioutils.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/audioutils.cpp.s
 .PHONY : source/audioutils.cpp.s
 
 source/blobimage.o: source/blobimage.cpp.o
@@ -303,7 +303,7 @@ source/blobimage.o: source/blobimage.cpp.o
 
 # target to build an object file
 source/blobimage.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/blobimage.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/blobimage.cpp.o
 .PHONY : source/blobimage.cpp.o
 
 source/blobimage.i: source/blobimage.cpp.i
@@ -311,7 +311,7 @@ source/blobimage.i: source/blobimage.cpp.i
 
 # target to preprocess a source file
 source/blobimage.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/blobimage.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/blobimage.cpp.i
 .PHONY : source/blobimage.cpp.i
 
 source/blobimage.s: source/blobimage.cpp.s
@@ -319,7 +319,7 @@ source/blobimage.s: source/blobimage.cpp.s
 
 # target to generate assembly for a file
 source/blobimage.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/blobimage.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/blobimage.cpp.s
 .PHONY : source/blobimage.cpp.s
 
 source/cartridgeimage.o: source/cartridgeimage.cpp.o
@@ -327,7 +327,7 @@ source/cartridgeimage.o: source/cartridgeimage.cpp.o
 
 # target to build an object file
 source/cartridgeimage.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgeimage.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgeimage.cpp.o
 .PHONY : source/cartridgeimage.cpp.o
 
 source/cartridgeimage.i: source/cartridgeimage.cpp.i
@@ -335,7 +335,7 @@ source/cartridgeimage.i: source/cartridgeimage.cpp.i
 
 # target to preprocess a source file
 source/cartridgeimage.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgeimage.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgeimage.cpp.i
 .PHONY : source/cartridgeimage.cpp.i
 
 source/cartridgeimage.s: source/cartridgeimage.cpp.s
@@ -343,7 +343,7 @@ source/cartridgeimage.s: source/cartridgeimage.cpp.s
 
 # target to generate assembly for a file
 source/cartridgeimage.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgeimage.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgeimage.cpp.s
 .PHONY : source/cartridgeimage.cpp.s
 
 source/cartridgetypes.o: source/cartridgetypes.cpp.o
@@ -351,7 +351,7 @@ source/cartridgetypes.o: source/cartridgetypes.cpp.o
 
 # target to build an object file
 source/cartridgetypes.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgetypes.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgetypes.cpp.o
 .PHONY : source/cartridgetypes.cpp.o
 
 source/cartridgetypes.i: source/cartridgetypes.cpp.i
@@ -359,7 +359,7 @@ source/cartridgetypes.i: source/cartridgetypes.cpp.i
 
 # target to preprocess a source file
 source/cartridgetypes.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgetypes.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgetypes.cpp.i
 .PHONY : source/cartridgetypes.cpp.i
 
 source/cartridgetypes.s: source/cartridgetypes.cpp.s
@@ -367,7 +367,7 @@ source/cartridgetypes.s: source/cartridgetypes.cpp.s
 
 # target to generate assembly for a file
 source/cartridgetypes.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgetypes.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cartridgetypes.cpp.s
 .PHONY : source/cartridgetypes.cpp.s
 
 source/cassetteaudiofilters.o: source/cassetteaudiofilters.cpp.o
@@ -375,7 +375,7 @@ source/cassetteaudiofilters.o: source/cassetteaudiofilters.cpp.o
 
 # target to build an object file
 source/cassetteaudiofilters.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteaudiofilters.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteaudiofilters.cpp.o
 .PHONY : source/cassetteaudiofilters.cpp.o
 
 source/cassetteaudiofilters.i: source/cassetteaudiofilters.cpp.i
@@ -383,7 +383,7 @@ source/cassetteaudiofilters.i: source/cassetteaudiofilters.cpp.i
 
 # target to preprocess a source file
 source/cassetteaudiofilters.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteaudiofilters.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteaudiofilters.cpp.i
 .PHONY : source/cassetteaudiofilters.cpp.i
 
 source/cassetteaudiofilters.s: source/cassetteaudiofilters.cpp.s
@@ -391,7 +391,7 @@ source/cassetteaudiofilters.s: source/cassetteaudiofilters.cpp.s
 
 # target to generate assembly for a file
 source/cassetteaudiofilters.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteaudiofilters.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteaudiofilters.cpp.s
 .PHONY : source/cassetteaudiofilters.cpp.s
 
 source/cassetteblock.o: source/cassetteblock.cpp.o
@@ -399,7 +399,7 @@ source/cassetteblock.o: source/cassetteblock.cpp.o
 
 # target to build an object file
 source/cassetteblock.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteblock.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteblock.cpp.o
 .PHONY : source/cassetteblock.cpp.o
 
 source/cassetteblock.i: source/cassetteblock.cpp.i
@@ -407,7 +407,7 @@ source/cassetteblock.i: source/cassetteblock.cpp.i
 
 # target to preprocess a source file
 source/cassetteblock.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteblock.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteblock.cpp.i
 .PHONY : source/cassetteblock.cpp.i
 
 source/cassetteblock.s: source/cassetteblock.cpp.s
@@ -415,7 +415,7 @@ source/cassetteblock.s: source/cassetteblock.cpp.s
 
 # target to generate assembly for a file
 source/cassetteblock.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteblock.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteblock.cpp.s
 .PHONY : source/cassetteblock.cpp.s
 
 source/cassettedecoder.o: source/cassettedecoder.cpp.o
@@ -423,7 +423,7 @@ source/cassettedecoder.o: source/cassettedecoder.cpp.o
 
 # target to build an object file
 source/cassettedecoder.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassettedecoder.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassettedecoder.cpp.o
 .PHONY : source/cassettedecoder.cpp.o
 
 source/cassettedecoder.i: source/cassettedecoder.cpp.i
@@ -431,7 +431,7 @@ source/cassettedecoder.i: source/cassettedecoder.cpp.i
 
 # target to preprocess a source file
 source/cassettedecoder.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassettedecoder.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassettedecoder.cpp.i
 .PHONY : source/cassettedecoder.cpp.i
 
 source/cassettedecoder.s: source/cassettedecoder.cpp.s
@@ -439,7 +439,7 @@ source/cassettedecoder.s: source/cassettedecoder.cpp.s
 
 # target to generate assembly for a file
 source/cassettedecoder.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassettedecoder.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassettedecoder.cpp.s
 .PHONY : source/cassettedecoder.cpp.s
 
 source/cassetteimage.o: source/cassetteimage.cpp.o
@@ -447,7 +447,7 @@ source/cassetteimage.o: source/cassetteimage.cpp.o
 
 # target to build an object file
 source/cassetteimage.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteimage.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteimage.cpp.o
 .PHONY : source/cassetteimage.cpp.o
 
 source/cassetteimage.i: source/cassetteimage.cpp.i
@@ -455,7 +455,7 @@ source/cassetteimage.i: source/cassetteimage.cpp.i
 
 # target to preprocess a source file
 source/cassetteimage.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteimage.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteimage.cpp.i
 .PHONY : source/cassetteimage.cpp.i
 
 source/cassetteimage.s: source/cassetteimage.cpp.s
@@ -463,7 +463,7 @@ source/cassetteimage.s: source/cassetteimage.cpp.s
 
 # target to generate assembly for a file
 source/cassetteimage.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteimage.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/cassetteimage.cpp.s
 .PHONY : source/cassetteimage.cpp.s
 
 source/diskfs.o: source/diskfs.cpp.o
@@ -471,7 +471,7 @@ source/diskfs.o: source/diskfs.cpp.o
 
 # target to build an object file
 source/diskfs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfs.cpp.o
 .PHONY : source/diskfs.cpp.o
 
 source/diskfs.i: source/diskfs.cpp.i
@@ -479,7 +479,7 @@ source/diskfs.i: source/diskfs.cpp.i
 
 # target to preprocess a source file
 source/diskfs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfs.cpp.i
 .PHONY : source/diskfs.cpp.i
 
 source/diskfs.s: source/diskfs.cpp.s
@@ -487,7 +487,7 @@ source/diskfs.s: source/diskfs.cpp.s
 
 # target to generate assembly for a file
 source/diskfs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfs.cpp.s
 .PHONY : source/diskfs.cpp.s
 
 source/diskfsarc.o: source/diskfsarc.cpp.o
@@ -495,7 +495,7 @@ source/diskfsarc.o: source/diskfsarc.cpp.o
 
 # target to build an object file
 source/diskfsarc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsarc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsarc.cpp.o
 .PHONY : source/diskfsarc.cpp.o
 
 source/diskfsarc.i: source/diskfsarc.cpp.i
@@ -503,7 +503,7 @@ source/diskfsarc.i: source/diskfsarc.cpp.i
 
 # target to preprocess a source file
 source/diskfsarc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsarc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsarc.cpp.i
 .PHONY : source/diskfsarc.cpp.i
 
 source/diskfsarc.s: source/diskfsarc.cpp.s
@@ -511,7 +511,7 @@ source/diskfsarc.s: source/diskfsarc.cpp.s
 
 # target to generate assembly for a file
 source/diskfsarc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsarc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsarc.cpp.s
 .PHONY : source/diskfsarc.cpp.s
 
 source/diskfscpm.o: source/diskfscpm.cpp.o
@@ -519,7 +519,7 @@ source/diskfscpm.o: source/diskfscpm.cpp.o
 
 # target to build an object file
 source/diskfscpm.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfscpm.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfscpm.cpp.o
 .PHONY : source/diskfscpm.cpp.o
 
 source/diskfscpm.i: source/diskfscpm.cpp.i
@@ -527,7 +527,7 @@ source/diskfscpm.i: source/diskfscpm.cpp.i
 
 # target to preprocess a source file
 source/diskfscpm.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfscpm.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfscpm.cpp.i
 .PHONY : source/diskfscpm.cpp.i
 
 source/diskfscpm.s: source/diskfscpm.cpp.s
@@ -535,7 +535,7 @@ source/diskfscpm.s: source/diskfscpm.cpp.s
 
 # target to generate assembly for a file
 source/diskfscpm.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfscpm.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfscpm.cpp.s
 .PHONY : source/diskfscpm.cpp.s
 
 source/diskfsdos2.o: source/diskfsdos2.cpp.o
@@ -543,7 +543,7 @@ source/diskfsdos2.o: source/diskfsdos2.cpp.o
 
 # target to build an object file
 source/diskfsdos2.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos2.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos2.cpp.o
 .PHONY : source/diskfsdos2.cpp.o
 
 source/diskfsdos2.i: source/diskfsdos2.cpp.i
@@ -551,7 +551,7 @@ source/diskfsdos2.i: source/diskfsdos2.cpp.i
 
 # target to preprocess a source file
 source/diskfsdos2.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos2.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos2.cpp.i
 .PHONY : source/diskfsdos2.cpp.i
 
 source/diskfsdos2.s: source/diskfsdos2.cpp.s
@@ -559,7 +559,7 @@ source/diskfsdos2.s: source/diskfsdos2.cpp.s
 
 # target to generate assembly for a file
 source/diskfsdos2.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos2.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos2.cpp.s
 .PHONY : source/diskfsdos2.cpp.s
 
 source/diskfsdos3.o: source/diskfsdos3.cpp.o
@@ -567,7 +567,7 @@ source/diskfsdos3.o: source/diskfsdos3.cpp.o
 
 # target to build an object file
 source/diskfsdos3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos3.cpp.o
 .PHONY : source/diskfsdos3.cpp.o
 
 source/diskfsdos3.i: source/diskfsdos3.cpp.i
@@ -575,7 +575,7 @@ source/diskfsdos3.i: source/diskfsdos3.cpp.i
 
 # target to preprocess a source file
 source/diskfsdos3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos3.cpp.i
 .PHONY : source/diskfsdos3.cpp.i
 
 source/diskfsdos3.s: source/diskfsdos3.cpp.s
@@ -583,7 +583,7 @@ source/diskfsdos3.s: source/diskfsdos3.cpp.s
 
 # target to generate assembly for a file
 source/diskfsdos3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsdos3.cpp.s
 .PHONY : source/diskfsdos3.cpp.s
 
 source/diskfssdx2.o: source/diskfssdx2.cpp.o
@@ -591,7 +591,7 @@ source/diskfssdx2.o: source/diskfssdx2.cpp.o
 
 # target to build an object file
 source/diskfssdx2.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2.cpp.o
 .PHONY : source/diskfssdx2.cpp.o
 
 source/diskfssdx2.i: source/diskfssdx2.cpp.i
@@ -599,7 +599,7 @@ source/diskfssdx2.i: source/diskfssdx2.cpp.i
 
 # target to preprocess a source file
 source/diskfssdx2.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2.cpp.i
 .PHONY : source/diskfssdx2.cpp.i
 
 source/diskfssdx2.s: source/diskfssdx2.cpp.s
@@ -607,7 +607,7 @@ source/diskfssdx2.s: source/diskfssdx2.cpp.s
 
 # target to generate assembly for a file
 source/diskfssdx2.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2.cpp.s
 .PHONY : source/diskfssdx2.cpp.s
 
 source/diskfssdx2util.o: source/diskfssdx2util.cpp.o
@@ -615,7 +615,7 @@ source/diskfssdx2util.o: source/diskfssdx2util.cpp.o
 
 # target to build an object file
 source/diskfssdx2util.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2util.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2util.cpp.o
 .PHONY : source/diskfssdx2util.cpp.o
 
 source/diskfssdx2util.i: source/diskfssdx2util.cpp.i
@@ -623,7 +623,7 @@ source/diskfssdx2util.i: source/diskfssdx2util.cpp.i
 
 # target to preprocess a source file
 source/diskfssdx2util.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2util.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2util.cpp.i
 .PHONY : source/diskfssdx2util.cpp.i
 
 source/diskfssdx2util.s: source/diskfssdx2util.cpp.s
@@ -631,7 +631,7 @@ source/diskfssdx2util.s: source/diskfssdx2util.cpp.s
 
 # target to generate assembly for a file
 source/diskfssdx2util.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2util.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfssdx2util.cpp.s
 .PHONY : source/diskfssdx2util.cpp.s
 
 source/diskfsutil.o: source/diskfsutil.cpp.o
@@ -639,7 +639,7 @@ source/diskfsutil.o: source/diskfsutil.cpp.o
 
 # target to build an object file
 source/diskfsutil.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsutil.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsutil.cpp.o
 .PHONY : source/diskfsutil.cpp.o
 
 source/diskfsutil.i: source/diskfsutil.cpp.i
@@ -647,7 +647,7 @@ source/diskfsutil.i: source/diskfsutil.cpp.i
 
 # target to preprocess a source file
 source/diskfsutil.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsutil.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsutil.cpp.i
 .PHONY : source/diskfsutil.cpp.i
 
 source/diskfsutil.s: source/diskfsutil.cpp.s
@@ -655,7 +655,7 @@ source/diskfsutil.s: source/diskfsutil.cpp.s
 
 # target to generate assembly for a file
 source/diskfsutil.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsutil.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskfsutil.cpp.s
 .PHONY : source/diskfsutil.cpp.s
 
 source/diskimage.o: source/diskimage.cpp.o
@@ -663,7 +663,7 @@ source/diskimage.o: source/diskimage.cpp.o
 
 # target to build an object file
 source/diskimage.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimage.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimage.cpp.o
 .PHONY : source/diskimage.cpp.o
 
 source/diskimage.i: source/diskimage.cpp.i
@@ -671,7 +671,7 @@ source/diskimage.i: source/diskimage.cpp.i
 
 # target to preprocess a source file
 source/diskimage.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimage.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimage.cpp.i
 .PHONY : source/diskimage.cpp.i
 
 source/diskimage.s: source/diskimage.cpp.s
@@ -679,7 +679,7 @@ source/diskimage.s: source/diskimage.cpp.s
 
 # target to generate assembly for a file
 source/diskimage.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimage.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimage.cpp.s
 .PHONY : source/diskimage.cpp.s
 
 source/diskimageutil.o: source/diskimageutil.cpp.o
@@ -687,7 +687,7 @@ source/diskimageutil.o: source/diskimageutil.cpp.o
 
 # target to build an object file
 source/diskimageutil.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimageutil.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimageutil.cpp.o
 .PHONY : source/diskimageutil.cpp.o
 
 source/diskimageutil.i: source/diskimageutil.cpp.i
@@ -695,7 +695,7 @@ source/diskimageutil.i: source/diskimageutil.cpp.i
 
 # target to preprocess a source file
 source/diskimageutil.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimageutil.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimageutil.cpp.i
 .PHONY : source/diskimageutil.cpp.i
 
 source/diskimageutil.s: source/diskimageutil.cpp.s
@@ -703,7 +703,7 @@ source/diskimageutil.s: source/diskimageutil.cpp.s
 
 # target to generate assembly for a file
 source/diskimageutil.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimageutil.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/diskimageutil.cpp.s
 .PHONY : source/diskimageutil.cpp.s
 
 source/image.o: source/image.cpp.o
@@ -711,7 +711,7 @@ source/image.o: source/image.cpp.o
 
 # target to build an object file
 source/image.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/image.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/image.cpp.o
 .PHONY : source/image.cpp.o
 
 source/image.i: source/image.cpp.i
@@ -719,7 +719,7 @@ source/image.i: source/image.cpp.i
 
 # target to preprocess a source file
 source/image.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/image.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/image.cpp.i
 .PHONY : source/image.cpp.i
 
 source/image.s: source/image.cpp.s
@@ -727,7 +727,7 @@ source/image.s: source/image.cpp.s
 
 # target to generate assembly for a file
 source/image.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/image.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/image.cpp.s
 .PHONY : source/image.cpp.s
 
 source/partitiondiskview.o: source/partitiondiskview.cpp.o
@@ -735,7 +735,7 @@ source/partitiondiskview.o: source/partitiondiskview.cpp.o
 
 # target to build an object file
 source/partitiondiskview.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiondiskview.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiondiskview.cpp.o
 .PHONY : source/partitiondiskview.cpp.o
 
 source/partitiondiskview.i: source/partitiondiskview.cpp.i
@@ -743,7 +743,7 @@ source/partitiondiskview.i: source/partitiondiskview.cpp.i
 
 # target to preprocess a source file
 source/partitiondiskview.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiondiskview.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiondiskview.cpp.i
 .PHONY : source/partitiondiskview.cpp.i
 
 source/partitiondiskview.s: source/partitiondiskview.cpp.s
@@ -751,7 +751,7 @@ source/partitiondiskview.s: source/partitiondiskview.cpp.s
 
 # target to generate assembly for a file
 source/partitiondiskview.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiondiskview.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiondiskview.cpp.s
 .PHONY : source/partitiondiskview.cpp.s
 
 source/partitiontable.o: source/partitiontable.cpp.o
@@ -759,7 +759,7 @@ source/partitiontable.o: source/partitiontable.cpp.o
 
 # target to build an object file
 source/partitiontable.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiontable.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiontable.cpp.o
 .PHONY : source/partitiontable.cpp.o
 
 source/partitiontable.i: source/partitiontable.cpp.i
@@ -767,7 +767,7 @@ source/partitiontable.i: source/partitiontable.cpp.i
 
 # target to preprocess a source file
 source/partitiontable.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiontable.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiontable.cpp.i
 .PHONY : source/partitiontable.cpp.i
 
 source/partitiontable.s: source/partitiontable.cpp.s
@@ -775,7 +775,7 @@ source/partitiontable.s: source/partitiontable.cpp.s
 
 # target to generate assembly for a file
 source/partitiontable.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiontable.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/partitiontable.cpp.s
 .PHONY : source/partitiontable.cpp.s
 
 source/programimage.o: source/programimage.cpp.o
@@ -783,7 +783,7 @@ source/programimage.o: source/programimage.cpp.o
 
 # target to build an object file
 source/programimage.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/programimage.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/programimage.cpp.o
 .PHONY : source/programimage.cpp.o
 
 source/programimage.i: source/programimage.cpp.i
@@ -791,7 +791,7 @@ source/programimage.i: source/programimage.cpp.i
 
 # target to preprocess a source file
 source/programimage.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/programimage.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/programimage.cpp.i
 .PHONY : source/programimage.cpp.i
 
 source/programimage.s: source/programimage.cpp.s
@@ -799,7 +799,7 @@ source/programimage.s: source/programimage.cpp.s
 
 # target to generate assembly for a file
 source/programimage.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/programimage.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/programimage.cpp.s
 .PHONY : source/programimage.cpp.s
 
 source/savestate.o: source/savestate.cpp.o
@@ -807,7 +807,7 @@ source/savestate.o: source/savestate.cpp.o
 
 # target to build an object file
 source/savestate.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/savestate.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/savestate.cpp.o
 .PHONY : source/savestate.cpp.o
 
 source/savestate.i: source/savestate.cpp.i
@@ -815,7 +815,7 @@ source/savestate.i: source/savestate.cpp.i
 
 # target to preprocess a source file
 source/savestate.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/savestate.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/savestate.cpp.i
 .PHONY : source/savestate.cpp.i
 
 source/savestate.s: source/savestate.cpp.s
@@ -823,7 +823,7 @@ source/savestate.s: source/savestate.cpp.s
 
 # target to generate assembly for a file
 source/savestate.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/savestate.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/savestate.cpp.s
 .PHONY : source/savestate.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -831,7 +831,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -839,7 +839,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -847,7 +847,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/tapepiecetable.o: source/tapepiecetable.cpp.o
@@ -855,7 +855,7 @@ source/tapepiecetable.o: source/tapepiecetable.cpp.o
 
 # target to build an object file
 source/tapepiecetable.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/tapepiecetable.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/tapepiecetable.cpp.o
 .PHONY : source/tapepiecetable.cpp.o
 
 source/tapepiecetable.i: source/tapepiecetable.cpp.i
@@ -863,7 +863,7 @@ source/tapepiecetable.i: source/tapepiecetable.cpp.i
 
 # target to preprocess a source file
 source/tapepiecetable.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/tapepiecetable.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/tapepiecetable.cpp.i
 .PHONY : source/tapepiecetable.cpp.i
 
 source/tapepiecetable.s: source/tapepiecetable.cpp.s
@@ -871,7 +871,7 @@ source/tapepiecetable.s: source/tapepiecetable.cpp.s
 
 # target to generate assembly for a file
 source/tapepiecetable.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/tapepiecetable.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/tapepiecetable.cpp.s
 .PHONY : source/tapepiecetable.cpp.s
 
 source/vorbisbitreader.o: source/vorbisbitreader.cpp.o
@@ -879,7 +879,7 @@ source/vorbisbitreader.o: source/vorbisbitreader.cpp.o
 
 # target to build an object file
 source/vorbisbitreader.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisbitreader.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisbitreader.cpp.o
 .PHONY : source/vorbisbitreader.cpp.o
 
 source/vorbisbitreader.i: source/vorbisbitreader.cpp.i
@@ -887,7 +887,7 @@ source/vorbisbitreader.i: source/vorbisbitreader.cpp.i
 
 # target to preprocess a source file
 source/vorbisbitreader.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisbitreader.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisbitreader.cpp.i
 .PHONY : source/vorbisbitreader.cpp.i
 
 source/vorbisbitreader.s: source/vorbisbitreader.cpp.s
@@ -895,7 +895,7 @@ source/vorbisbitreader.s: source/vorbisbitreader.cpp.s
 
 # target to generate assembly for a file
 source/vorbisbitreader.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisbitreader.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisbitreader.cpp.s
 .PHONY : source/vorbisbitreader.cpp.s
 
 source/vorbisdecoder.o: source/vorbisdecoder.cpp.o
@@ -903,7 +903,7 @@ source/vorbisdecoder.o: source/vorbisdecoder.cpp.o
 
 # target to build an object file
 source/vorbisdecoder.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisdecoder.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisdecoder.cpp.o
 .PHONY : source/vorbisdecoder.cpp.o
 
 source/vorbisdecoder.i: source/vorbisdecoder.cpp.i
@@ -911,7 +911,7 @@ source/vorbisdecoder.i: source/vorbisdecoder.cpp.i
 
 # target to preprocess a source file
 source/vorbisdecoder.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisdecoder.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisdecoder.cpp.i
 .PHONY : source/vorbisdecoder.cpp.i
 
 source/vorbisdecoder.s: source/vorbisdecoder.cpp.s
@@ -919,7 +919,7 @@ source/vorbisdecoder.s: source/vorbisdecoder.cpp.s
 
 # target to generate assembly for a file
 source/vorbisdecoder.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisdecoder.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbisdecoder.cpp.s
 .PHONY : source/vorbisdecoder.cpp.s
 
 source/vorbismisc.o: source/vorbismisc.cpp.o
@@ -927,7 +927,7 @@ source/vorbismisc.o: source/vorbismisc.cpp.o
 
 # target to build an object file
 source/vorbismisc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbismisc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbismisc.cpp.o
 .PHONY : source/vorbismisc.cpp.o
 
 source/vorbismisc.i: source/vorbismisc.cpp.i
@@ -935,7 +935,7 @@ source/vorbismisc.i: source/vorbismisc.cpp.i
 
 # target to preprocess a source file
 source/vorbismisc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbismisc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbismisc.cpp.i
 .PHONY : source/vorbismisc.cpp.i
 
 source/vorbismisc.s: source/vorbismisc.cpp.s
@@ -943,7 +943,7 @@ source/vorbismisc.s: source/vorbismisc.cpp.s
 
 # target to generate assembly for a file
 source/vorbismisc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbismisc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/vorbismisc.cpp.s
 .PHONY : source/vorbismisc.cpp.s
 
 source/wav.o: source/wav.cpp.o
@@ -951,7 +951,7 @@ source/wav.o: source/wav.cpp.o
 
 # target to build an object file
 source/wav.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/wav.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/wav.cpp.o
 .PHONY : source/wav.cpp.o
 
 source/wav.i: source/wav.cpp.i
@@ -959,7 +959,7 @@ source/wav.i: source/wav.cpp.i
 
 # target to preprocess a source file
 source/wav.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/wav.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/wav.cpp.i
 .PHONY : source/wav.cpp.i
 
 source/wav.s: source/wav.cpp.s
@@ -967,7 +967,7 @@ source/wav.s: source/wav.cpp.s
 
 # target to generate assembly for a file
 source/wav.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/wav.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/source/wav.cpp.s
 .PHONY : source/wav.cpp.s
 
 # Help Target
@@ -1095,6 +1095,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

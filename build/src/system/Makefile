@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/system//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/system//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/system/CMakeFiles/system.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/CMakeFiles/system.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/system/CMakeFiles/system.dir/rule
 .PHONY : src/system/CMakeFiles/system.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ system: src/system/CMakeFiles/system.dir/rule
 
 # fast build rule for target.
 system/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/build
 .PHONY : system/fast
 
 source/Error.o: source/Error.cpp.o
@@ -135,7 +135,7 @@ source/Error.o: source/Error.cpp.o
 
 # target to build an object file
 source/Error.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Error.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Error.cpp.o
 .PHONY : source/Error.cpp.o
 
 source/Error.i: source/Error.cpp.i
@@ -143,7 +143,7 @@ source/Error.i: source/Error.cpp.i
 
 # target to preprocess a source file
 source/Error.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Error.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Error.cpp.i
 .PHONY : source/Error.cpp.i
 
 source/Error.s: source/Error.cpp.s
@@ -151,7 +151,7 @@ source/Error.s: source/Error.cpp.s
 
 # target to generate assembly for a file
 source/Error.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Error.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Error.cpp.s
 .PHONY : source/Error.cpp.s
 
 source/Fraction.o: source/Fraction.cpp.o
@@ -159,7 +159,7 @@ source/Fraction.o: source/Fraction.cpp.o
 
 # target to build an object file
 source/Fraction.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Fraction.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Fraction.cpp.o
 .PHONY : source/Fraction.cpp.o
 
 source/Fraction.i: source/Fraction.cpp.i
@@ -167,7 +167,7 @@ source/Fraction.i: source/Fraction.cpp.i
 
 # target to preprocess a source file
 source/Fraction.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Fraction.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Fraction.cpp.i
 .PHONY : source/Fraction.cpp.i
 
 source/Fraction.s: source/Fraction.cpp.s
@@ -175,7 +175,7 @@ source/Fraction.s: source/Fraction.cpp.s
 
 # target to generate assembly for a file
 source/Fraction.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Fraction.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/Fraction.cpp.s
 .PHONY : source/Fraction.cpp.s
 
 source/VDString.o: source/VDString.cpp.o
@@ -183,7 +183,7 @@ source/VDString.o: source/VDString.cpp.o
 
 # target to build an object file
 source/VDString.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/VDString.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/VDString.cpp.o
 .PHONY : source/VDString.cpp.o
 
 source/VDString.i: source/VDString.cpp.i
@@ -191,7 +191,7 @@ source/VDString.i: source/VDString.cpp.i
 
 # target to preprocess a source file
 source/VDString.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/VDString.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/VDString.cpp.i
 .PHONY : source/VDString.cpp.i
 
 source/VDString.s: source/VDString.cpp.s
@@ -199,7 +199,7 @@ source/VDString.s: source/VDString.cpp.s
 
 # target to generate assembly for a file
 source/VDString.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/VDString.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/VDString.cpp.s
 .PHONY : source/VDString.cpp.s
 
 source/binary.o: source/binary.cpp.o
@@ -207,7 +207,7 @@ source/binary.o: source/binary.cpp.o
 
 # target to build an object file
 source/binary.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/binary.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/binary.cpp.o
 .PHONY : source/binary.cpp.o
 
 source/binary.i: source/binary.cpp.i
@@ -215,7 +215,7 @@ source/binary.i: source/binary.cpp.i
 
 # target to preprocess a source file
 source/binary.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/binary.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/binary.cpp.i
 .PHONY : source/binary.cpp.i
 
 source/binary.s: source/binary.cpp.s
@@ -223,7 +223,7 @@ source/binary.s: source/binary.cpp.s
 
 # target to generate assembly for a file
 source/binary.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/binary.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/binary.cpp.s
 .PHONY : source/binary.cpp.s
 
 source/bitmath.o: source/bitmath.cpp.o
@@ -231,7 +231,7 @@ source/bitmath.o: source/bitmath.cpp.o
 
 # target to build an object file
 source/bitmath.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/bitmath.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/bitmath.cpp.o
 .PHONY : source/bitmath.cpp.o
 
 source/bitmath.i: source/bitmath.cpp.i
@@ -239,7 +239,7 @@ source/bitmath.i: source/bitmath.cpp.i
 
 # target to preprocess a source file
 source/bitmath.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/bitmath.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/bitmath.cpp.i
 .PHONY : source/bitmath.cpp.i
 
 source/bitmath.s: source/bitmath.cpp.s
@@ -247,7 +247,7 @@ source/bitmath.s: source/bitmath.cpp.s
 
 # target to generate assembly for a file
 source/bitmath.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/bitmath.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/bitmath.cpp.s
 .PHONY : source/bitmath.cpp.s
 
 source/cache.o: source/cache.cpp.o
@@ -255,7 +255,7 @@ source/cache.o: source/cache.cpp.o
 
 # target to build an object file
 source/cache.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cache.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cache.cpp.o
 .PHONY : source/cache.cpp.o
 
 source/cache.i: source/cache.cpp.i
@@ -263,7 +263,7 @@ source/cache.i: source/cache.cpp.i
 
 # target to preprocess a source file
 source/cache.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cache.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cache.cpp.i
 .PHONY : source/cache.cpp.i
 
 source/cache.s: source/cache.cpp.s
@@ -271,7 +271,7 @@ source/cache.s: source/cache.cpp.s
 
 # target to generate assembly for a file
 source/cache.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cache.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cache.cpp.s
 .PHONY : source/cache.cpp.s
 
 source/cmdline.o: source/cmdline.cpp.o
@@ -279,7 +279,7 @@ source/cmdline.o: source/cmdline.cpp.o
 
 # target to build an object file
 source/cmdline.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cmdline.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cmdline.cpp.o
 .PHONY : source/cmdline.cpp.o
 
 source/cmdline.i: source/cmdline.cpp.i
@@ -287,7 +287,7 @@ source/cmdline.i: source/cmdline.cpp.i
 
 # target to preprocess a source file
 source/cmdline.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cmdline.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cmdline.cpp.i
 .PHONY : source/cmdline.cpp.i
 
 source/cmdline.s: source/cmdline.cpp.s
@@ -295,7 +295,7 @@ source/cmdline.s: source/cmdline.cpp.s
 
 # target to generate assembly for a file
 source/cmdline.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cmdline.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cmdline.cpp.s
 .PHONY : source/cmdline.cpp.s
 
 source/constexpr.o: source/constexpr.cpp.o
@@ -303,7 +303,7 @@ source/constexpr.o: source/constexpr.cpp.o
 
 # target to build an object file
 source/constexpr.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/constexpr.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/constexpr.cpp.o
 .PHONY : source/constexpr.cpp.o
 
 source/constexpr.i: source/constexpr.cpp.i
@@ -311,7 +311,7 @@ source/constexpr.i: source/constexpr.cpp.i
 
 # target to preprocess a source file
 source/constexpr.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/constexpr.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/constexpr.cpp.i
 .PHONY : source/constexpr.cpp.i
 
 source/constexpr.s: source/constexpr.cpp.s
@@ -319,7 +319,7 @@ source/constexpr.s: source/constexpr.cpp.s
 
 # target to generate assembly for a file
 source/constexpr.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/constexpr.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/constexpr.cpp.s
 .PHONY : source/constexpr.cpp.s
 
 source/cpuaccel.o: source/cpuaccel.cpp.o
@@ -327,7 +327,7 @@ source/cpuaccel.o: source/cpuaccel.cpp.o
 
 # target to build an object file
 source/cpuaccel.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cpuaccel.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cpuaccel.cpp.o
 .PHONY : source/cpuaccel.cpp.o
 
 source/cpuaccel.i: source/cpuaccel.cpp.i
@@ -335,7 +335,7 @@ source/cpuaccel.i: source/cpuaccel.cpp.i
 
 # target to preprocess a source file
 source/cpuaccel.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cpuaccel.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cpuaccel.cpp.i
 .PHONY : source/cpuaccel.cpp.i
 
 source/cpuaccel.s: source/cpuaccel.cpp.s
@@ -343,7 +343,7 @@ source/cpuaccel.s: source/cpuaccel.cpp.s
 
 # target to generate assembly for a file
 source/cpuaccel.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cpuaccel.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/cpuaccel.cpp.s
 .PHONY : source/cpuaccel.cpp.s
 
 source/date_sdl3.o: source/date_sdl3.cpp.o
@@ -351,7 +351,7 @@ source/date_sdl3.o: source/date_sdl3.cpp.o
 
 # target to build an object file
 source/date_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/date_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/date_sdl3.cpp.o
 .PHONY : source/date_sdl3.cpp.o
 
 source/date_sdl3.i: source/date_sdl3.cpp.i
@@ -359,7 +359,7 @@ source/date_sdl3.i: source/date_sdl3.cpp.i
 
 # target to preprocess a source file
 source/date_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/date_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/date_sdl3.cpp.i
 .PHONY : source/date_sdl3.cpp.i
 
 source/date_sdl3.s: source/date_sdl3.cpp.s
@@ -367,7 +367,7 @@ source/date_sdl3.s: source/date_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/date_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/date_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/date_sdl3.cpp.s
 .PHONY : source/date_sdl3.cpp.s
 
 source/debug_sdl3.o: source/debug_sdl3.cpp.o
@@ -375,7 +375,7 @@ source/debug_sdl3.o: source/debug_sdl3.cpp.o
 
 # target to build an object file
 source/debug_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/debug_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/debug_sdl3.cpp.o
 .PHONY : source/debug_sdl3.cpp.o
 
 source/debug_sdl3.i: source/debug_sdl3.cpp.i
@@ -383,7 +383,7 @@ source/debug_sdl3.i: source/debug_sdl3.cpp.i
 
 # target to preprocess a source file
 source/debug_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/debug_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/debug_sdl3.cpp.i
 .PHONY : source/debug_sdl3.cpp.i
 
 source/debug_sdl3.s: source/debug_sdl3.cpp.s
@@ -391,7 +391,7 @@ source/debug_sdl3.s: source/debug_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/debug_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/debug_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/debug_sdl3.cpp.s
 .PHONY : source/debug_sdl3.cpp.s
 
 source/error_sdl3.o: source/error_sdl3.cpp.o
@@ -399,7 +399,7 @@ source/error_sdl3.o: source/error_sdl3.cpp.o
 
 # target to build an object file
 source/error_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/error_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/error_sdl3.cpp.o
 .PHONY : source/error_sdl3.cpp.o
 
 source/error_sdl3.i: source/error_sdl3.cpp.i
@@ -407,7 +407,7 @@ source/error_sdl3.i: source/error_sdl3.cpp.i
 
 # target to preprocess a source file
 source/error_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/error_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/error_sdl3.cpp.i
 .PHONY : source/error_sdl3.cpp.i
 
 source/error_sdl3.s: source/error_sdl3.cpp.s
@@ -415,7 +415,7 @@ source/error_sdl3.s: source/error_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/error_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/error_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/error_sdl3.cpp.s
 .PHONY : source/error_sdl3.cpp.s
 
 source/event.o: source/event.cpp.o
@@ -423,7 +423,7 @@ source/event.o: source/event.cpp.o
 
 # target to build an object file
 source/event.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/event.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/event.cpp.o
 .PHONY : source/event.cpp.o
 
 source/event.i: source/event.cpp.i
@@ -431,7 +431,7 @@ source/event.i: source/event.cpp.i
 
 # target to preprocess a source file
 source/event.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/event.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/event.cpp.i
 .PHONY : source/event.cpp.i
 
 source/event.s: source/event.cpp.s
@@ -439,7 +439,7 @@ source/event.s: source/event.cpp.s
 
 # target to generate assembly for a file
 source/event.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/event.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/event.cpp.s
 .PHONY : source/event.cpp.s
 
 source/file_sdl3.o: source/file_sdl3.cpp.o
@@ -447,7 +447,7 @@ source/file_sdl3.o: source/file_sdl3.cpp.o
 
 # target to build an object file
 source/file_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/file_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/file_sdl3.cpp.o
 .PHONY : source/file_sdl3.cpp.o
 
 source/file_sdl3.i: source/file_sdl3.cpp.i
@@ -455,7 +455,7 @@ source/file_sdl3.i: source/file_sdl3.cpp.i
 
 # target to preprocess a source file
 source/file_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/file_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/file_sdl3.cpp.i
 .PHONY : source/file_sdl3.cpp.i
 
 source/file_sdl3.s: source/file_sdl3.cpp.s
@@ -463,7 +463,7 @@ source/file_sdl3.s: source/file_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/file_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/file_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/file_sdl3.cpp.s
 .PHONY : source/file_sdl3.cpp.s
 
 source/filestream.o: source/filestream.cpp.o
@@ -471,7 +471,7 @@ source/filestream.o: source/filestream.cpp.o
 
 # target to build an object file
 source/filestream.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filestream.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filestream.cpp.o
 .PHONY : source/filestream.cpp.o
 
 source/filestream.i: source/filestream.cpp.i
@@ -479,7 +479,7 @@ source/filestream.i: source/filestream.cpp.i
 
 # target to preprocess a source file
 source/filestream.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filestream.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filestream.cpp.i
 .PHONY : source/filestream.cpp.i
 
 source/filestream.s: source/filestream.cpp.s
@@ -487,7 +487,7 @@ source/filestream.s: source/filestream.cpp.s
 
 # target to generate assembly for a file
 source/filestream.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filestream.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filestream.cpp.s
 .PHONY : source/filestream.cpp.s
 
 source/filesys_sdl3.o: source/filesys_sdl3.cpp.o
@@ -495,7 +495,7 @@ source/filesys_sdl3.o: source/filesys_sdl3.cpp.o
 
 # target to build an object file
 source/filesys_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filesys_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filesys_sdl3.cpp.o
 .PHONY : source/filesys_sdl3.cpp.o
 
 source/filesys_sdl3.i: source/filesys_sdl3.cpp.i
@@ -503,7 +503,7 @@ source/filesys_sdl3.i: source/filesys_sdl3.cpp.i
 
 # target to preprocess a source file
 source/filesys_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filesys_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filesys_sdl3.cpp.i
 .PHONY : source/filesys_sdl3.cpp.i
 
 source/filesys_sdl3.s: source/filesys_sdl3.cpp.s
@@ -511,7 +511,7 @@ source/filesys_sdl3.s: source/filesys_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/filesys_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filesys_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/filesys_sdl3.cpp.s
 .PHONY : source/filesys_sdl3.cpp.s
 
 source/function.o: source/function.cpp.o
@@ -519,7 +519,7 @@ source/function.o: source/function.cpp.o
 
 # target to build an object file
 source/function.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/function.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/function.cpp.o
 .PHONY : source/function.cpp.o
 
 source/function.i: source/function.cpp.i
@@ -527,7 +527,7 @@ source/function.i: source/function.cpp.i
 
 # target to preprocess a source file
 source/function.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/function.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/function.cpp.i
 .PHONY : source/function.cpp.i
 
 source/function.s: source/function.cpp.s
@@ -535,7 +535,7 @@ source/function.s: source/function.cpp.s
 
 # target to generate assembly for a file
 source/function.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/function.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/function.cpp.s
 .PHONY : source/function.cpp.s
 
 source/halffloat.o: source/halffloat.cpp.o
@@ -543,7 +543,7 @@ source/halffloat.o: source/halffloat.cpp.o
 
 # target to build an object file
 source/halffloat.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/halffloat.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/halffloat.cpp.o
 .PHONY : source/halffloat.cpp.o
 
 source/halffloat.i: source/halffloat.cpp.i
@@ -551,7 +551,7 @@ source/halffloat.i: source/halffloat.cpp.i
 
 # target to preprocess a source file
 source/halffloat.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/halffloat.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/halffloat.cpp.i
 .PHONY : source/halffloat.cpp.i
 
 source/halffloat.s: source/halffloat.cpp.s
@@ -559,7 +559,7 @@ source/halffloat.s: source/halffloat.cpp.s
 
 # target to generate assembly for a file
 source/halffloat.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/halffloat.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/halffloat.cpp.s
 .PHONY : source/halffloat.cpp.s
 
 source/hash.o: source/hash.cpp.o
@@ -567,7 +567,7 @@ source/hash.o: source/hash.cpp.o
 
 # target to build an object file
 source/hash.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/hash.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/hash.cpp.o
 .PHONY : source/hash.cpp.o
 
 source/hash.i: source/hash.cpp.i
@@ -575,7 +575,7 @@ source/hash.i: source/hash.cpp.i
 
 # target to preprocess a source file
 source/hash.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/hash.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/hash.cpp.i
 .PHONY : source/hash.cpp.i
 
 source/hash.s: source/hash.cpp.s
@@ -583,7 +583,7 @@ source/hash.s: source/hash.cpp.s
 
 # target to generate assembly for a file
 source/hash.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/hash.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/hash.cpp.s
 .PHONY : source/hash.cpp.s
 
 source/int128.o: source/int128.cpp.o
@@ -591,7 +591,7 @@ source/int128.o: source/int128.cpp.o
 
 # target to build an object file
 source/int128.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/int128.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/int128.cpp.o
 .PHONY : source/int128.cpp.o
 
 source/int128.i: source/int128.cpp.i
@@ -599,7 +599,7 @@ source/int128.i: source/int128.cpp.i
 
 # target to preprocess a source file
 source/int128.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/int128.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/int128.cpp.i
 .PHONY : source/int128.cpp.i
 
 source/int128.s: source/int128.cpp.s
@@ -607,7 +607,7 @@ source/int128.s: source/int128.cpp.s
 
 # target to generate assembly for a file
 source/int128.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/int128.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/int128.cpp.s
 .PHONY : source/int128.cpp.s
 
 source/linearalloc.o: source/linearalloc.cpp.o
@@ -615,7 +615,7 @@ source/linearalloc.o: source/linearalloc.cpp.o
 
 # target to build an object file
 source/linearalloc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/linearalloc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/linearalloc.cpp.o
 .PHONY : source/linearalloc.cpp.o
 
 source/linearalloc.i: source/linearalloc.cpp.i
@@ -623,7 +623,7 @@ source/linearalloc.i: source/linearalloc.cpp.i
 
 # target to preprocess a source file
 source/linearalloc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/linearalloc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/linearalloc.cpp.i
 .PHONY : source/linearalloc.cpp.i
 
 source/linearalloc.s: source/linearalloc.cpp.s
@@ -631,7 +631,7 @@ source/linearalloc.s: source/linearalloc.cpp.s
 
 # target to generate assembly for a file
 source/linearalloc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/linearalloc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/linearalloc.cpp.s
 .PHONY : source/linearalloc.cpp.s
 
 source/math.o: source/math.cpp.o
@@ -639,7 +639,7 @@ source/math.o: source/math.cpp.o
 
 # target to build an object file
 source/math.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/math.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/math.cpp.o
 .PHONY : source/math.cpp.o
 
 source/math.i: source/math.cpp.i
@@ -647,7 +647,7 @@ source/math.i: source/math.cpp.i
 
 # target to preprocess a source file
 source/math.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/math.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/math.cpp.i
 .PHONY : source/math.cpp.i
 
 source/math.s: source/math.cpp.s
@@ -655,7 +655,7 @@ source/math.s: source/math.cpp.s
 
 # target to generate assembly for a file
 source/math.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/math.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/math.cpp.s
 .PHONY : source/math.cpp.s
 
 source/memory.o: source/memory.cpp.o
@@ -663,7 +663,7 @@ source/memory.o: source/memory.cpp.o
 
 # target to build an object file
 source/memory.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/memory.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/memory.cpp.o
 .PHONY : source/memory.cpp.o
 
 source/memory.i: source/memory.cpp.i
@@ -671,7 +671,7 @@ source/memory.i: source/memory.cpp.i
 
 # target to preprocess a source file
 source/memory.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/memory.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/memory.cpp.i
 .PHONY : source/memory.cpp.i
 
 source/memory.s: source/memory.cpp.s
@@ -679,7 +679,7 @@ source/memory.s: source/memory.cpp.s
 
 # target to generate assembly for a file
 source/memory.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/memory.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/memory.cpp.s
 .PHONY : source/memory.cpp.s
 
 source/refcount.o: source/refcount.cpp.o
@@ -687,7 +687,7 @@ source/refcount.o: source/refcount.cpp.o
 
 # target to build an object file
 source/refcount.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/refcount.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/refcount.cpp.o
 .PHONY : source/refcount.cpp.o
 
 source/refcount.i: source/refcount.cpp.i
@@ -695,7 +695,7 @@ source/refcount.i: source/refcount.cpp.i
 
 # target to preprocess a source file
 source/refcount.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/refcount.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/refcount.cpp.i
 .PHONY : source/refcount.cpp.i
 
 source/refcount.s: source/refcount.cpp.s
@@ -703,7 +703,7 @@ source/refcount.s: source/refcount.cpp.s
 
 # target to generate assembly for a file
 source/refcount.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/refcount.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/refcount.cpp.s
 .PHONY : source/refcount.cpp.s
 
 source/registry_sdl3.o: source/registry_sdl3.cpp.o
@@ -711,7 +711,7 @@ source/registry_sdl3.o: source/registry_sdl3.cpp.o
 
 # target to build an object file
 source/registry_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registry_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registry_sdl3.cpp.o
 .PHONY : source/registry_sdl3.cpp.o
 
 source/registry_sdl3.i: source/registry_sdl3.cpp.i
@@ -719,7 +719,7 @@ source/registry_sdl3.i: source/registry_sdl3.cpp.i
 
 # target to preprocess a source file
 source/registry_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registry_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registry_sdl3.cpp.i
 .PHONY : source/registry_sdl3.cpp.i
 
 source/registry_sdl3.s: source/registry_sdl3.cpp.s
@@ -727,7 +727,7 @@ source/registry_sdl3.s: source/registry_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/registry_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registry_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registry_sdl3.cpp.s
 .PHONY : source/registry_sdl3.cpp.s
 
 source/registrymemory.o: source/registrymemory.cpp.o
@@ -735,7 +735,7 @@ source/registrymemory.o: source/registrymemory.cpp.o
 
 # target to build an object file
 source/registrymemory.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registrymemory.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registrymemory.cpp.o
 .PHONY : source/registrymemory.cpp.o
 
 source/registrymemory.i: source/registrymemory.cpp.i
@@ -743,7 +743,7 @@ source/registrymemory.i: source/registrymemory.cpp.i
 
 # target to preprocess a source file
 source/registrymemory.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registrymemory.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registrymemory.cpp.i
 .PHONY : source/registrymemory.cpp.i
 
 source/registrymemory.s: source/registrymemory.cpp.s
@@ -751,7 +751,7 @@ source/registrymemory.s: source/registrymemory.cpp.s
 
 # target to generate assembly for a file
 source/registrymemory.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registrymemory.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/registrymemory.cpp.s
 .PHONY : source/registrymemory.cpp.s
 
 source/stdaccel.o: source/stdaccel.cpp.o
@@ -759,7 +759,7 @@ source/stdaccel.o: source/stdaccel.cpp.o
 
 # target to build an object file
 source/stdaccel.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdaccel.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdaccel.cpp.o
 .PHONY : source/stdaccel.cpp.o
 
 source/stdaccel.i: source/stdaccel.cpp.i
@@ -767,7 +767,7 @@ source/stdaccel.i: source/stdaccel.cpp.i
 
 # target to preprocess a source file
 source/stdaccel.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdaccel.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdaccel.cpp.i
 .PHONY : source/stdaccel.cpp.i
 
 source/stdaccel.s: source/stdaccel.cpp.s
@@ -775,7 +775,7 @@ source/stdaccel.s: source/stdaccel.cpp.s
 
 # target to generate assembly for a file
 source/stdaccel.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdaccel.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdaccel.cpp.s
 .PHONY : source/stdaccel.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -783,7 +783,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -791,7 +791,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -799,7 +799,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/strutil.o: source/strutil.cpp.o
@@ -807,7 +807,7 @@ source/strutil.o: source/strutil.cpp.o
 
 # target to build an object file
 source/strutil.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/strutil.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/strutil.cpp.o
 .PHONY : source/strutil.cpp.o
 
 source/strutil.i: source/strutil.cpp.i
@@ -815,7 +815,7 @@ source/strutil.i: source/strutil.cpp.i
 
 # target to preprocess a source file
 source/strutil.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/strutil.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/strutil.cpp.i
 .PHONY : source/strutil.cpp.i
 
 source/strutil.s: source/strutil.cpp.s
@@ -823,7 +823,7 @@ source/strutil.s: source/strutil.cpp.s
 
 # target to generate assembly for a file
 source/strutil.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/strutil.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/strutil.cpp.s
 .PHONY : source/strutil.cpp.s
 
 source/text_sdl3.o: source/text_sdl3.cpp.o
@@ -831,7 +831,7 @@ source/text_sdl3.o: source/text_sdl3.cpp.o
 
 # target to build an object file
 source/text_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/text_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/text_sdl3.cpp.o
 .PHONY : source/text_sdl3.cpp.o
 
 source/text_sdl3.i: source/text_sdl3.cpp.i
@@ -839,7 +839,7 @@ source/text_sdl3.i: source/text_sdl3.cpp.i
 
 # target to preprocess a source file
 source/text_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/text_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/text_sdl3.cpp.i
 .PHONY : source/text_sdl3.cpp.i
 
 source/text_sdl3.s: source/text_sdl3.cpp.s
@@ -847,7 +847,7 @@ source/text_sdl3.s: source/text_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/text_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/text_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/text_sdl3.cpp.s
 .PHONY : source/text_sdl3.cpp.s
 
 source/thread.o: source/thread.cpp.o
@@ -855,7 +855,7 @@ source/thread.o: source/thread.cpp.o
 
 # target to build an object file
 source/thread.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/thread.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/thread.cpp.o
 .PHONY : source/thread.cpp.o
 
 source/thread.i: source/thread.cpp.i
@@ -863,7 +863,7 @@ source/thread.i: source/thread.cpp.i
 
 # target to preprocess a source file
 source/thread.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/thread.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/thread.cpp.i
 .PHONY : source/thread.cpp.i
 
 source/thread.s: source/thread.cpp.s
@@ -871,7 +871,7 @@ source/thread.s: source/thread.cpp.s
 
 # target to generate assembly for a file
 source/thread.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/thread.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/thread.cpp.s
 .PHONY : source/thread.cpp.s
 
 source/time_sdl3.o: source/time_sdl3.cpp.o
@@ -879,7 +879,7 @@ source/time_sdl3.o: source/time_sdl3.cpp.o
 
 # target to build an object file
 source/time_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/time_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/time_sdl3.cpp.o
 .PHONY : source/time_sdl3.cpp.o
 
 source/time_sdl3.i: source/time_sdl3.cpp.i
@@ -887,7 +887,7 @@ source/time_sdl3.i: source/time_sdl3.cpp.i
 
 # target to preprocess a source file
 source/time_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/time_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/time_sdl3.cpp.i
 .PHONY : source/time_sdl3.cpp.i
 
 source/time_sdl3.s: source/time_sdl3.cpp.s
@@ -895,7 +895,7 @@ source/time_sdl3.s: source/time_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/time_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/time_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/time_sdl3.cpp.s
 .PHONY : source/time_sdl3.cpp.s
 
 source/tls.o: source/tls.cpp.o
@@ -903,7 +903,7 @@ source/tls.o: source/tls.cpp.o
 
 # target to build an object file
 source/tls.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/tls.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/tls.cpp.o
 .PHONY : source/tls.cpp.o
 
 source/tls.i: source/tls.cpp.i
@@ -911,7 +911,7 @@ source/tls.i: source/tls.cpp.i
 
 # target to preprocess a source file
 source/tls.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/tls.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/tls.cpp.i
 .PHONY : source/tls.cpp.i
 
 source/tls.s: source/tls.cpp.s
@@ -919,7 +919,7 @@ source/tls.s: source/tls.cpp.s
 
 # target to generate assembly for a file
 source/tls.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/tls.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/tls.cpp.s
 .PHONY : source/tls.cpp.s
 
 source/vdalloc.o: source/vdalloc.cpp.o
@@ -927,7 +927,7 @@ source/vdalloc.o: source/vdalloc.cpp.o
 
 # target to build an object file
 source/vdalloc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdalloc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdalloc.cpp.o
 .PHONY : source/vdalloc.cpp.o
 
 source/vdalloc.i: source/vdalloc.cpp.i
@@ -935,7 +935,7 @@ source/vdalloc.i: source/vdalloc.cpp.i
 
 # target to preprocess a source file
 source/vdalloc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdalloc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdalloc.cpp.i
 .PHONY : source/vdalloc.cpp.i
 
 source/vdalloc.s: source/vdalloc.cpp.s
@@ -943,7 +943,7 @@ source/vdalloc.s: source/vdalloc.cpp.s
 
 # target to generate assembly for a file
 source/vdalloc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdalloc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdalloc.cpp.s
 .PHONY : source/vdalloc.cpp.s
 
 source/vdstl.o: source/vdstl.cpp.o
@@ -951,7 +951,7 @@ source/vdstl.o: source/vdstl.cpp.o
 
 # target to build an object file
 source/vdstl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl.cpp.o
 .PHONY : source/vdstl.cpp.o
 
 source/vdstl.i: source/vdstl.cpp.i
@@ -959,7 +959,7 @@ source/vdstl.i: source/vdstl.cpp.i
 
 # target to preprocess a source file
 source/vdstl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl.cpp.i
 .PHONY : source/vdstl.cpp.i
 
 source/vdstl.s: source/vdstl.cpp.s
@@ -967,7 +967,7 @@ source/vdstl.s: source/vdstl.cpp.s
 
 # target to generate assembly for a file
 source/vdstl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl.cpp.s
 .PHONY : source/vdstl.cpp.s
 
 source/vdstl_hash.o: source/vdstl_hash.cpp.o
@@ -975,7 +975,7 @@ source/vdstl_hash.o: source/vdstl_hash.cpp.o
 
 # target to build an object file
 source/vdstl_hash.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hash.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hash.cpp.o
 .PHONY : source/vdstl_hash.cpp.o
 
 source/vdstl_hash.i: source/vdstl_hash.cpp.i
@@ -983,7 +983,7 @@ source/vdstl_hash.i: source/vdstl_hash.cpp.i
 
 # target to preprocess a source file
 source/vdstl_hash.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hash.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hash.cpp.i
 .PHONY : source/vdstl_hash.cpp.i
 
 source/vdstl_hash.s: source/vdstl_hash.cpp.s
@@ -991,7 +991,7 @@ source/vdstl_hash.s: source/vdstl_hash.cpp.s
 
 # target to generate assembly for a file
 source/vdstl_hash.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hash.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hash.cpp.s
 .PHONY : source/vdstl_hash.cpp.s
 
 source/vdstl_hashtable.o: source/vdstl_hashtable.cpp.o
@@ -999,7 +999,7 @@ source/vdstl_hashtable.o: source/vdstl_hashtable.cpp.o
 
 # target to build an object file
 source/vdstl_hashtable.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hashtable.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hashtable.cpp.o
 .PHONY : source/vdstl_hashtable.cpp.o
 
 source/vdstl_hashtable.i: source/vdstl_hashtable.cpp.i
@@ -1007,7 +1007,7 @@ source/vdstl_hashtable.i: source/vdstl_hashtable.cpp.i
 
 # target to preprocess a source file
 source/vdstl_hashtable.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hashtable.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hashtable.cpp.i
 .PHONY : source/vdstl_hashtable.cpp.i
 
 source/vdstl_hashtable.s: source/vdstl_hashtable.cpp.s
@@ -1015,7 +1015,7 @@ source/vdstl_hashtable.s: source/vdstl_hashtable.cpp.s
 
 # target to generate assembly for a file
 source/vdstl_hashtable.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hashtable.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vdstl_hashtable.cpp.s
 .PHONY : source/vdstl_hashtable.cpp.s
 
 source/vectors.o: source/vectors.cpp.o
@@ -1023,7 +1023,7 @@ source/vectors.o: source/vectors.cpp.o
 
 # target to build an object file
 source/vectors.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vectors.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vectors.cpp.o
 .PHONY : source/vectors.cpp.o
 
 source/vectors.i: source/vectors.cpp.i
@@ -1031,7 +1031,7 @@ source/vectors.i: source/vectors.cpp.i
 
 # target to preprocess a source file
 source/vectors.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vectors.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vectors.cpp.i
 .PHONY : source/vectors.cpp.i
 
 source/vectors.s: source/vectors.cpp.s
@@ -1039,7 +1039,7 @@ source/vectors.s: source/vectors.cpp.s
 
 # target to generate assembly for a file
 source/vectors.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vectors.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/vectors.cpp.s
 .PHONY : source/vectors.cpp.s
 
 source/zip.o: source/zip.cpp.o
@@ -1047,7 +1047,7 @@ source/zip.o: source/zip.cpp.o
 
 # target to build an object file
 source/zip.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/zip.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/zip.cpp.o
 .PHONY : source/zip.cpp.o
 
 source/zip.i: source/zip.cpp.i
@@ -1055,7 +1055,7 @@ source/zip.i: source/zip.cpp.i
 
 # target to preprocess a source file
 source/zip.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/zip.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/zip.cpp.i
 .PHONY : source/zip.cpp.i
 
 source/zip.s: source/zip.cpp.s
@@ -1063,7 +1063,7 @@ source/zip.s: source/zip.cpp.s
 
 # target to generate assembly for a file
 source/zip.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/zip.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/system/CMakeFiles/system.dir/build.make src/system/CMakeFiles/system.dir/source/zip.cpp.s
 .PHONY : source/zip.cpp.s
 
 # Help Target
@@ -1203,6 +1203,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -79,11 +79,18 @@ void VDVideoDisplaySDL3::FlushBuffers() {
 	if (mPrevFrame)    { mPrevFrame->Release();    mPrevFrame    = nullptr; }
 }
 
-void VDVideoDisplaySDL3::Present() {
-	if (!mPendingFrame) return;
+bool VDVideoDisplaySDL3::PrepareFrame() {
+	if (!mPendingFrame) return mpTexture != nullptr;
 
 	const VDPixmap& px = mPendingFrame->mPixmap;
-	if (!px.data || !px.w || !px.h) return;
+	if (!px.data || !px.w || !px.h) {
+		// Bad frame — move to mPrevFrame so RevokeBuffer can return it.
+		if (mPrevFrame)
+			mPrevFrame->Release();
+		mPrevFrame = mPendingFrame;
+		mPendingFrame = nullptr;
+		return mpTexture != nullptr;
+	}
 
 	if (!mpTexture || mTextureW != px.w || mTextureH != px.h) {
 		if (mpTexture)
@@ -99,7 +106,13 @@ void VDVideoDisplaySDL3::Present() {
 		mConvertBuffer.resize((size_t)px.w * px.h);
 	}
 
-	if (!mpTexture) return;
+	if (!mpTexture) {
+		if (mPrevFrame)
+			mPrevFrame->Release();
+		mPrevFrame = mPendingFrame;
+		mPendingFrame = nullptr;
+		return false;
+	}
 
 	const void *srcData = px.data;
 	int srcPitch = (int)px.pitch;
@@ -121,10 +134,24 @@ void VDVideoDisplaySDL3::Present() {
 	}
 
 	SDL_UpdateTexture(mpTexture, nullptr, srcData, srcPitch);
-	SDL_RenderClear(mpRenderer);
-	SDL_RenderTexture(mpRenderer, mpTexture, nullptr, nullptr);
-	SDL_RenderPresent(mpRenderer);
 
-	mPendingFrame->Release();
+	// Move the consumed frame to mPrevFrame so GTIA can reclaim it via
+	// RevokeBuffer().  GTIA's BeginFrame() calls RevokeBuffer() to get
+	// a reusable frame buffer — if both mPendingFrame and mPrevFrame
+	// are null, RevokeBuffer returns false and the pipeline deadlocks
+	// once mActiveFrames reaches 3.
+	if (mPrevFrame)
+		mPrevFrame->Release();
+	mPrevFrame = mPendingFrame;
 	mPendingFrame = nullptr;
+	return true;
+}
+
+void VDVideoDisplaySDL3::Present() {
+	PrepareFrame();
+	if (mpTexture) {
+		SDL_RenderClear(mpRenderer);
+		SDL_RenderTexture(mpRenderer, mpTexture, nullptr, nullptr);
+		SDL_RenderPresent(mpRenderer);
+	}
 }

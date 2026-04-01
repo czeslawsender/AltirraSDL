@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATCPU/CMakeFiles/ATCPU.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/CMakeFiles/ATCPU.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCPU/CMakeFiles/ATCPU.dir/rule
 .PHONY : src/ATCPU/CMakeFiles/ATCPU.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATCPU: src/ATCPU/CMakeFiles/ATCPU.dir/rule
 
 # fast build rule for target.
 ATCPU/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/build
 .PHONY : ATCPU/fast
 
 source/co6502.o: source/co6502.cpp.o
@@ -135,7 +135,7 @@ source/co6502.o: source/co6502.cpp.o
 
 # target to build an object file
 source/co6502.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o
 .PHONY : source/co6502.cpp.o
 
 source/co6502.i: source/co6502.cpp.i
@@ -143,7 +143,7 @@ source/co6502.i: source/co6502.cpp.i
 
 # target to preprocess a source file
 source/co6502.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.i
 .PHONY : source/co6502.cpp.i
 
 source/co6502.s: source/co6502.cpp.s
@@ -151,7 +151,7 @@ source/co6502.s: source/co6502.cpp.s
 
 # target to generate assembly for a file
 source/co6502.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.s
 .PHONY : source/co6502.cpp.s
 
 source/co6502machine.o: source/co6502machine.cpp.o
@@ -159,7 +159,7 @@ source/co6502machine.o: source/co6502machine.cpp.o
 
 # target to build an object file
 source/co6502machine.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o
 .PHONY : source/co6502machine.cpp.o
 
 source/co6502machine.i: source/co6502machine.cpp.i
@@ -167,7 +167,7 @@ source/co6502machine.i: source/co6502machine.cpp.i
 
 # target to preprocess a source file
 source/co6502machine.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.i
 .PHONY : source/co6502machine.cpp.i
 
 source/co6502machine.s: source/co6502machine.cpp.s
@@ -175,7 +175,7 @@ source/co6502machine.s: source/co6502machine.cpp.s
 
 # target to generate assembly for a file
 source/co6502machine.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.s
 .PHONY : source/co6502machine.cpp.s
 
 source/co65802.o: source/co65802.cpp.o
@@ -183,7 +183,7 @@ source/co65802.o: source/co65802.cpp.o
 
 # target to build an object file
 source/co65802.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o
 .PHONY : source/co65802.cpp.o
 
 source/co65802.i: source/co65802.cpp.i
@@ -191,7 +191,7 @@ source/co65802.i: source/co65802.cpp.i
 
 # target to preprocess a source file
 source/co65802.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.i
 .PHONY : source/co65802.cpp.i
 
 source/co65802.s: source/co65802.cpp.s
@@ -199,7 +199,7 @@ source/co65802.s: source/co65802.cpp.s
 
 # target to generate assembly for a file
 source/co65802.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.s
 .PHONY : source/co65802.cpp.s
 
 source/co6809.o: source/co6809.cpp.o
@@ -207,7 +207,7 @@ source/co6809.o: source/co6809.cpp.o
 
 # target to build an object file
 source/co6809.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o
 .PHONY : source/co6809.cpp.o
 
 source/co6809.i: source/co6809.cpp.i
@@ -215,7 +215,7 @@ source/co6809.i: source/co6809.cpp.i
 
 # target to preprocess a source file
 source/co6809.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.i
 .PHONY : source/co6809.cpp.i
 
 source/co6809.s: source/co6809.cpp.s
@@ -223,7 +223,7 @@ source/co6809.s: source/co6809.cpp.s
 
 # target to generate assembly for a file
 source/co6809.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.s
 .PHONY : source/co6809.cpp.s
 
 source/co8048.o: source/co8048.cpp.o
@@ -231,7 +231,7 @@ source/co8048.o: source/co8048.cpp.o
 
 # target to build an object file
 source/co8048.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o
 .PHONY : source/co8048.cpp.o
 
 source/co8048.i: source/co8048.cpp.i
@@ -239,7 +239,7 @@ source/co8048.i: source/co8048.cpp.i
 
 # target to preprocess a source file
 source/co8048.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.i
 .PHONY : source/co8048.cpp.i
 
 source/co8048.s: source/co8048.cpp.s
@@ -247,7 +247,7 @@ source/co8048.s: source/co8048.cpp.s
 
 # target to generate assembly for a file
 source/co8048.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.s
 .PHONY : source/co8048.cpp.s
 
 source/co8051.o: source/co8051.cpp.o
@@ -255,7 +255,7 @@ source/co8051.o: source/co8051.cpp.o
 
 # target to build an object file
 source/co8051.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o
 .PHONY : source/co8051.cpp.o
 
 source/co8051.i: source/co8051.cpp.i
@@ -263,7 +263,7 @@ source/co8051.i: source/co8051.cpp.i
 
 # target to preprocess a source file
 source/co8051.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.i
 .PHONY : source/co8051.cpp.i
 
 source/co8051.s: source/co8051.cpp.s
@@ -271,7 +271,7 @@ source/co8051.s: source/co8051.cpp.s
 
 # target to generate assembly for a file
 source/co8051.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.s
 .PHONY : source/co8051.cpp.s
 
 source/coz80.o: source/coz80.cpp.o
@@ -279,7 +279,7 @@ source/coz80.o: source/coz80.cpp.o
 
 # target to build an object file
 source/coz80.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o
 .PHONY : source/coz80.cpp.o
 
 source/coz80.i: source/coz80.cpp.i
@@ -287,7 +287,7 @@ source/coz80.i: source/coz80.cpp.i
 
 # target to preprocess a source file
 source/coz80.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.i
 .PHONY : source/coz80.cpp.i
 
 source/coz80.s: source/coz80.cpp.s
@@ -295,7 +295,7 @@ source/coz80.s: source/coz80.cpp.s
 
 # target to generate assembly for a file
 source/coz80.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.s
 .PHONY : source/coz80.cpp.s
 
 source/decode6502.o: source/decode6502.cpp.o
@@ -303,7 +303,7 @@ source/decode6502.o: source/decode6502.cpp.o
 
 # target to build an object file
 source/decode6502.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o
 .PHONY : source/decode6502.cpp.o
 
 source/decode6502.i: source/decode6502.cpp.i
@@ -311,7 +311,7 @@ source/decode6502.i: source/decode6502.cpp.i
 
 # target to preprocess a source file
 source/decode6502.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.i
 .PHONY : source/decode6502.cpp.i
 
 source/decode6502.s: source/decode6502.cpp.s
@@ -319,7 +319,7 @@ source/decode6502.s: source/decode6502.cpp.s
 
 # target to generate assembly for a file
 source/decode6502.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.s
 .PHONY : source/decode6502.cpp.s
 
 source/decode65816.o: source/decode65816.cpp.o
@@ -327,7 +327,7 @@ source/decode65816.o: source/decode65816.cpp.o
 
 # target to build an object file
 source/decode65816.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o
 .PHONY : source/decode65816.cpp.o
 
 source/decode65816.i: source/decode65816.cpp.i
@@ -335,7 +335,7 @@ source/decode65816.i: source/decode65816.cpp.i
 
 # target to preprocess a source file
 source/decode65816.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.i
 .PHONY : source/decode65816.cpp.i
 
 source/decode65816.s: source/decode65816.cpp.s
@@ -343,7 +343,7 @@ source/decode65816.s: source/decode65816.cpp.s
 
 # target to generate assembly for a file
 source/decode65816.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.s
 .PHONY : source/decode65816.cpp.s
 
 source/decode6809.o: source/decode6809.cpp.o
@@ -351,7 +351,7 @@ source/decode6809.o: source/decode6809.cpp.o
 
 # target to build an object file
 source/decode6809.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o
 .PHONY : source/decode6809.cpp.o
 
 source/decode6809.i: source/decode6809.cpp.i
@@ -359,7 +359,7 @@ source/decode6809.i: source/decode6809.cpp.i
 
 # target to preprocess a source file
 source/decode6809.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.i
 .PHONY : source/decode6809.cpp.i
 
 source/decode6809.s: source/decode6809.cpp.s
@@ -367,7 +367,7 @@ source/decode6809.s: source/decode6809.cpp.s
 
 # target to generate assembly for a file
 source/decode6809.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.s
 .PHONY : source/decode6809.cpp.s
 
 source/decodez80.o: source/decodez80.cpp.o
@@ -375,7 +375,7 @@ source/decodez80.o: source/decodez80.cpp.o
 
 # target to build an object file
 source/decodez80.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o
 .PHONY : source/decodez80.cpp.o
 
 source/decodez80.i: source/decodez80.cpp.i
@@ -383,7 +383,7 @@ source/decodez80.i: source/decodez80.cpp.i
 
 # target to preprocess a source file
 source/decodez80.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.i
 .PHONY : source/decodez80.cpp.i
 
 source/decodez80.s: source/decodez80.cpp.s
@@ -391,7 +391,7 @@ source/decodez80.s: source/decodez80.cpp.s
 
 # target to generate assembly for a file
 source/decodez80.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.s
 .PHONY : source/decodez80.cpp.s
 
 source/memorymap.o: source/memorymap.cpp.o
@@ -399,7 +399,7 @@ source/memorymap.o: source/memorymap.cpp.o
 
 # target to build an object file
 source/memorymap.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o
 .PHONY : source/memorymap.cpp.o
 
 source/memorymap.i: source/memorymap.cpp.i
@@ -407,7 +407,7 @@ source/memorymap.i: source/memorymap.cpp.i
 
 # target to preprocess a source file
 source/memorymap.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.i
 .PHONY : source/memorymap.cpp.i
 
 source/memorymap.s: source/memorymap.cpp.s
@@ -415,7 +415,7 @@ source/memorymap.s: source/memorymap.cpp.s
 
 # target to generate assembly for a file
 source/memorymap.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.s
 .PHONY : source/memorymap.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -423,7 +423,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -431,7 +431,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -439,7 +439,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCPU/CMakeFiles/ATCPU.dir/build.make src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 # Help Target
@@ -501,6 +501,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

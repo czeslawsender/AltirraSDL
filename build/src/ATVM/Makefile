@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATVM//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATVM/CMakeFiles/ATVM.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/CMakeFiles/ATVM.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATVM/CMakeFiles/ATVM.dir/rule
 .PHONY : src/ATVM/CMakeFiles/ATVM.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATVM: src/ATVM/CMakeFiles/ATVM.dir/rule
 
 # fast build rule for target.
 ATVM/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/build
 .PHONY : ATVM/fast
 
 source/compiler.o: source/compiler.cpp.o
@@ -135,7 +135,7 @@ source/compiler.o: source/compiler.cpp.o
 
 # target to build an object file
 source/compiler.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o
 .PHONY : source/compiler.cpp.o
 
 source/compiler.i: source/compiler.cpp.i
@@ -143,7 +143,7 @@ source/compiler.i: source/compiler.cpp.i
 
 # target to preprocess a source file
 source/compiler.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.i
 .PHONY : source/compiler.cpp.i
 
 source/compiler.s: source/compiler.cpp.s
@@ -151,7 +151,7 @@ source/compiler.s: source/compiler.cpp.s
 
 # target to generate assembly for a file
 source/compiler.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.s
 .PHONY : source/compiler.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -159,7 +159,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -167,7 +167,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -175,7 +175,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/vm.o: source/vm.cpp.o
@@ -183,7 +183,7 @@ source/vm.o: source/vm.cpp.o
 
 # target to build an object file
 source/vm.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o
 .PHONY : source/vm.cpp.o
 
 source/vm.i: source/vm.cpp.i
@@ -191,7 +191,7 @@ source/vm.i: source/vm.cpp.i
 
 # target to preprocess a source file
 source/vm.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.i
 .PHONY : source/vm.cpp.i
 
 source/vm.s: source/vm.cpp.s
@@ -199,7 +199,7 @@ source/vm.s: source/vm.cpp.s
 
 # target to generate assembly for a file
 source/vm.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATVM/CMakeFiles/ATVM.dir/build.make src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.s
 .PHONY : source/vm.cpp.s
 
 # Help Target
@@ -231,6 +231,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/vdjson//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/vdjson/CMakeFiles/vdjson.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/CMakeFiles/vdjson.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/vdjson/CMakeFiles/vdjson.dir/rule
 .PHONY : src/vdjson/CMakeFiles/vdjson.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ vdjson: src/vdjson/CMakeFiles/vdjson.dir/rule
 
 # fast build rule for target.
 vdjson/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/build
 .PHONY : vdjson/fast
 
 source/jsonnametable.o: source/jsonnametable.cpp.o
@@ -135,7 +135,7 @@ source/jsonnametable.o: source/jsonnametable.cpp.o
 
 # target to build an object file
 source/jsonnametable.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o
 .PHONY : source/jsonnametable.cpp.o
 
 source/jsonnametable.i: source/jsonnametable.cpp.i
@@ -143,7 +143,7 @@ source/jsonnametable.i: source/jsonnametable.cpp.i
 
 # target to preprocess a source file
 source/jsonnametable.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.i
 .PHONY : source/jsonnametable.cpp.i
 
 source/jsonnametable.s: source/jsonnametable.cpp.s
@@ -151,7 +151,7 @@ source/jsonnametable.s: source/jsonnametable.cpp.s
 
 # target to generate assembly for a file
 source/jsonnametable.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.s
 .PHONY : source/jsonnametable.cpp.s
 
 source/jsonoutput.o: source/jsonoutput.cpp.o
@@ -159,7 +159,7 @@ source/jsonoutput.o: source/jsonoutput.cpp.o
 
 # target to build an object file
 source/jsonoutput.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o
 .PHONY : source/jsonoutput.cpp.o
 
 source/jsonoutput.i: source/jsonoutput.cpp.i
@@ -167,7 +167,7 @@ source/jsonoutput.i: source/jsonoutput.cpp.i
 
 # target to preprocess a source file
 source/jsonoutput.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.i
 .PHONY : source/jsonoutput.cpp.i
 
 source/jsonoutput.s: source/jsonoutput.cpp.s
@@ -175,7 +175,7 @@ source/jsonoutput.s: source/jsonoutput.cpp.s
 
 # target to generate assembly for a file
 source/jsonoutput.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.s
 .PHONY : source/jsonoutput.cpp.s
 
 source/jsonreader.o: source/jsonreader.cpp.o
@@ -183,7 +183,7 @@ source/jsonreader.o: source/jsonreader.cpp.o
 
 # target to build an object file
 source/jsonreader.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o
 .PHONY : source/jsonreader.cpp.o
 
 source/jsonreader.i: source/jsonreader.cpp.i
@@ -191,7 +191,7 @@ source/jsonreader.i: source/jsonreader.cpp.i
 
 # target to preprocess a source file
 source/jsonreader.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.i
 .PHONY : source/jsonreader.cpp.i
 
 source/jsonreader.s: source/jsonreader.cpp.s
@@ -199,7 +199,7 @@ source/jsonreader.s: source/jsonreader.cpp.s
 
 # target to generate assembly for a file
 source/jsonreader.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.s
 .PHONY : source/jsonreader.cpp.s
 
 source/jsonvalue.o: source/jsonvalue.cpp.o
@@ -207,7 +207,7 @@ source/jsonvalue.o: source/jsonvalue.cpp.o
 
 # target to build an object file
 source/jsonvalue.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o
 .PHONY : source/jsonvalue.cpp.o
 
 source/jsonvalue.i: source/jsonvalue.cpp.i
@@ -215,7 +215,7 @@ source/jsonvalue.i: source/jsonvalue.cpp.i
 
 # target to preprocess a source file
 source/jsonvalue.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.i
 .PHONY : source/jsonvalue.cpp.i
 
 source/jsonvalue.s: source/jsonvalue.cpp.s
@@ -223,7 +223,7 @@ source/jsonvalue.s: source/jsonvalue.cpp.s
 
 # target to generate assembly for a file
 source/jsonvalue.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.s
 .PHONY : source/jsonvalue.cpp.s
 
 source/jsonwriter.o: source/jsonwriter.cpp.o
@@ -231,7 +231,7 @@ source/jsonwriter.o: source/jsonwriter.cpp.o
 
 # target to build an object file
 source/jsonwriter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o
 .PHONY : source/jsonwriter.cpp.o
 
 source/jsonwriter.i: source/jsonwriter.cpp.i
@@ -239,7 +239,7 @@ source/jsonwriter.i: source/jsonwriter.cpp.i
 
 # target to preprocess a source file
 source/jsonwriter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.i
 .PHONY : source/jsonwriter.cpp.i
 
 source/jsonwriter.s: source/jsonwriter.cpp.s
@@ -247,7 +247,7 @@ source/jsonwriter.s: source/jsonwriter.cpp.s
 
 # target to generate assembly for a file
 source/jsonwriter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.s
 .PHONY : source/jsonwriter.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -255,7 +255,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -263,7 +263,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -271,7 +271,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/vdjson/CMakeFiles/vdjson.dir/build.make src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 # Help Target
@@ -312,6 +312,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

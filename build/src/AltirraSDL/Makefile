@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/AltirraSDL//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/AltirraSDL/CMakeFiles/AltirraSDL.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/CMakeFiles/AltirraSDL.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/CMakeFiles/AltirraSDL.dir/rule
 .PHONY : src/AltirraSDL/CMakeFiles/AltirraSDL.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ AltirraSDL: src/AltirraSDL/CMakeFiles/AltirraSDL.dir/rule
 
 # fast build rule for target.
 AltirraSDL/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build
 .PHONY : AltirraSDL/fast
 
 __/ATAudio/source/audiooutput_sdl3.o: __/ATAudio/source/audiooutput_sdl3.cpp.o
@@ -135,7 +135,7 @@ __/ATAudio/source/audiooutput_sdl3.o: __/ATAudio/source/audiooutput_sdl3.cpp.o
 
 # target to build an object file
 __/ATAudio/source/audiooutput_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/ATAudio/source/audiooutput_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/ATAudio/source/audiooutput_sdl3.cpp.o
 .PHONY : __/ATAudio/source/audiooutput_sdl3.cpp.o
 
 __/ATAudio/source/audiooutput_sdl3.i: __/ATAudio/source/audiooutput_sdl3.cpp.i
@@ -143,7 +143,7 @@ __/ATAudio/source/audiooutput_sdl3.i: __/ATAudio/source/audiooutput_sdl3.cpp.i
 
 # target to preprocess a source file
 __/ATAudio/source/audiooutput_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/ATAudio/source/audiooutput_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/ATAudio/source/audiooutput_sdl3.cpp.i
 .PHONY : __/ATAudio/source/audiooutput_sdl3.cpp.i
 
 __/ATAudio/source/audiooutput_sdl3.s: __/ATAudio/source/audiooutput_sdl3.cpp.s
@@ -151,7 +151,7 @@ __/ATAudio/source/audiooutput_sdl3.s: __/ATAudio/source/audiooutput_sdl3.cpp.s
 
 # target to generate assembly for a file
 __/ATAudio/source/audiooutput_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/ATAudio/source/audiooutput_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/ATAudio/source/audiooutput_sdl3.cpp.s
 .PHONY : __/ATAudio/source/audiooutput_sdl3.cpp.s
 
 __/Altirra/source/1025full.o: __/Altirra/source/1025full.cpp.o
@@ -159,7 +159,7 @@ __/Altirra/source/1025full.o: __/Altirra/source/1025full.cpp.o
 
 # target to build an object file
 __/Altirra/source/1025full.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1025full.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1025full.cpp.o
 .PHONY : __/Altirra/source/1025full.cpp.o
 
 __/Altirra/source/1025full.i: __/Altirra/source/1025full.cpp.i
@@ -167,7 +167,7 @@ __/Altirra/source/1025full.i: __/Altirra/source/1025full.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/1025full.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1025full.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1025full.cpp.i
 .PHONY : __/Altirra/source/1025full.cpp.i
 
 __/Altirra/source/1025full.s: __/Altirra/source/1025full.cpp.s
@@ -175,7 +175,7 @@ __/Altirra/source/1025full.s: __/Altirra/source/1025full.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/1025full.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1025full.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1025full.cpp.s
 .PHONY : __/Altirra/source/1025full.cpp.s
 
 __/Altirra/source/1029full.o: __/Altirra/source/1029full.cpp.o
@@ -183,7 +183,7 @@ __/Altirra/source/1029full.o: __/Altirra/source/1029full.cpp.o
 
 # target to build an object file
 __/Altirra/source/1029full.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1029full.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1029full.cpp.o
 .PHONY : __/Altirra/source/1029full.cpp.o
 
 __/Altirra/source/1029full.i: __/Altirra/source/1029full.cpp.i
@@ -191,7 +191,7 @@ __/Altirra/source/1029full.i: __/Altirra/source/1029full.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/1029full.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1029full.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1029full.cpp.i
 .PHONY : __/Altirra/source/1029full.cpp.i
 
 __/Altirra/source/1029full.s: __/Altirra/source/1029full.cpp.s
@@ -199,7 +199,7 @@ __/Altirra/source/1029full.s: __/Altirra/source/1029full.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/1029full.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1029full.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1029full.cpp.s
 .PHONY : __/Altirra/source/1029full.cpp.s
 
 __/Altirra/source/1030.o: __/Altirra/source/1030.cpp.o
@@ -207,7 +207,7 @@ __/Altirra/source/1030.o: __/Altirra/source/1030.cpp.o
 
 # target to build an object file
 __/Altirra/source/1030.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030.cpp.o
 .PHONY : __/Altirra/source/1030.cpp.o
 
 __/Altirra/source/1030.i: __/Altirra/source/1030.cpp.i
@@ -215,7 +215,7 @@ __/Altirra/source/1030.i: __/Altirra/source/1030.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/1030.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030.cpp.i
 .PHONY : __/Altirra/source/1030.cpp.i
 
 __/Altirra/source/1030.s: __/Altirra/source/1030.cpp.s
@@ -223,7 +223,7 @@ __/Altirra/source/1030.s: __/Altirra/source/1030.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/1030.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030.cpp.s
 .PHONY : __/Altirra/source/1030.cpp.s
 
 __/Altirra/source/1030full.o: __/Altirra/source/1030full.cpp.o
@@ -231,7 +231,7 @@ __/Altirra/source/1030full.o: __/Altirra/source/1030full.cpp.o
 
 # target to build an object file
 __/Altirra/source/1030full.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030full.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030full.cpp.o
 .PHONY : __/Altirra/source/1030full.cpp.o
 
 __/Altirra/source/1030full.i: __/Altirra/source/1030full.cpp.i
@@ -239,7 +239,7 @@ __/Altirra/source/1030full.i: __/Altirra/source/1030full.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/1030full.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030full.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030full.cpp.i
 .PHONY : __/Altirra/source/1030full.cpp.i
 
 __/Altirra/source/1030full.s: __/Altirra/source/1030full.cpp.s
@@ -247,7 +247,7 @@ __/Altirra/source/1030full.s: __/Altirra/source/1030full.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/1030full.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030full.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1030full.cpp.s
 .PHONY : __/Altirra/source/1030full.cpp.s
 
 __/Altirra/source/1090.o: __/Altirra/source/1090.cpp.o
@@ -255,7 +255,7 @@ __/Altirra/source/1090.o: __/Altirra/source/1090.cpp.o
 
 # target to build an object file
 __/Altirra/source/1090.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1090.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1090.cpp.o
 .PHONY : __/Altirra/source/1090.cpp.o
 
 __/Altirra/source/1090.i: __/Altirra/source/1090.cpp.i
@@ -263,7 +263,7 @@ __/Altirra/source/1090.i: __/Altirra/source/1090.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/1090.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1090.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1090.cpp.i
 .PHONY : __/Altirra/source/1090.cpp.i
 
 __/Altirra/source/1090.s: __/Altirra/source/1090.cpp.s
@@ -271,7 +271,7 @@ __/Altirra/source/1090.s: __/Altirra/source/1090.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/1090.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1090.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1090.cpp.s
 .PHONY : __/Altirra/source/1090.cpp.s
 
 __/Altirra/source/1400xl.o: __/Altirra/source/1400xl.cpp.o
@@ -279,7 +279,7 @@ __/Altirra/source/1400xl.o: __/Altirra/source/1400xl.cpp.o
 
 # target to build an object file
 __/Altirra/source/1400xl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1400xl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1400xl.cpp.o
 .PHONY : __/Altirra/source/1400xl.cpp.o
 
 __/Altirra/source/1400xl.i: __/Altirra/source/1400xl.cpp.i
@@ -287,7 +287,7 @@ __/Altirra/source/1400xl.i: __/Altirra/source/1400xl.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/1400xl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1400xl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1400xl.cpp.i
 .PHONY : __/Altirra/source/1400xl.cpp.i
 
 __/Altirra/source/1400xl.s: __/Altirra/source/1400xl.cpp.s
@@ -295,7 +295,7 @@ __/Altirra/source/1400xl.s: __/Altirra/source/1400xl.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/1400xl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1400xl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1400xl.cpp.s
 .PHONY : __/Altirra/source/1400xl.cpp.s
 
 __/Altirra/source/1450xld.o: __/Altirra/source/1450xld.cpp.o
@@ -303,7 +303,7 @@ __/Altirra/source/1450xld.o: __/Altirra/source/1450xld.cpp.o
 
 # target to build an object file
 __/Altirra/source/1450xld.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1450xld.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1450xld.cpp.o
 .PHONY : __/Altirra/source/1450xld.cpp.o
 
 __/Altirra/source/1450xld.i: __/Altirra/source/1450xld.cpp.i
@@ -311,7 +311,7 @@ __/Altirra/source/1450xld.i: __/Altirra/source/1450xld.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/1450xld.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1450xld.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1450xld.cpp.i
 .PHONY : __/Altirra/source/1450xld.cpp.i
 
 __/Altirra/source/1450xld.s: __/Altirra/source/1450xld.cpp.s
@@ -319,7 +319,7 @@ __/Altirra/source/1450xld.s: __/Altirra/source/1450xld.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/1450xld.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1450xld.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/1450xld.cpp.s
 .PHONY : __/Altirra/source/1450xld.cpp.s
 
 __/Altirra/source/820full.o: __/Altirra/source/820full.cpp.o
@@ -327,7 +327,7 @@ __/Altirra/source/820full.o: __/Altirra/source/820full.cpp.o
 
 # target to build an object file
 __/Altirra/source/820full.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/820full.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/820full.cpp.o
 .PHONY : __/Altirra/source/820full.cpp.o
 
 __/Altirra/source/820full.i: __/Altirra/source/820full.cpp.i
@@ -335,7 +335,7 @@ __/Altirra/source/820full.i: __/Altirra/source/820full.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/820full.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/820full.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/820full.cpp.i
 .PHONY : __/Altirra/source/820full.cpp.i
 
 __/Altirra/source/820full.s: __/Altirra/source/820full.cpp.s
@@ -343,7 +343,7 @@ __/Altirra/source/820full.s: __/Altirra/source/820full.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/820full.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/820full.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/820full.cpp.s
 .PHONY : __/Altirra/source/820full.cpp.s
 
 __/Altirra/source/850full.o: __/Altirra/source/850full.cpp.o
@@ -351,7 +351,7 @@ __/Altirra/source/850full.o: __/Altirra/source/850full.cpp.o
 
 # target to build an object file
 __/Altirra/source/850full.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/850full.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/850full.cpp.o
 .PHONY : __/Altirra/source/850full.cpp.o
 
 __/Altirra/source/850full.i: __/Altirra/source/850full.cpp.i
@@ -359,7 +359,7 @@ __/Altirra/source/850full.i: __/Altirra/source/850full.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/850full.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/850full.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/850full.cpp.i
 .PHONY : __/Altirra/source/850full.cpp.i
 
 __/Altirra/source/850full.s: __/Altirra/source/850full.cpp.s
@@ -367,7 +367,7 @@ __/Altirra/source/850full.s: __/Altirra/source/850full.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/850full.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/850full.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/850full.cpp.s
 .PHONY : __/Altirra/source/850full.cpp.s
 
 __/Altirra/source/antic.o: __/Altirra/source/antic.cpp.o
@@ -375,7 +375,7 @@ __/Altirra/source/antic.o: __/Altirra/source/antic.cpp.o
 
 # target to build an object file
 __/Altirra/source/antic.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/antic.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/antic.cpp.o
 .PHONY : __/Altirra/source/antic.cpp.o
 
 __/Altirra/source/antic.i: __/Altirra/source/antic.cpp.i
@@ -383,7 +383,7 @@ __/Altirra/source/antic.i: __/Altirra/source/antic.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/antic.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/antic.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/antic.cpp.i
 .PHONY : __/Altirra/source/antic.cpp.i
 
 __/Altirra/source/antic.s: __/Altirra/source/antic.cpp.s
@@ -391,7 +391,7 @@ __/Altirra/source/antic.s: __/Altirra/source/antic.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/antic.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/antic.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/antic.cpp.s
 .PHONY : __/Altirra/source/antic.cpp.s
 
 __/Altirra/source/artifacting.o: __/Altirra/source/artifacting.cpp.o
@@ -399,7 +399,7 @@ __/Altirra/source/artifacting.o: __/Altirra/source/artifacting.cpp.o
 
 # target to build an object file
 __/Altirra/source/artifacting.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting.cpp.o
 .PHONY : __/Altirra/source/artifacting.cpp.o
 
 __/Altirra/source/artifacting.i: __/Altirra/source/artifacting.cpp.i
@@ -407,7 +407,7 @@ __/Altirra/source/artifacting.i: __/Altirra/source/artifacting.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/artifacting.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting.cpp.i
 .PHONY : __/Altirra/source/artifacting.cpp.i
 
 __/Altirra/source/artifacting.s: __/Altirra/source/artifacting.cpp.s
@@ -415,7 +415,7 @@ __/Altirra/source/artifacting.s: __/Altirra/source/artifacting.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/artifacting.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting.cpp.s
 .PHONY : __/Altirra/source/artifacting.cpp.s
 
 __/Altirra/source/artifacting_filters.o: __/Altirra/source/artifacting_filters.cpp.o
@@ -423,7 +423,7 @@ __/Altirra/source/artifacting_filters.o: __/Altirra/source/artifacting_filters.c
 
 # target to build an object file
 __/Altirra/source/artifacting_filters.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_filters.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_filters.cpp.o
 .PHONY : __/Altirra/source/artifacting_filters.cpp.o
 
 __/Altirra/source/artifacting_filters.i: __/Altirra/source/artifacting_filters.cpp.i
@@ -431,7 +431,7 @@ __/Altirra/source/artifacting_filters.i: __/Altirra/source/artifacting_filters.c
 
 # target to preprocess a source file
 __/Altirra/source/artifacting_filters.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_filters.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_filters.cpp.i
 .PHONY : __/Altirra/source/artifacting_filters.cpp.i
 
 __/Altirra/source/artifacting_filters.s: __/Altirra/source/artifacting_filters.cpp.s
@@ -439,7 +439,7 @@ __/Altirra/source/artifacting_filters.s: __/Altirra/source/artifacting_filters.c
 
 # target to generate assembly for a file
 __/Altirra/source/artifacting_filters.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_filters.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_filters.cpp.s
 .PHONY : __/Altirra/source/artifacting_filters.cpp.s
 
 __/Altirra/source/artifacting_ntsc_sse2.o: __/Altirra/source/artifacting_ntsc_sse2.cpp.o
@@ -447,7 +447,7 @@ __/Altirra/source/artifacting_ntsc_sse2.o: __/Altirra/source/artifacting_ntsc_ss
 
 # target to build an object file
 __/Altirra/source/artifacting_ntsc_sse2.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2.cpp.o
 .PHONY : __/Altirra/source/artifacting_ntsc_sse2.cpp.o
 
 __/Altirra/source/artifacting_ntsc_sse2.i: __/Altirra/source/artifacting_ntsc_sse2.cpp.i
@@ -455,7 +455,7 @@ __/Altirra/source/artifacting_ntsc_sse2.i: __/Altirra/source/artifacting_ntsc_ss
 
 # target to preprocess a source file
 __/Altirra/source/artifacting_ntsc_sse2.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2.cpp.i
 .PHONY : __/Altirra/source/artifacting_ntsc_sse2.cpp.i
 
 __/Altirra/source/artifacting_ntsc_sse2.s: __/Altirra/source/artifacting_ntsc_sse2.cpp.s
@@ -463,7 +463,7 @@ __/Altirra/source/artifacting_ntsc_sse2.s: __/Altirra/source/artifacting_ntsc_ss
 
 # target to generate assembly for a file
 __/Altirra/source/artifacting_ntsc_sse2.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2.cpp.s
 .PHONY : __/Altirra/source/artifacting_ntsc_sse2.cpp.s
 
 __/Altirra/source/artifacting_ntsc_sse2_intrin.o: __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.o
@@ -471,7 +471,7 @@ __/Altirra/source/artifacting_ntsc_sse2_intrin.o: __/Altirra/source/artifacting_
 
 # target to build an object file
 __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.o
 .PHONY : __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.o
 
 __/Altirra/source/artifacting_ntsc_sse2_intrin.i: __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.i
@@ -479,7 +479,7 @@ __/Altirra/source/artifacting_ntsc_sse2_intrin.i: __/Altirra/source/artifacting_
 
 # target to preprocess a source file
 __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.i
 .PHONY : __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.i
 
 __/Altirra/source/artifacting_ntsc_sse2_intrin.s: __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.s
@@ -487,7 +487,7 @@ __/Altirra/source/artifacting_ntsc_sse2_intrin.s: __/Altirra/source/artifacting_
 
 # target to generate assembly for a file
 __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.s
 .PHONY : __/Altirra/source/artifacting_ntsc_sse2_intrin.cpp.s
 
 __/Altirra/source/artifacting_pal_scalar.o: __/Altirra/source/artifacting_pal_scalar.cpp.o
@@ -495,7 +495,7 @@ __/Altirra/source/artifacting_pal_scalar.o: __/Altirra/source/artifacting_pal_sc
 
 # target to build an object file
 __/Altirra/source/artifacting_pal_scalar.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_scalar.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_scalar.cpp.o
 .PHONY : __/Altirra/source/artifacting_pal_scalar.cpp.o
 
 __/Altirra/source/artifacting_pal_scalar.i: __/Altirra/source/artifacting_pal_scalar.cpp.i
@@ -503,7 +503,7 @@ __/Altirra/source/artifacting_pal_scalar.i: __/Altirra/source/artifacting_pal_sc
 
 # target to preprocess a source file
 __/Altirra/source/artifacting_pal_scalar.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_scalar.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_scalar.cpp.i
 .PHONY : __/Altirra/source/artifacting_pal_scalar.cpp.i
 
 __/Altirra/source/artifacting_pal_scalar.s: __/Altirra/source/artifacting_pal_scalar.cpp.s
@@ -511,7 +511,7 @@ __/Altirra/source/artifacting_pal_scalar.s: __/Altirra/source/artifacting_pal_sc
 
 # target to generate assembly for a file
 __/Altirra/source/artifacting_pal_scalar.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_scalar.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_scalar.cpp.s
 .PHONY : __/Altirra/source/artifacting_pal_scalar.cpp.s
 
 __/Altirra/source/artifacting_pal_sse2.o: __/Altirra/source/artifacting_pal_sse2.cpp.o
@@ -519,7 +519,7 @@ __/Altirra/source/artifacting_pal_sse2.o: __/Altirra/source/artifacting_pal_sse2
 
 # target to build an object file
 __/Altirra/source/artifacting_pal_sse2.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2.cpp.o
 .PHONY : __/Altirra/source/artifacting_pal_sse2.cpp.o
 
 __/Altirra/source/artifacting_pal_sse2.i: __/Altirra/source/artifacting_pal_sse2.cpp.i
@@ -527,7 +527,7 @@ __/Altirra/source/artifacting_pal_sse2.i: __/Altirra/source/artifacting_pal_sse2
 
 # target to preprocess a source file
 __/Altirra/source/artifacting_pal_sse2.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2.cpp.i
 .PHONY : __/Altirra/source/artifacting_pal_sse2.cpp.i
 
 __/Altirra/source/artifacting_pal_sse2.s: __/Altirra/source/artifacting_pal_sse2.cpp.s
@@ -535,7 +535,7 @@ __/Altirra/source/artifacting_pal_sse2.s: __/Altirra/source/artifacting_pal_sse2
 
 # target to generate assembly for a file
 __/Altirra/source/artifacting_pal_sse2.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2.cpp.s
 .PHONY : __/Altirra/source/artifacting_pal_sse2.cpp.s
 
 __/Altirra/source/artifacting_pal_sse2_intrin.o: __/Altirra/source/artifacting_pal_sse2_intrin.cpp.o
@@ -543,7 +543,7 @@ __/Altirra/source/artifacting_pal_sse2_intrin.o: __/Altirra/source/artifacting_p
 
 # target to build an object file
 __/Altirra/source/artifacting_pal_sse2_intrin.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2_intrin.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2_intrin.cpp.o
 .PHONY : __/Altirra/source/artifacting_pal_sse2_intrin.cpp.o
 
 __/Altirra/source/artifacting_pal_sse2_intrin.i: __/Altirra/source/artifacting_pal_sse2_intrin.cpp.i
@@ -551,7 +551,7 @@ __/Altirra/source/artifacting_pal_sse2_intrin.i: __/Altirra/source/artifacting_p
 
 # target to preprocess a source file
 __/Altirra/source/artifacting_pal_sse2_intrin.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2_intrin.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2_intrin.cpp.i
 .PHONY : __/Altirra/source/artifacting_pal_sse2_intrin.cpp.i
 
 __/Altirra/source/artifacting_pal_sse2_intrin.s: __/Altirra/source/artifacting_pal_sse2_intrin.cpp.s
@@ -559,7 +559,7 @@ __/Altirra/source/artifacting_pal_sse2_intrin.s: __/Altirra/source/artifacting_p
 
 # target to generate assembly for a file
 __/Altirra/source/artifacting_pal_sse2_intrin.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2_intrin.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_pal_sse2_intrin.cpp.s
 .PHONY : __/Altirra/source/artifacting_pal_sse2_intrin.cpp.s
 
 __/Altirra/source/artifacting_sse2_intrin.o: __/Altirra/source/artifacting_sse2_intrin.cpp.o
@@ -567,7 +567,7 @@ __/Altirra/source/artifacting_sse2_intrin.o: __/Altirra/source/artifacting_sse2_
 
 # target to build an object file
 __/Altirra/source/artifacting_sse2_intrin.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_sse2_intrin.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_sse2_intrin.cpp.o
 .PHONY : __/Altirra/source/artifacting_sse2_intrin.cpp.o
 
 __/Altirra/source/artifacting_sse2_intrin.i: __/Altirra/source/artifacting_sse2_intrin.cpp.i
@@ -575,7 +575,7 @@ __/Altirra/source/artifacting_sse2_intrin.i: __/Altirra/source/artifacting_sse2_
 
 # target to preprocess a source file
 __/Altirra/source/artifacting_sse2_intrin.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_sse2_intrin.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_sse2_intrin.cpp.i
 .PHONY : __/Altirra/source/artifacting_sse2_intrin.cpp.i
 
 __/Altirra/source/artifacting_sse2_intrin.s: __/Altirra/source/artifacting_sse2_intrin.cpp.s
@@ -583,7 +583,7 @@ __/Altirra/source/artifacting_sse2_intrin.s: __/Altirra/source/artifacting_sse2_
 
 # target to generate assembly for a file
 __/Altirra/source/artifacting_sse2_intrin.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_sse2_intrin.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/artifacting_sse2_intrin.cpp.s
 .PHONY : __/Altirra/source/artifacting_sse2_intrin.cpp.s
 
 __/Altirra/source/assembler.o: __/Altirra/source/assembler.cpp.o
@@ -591,7 +591,7 @@ __/Altirra/source/assembler.o: __/Altirra/source/assembler.cpp.o
 
 # target to build an object file
 __/Altirra/source/assembler.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/assembler.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/assembler.cpp.o
 .PHONY : __/Altirra/source/assembler.cpp.o
 
 __/Altirra/source/assembler.i: __/Altirra/source/assembler.cpp.i
@@ -599,7 +599,7 @@ __/Altirra/source/assembler.i: __/Altirra/source/assembler.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/assembler.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/assembler.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/assembler.cpp.i
 .PHONY : __/Altirra/source/assembler.cpp.i
 
 __/Altirra/source/assembler.s: __/Altirra/source/assembler.cpp.s
@@ -607,7 +607,7 @@ __/Altirra/source/assembler.s: __/Altirra/source/assembler.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/assembler.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/assembler.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/assembler.cpp.s
 .PHONY : __/Altirra/source/assembler.cpp.s
 
 __/Altirra/source/audiomonitor.o: __/Altirra/source/audiomonitor.cpp.o
@@ -615,7 +615,7 @@ __/Altirra/source/audiomonitor.o: __/Altirra/source/audiomonitor.cpp.o
 
 # target to build an object file
 __/Altirra/source/audiomonitor.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiomonitor.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiomonitor.cpp.o
 .PHONY : __/Altirra/source/audiomonitor.cpp.o
 
 __/Altirra/source/audiomonitor.i: __/Altirra/source/audiomonitor.cpp.i
@@ -623,7 +623,7 @@ __/Altirra/source/audiomonitor.i: __/Altirra/source/audiomonitor.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/audiomonitor.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiomonitor.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiomonitor.cpp.i
 .PHONY : __/Altirra/source/audiomonitor.cpp.i
 
 __/Altirra/source/audiomonitor.s: __/Altirra/source/audiomonitor.cpp.s
@@ -631,7 +631,7 @@ __/Altirra/source/audiomonitor.s: __/Altirra/source/audiomonitor.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/audiomonitor.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiomonitor.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiomonitor.cpp.s
 .PHONY : __/Altirra/source/audiomonitor.cpp.s
 
 __/Altirra/source/audiorawsource.o: __/Altirra/source/audiorawsource.cpp.o
@@ -639,7 +639,7 @@ __/Altirra/source/audiorawsource.o: __/Altirra/source/audiorawsource.cpp.o
 
 # target to build an object file
 __/Altirra/source/audiorawsource.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiorawsource.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiorawsource.cpp.o
 .PHONY : __/Altirra/source/audiorawsource.cpp.o
 
 __/Altirra/source/audiorawsource.i: __/Altirra/source/audiorawsource.cpp.i
@@ -647,7 +647,7 @@ __/Altirra/source/audiorawsource.i: __/Altirra/source/audiorawsource.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/audiorawsource.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiorawsource.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiorawsource.cpp.i
 .PHONY : __/Altirra/source/audiorawsource.cpp.i
 
 __/Altirra/source/audiorawsource.s: __/Altirra/source/audiorawsource.cpp.s
@@ -655,7 +655,7 @@ __/Altirra/source/audiorawsource.s: __/Altirra/source/audiorawsource.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/audiorawsource.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiorawsource.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiorawsource.cpp.s
 .PHONY : __/Altirra/source/audiorawsource.cpp.s
 
 __/Altirra/source/audiosampleplayer.o: __/Altirra/source/audiosampleplayer.cpp.o
@@ -663,7 +663,7 @@ __/Altirra/source/audiosampleplayer.o: __/Altirra/source/audiosampleplayer.cpp.o
 
 # target to build an object file
 __/Altirra/source/audiosampleplayer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiosampleplayer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiosampleplayer.cpp.o
 .PHONY : __/Altirra/source/audiosampleplayer.cpp.o
 
 __/Altirra/source/audiosampleplayer.i: __/Altirra/source/audiosampleplayer.cpp.i
@@ -671,7 +671,7 @@ __/Altirra/source/audiosampleplayer.i: __/Altirra/source/audiosampleplayer.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/audiosampleplayer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiosampleplayer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiosampleplayer.cpp.i
 .PHONY : __/Altirra/source/audiosampleplayer.cpp.i
 
 __/Altirra/source/audiosampleplayer.s: __/Altirra/source/audiosampleplayer.cpp.s
@@ -679,7 +679,7 @@ __/Altirra/source/audiosampleplayer.s: __/Altirra/source/audiosampleplayer.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/audiosampleplayer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiosampleplayer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiosampleplayer.cpp.s
 .PHONY : __/Altirra/source/audiosampleplayer.cpp.s
 
 __/Altirra/source/audiostocksamples.o: __/Altirra/source/audiostocksamples.cpp.o
@@ -687,7 +687,7 @@ __/Altirra/source/audiostocksamples.o: __/Altirra/source/audiostocksamples.cpp.o
 
 # target to build an object file
 __/Altirra/source/audiostocksamples.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiostocksamples.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiostocksamples.cpp.o
 .PHONY : __/Altirra/source/audiostocksamples.cpp.o
 
 __/Altirra/source/audiostocksamples.i: __/Altirra/source/audiostocksamples.cpp.i
@@ -695,7 +695,7 @@ __/Altirra/source/audiostocksamples.i: __/Altirra/source/audiostocksamples.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/audiostocksamples.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiostocksamples.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiostocksamples.cpp.i
 .PHONY : __/Altirra/source/audiostocksamples.cpp.i
 
 __/Altirra/source/audiostocksamples.s: __/Altirra/source/audiostocksamples.cpp.s
@@ -703,7 +703,7 @@ __/Altirra/source/audiostocksamples.s: __/Altirra/source/audiostocksamples.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/audiostocksamples.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiostocksamples.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiostocksamples.cpp.s
 .PHONY : __/Altirra/source/audiostocksamples.cpp.s
 
 __/Altirra/source/audiowriter.o: __/Altirra/source/audiowriter.cpp.o
@@ -711,7 +711,7 @@ __/Altirra/source/audiowriter.o: __/Altirra/source/audiowriter.cpp.o
 
 # target to build an object file
 __/Altirra/source/audiowriter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiowriter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiowriter.cpp.o
 .PHONY : __/Altirra/source/audiowriter.cpp.o
 
 __/Altirra/source/audiowriter.i: __/Altirra/source/audiowriter.cpp.i
@@ -719,7 +719,7 @@ __/Altirra/source/audiowriter.i: __/Altirra/source/audiowriter.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/audiowriter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiowriter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiowriter.cpp.i
 .PHONY : __/Altirra/source/audiowriter.cpp.i
 
 __/Altirra/source/audiowriter.s: __/Altirra/source/audiowriter.cpp.s
@@ -727,7 +727,7 @@ __/Altirra/source/audiowriter.s: __/Altirra/source/audiowriter.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/audiowriter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiowriter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/audiowriter.cpp.s
 .PHONY : __/Altirra/source/audiowriter.cpp.s
 
 __/Altirra/source/autosavemanager.o: __/Altirra/source/autosavemanager.cpp.o
@@ -735,7 +735,7 @@ __/Altirra/source/autosavemanager.o: __/Altirra/source/autosavemanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/autosavemanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/autosavemanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/autosavemanager.cpp.o
 .PHONY : __/Altirra/source/autosavemanager.cpp.o
 
 __/Altirra/source/autosavemanager.i: __/Altirra/source/autosavemanager.cpp.i
@@ -743,7 +743,7 @@ __/Altirra/source/autosavemanager.i: __/Altirra/source/autosavemanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/autosavemanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/autosavemanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/autosavemanager.cpp.i
 .PHONY : __/Altirra/source/autosavemanager.cpp.i
 
 __/Altirra/source/autosavemanager.s: __/Altirra/source/autosavemanager.cpp.s
@@ -751,7 +751,7 @@ __/Altirra/source/autosavemanager.s: __/Altirra/source/autosavemanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/autosavemanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/autosavemanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/autosavemanager.cpp.s
 .PHONY : __/Altirra/source/autosavemanager.cpp.s
 
 __/Altirra/source/bit3.o: __/Altirra/source/bit3.cpp.o
@@ -759,7 +759,7 @@ __/Altirra/source/bit3.o: __/Altirra/source/bit3.cpp.o
 
 # target to build an object file
 __/Altirra/source/bit3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bit3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bit3.cpp.o
 .PHONY : __/Altirra/source/bit3.cpp.o
 
 __/Altirra/source/bit3.i: __/Altirra/source/bit3.cpp.i
@@ -767,7 +767,7 @@ __/Altirra/source/bit3.i: __/Altirra/source/bit3.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/bit3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bit3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bit3.cpp.i
 .PHONY : __/Altirra/source/bit3.cpp.i
 
 __/Altirra/source/bit3.s: __/Altirra/source/bit3.cpp.s
@@ -775,7 +775,7 @@ __/Altirra/source/bit3.s: __/Altirra/source/bit3.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/bit3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bit3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bit3.cpp.s
 .PHONY : __/Altirra/source/bit3.cpp.s
 
 __/Altirra/source/bkptmanager.o: __/Altirra/source/bkptmanager.cpp.o
@@ -783,7 +783,7 @@ __/Altirra/source/bkptmanager.o: __/Altirra/source/bkptmanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/bkptmanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bkptmanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bkptmanager.cpp.o
 .PHONY : __/Altirra/source/bkptmanager.cpp.o
 
 __/Altirra/source/bkptmanager.i: __/Altirra/source/bkptmanager.cpp.i
@@ -791,7 +791,7 @@ __/Altirra/source/bkptmanager.i: __/Altirra/source/bkptmanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/bkptmanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bkptmanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bkptmanager.cpp.i
 .PHONY : __/Altirra/source/bkptmanager.cpp.i
 
 __/Altirra/source/bkptmanager.s: __/Altirra/source/bkptmanager.cpp.s
@@ -799,7 +799,7 @@ __/Altirra/source/bkptmanager.s: __/Altirra/source/bkptmanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/bkptmanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bkptmanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/bkptmanager.cpp.s
 .PHONY : __/Altirra/source/bkptmanager.cpp.s
 
 __/Altirra/source/blackbox.o: __/Altirra/source/blackbox.cpp.o
@@ -807,7 +807,7 @@ __/Altirra/source/blackbox.o: __/Altirra/source/blackbox.cpp.o
 
 # target to build an object file
 __/Altirra/source/blackbox.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackbox.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackbox.cpp.o
 .PHONY : __/Altirra/source/blackbox.cpp.o
 
 __/Altirra/source/blackbox.i: __/Altirra/source/blackbox.cpp.i
@@ -815,7 +815,7 @@ __/Altirra/source/blackbox.i: __/Altirra/source/blackbox.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/blackbox.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackbox.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackbox.cpp.i
 .PHONY : __/Altirra/source/blackbox.cpp.i
 
 __/Altirra/source/blackbox.s: __/Altirra/source/blackbox.cpp.s
@@ -823,7 +823,7 @@ __/Altirra/source/blackbox.s: __/Altirra/source/blackbox.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/blackbox.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackbox.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackbox.cpp.s
 .PHONY : __/Altirra/source/blackbox.cpp.s
 
 __/Altirra/source/blackboxfloppy.o: __/Altirra/source/blackboxfloppy.cpp.o
@@ -831,7 +831,7 @@ __/Altirra/source/blackboxfloppy.o: __/Altirra/source/blackboxfloppy.cpp.o
 
 # target to build an object file
 __/Altirra/source/blackboxfloppy.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackboxfloppy.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackboxfloppy.cpp.o
 .PHONY : __/Altirra/source/blackboxfloppy.cpp.o
 
 __/Altirra/source/blackboxfloppy.i: __/Altirra/source/blackboxfloppy.cpp.i
@@ -839,7 +839,7 @@ __/Altirra/source/blackboxfloppy.i: __/Altirra/source/blackboxfloppy.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/blackboxfloppy.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackboxfloppy.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackboxfloppy.cpp.i
 .PHONY : __/Altirra/source/blackboxfloppy.cpp.i
 
 __/Altirra/source/blackboxfloppy.s: __/Altirra/source/blackboxfloppy.cpp.s
@@ -847,7 +847,7 @@ __/Altirra/source/blackboxfloppy.s: __/Altirra/source/blackboxfloppy.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/blackboxfloppy.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackboxfloppy.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blackboxfloppy.cpp.s
 .PHONY : __/Altirra/source/blackboxfloppy.cpp.s
 
 __/Altirra/source/blockdevdiskadapter.o: __/Altirra/source/blockdevdiskadapter.cpp.o
@@ -855,7 +855,7 @@ __/Altirra/source/blockdevdiskadapter.o: __/Altirra/source/blockdevdiskadapter.c
 
 # target to build an object file
 __/Altirra/source/blockdevdiskadapter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevdiskadapter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevdiskadapter.cpp.o
 .PHONY : __/Altirra/source/blockdevdiskadapter.cpp.o
 
 __/Altirra/source/blockdevdiskadapter.i: __/Altirra/source/blockdevdiskadapter.cpp.i
@@ -863,7 +863,7 @@ __/Altirra/source/blockdevdiskadapter.i: __/Altirra/source/blockdevdiskadapter.c
 
 # target to preprocess a source file
 __/Altirra/source/blockdevdiskadapter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevdiskadapter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevdiskadapter.cpp.i
 .PHONY : __/Altirra/source/blockdevdiskadapter.cpp.i
 
 __/Altirra/source/blockdevdiskadapter.s: __/Altirra/source/blockdevdiskadapter.cpp.s
@@ -871,7 +871,7 @@ __/Altirra/source/blockdevdiskadapter.s: __/Altirra/source/blockdevdiskadapter.c
 
 # target to generate assembly for a file
 __/Altirra/source/blockdevdiskadapter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevdiskadapter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevdiskadapter.cpp.s
 .PHONY : __/Altirra/source/blockdevdiskadapter.cpp.s
 
 __/Altirra/source/blockdevvirtfat32.o: __/Altirra/source/blockdevvirtfat32.cpp.o
@@ -879,7 +879,7 @@ __/Altirra/source/blockdevvirtfat32.o: __/Altirra/source/blockdevvirtfat32.cpp.o
 
 # target to build an object file
 __/Altirra/source/blockdevvirtfat32.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevvirtfat32.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevvirtfat32.cpp.o
 .PHONY : __/Altirra/source/blockdevvirtfat32.cpp.o
 
 __/Altirra/source/blockdevvirtfat32.i: __/Altirra/source/blockdevvirtfat32.cpp.i
@@ -887,7 +887,7 @@ __/Altirra/source/blockdevvirtfat32.i: __/Altirra/source/blockdevvirtfat32.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/blockdevvirtfat32.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevvirtfat32.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevvirtfat32.cpp.i
 .PHONY : __/Altirra/source/blockdevvirtfat32.cpp.i
 
 __/Altirra/source/blockdevvirtfat32.s: __/Altirra/source/blockdevvirtfat32.cpp.s
@@ -895,7 +895,7 @@ __/Altirra/source/blockdevvirtfat32.s: __/Altirra/source/blockdevvirtfat32.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/blockdevvirtfat32.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevvirtfat32.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/blockdevvirtfat32.cpp.s
 .PHONY : __/Altirra/source/blockdevvirtfat32.cpp.s
 
 __/Altirra/source/browser.o: __/Altirra/source/browser.cpp.o
@@ -903,7 +903,7 @@ __/Altirra/source/browser.o: __/Altirra/source/browser.cpp.o
 
 # target to build an object file
 __/Altirra/source/browser.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/browser.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/browser.cpp.o
 .PHONY : __/Altirra/source/browser.cpp.o
 
 __/Altirra/source/browser.i: __/Altirra/source/browser.cpp.i
@@ -911,7 +911,7 @@ __/Altirra/source/browser.i: __/Altirra/source/browser.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/browser.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/browser.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/browser.cpp.i
 .PHONY : __/Altirra/source/browser.cpp.i
 
 __/Altirra/source/browser.s: __/Altirra/source/browser.cpp.s
@@ -919,7 +919,7 @@ __/Altirra/source/browser.s: __/Altirra/source/browser.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/browser.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/browser.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/browser.cpp.s
 .PHONY : __/Altirra/source/browser.cpp.s
 
 __/Altirra/source/cartdetect.o: __/Altirra/source/cartdetect.cpp.o
@@ -927,7 +927,7 @@ __/Altirra/source/cartdetect.o: __/Altirra/source/cartdetect.cpp.o
 
 # target to build an object file
 __/Altirra/source/cartdetect.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartdetect.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartdetect.cpp.o
 .PHONY : __/Altirra/source/cartdetect.cpp.o
 
 __/Altirra/source/cartdetect.i: __/Altirra/source/cartdetect.cpp.i
@@ -935,7 +935,7 @@ __/Altirra/source/cartdetect.i: __/Altirra/source/cartdetect.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cartdetect.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartdetect.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartdetect.cpp.i
 .PHONY : __/Altirra/source/cartdetect.cpp.i
 
 __/Altirra/source/cartdetect.s: __/Altirra/source/cartdetect.cpp.s
@@ -943,7 +943,7 @@ __/Altirra/source/cartdetect.s: __/Altirra/source/cartdetect.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cartdetect.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartdetect.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartdetect.cpp.s
 .PHONY : __/Altirra/source/cartdetect.cpp.s
 
 __/Altirra/source/cartridge.o: __/Altirra/source/cartridge.cpp.o
@@ -951,7 +951,7 @@ __/Altirra/source/cartridge.o: __/Altirra/source/cartridge.cpp.o
 
 # target to build an object file
 __/Altirra/source/cartridge.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridge.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridge.cpp.o
 .PHONY : __/Altirra/source/cartridge.cpp.o
 
 __/Altirra/source/cartridge.i: __/Altirra/source/cartridge.cpp.i
@@ -959,7 +959,7 @@ __/Altirra/source/cartridge.i: __/Altirra/source/cartridge.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cartridge.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridge.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridge.cpp.i
 .PHONY : __/Altirra/source/cartridge.cpp.i
 
 __/Altirra/source/cartridge.s: __/Altirra/source/cartridge.cpp.s
@@ -967,7 +967,7 @@ __/Altirra/source/cartridge.s: __/Altirra/source/cartridge.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cartridge.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridge.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridge.cpp.s
 .PHONY : __/Altirra/source/cartridge.cpp.s
 
 __/Altirra/source/cartridgeport.o: __/Altirra/source/cartridgeport.cpp.o
@@ -975,7 +975,7 @@ __/Altirra/source/cartridgeport.o: __/Altirra/source/cartridgeport.cpp.o
 
 # target to build an object file
 __/Altirra/source/cartridgeport.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridgeport.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridgeport.cpp.o
 .PHONY : __/Altirra/source/cartridgeport.cpp.o
 
 __/Altirra/source/cartridgeport.i: __/Altirra/source/cartridgeport.cpp.i
@@ -983,7 +983,7 @@ __/Altirra/source/cartridgeport.i: __/Altirra/source/cartridgeport.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cartridgeport.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridgeport.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridgeport.cpp.i
 .PHONY : __/Altirra/source/cartridgeport.cpp.i
 
 __/Altirra/source/cartridgeport.s: __/Altirra/source/cartridgeport.cpp.s
@@ -991,7 +991,7 @@ __/Altirra/source/cartridgeport.s: __/Altirra/source/cartridgeport.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cartridgeport.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridgeport.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cartridgeport.cpp.s
 .PHONY : __/Altirra/source/cartridgeport.cpp.s
 
 __/Altirra/source/cassette.o: __/Altirra/source/cassette.cpp.o
@@ -999,7 +999,7 @@ __/Altirra/source/cassette.o: __/Altirra/source/cassette.cpp.o
 
 # target to build an object file
 __/Altirra/source/cassette.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cassette.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cassette.cpp.o
 .PHONY : __/Altirra/source/cassette.cpp.o
 
 __/Altirra/source/cassette.i: __/Altirra/source/cassette.cpp.i
@@ -1007,7 +1007,7 @@ __/Altirra/source/cassette.i: __/Altirra/source/cassette.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cassette.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cassette.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cassette.cpp.i
 .PHONY : __/Altirra/source/cassette.cpp.i
 
 __/Altirra/source/cassette.s: __/Altirra/source/cassette.cpp.s
@@ -1015,7 +1015,7 @@ __/Altirra/source/cassette.s: __/Altirra/source/cassette.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cassette.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cassette.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cassette.cpp.s
 .PHONY : __/Altirra/source/cassette.cpp.s
 
 __/Altirra/source/cheatengine.o: __/Altirra/source/cheatengine.cpp.o
@@ -1023,7 +1023,7 @@ __/Altirra/source/cheatengine.o: __/Altirra/source/cheatengine.cpp.o
 
 # target to build an object file
 __/Altirra/source/cheatengine.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cheatengine.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cheatengine.cpp.o
 .PHONY : __/Altirra/source/cheatengine.cpp.o
 
 __/Altirra/source/cheatengine.i: __/Altirra/source/cheatengine.cpp.i
@@ -1031,7 +1031,7 @@ __/Altirra/source/cheatengine.i: __/Altirra/source/cheatengine.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cheatengine.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cheatengine.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cheatengine.cpp.i
 .PHONY : __/Altirra/source/cheatengine.cpp.i
 
 __/Altirra/source/cheatengine.s: __/Altirra/source/cheatengine.cpp.s
@@ -1039,7 +1039,7 @@ __/Altirra/source/cheatengine.s: __/Altirra/source/cheatengine.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cheatengine.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cheatengine.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cheatengine.cpp.s
 .PHONY : __/Altirra/source/cheatengine.cpp.s
 
 __/Altirra/source/common_png.o: __/Altirra/source/common_png.cpp.o
@@ -1047,7 +1047,7 @@ __/Altirra/source/common_png.o: __/Altirra/source/common_png.cpp.o
 
 # target to build an object file
 __/Altirra/source/common_png.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/common_png.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/common_png.cpp.o
 .PHONY : __/Altirra/source/common_png.cpp.o
 
 __/Altirra/source/common_png.i: __/Altirra/source/common_png.cpp.i
@@ -1055,7 +1055,7 @@ __/Altirra/source/common_png.i: __/Altirra/source/common_png.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/common_png.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/common_png.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/common_png.cpp.i
 .PHONY : __/Altirra/source/common_png.cpp.i
 
 __/Altirra/source/common_png.s: __/Altirra/source/common_png.cpp.s
@@ -1063,7 +1063,7 @@ __/Altirra/source/common_png.s: __/Altirra/source/common_png.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/common_png.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/common_png.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/common_png.cpp.s
 .PHONY : __/Altirra/source/common_png.cpp.s
 
 __/Altirra/source/compatdb.o: __/Altirra/source/compatdb.cpp.o
@@ -1071,7 +1071,7 @@ __/Altirra/source/compatdb.o: __/Altirra/source/compatdb.cpp.o
 
 # target to build an object file
 __/Altirra/source/compatdb.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatdb.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatdb.cpp.o
 .PHONY : __/Altirra/source/compatdb.cpp.o
 
 __/Altirra/source/compatdb.i: __/Altirra/source/compatdb.cpp.i
@@ -1079,7 +1079,7 @@ __/Altirra/source/compatdb.i: __/Altirra/source/compatdb.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/compatdb.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatdb.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatdb.cpp.i
 .PHONY : __/Altirra/source/compatdb.cpp.i
 
 __/Altirra/source/compatdb.s: __/Altirra/source/compatdb.cpp.s
@@ -1087,7 +1087,7 @@ __/Altirra/source/compatdb.s: __/Altirra/source/compatdb.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/compatdb.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatdb.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatdb.cpp.s
 .PHONY : __/Altirra/source/compatdb.cpp.s
 
 __/Altirra/source/compatedb.o: __/Altirra/source/compatedb.cpp.o
@@ -1095,7 +1095,7 @@ __/Altirra/source/compatedb.o: __/Altirra/source/compatedb.cpp.o
 
 # target to build an object file
 __/Altirra/source/compatedb.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatedb.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatedb.cpp.o
 .PHONY : __/Altirra/source/compatedb.cpp.o
 
 __/Altirra/source/compatedb.i: __/Altirra/source/compatedb.cpp.i
@@ -1103,7 +1103,7 @@ __/Altirra/source/compatedb.i: __/Altirra/source/compatedb.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/compatedb.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatedb.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatedb.cpp.i
 .PHONY : __/Altirra/source/compatedb.cpp.i
 
 __/Altirra/source/compatedb.s: __/Altirra/source/compatedb.cpp.s
@@ -1111,7 +1111,7 @@ __/Altirra/source/compatedb.s: __/Altirra/source/compatedb.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/compatedb.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatedb.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatedb.cpp.s
 .PHONY : __/Altirra/source/compatedb.cpp.s
 
 __/Altirra/source/compatengine.o: __/Altirra/source/compatengine.cpp.o
@@ -1119,7 +1119,7 @@ __/Altirra/source/compatengine.o: __/Altirra/source/compatengine.cpp.o
 
 # target to build an object file
 __/Altirra/source/compatengine.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatengine.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatengine.cpp.o
 .PHONY : __/Altirra/source/compatengine.cpp.o
 
 __/Altirra/source/compatengine.i: __/Altirra/source/compatengine.cpp.i
@@ -1127,7 +1127,7 @@ __/Altirra/source/compatengine.i: __/Altirra/source/compatengine.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/compatengine.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatengine.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatengine.cpp.i
 .PHONY : __/Altirra/source/compatengine.cpp.i
 
 __/Altirra/source/compatengine.s: __/Altirra/source/compatengine.cpp.s
@@ -1135,7 +1135,7 @@ __/Altirra/source/compatengine.s: __/Altirra/source/compatengine.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/compatengine.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatengine.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/compatengine.cpp.s
 .PHONY : __/Altirra/source/compatengine.cpp.s
 
 __/Altirra/source/constants.o: __/Altirra/source/constants.cpp.o
@@ -1143,7 +1143,7 @@ __/Altirra/source/constants.o: __/Altirra/source/constants.cpp.o
 
 # target to build an object file
 __/Altirra/source/constants.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/constants.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/constants.cpp.o
 .PHONY : __/Altirra/source/constants.cpp.o
 
 __/Altirra/source/constants.i: __/Altirra/source/constants.cpp.i
@@ -1151,7 +1151,7 @@ __/Altirra/source/constants.i: __/Altirra/source/constants.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/constants.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/constants.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/constants.cpp.i
 .PHONY : __/Altirra/source/constants.cpp.i
 
 __/Altirra/source/constants.s: __/Altirra/source/constants.cpp.s
@@ -1159,7 +1159,7 @@ __/Altirra/source/constants.s: __/Altirra/source/constants.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/constants.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/constants.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/constants.cpp.s
 .PHONY : __/Altirra/source/constants.cpp.s
 
 __/Altirra/source/covox.o: __/Altirra/source/covox.cpp.o
@@ -1167,7 +1167,7 @@ __/Altirra/source/covox.o: __/Altirra/source/covox.cpp.o
 
 # target to build an object file
 __/Altirra/source/covox.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/covox.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/covox.cpp.o
 .PHONY : __/Altirra/source/covox.cpp.o
 
 __/Altirra/source/covox.i: __/Altirra/source/covox.cpp.i
@@ -1175,7 +1175,7 @@ __/Altirra/source/covox.i: __/Altirra/source/covox.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/covox.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/covox.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/covox.cpp.i
 .PHONY : __/Altirra/source/covox.cpp.i
 
 __/Altirra/source/covox.s: __/Altirra/source/covox.cpp.s
@@ -1183,7 +1183,7 @@ __/Altirra/source/covox.s: __/Altirra/source/covox.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/covox.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/covox.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/covox.cpp.s
 .PHONY : __/Altirra/source/covox.cpp.s
 
 __/Altirra/source/cpu.o: __/Altirra/source/cpu.cpp.o
@@ -1191,7 +1191,7 @@ __/Altirra/source/cpu.o: __/Altirra/source/cpu.cpp.o
 
 # target to build an object file
 __/Altirra/source/cpu.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu.cpp.o
 .PHONY : __/Altirra/source/cpu.cpp.o
 
 __/Altirra/source/cpu.i: __/Altirra/source/cpu.cpp.i
@@ -1199,7 +1199,7 @@ __/Altirra/source/cpu.i: __/Altirra/source/cpu.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cpu.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu.cpp.i
 .PHONY : __/Altirra/source/cpu.cpp.i
 
 __/Altirra/source/cpu.s: __/Altirra/source/cpu.cpp.s
@@ -1207,7 +1207,7 @@ __/Altirra/source/cpu.s: __/Altirra/source/cpu.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cpu.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu.cpp.s
 .PHONY : __/Altirra/source/cpu.cpp.s
 
 __/Altirra/source/cpu6502.o: __/Altirra/source/cpu6502.cpp.o
@@ -1215,7 +1215,7 @@ __/Altirra/source/cpu6502.o: __/Altirra/source/cpu6502.cpp.o
 
 # target to build an object file
 __/Altirra/source/cpu6502.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502.cpp.o
 .PHONY : __/Altirra/source/cpu6502.cpp.o
 
 __/Altirra/source/cpu6502.i: __/Altirra/source/cpu6502.cpp.i
@@ -1223,7 +1223,7 @@ __/Altirra/source/cpu6502.i: __/Altirra/source/cpu6502.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cpu6502.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502.cpp.i
 .PHONY : __/Altirra/source/cpu6502.cpp.i
 
 __/Altirra/source/cpu6502.s: __/Altirra/source/cpu6502.cpp.s
@@ -1231,7 +1231,7 @@ __/Altirra/source/cpu6502.s: __/Altirra/source/cpu6502.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cpu6502.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502.cpp.s
 .PHONY : __/Altirra/source/cpu6502.cpp.s
 
 __/Altirra/source/cpu6502ill.o: __/Altirra/source/cpu6502ill.cpp.o
@@ -1239,7 +1239,7 @@ __/Altirra/source/cpu6502ill.o: __/Altirra/source/cpu6502ill.cpp.o
 
 # target to build an object file
 __/Altirra/source/cpu6502ill.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502ill.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502ill.cpp.o
 .PHONY : __/Altirra/source/cpu6502ill.cpp.o
 
 __/Altirra/source/cpu6502ill.i: __/Altirra/source/cpu6502ill.cpp.i
@@ -1247,7 +1247,7 @@ __/Altirra/source/cpu6502ill.i: __/Altirra/source/cpu6502ill.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cpu6502ill.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502ill.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502ill.cpp.i
 .PHONY : __/Altirra/source/cpu6502ill.cpp.i
 
 __/Altirra/source/cpu6502ill.s: __/Altirra/source/cpu6502ill.cpp.s
@@ -1255,7 +1255,7 @@ __/Altirra/source/cpu6502ill.s: __/Altirra/source/cpu6502ill.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cpu6502ill.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502ill.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu6502ill.cpp.s
 .PHONY : __/Altirra/source/cpu6502ill.cpp.s
 
 __/Altirra/source/cpu65c02.o: __/Altirra/source/cpu65c02.cpp.o
@@ -1263,7 +1263,7 @@ __/Altirra/source/cpu65c02.o: __/Altirra/source/cpu65c02.cpp.o
 
 # target to build an object file
 __/Altirra/source/cpu65c02.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c02.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c02.cpp.o
 .PHONY : __/Altirra/source/cpu65c02.cpp.o
 
 __/Altirra/source/cpu65c02.i: __/Altirra/source/cpu65c02.cpp.i
@@ -1271,7 +1271,7 @@ __/Altirra/source/cpu65c02.i: __/Altirra/source/cpu65c02.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cpu65c02.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c02.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c02.cpp.i
 .PHONY : __/Altirra/source/cpu65c02.cpp.i
 
 __/Altirra/source/cpu65c02.s: __/Altirra/source/cpu65c02.cpp.s
@@ -1279,7 +1279,7 @@ __/Altirra/source/cpu65c02.s: __/Altirra/source/cpu65c02.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cpu65c02.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c02.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c02.cpp.s
 .PHONY : __/Altirra/source/cpu65c02.cpp.s
 
 __/Altirra/source/cpu65c816.o: __/Altirra/source/cpu65c816.cpp.o
@@ -1287,7 +1287,7 @@ __/Altirra/source/cpu65c816.o: __/Altirra/source/cpu65c816.cpp.o
 
 # target to build an object file
 __/Altirra/source/cpu65c816.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c816.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c816.cpp.o
 .PHONY : __/Altirra/source/cpu65c816.cpp.o
 
 __/Altirra/source/cpu65c816.i: __/Altirra/source/cpu65c816.cpp.i
@@ -1295,7 +1295,7 @@ __/Altirra/source/cpu65c816.i: __/Altirra/source/cpu65c816.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cpu65c816.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c816.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c816.cpp.i
 .PHONY : __/Altirra/source/cpu65c816.cpp.i
 
 __/Altirra/source/cpu65c816.s: __/Altirra/source/cpu65c816.cpp.s
@@ -1303,7 +1303,7 @@ __/Altirra/source/cpu65c816.s: __/Altirra/source/cpu65c816.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cpu65c816.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c816.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpu65c816.cpp.s
 .PHONY : __/Altirra/source/cpu65c816.cpp.s
 
 __/Altirra/source/cpuhookmanager.o: __/Altirra/source/cpuhookmanager.cpp.o
@@ -1311,7 +1311,7 @@ __/Altirra/source/cpuhookmanager.o: __/Altirra/source/cpuhookmanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/cpuhookmanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpuhookmanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpuhookmanager.cpp.o
 .PHONY : __/Altirra/source/cpuhookmanager.cpp.o
 
 __/Altirra/source/cpuhookmanager.i: __/Altirra/source/cpuhookmanager.cpp.i
@@ -1319,7 +1319,7 @@ __/Altirra/source/cpuhookmanager.i: __/Altirra/source/cpuhookmanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cpuhookmanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpuhookmanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpuhookmanager.cpp.i
 .PHONY : __/Altirra/source/cpuhookmanager.cpp.i
 
 __/Altirra/source/cpuhookmanager.s: __/Altirra/source/cpuhookmanager.cpp.s
@@ -1327,7 +1327,7 @@ __/Altirra/source/cpuhookmanager.s: __/Altirra/source/cpuhookmanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cpuhookmanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpuhookmanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cpuhookmanager.cpp.s
 .PHONY : __/Altirra/source/cpuhookmanager.cpp.s
 
 __/Altirra/source/cputracer.o: __/Altirra/source/cputracer.cpp.o
@@ -1335,7 +1335,7 @@ __/Altirra/source/cputracer.o: __/Altirra/source/cputracer.cpp.o
 
 # target to build an object file
 __/Altirra/source/cputracer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cputracer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cputracer.cpp.o
 .PHONY : __/Altirra/source/cputracer.cpp.o
 
 __/Altirra/source/cputracer.i: __/Altirra/source/cputracer.cpp.i
@@ -1343,7 +1343,7 @@ __/Altirra/source/cputracer.i: __/Altirra/source/cputracer.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/cputracer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cputracer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cputracer.cpp.i
 .PHONY : __/Altirra/source/cputracer.cpp.i
 
 __/Altirra/source/cputracer.s: __/Altirra/source/cputracer.cpp.s
@@ -1351,7 +1351,7 @@ __/Altirra/source/cputracer.s: __/Altirra/source/cputracer.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/cputracer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cputracer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/cputracer.cpp.s
 .PHONY : __/Altirra/source/cputracer.cpp.s
 
 __/Altirra/source/debugdisplay.o: __/Altirra/source/debugdisplay.cpp.o
@@ -1359,7 +1359,7 @@ __/Altirra/source/debugdisplay.o: __/Altirra/source/debugdisplay.cpp.o
 
 # target to build an object file
 __/Altirra/source/debugdisplay.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugdisplay.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugdisplay.cpp.o
 .PHONY : __/Altirra/source/debugdisplay.cpp.o
 
 __/Altirra/source/debugdisplay.i: __/Altirra/source/debugdisplay.cpp.i
@@ -1367,7 +1367,7 @@ __/Altirra/source/debugdisplay.i: __/Altirra/source/debugdisplay.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/debugdisplay.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugdisplay.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugdisplay.cpp.i
 .PHONY : __/Altirra/source/debugdisplay.cpp.i
 
 __/Altirra/source/debugdisplay.s: __/Altirra/source/debugdisplay.cpp.s
@@ -1375,7 +1375,7 @@ __/Altirra/source/debugdisplay.s: __/Altirra/source/debugdisplay.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/debugdisplay.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugdisplay.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugdisplay.cpp.s
 .PHONY : __/Altirra/source/debugdisplay.cpp.s
 
 __/Altirra/source/debuggerexp.o: __/Altirra/source/debuggerexp.cpp.o
@@ -1383,7 +1383,7 @@ __/Altirra/source/debuggerexp.o: __/Altirra/source/debuggerexp.cpp.o
 
 # target to build an object file
 __/Altirra/source/debuggerexp.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerexp.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerexp.cpp.o
 .PHONY : __/Altirra/source/debuggerexp.cpp.o
 
 __/Altirra/source/debuggerexp.i: __/Altirra/source/debuggerexp.cpp.i
@@ -1391,7 +1391,7 @@ __/Altirra/source/debuggerexp.i: __/Altirra/source/debuggerexp.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/debuggerexp.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerexp.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerexp.cpp.i
 .PHONY : __/Altirra/source/debuggerexp.cpp.i
 
 __/Altirra/source/debuggerexp.s: __/Altirra/source/debuggerexp.cpp.s
@@ -1399,7 +1399,7 @@ __/Altirra/source/debuggerexp.s: __/Altirra/source/debuggerexp.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/debuggerexp.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerexp.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerexp.cpp.s
 .PHONY : __/Altirra/source/debuggerexp.cpp.s
 
 __/Altirra/source/debuggerlog.o: __/Altirra/source/debuggerlog.cpp.o
@@ -1407,7 +1407,7 @@ __/Altirra/source/debuggerlog.o: __/Altirra/source/debuggerlog.cpp.o
 
 # target to build an object file
 __/Altirra/source/debuggerlog.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerlog.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerlog.cpp.o
 .PHONY : __/Altirra/source/debuggerlog.cpp.o
 
 __/Altirra/source/debuggerlog.i: __/Altirra/source/debuggerlog.cpp.i
@@ -1415,7 +1415,7 @@ __/Altirra/source/debuggerlog.i: __/Altirra/source/debuggerlog.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/debuggerlog.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerlog.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerlog.cpp.i
 .PHONY : __/Altirra/source/debuggerlog.cpp.i
 
 __/Altirra/source/debuggerlog.s: __/Altirra/source/debuggerlog.cpp.s
@@ -1423,7 +1423,7 @@ __/Altirra/source/debuggerlog.s: __/Altirra/source/debuggerlog.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/debuggerlog.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerlog.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggerlog.cpp.s
 .PHONY : __/Altirra/source/debuggerlog.cpp.s
 
 __/Altirra/source/debuggersettings.o: __/Altirra/source/debuggersettings.cpp.o
@@ -1431,7 +1431,7 @@ __/Altirra/source/debuggersettings.o: __/Altirra/source/debuggersettings.cpp.o
 
 # target to build an object file
 __/Altirra/source/debuggersettings.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggersettings.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggersettings.cpp.o
 .PHONY : __/Altirra/source/debuggersettings.cpp.o
 
 __/Altirra/source/debuggersettings.i: __/Altirra/source/debuggersettings.cpp.i
@@ -1439,7 +1439,7 @@ __/Altirra/source/debuggersettings.i: __/Altirra/source/debuggersettings.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/debuggersettings.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggersettings.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggersettings.cpp.i
 .PHONY : __/Altirra/source/debuggersettings.cpp.i
 
 __/Altirra/source/debuggersettings.s: __/Altirra/source/debuggersettings.cpp.s
@@ -1447,7 +1447,7 @@ __/Altirra/source/debuggersettings.s: __/Altirra/source/debuggersettings.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/debuggersettings.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggersettings.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debuggersettings.cpp.s
 .PHONY : __/Altirra/source/debuggersettings.cpp.s
 
 __/Altirra/source/debugtarget.o: __/Altirra/source/debugtarget.cpp.o
@@ -1455,7 +1455,7 @@ __/Altirra/source/debugtarget.o: __/Altirra/source/debugtarget.cpp.o
 
 # target to build an object file
 __/Altirra/source/debugtarget.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugtarget.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugtarget.cpp.o
 .PHONY : __/Altirra/source/debugtarget.cpp.o
 
 __/Altirra/source/debugtarget.i: __/Altirra/source/debugtarget.cpp.i
@@ -1463,7 +1463,7 @@ __/Altirra/source/debugtarget.i: __/Altirra/source/debugtarget.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/debugtarget.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugtarget.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugtarget.cpp.i
 .PHONY : __/Altirra/source/debugtarget.cpp.i
 
 __/Altirra/source/debugtarget.s: __/Altirra/source/debugtarget.cpp.s
@@ -1471,7 +1471,7 @@ __/Altirra/source/debugtarget.s: __/Altirra/source/debugtarget.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/debugtarget.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugtarget.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/debugtarget.cpp.s
 .PHONY : __/Altirra/source/debugtarget.cpp.s
 
 __/Altirra/source/decmath.o: __/Altirra/source/decmath.cpp.o
@@ -1479,7 +1479,7 @@ __/Altirra/source/decmath.o: __/Altirra/source/decmath.cpp.o
 
 # target to build an object file
 __/Altirra/source/decmath.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decmath.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decmath.cpp.o
 .PHONY : __/Altirra/source/decmath.cpp.o
 
 __/Altirra/source/decmath.i: __/Altirra/source/decmath.cpp.i
@@ -1487,7 +1487,7 @@ __/Altirra/source/decmath.i: __/Altirra/source/decmath.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/decmath.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decmath.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decmath.cpp.i
 .PHONY : __/Altirra/source/decmath.cpp.i
 
 __/Altirra/source/decmath.s: __/Altirra/source/decmath.cpp.s
@@ -1495,7 +1495,7 @@ __/Altirra/source/decmath.s: __/Altirra/source/decmath.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/decmath.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decmath.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decmath.cpp.s
 .PHONY : __/Altirra/source/decmath.cpp.s
 
 __/Altirra/source/decode_png.o: __/Altirra/source/decode_png.cpp.o
@@ -1503,7 +1503,7 @@ __/Altirra/source/decode_png.o: __/Altirra/source/decode_png.cpp.o
 
 # target to build an object file
 __/Altirra/source/decode_png.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decode_png.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decode_png.cpp.o
 .PHONY : __/Altirra/source/decode_png.cpp.o
 
 __/Altirra/source/decode_png.i: __/Altirra/source/decode_png.cpp.i
@@ -1511,7 +1511,7 @@ __/Altirra/source/decode_png.i: __/Altirra/source/decode_png.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/decode_png.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decode_png.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decode_png.cpp.i
 .PHONY : __/Altirra/source/decode_png.cpp.i
 
 __/Altirra/source/decode_png.s: __/Altirra/source/decode_png.cpp.s
@@ -1519,7 +1519,7 @@ __/Altirra/source/decode_png.s: __/Altirra/source/decode_png.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/decode_png.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decode_png.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/decode_png.cpp.s
 .PHONY : __/Altirra/source/decode_png.cpp.s
 
 __/Altirra/source/devicemanager.o: __/Altirra/source/devicemanager.cpp.o
@@ -1527,7 +1527,7 @@ __/Altirra/source/devicemanager.o: __/Altirra/source/devicemanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/devicemanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devicemanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devicemanager.cpp.o
 .PHONY : __/Altirra/source/devicemanager.cpp.o
 
 __/Altirra/source/devicemanager.i: __/Altirra/source/devicemanager.cpp.i
@@ -1535,7 +1535,7 @@ __/Altirra/source/devicemanager.i: __/Altirra/source/devicemanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/devicemanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devicemanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devicemanager.cpp.i
 .PHONY : __/Altirra/source/devicemanager.cpp.i
 
 __/Altirra/source/devicemanager.s: __/Altirra/source/devicemanager.cpp.s
@@ -1543,7 +1543,7 @@ __/Altirra/source/devicemanager.s: __/Altirra/source/devicemanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/devicemanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devicemanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devicemanager.cpp.s
 .PHONY : __/Altirra/source/devicemanager.cpp.s
 
 __/Altirra/source/devices.o: __/Altirra/source/devices.cpp.o
@@ -1551,7 +1551,7 @@ __/Altirra/source/devices.o: __/Altirra/source/devices.cpp.o
 
 # target to build an object file
 __/Altirra/source/devices.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devices.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devices.cpp.o
 .PHONY : __/Altirra/source/devices.cpp.o
 
 __/Altirra/source/devices.i: __/Altirra/source/devices.cpp.i
@@ -1559,7 +1559,7 @@ __/Altirra/source/devices.i: __/Altirra/source/devices.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/devices.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devices.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devices.cpp.i
 .PHONY : __/Altirra/source/devices.cpp.i
 
 __/Altirra/source/devices.s: __/Altirra/source/devices.cpp.s
@@ -1567,7 +1567,7 @@ __/Altirra/source/devices.s: __/Altirra/source/devices.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/devices.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devices.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devices.cpp.s
 .PHONY : __/Altirra/source/devices.cpp.s
 
 __/Altirra/source/devxcmdcopypaste.o: __/Altirra/source/devxcmdcopypaste.cpp.o
@@ -1575,7 +1575,7 @@ __/Altirra/source/devxcmdcopypaste.o: __/Altirra/source/devxcmdcopypaste.cpp.o
 
 # target to build an object file
 __/Altirra/source/devxcmdcopypaste.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdcopypaste.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdcopypaste.cpp.o
 .PHONY : __/Altirra/source/devxcmdcopypaste.cpp.o
 
 __/Altirra/source/devxcmdcopypaste.i: __/Altirra/source/devxcmdcopypaste.cpp.i
@@ -1583,7 +1583,7 @@ __/Altirra/source/devxcmdcopypaste.i: __/Altirra/source/devxcmdcopypaste.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/devxcmdcopypaste.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdcopypaste.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdcopypaste.cpp.i
 .PHONY : __/Altirra/source/devxcmdcopypaste.cpp.i
 
 __/Altirra/source/devxcmdcopypaste.s: __/Altirra/source/devxcmdcopypaste.cpp.s
@@ -1591,7 +1591,7 @@ __/Altirra/source/devxcmdcopypaste.s: __/Altirra/source/devxcmdcopypaste.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/devxcmdcopypaste.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdcopypaste.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdcopypaste.cpp.s
 .PHONY : __/Altirra/source/devxcmdcopypaste.cpp.s
 
 __/Altirra/source/devxcmdexploredisk.o: __/Altirra/source/devxcmdexploredisk.cpp.o
@@ -1599,7 +1599,7 @@ __/Altirra/source/devxcmdexploredisk.o: __/Altirra/source/devxcmdexploredisk.cpp
 
 # target to build an object file
 __/Altirra/source/devxcmdexploredisk.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdexploredisk.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdexploredisk.cpp.o
 .PHONY : __/Altirra/source/devxcmdexploredisk.cpp.o
 
 __/Altirra/source/devxcmdexploredisk.i: __/Altirra/source/devxcmdexploredisk.cpp.i
@@ -1607,7 +1607,7 @@ __/Altirra/source/devxcmdexploredisk.i: __/Altirra/source/devxcmdexploredisk.cpp
 
 # target to preprocess a source file
 __/Altirra/source/devxcmdexploredisk.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdexploredisk.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdexploredisk.cpp.i
 .PHONY : __/Altirra/source/devxcmdexploredisk.cpp.i
 
 __/Altirra/source/devxcmdexploredisk.s: __/Altirra/source/devxcmdexploredisk.cpp.s
@@ -1615,7 +1615,7 @@ __/Altirra/source/devxcmdexploredisk.s: __/Altirra/source/devxcmdexploredisk.cpp
 
 # target to generate assembly for a file
 __/Altirra/source/devxcmdexploredisk.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdexploredisk.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdexploredisk.cpp.s
 .PHONY : __/Altirra/source/devxcmdexploredisk.cpp.s
 
 __/Altirra/source/devxcmdmountvhd.o: __/Altirra/source/devxcmdmountvhd.cpp.o
@@ -1623,7 +1623,7 @@ __/Altirra/source/devxcmdmountvhd.o: __/Altirra/source/devxcmdmountvhd.cpp.o
 
 # target to build an object file
 __/Altirra/source/devxcmdmountvhd.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdmountvhd.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdmountvhd.cpp.o
 .PHONY : __/Altirra/source/devxcmdmountvhd.cpp.o
 
 __/Altirra/source/devxcmdmountvhd.i: __/Altirra/source/devxcmdmountvhd.cpp.i
@@ -1631,7 +1631,7 @@ __/Altirra/source/devxcmdmountvhd.i: __/Altirra/source/devxcmdmountvhd.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/devxcmdmountvhd.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdmountvhd.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdmountvhd.cpp.i
 .PHONY : __/Altirra/source/devxcmdmountvhd.cpp.i
 
 __/Altirra/source/devxcmdmountvhd.s: __/Altirra/source/devxcmdmountvhd.cpp.s
@@ -1639,7 +1639,7 @@ __/Altirra/source/devxcmdmountvhd.s: __/Altirra/source/devxcmdmountvhd.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/devxcmdmountvhd.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdmountvhd.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdmountvhd.cpp.s
 .PHONY : __/Altirra/source/devxcmdmountvhd.cpp.s
 
 __/Altirra/source/devxcmdrescandynamicdisk.o: __/Altirra/source/devxcmdrescandynamicdisk.cpp.o
@@ -1647,7 +1647,7 @@ __/Altirra/source/devxcmdrescandynamicdisk.o: __/Altirra/source/devxcmdrescandyn
 
 # target to build an object file
 __/Altirra/source/devxcmdrescandynamicdisk.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdrescandynamicdisk.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdrescandynamicdisk.cpp.o
 .PHONY : __/Altirra/source/devxcmdrescandynamicdisk.cpp.o
 
 __/Altirra/source/devxcmdrescandynamicdisk.i: __/Altirra/source/devxcmdrescandynamicdisk.cpp.i
@@ -1655,7 +1655,7 @@ __/Altirra/source/devxcmdrescandynamicdisk.i: __/Altirra/source/devxcmdrescandyn
 
 # target to preprocess a source file
 __/Altirra/source/devxcmdrescandynamicdisk.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdrescandynamicdisk.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdrescandynamicdisk.cpp.i
 .PHONY : __/Altirra/source/devxcmdrescandynamicdisk.cpp.i
 
 __/Altirra/source/devxcmdrescandynamicdisk.s: __/Altirra/source/devxcmdrescandynamicdisk.cpp.s
@@ -1663,7 +1663,7 @@ __/Altirra/source/devxcmdrescandynamicdisk.s: __/Altirra/source/devxcmdrescandyn
 
 # target to generate assembly for a file
 __/Altirra/source/devxcmdrescandynamicdisk.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdrescandynamicdisk.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/devxcmdrescandynamicdisk.cpp.s
 .PHONY : __/Altirra/source/devxcmdrescandynamicdisk.cpp.s
 
 __/Altirra/source/disasm.o: __/Altirra/source/disasm.cpp.o
@@ -1671,7 +1671,7 @@ __/Altirra/source/disasm.o: __/Altirra/source/disasm.cpp.o
 
 # target to build an object file
 __/Altirra/source/disasm.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disasm.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disasm.cpp.o
 .PHONY : __/Altirra/source/disasm.cpp.o
 
 __/Altirra/source/disasm.i: __/Altirra/source/disasm.cpp.i
@@ -1679,7 +1679,7 @@ __/Altirra/source/disasm.i: __/Altirra/source/disasm.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/disasm.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disasm.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disasm.cpp.i
 .PHONY : __/Altirra/source/disasm.cpp.i
 
 __/Altirra/source/disasm.s: __/Altirra/source/disasm.cpp.s
@@ -1687,7 +1687,7 @@ __/Altirra/source/disasm.s: __/Altirra/source/disasm.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/disasm.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disasm.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disasm.cpp.s
 .PHONY : __/Altirra/source/disasm.cpp.s
 
 __/Altirra/source/disk.o: __/Altirra/source/disk.cpp.o
@@ -1695,7 +1695,7 @@ __/Altirra/source/disk.o: __/Altirra/source/disk.cpp.o
 
 # target to build an object file
 __/Altirra/source/disk.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disk.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disk.cpp.o
 .PHONY : __/Altirra/source/disk.cpp.o
 
 __/Altirra/source/disk.i: __/Altirra/source/disk.cpp.i
@@ -1703,7 +1703,7 @@ __/Altirra/source/disk.i: __/Altirra/source/disk.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/disk.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disk.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disk.cpp.i
 .PHONY : __/Altirra/source/disk.cpp.i
 
 __/Altirra/source/disk.s: __/Altirra/source/disk.cpp.s
@@ -1711,7 +1711,7 @@ __/Altirra/source/disk.s: __/Altirra/source/disk.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/disk.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disk.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disk.cpp.s
 .PHONY : __/Altirra/source/disk.cpp.s
 
 __/Altirra/source/diskdrive815.o: __/Altirra/source/diskdrive815.cpp.o
@@ -1719,7 +1719,7 @@ __/Altirra/source/diskdrive815.o: __/Altirra/source/diskdrive815.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdrive815.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrive815.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrive815.cpp.o
 .PHONY : __/Altirra/source/diskdrive815.cpp.o
 
 __/Altirra/source/diskdrive815.i: __/Altirra/source/diskdrive815.cpp.i
@@ -1727,7 +1727,7 @@ __/Altirra/source/diskdrive815.i: __/Altirra/source/diskdrive815.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdrive815.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrive815.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrive815.cpp.i
 .PHONY : __/Altirra/source/diskdrive815.cpp.i
 
 __/Altirra/source/diskdrive815.s: __/Altirra/source/diskdrive815.cpp.s
@@ -1735,7 +1735,7 @@ __/Altirra/source/diskdrive815.s: __/Altirra/source/diskdrive815.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdrive815.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrive815.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrive815.cpp.s
 .PHONY : __/Altirra/source/diskdrive815.cpp.s
 
 __/Altirra/source/diskdriveamdc.o: __/Altirra/source/diskdriveamdc.cpp.o
@@ -1743,7 +1743,7 @@ __/Altirra/source/diskdriveamdc.o: __/Altirra/source/diskdriveamdc.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdriveamdc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveamdc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveamdc.cpp.o
 .PHONY : __/Altirra/source/diskdriveamdc.cpp.o
 
 __/Altirra/source/diskdriveamdc.i: __/Altirra/source/diskdriveamdc.cpp.i
@@ -1751,7 +1751,7 @@ __/Altirra/source/diskdriveamdc.i: __/Altirra/source/diskdriveamdc.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdriveamdc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveamdc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveamdc.cpp.i
 .PHONY : __/Altirra/source/diskdriveamdc.cpp.i
 
 __/Altirra/source/diskdriveamdc.s: __/Altirra/source/diskdriveamdc.cpp.s
@@ -1759,7 +1759,7 @@ __/Altirra/source/diskdriveamdc.s: __/Altirra/source/diskdriveamdc.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdriveamdc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveamdc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveamdc.cpp.s
 .PHONY : __/Altirra/source/diskdriveamdc.cpp.s
 
 __/Altirra/source/diskdriveatr8000.o: __/Altirra/source/diskdriveatr8000.cpp.o
@@ -1767,7 +1767,7 @@ __/Altirra/source/diskdriveatr8000.o: __/Altirra/source/diskdriveatr8000.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdriveatr8000.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveatr8000.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveatr8000.cpp.o
 .PHONY : __/Altirra/source/diskdriveatr8000.cpp.o
 
 __/Altirra/source/diskdriveatr8000.i: __/Altirra/source/diskdriveatr8000.cpp.i
@@ -1775,7 +1775,7 @@ __/Altirra/source/diskdriveatr8000.i: __/Altirra/source/diskdriveatr8000.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdriveatr8000.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveatr8000.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveatr8000.cpp.i
 .PHONY : __/Altirra/source/diskdriveatr8000.cpp.i
 
 __/Altirra/source/diskdriveatr8000.s: __/Altirra/source/diskdriveatr8000.cpp.s
@@ -1783,7 +1783,7 @@ __/Altirra/source/diskdriveatr8000.s: __/Altirra/source/diskdriveatr8000.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdriveatr8000.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveatr8000.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveatr8000.cpp.s
 .PHONY : __/Altirra/source/diskdriveatr8000.cpp.s
 
 __/Altirra/source/diskdrivefull.o: __/Altirra/source/diskdrivefull.cpp.o
@@ -1791,7 +1791,7 @@ __/Altirra/source/diskdrivefull.o: __/Altirra/source/diskdrivefull.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdrivefull.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefull.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefull.cpp.o
 .PHONY : __/Altirra/source/diskdrivefull.cpp.o
 
 __/Altirra/source/diskdrivefull.i: __/Altirra/source/diskdrivefull.cpp.i
@@ -1799,7 +1799,7 @@ __/Altirra/source/diskdrivefull.i: __/Altirra/source/diskdrivefull.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdrivefull.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefull.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefull.cpp.i
 .PHONY : __/Altirra/source/diskdrivefull.cpp.i
 
 __/Altirra/source/diskdrivefull.s: __/Altirra/source/diskdrivefull.cpp.s
@@ -1807,7 +1807,7 @@ __/Altirra/source/diskdrivefull.s: __/Altirra/source/diskdrivefull.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdrivefull.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefull.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefull.cpp.s
 .PHONY : __/Altirra/source/diskdrivefull.cpp.s
 
 __/Altirra/source/diskdrivefullbase.o: __/Altirra/source/diskdrivefullbase.cpp.o
@@ -1815,7 +1815,7 @@ __/Altirra/source/diskdrivefullbase.o: __/Altirra/source/diskdrivefullbase.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdrivefullbase.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefullbase.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefullbase.cpp.o
 .PHONY : __/Altirra/source/diskdrivefullbase.cpp.o
 
 __/Altirra/source/diskdrivefullbase.i: __/Altirra/source/diskdrivefullbase.cpp.i
@@ -1823,7 +1823,7 @@ __/Altirra/source/diskdrivefullbase.i: __/Altirra/source/diskdrivefullbase.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdrivefullbase.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefullbase.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefullbase.cpp.i
 .PHONY : __/Altirra/source/diskdrivefullbase.cpp.i
 
 __/Altirra/source/diskdrivefullbase.s: __/Altirra/source/diskdrivefullbase.cpp.s
@@ -1831,7 +1831,7 @@ __/Altirra/source/diskdrivefullbase.s: __/Altirra/source/diskdrivefullbase.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdrivefullbase.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefullbase.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivefullbase.cpp.s
 .PHONY : __/Altirra/source/diskdrivefullbase.cpp.s
 
 __/Altirra/source/diskdriveindusgt.o: __/Altirra/source/diskdriveindusgt.cpp.o
@@ -1839,7 +1839,7 @@ __/Altirra/source/diskdriveindusgt.o: __/Altirra/source/diskdriveindusgt.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdriveindusgt.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveindusgt.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveindusgt.cpp.o
 .PHONY : __/Altirra/source/diskdriveindusgt.cpp.o
 
 __/Altirra/source/diskdriveindusgt.i: __/Altirra/source/diskdriveindusgt.cpp.i
@@ -1847,7 +1847,7 @@ __/Altirra/source/diskdriveindusgt.i: __/Altirra/source/diskdriveindusgt.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdriveindusgt.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveindusgt.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveindusgt.cpp.i
 .PHONY : __/Altirra/source/diskdriveindusgt.cpp.i
 
 __/Altirra/source/diskdriveindusgt.s: __/Altirra/source/diskdriveindusgt.cpp.s
@@ -1855,7 +1855,7 @@ __/Altirra/source/diskdriveindusgt.s: __/Altirra/source/diskdriveindusgt.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdriveindusgt.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveindusgt.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdriveindusgt.cpp.s
 .PHONY : __/Altirra/source/diskdriveindusgt.cpp.s
 
 __/Altirra/source/diskdrivepercom.o: __/Altirra/source/diskdrivepercom.cpp.o
@@ -1863,7 +1863,7 @@ __/Altirra/source/diskdrivepercom.o: __/Altirra/source/diskdrivepercom.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdrivepercom.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivepercom.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivepercom.cpp.o
 .PHONY : __/Altirra/source/diskdrivepercom.cpp.o
 
 __/Altirra/source/diskdrivepercom.i: __/Altirra/source/diskdrivepercom.cpp.i
@@ -1871,7 +1871,7 @@ __/Altirra/source/diskdrivepercom.i: __/Altirra/source/diskdrivepercom.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdrivepercom.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivepercom.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivepercom.cpp.i
 .PHONY : __/Altirra/source/diskdrivepercom.cpp.i
 
 __/Altirra/source/diskdrivepercom.s: __/Altirra/source/diskdrivepercom.cpp.s
@@ -1879,7 +1879,7 @@ __/Altirra/source/diskdrivepercom.s: __/Altirra/source/diskdrivepercom.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdrivepercom.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivepercom.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivepercom.cpp.s
 .PHONY : __/Altirra/source/diskdrivepercom.cpp.s
 
 __/Altirra/source/diskdrivespeedyxf.o: __/Altirra/source/diskdrivespeedyxf.cpp.o
@@ -1887,7 +1887,7 @@ __/Altirra/source/diskdrivespeedyxf.o: __/Altirra/source/diskdrivespeedyxf.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdrivespeedyxf.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivespeedyxf.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivespeedyxf.cpp.o
 .PHONY : __/Altirra/source/diskdrivespeedyxf.cpp.o
 
 __/Altirra/source/diskdrivespeedyxf.i: __/Altirra/source/diskdrivespeedyxf.cpp.i
@@ -1895,7 +1895,7 @@ __/Altirra/source/diskdrivespeedyxf.i: __/Altirra/source/diskdrivespeedyxf.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdrivespeedyxf.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivespeedyxf.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivespeedyxf.cpp.i
 .PHONY : __/Altirra/source/diskdrivespeedyxf.cpp.i
 
 __/Altirra/source/diskdrivespeedyxf.s: __/Altirra/source/diskdrivespeedyxf.cpp.s
@@ -1903,7 +1903,7 @@ __/Altirra/source/diskdrivespeedyxf.s: __/Altirra/source/diskdrivespeedyxf.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdrivespeedyxf.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivespeedyxf.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivespeedyxf.cpp.s
 .PHONY : __/Altirra/source/diskdrivespeedyxf.cpp.s
 
 __/Altirra/source/diskdrivexf551.o: __/Altirra/source/diskdrivexf551.cpp.o
@@ -1911,7 +1911,7 @@ __/Altirra/source/diskdrivexf551.o: __/Altirra/source/diskdrivexf551.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskdrivexf551.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivexf551.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivexf551.cpp.o
 .PHONY : __/Altirra/source/diskdrivexf551.cpp.o
 
 __/Altirra/source/diskdrivexf551.i: __/Altirra/source/diskdrivexf551.cpp.i
@@ -1919,7 +1919,7 @@ __/Altirra/source/diskdrivexf551.i: __/Altirra/source/diskdrivexf551.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskdrivexf551.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivexf551.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivexf551.cpp.i
 .PHONY : __/Altirra/source/diskdrivexf551.cpp.i
 
 __/Altirra/source/diskdrivexf551.s: __/Altirra/source/diskdrivexf551.cpp.s
@@ -1927,7 +1927,7 @@ __/Altirra/source/diskdrivexf551.s: __/Altirra/source/diskdrivexf551.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskdrivexf551.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivexf551.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskdrivexf551.cpp.s
 .PHONY : __/Altirra/source/diskdrivexf551.cpp.s
 
 __/Altirra/source/diskinterface.o: __/Altirra/source/diskinterface.cpp.o
@@ -1935,7 +1935,7 @@ __/Altirra/source/diskinterface.o: __/Altirra/source/diskinterface.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskinterface.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskinterface.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskinterface.cpp.o
 .PHONY : __/Altirra/source/diskinterface.cpp.o
 
 __/Altirra/source/diskinterface.i: __/Altirra/source/diskinterface.cpp.i
@@ -1943,7 +1943,7 @@ __/Altirra/source/diskinterface.i: __/Altirra/source/diskinterface.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskinterface.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskinterface.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskinterface.cpp.i
 .PHONY : __/Altirra/source/diskinterface.cpp.i
 
 __/Altirra/source/diskinterface.s: __/Altirra/source/diskinterface.cpp.s
@@ -1951,7 +1951,7 @@ __/Altirra/source/diskinterface.s: __/Altirra/source/diskinterface.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskinterface.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskinterface.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskinterface.cpp.s
 .PHONY : __/Altirra/source/diskinterface.cpp.s
 
 __/Altirra/source/diskprofile.o: __/Altirra/source/diskprofile.cpp.o
@@ -1959,7 +1959,7 @@ __/Altirra/source/diskprofile.o: __/Altirra/source/diskprofile.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskprofile.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskprofile.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskprofile.cpp.o
 .PHONY : __/Altirra/source/diskprofile.cpp.o
 
 __/Altirra/source/diskprofile.i: __/Altirra/source/diskprofile.cpp.i
@@ -1967,7 +1967,7 @@ __/Altirra/source/diskprofile.i: __/Altirra/source/diskprofile.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskprofile.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskprofile.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskprofile.cpp.i
 .PHONY : __/Altirra/source/diskprofile.cpp.i
 
 __/Altirra/source/diskprofile.s: __/Altirra/source/diskprofile.cpp.s
@@ -1975,7 +1975,7 @@ __/Altirra/source/diskprofile.s: __/Altirra/source/diskprofile.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskprofile.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskprofile.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskprofile.cpp.s
 .PHONY : __/Altirra/source/diskprofile.cpp.s
 
 __/Altirra/source/disktrace.o: __/Altirra/source/disktrace.cpp.o
@@ -1983,7 +1983,7 @@ __/Altirra/source/disktrace.o: __/Altirra/source/disktrace.cpp.o
 
 # target to build an object file
 __/Altirra/source/disktrace.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disktrace.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disktrace.cpp.o
 .PHONY : __/Altirra/source/disktrace.cpp.o
 
 __/Altirra/source/disktrace.i: __/Altirra/source/disktrace.cpp.i
@@ -1991,7 +1991,7 @@ __/Altirra/source/disktrace.i: __/Altirra/source/disktrace.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/disktrace.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disktrace.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disktrace.cpp.i
 .PHONY : __/Altirra/source/disktrace.cpp.i
 
 __/Altirra/source/disktrace.s: __/Altirra/source/disktrace.cpp.s
@@ -1999,7 +1999,7 @@ __/Altirra/source/disktrace.s: __/Altirra/source/disktrace.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/disktrace.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disktrace.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/disktrace.cpp.s
 .PHONY : __/Altirra/source/disktrace.cpp.s
 
 __/Altirra/source/diskvirtimage.o: __/Altirra/source/diskvirtimage.cpp.o
@@ -2007,7 +2007,7 @@ __/Altirra/source/diskvirtimage.o: __/Altirra/source/diskvirtimage.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskvirtimage.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimage.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimage.cpp.o
 .PHONY : __/Altirra/source/diskvirtimage.cpp.o
 
 __/Altirra/source/diskvirtimage.i: __/Altirra/source/diskvirtimage.cpp.i
@@ -2015,7 +2015,7 @@ __/Altirra/source/diskvirtimage.i: __/Altirra/source/diskvirtimage.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskvirtimage.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimage.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimage.cpp.i
 .PHONY : __/Altirra/source/diskvirtimage.cpp.i
 
 __/Altirra/source/diskvirtimage.s: __/Altirra/source/diskvirtimage.cpp.s
@@ -2023,7 +2023,7 @@ __/Altirra/source/diskvirtimage.s: __/Altirra/source/diskvirtimage.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskvirtimage.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimage.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimage.cpp.s
 .PHONY : __/Altirra/source/diskvirtimage.cpp.s
 
 __/Altirra/source/diskvirtimagebase.o: __/Altirra/source/diskvirtimagebase.cpp.o
@@ -2031,7 +2031,7 @@ __/Altirra/source/diskvirtimagebase.o: __/Altirra/source/diskvirtimagebase.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskvirtimagebase.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagebase.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagebase.cpp.o
 .PHONY : __/Altirra/source/diskvirtimagebase.cpp.o
 
 __/Altirra/source/diskvirtimagebase.i: __/Altirra/source/diskvirtimagebase.cpp.i
@@ -2039,7 +2039,7 @@ __/Altirra/source/diskvirtimagebase.i: __/Altirra/source/diskvirtimagebase.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskvirtimagebase.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagebase.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagebase.cpp.i
 .PHONY : __/Altirra/source/diskvirtimagebase.cpp.i
 
 __/Altirra/source/diskvirtimagebase.s: __/Altirra/source/diskvirtimagebase.cpp.s
@@ -2047,7 +2047,7 @@ __/Altirra/source/diskvirtimagebase.s: __/Altirra/source/diskvirtimagebase.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskvirtimagebase.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagebase.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagebase.cpp.s
 .PHONY : __/Altirra/source/diskvirtimagebase.cpp.s
 
 __/Altirra/source/diskvirtimagesdfs.o: __/Altirra/source/diskvirtimagesdfs.cpp.o
@@ -2055,7 +2055,7 @@ __/Altirra/source/diskvirtimagesdfs.o: __/Altirra/source/diskvirtimagesdfs.cpp.o
 
 # target to build an object file
 __/Altirra/source/diskvirtimagesdfs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagesdfs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagesdfs.cpp.o
 .PHONY : __/Altirra/source/diskvirtimagesdfs.cpp.o
 
 __/Altirra/source/diskvirtimagesdfs.i: __/Altirra/source/diskvirtimagesdfs.cpp.i
@@ -2063,7 +2063,7 @@ __/Altirra/source/diskvirtimagesdfs.i: __/Altirra/source/diskvirtimagesdfs.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/diskvirtimagesdfs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagesdfs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagesdfs.cpp.i
 .PHONY : __/Altirra/source/diskvirtimagesdfs.cpp.i
 
 __/Altirra/source/diskvirtimagesdfs.s: __/Altirra/source/diskvirtimagesdfs.cpp.s
@@ -2071,7 +2071,7 @@ __/Altirra/source/diskvirtimagesdfs.s: __/Altirra/source/diskvirtimagesdfs.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/diskvirtimagesdfs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagesdfs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/diskvirtimagesdfs.cpp.s
 .PHONY : __/Altirra/source/diskvirtimagesdfs.cpp.s
 
 __/Altirra/source/dragoncart.o: __/Altirra/source/dragoncart.cpp.o
@@ -2079,7 +2079,7 @@ __/Altirra/source/dragoncart.o: __/Altirra/source/dragoncart.cpp.o
 
 # target to build an object file
 __/Altirra/source/dragoncart.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/dragoncart.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/dragoncart.cpp.o
 .PHONY : __/Altirra/source/dragoncart.cpp.o
 
 __/Altirra/source/dragoncart.i: __/Altirra/source/dragoncart.cpp.i
@@ -2087,7 +2087,7 @@ __/Altirra/source/dragoncart.i: __/Altirra/source/dragoncart.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/dragoncart.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/dragoncart.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/dragoncart.cpp.i
 .PHONY : __/Altirra/source/dragoncart.cpp.i
 
 __/Altirra/source/dragoncart.s: __/Altirra/source/dragoncart.cpp.s
@@ -2095,7 +2095,7 @@ __/Altirra/source/dragoncart.s: __/Altirra/source/dragoncart.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/dragoncart.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/dragoncart.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/dragoncart.cpp.s
 .PHONY : __/Altirra/source/dragoncart.cpp.s
 
 __/Altirra/source/encode_png.o: __/Altirra/source/encode_png.cpp.o
@@ -2103,7 +2103,7 @@ __/Altirra/source/encode_png.o: __/Altirra/source/encode_png.cpp.o
 
 # target to build an object file
 __/Altirra/source/encode_png.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/encode_png.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/encode_png.cpp.o
 .PHONY : __/Altirra/source/encode_png.cpp.o
 
 __/Altirra/source/encode_png.i: __/Altirra/source/encode_png.cpp.i
@@ -2111,7 +2111,7 @@ __/Altirra/source/encode_png.i: __/Altirra/source/encode_png.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/encode_png.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/encode_png.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/encode_png.cpp.i
 .PHONY : __/Altirra/source/encode_png.cpp.i
 
 __/Altirra/source/encode_png.s: __/Altirra/source/encode_png.cpp.s
@@ -2119,7 +2119,7 @@ __/Altirra/source/encode_png.s: __/Altirra/source/encode_png.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/encode_png.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/encode_png.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/encode_png.cpp.s
 .PHONY : __/Altirra/source/encode_png.cpp.s
 
 __/Altirra/source/errordecode.o: __/Altirra/source/errordecode.cpp.o
@@ -2127,7 +2127,7 @@ __/Altirra/source/errordecode.o: __/Altirra/source/errordecode.cpp.o
 
 # target to build an object file
 __/Altirra/source/errordecode.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/errordecode.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/errordecode.cpp.o
 .PHONY : __/Altirra/source/errordecode.cpp.o
 
 __/Altirra/source/errordecode.i: __/Altirra/source/errordecode.cpp.i
@@ -2135,7 +2135,7 @@ __/Altirra/source/errordecode.i: __/Altirra/source/errordecode.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/errordecode.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/errordecode.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/errordecode.cpp.i
 .PHONY : __/Altirra/source/errordecode.cpp.i
 
 __/Altirra/source/errordecode.s: __/Altirra/source/errordecode.cpp.s
@@ -2143,7 +2143,7 @@ __/Altirra/source/errordecode.s: __/Altirra/source/errordecode.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/errordecode.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/errordecode.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/errordecode.cpp.s
 .PHONY : __/Altirra/source/errordecode.cpp.s
 
 __/Altirra/source/fdc.o: __/Altirra/source/fdc.cpp.o
@@ -2151,7 +2151,7 @@ __/Altirra/source/fdc.o: __/Altirra/source/fdc.cpp.o
 
 # target to build an object file
 __/Altirra/source/fdc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/fdc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/fdc.cpp.o
 .PHONY : __/Altirra/source/fdc.cpp.o
 
 __/Altirra/source/fdc.i: __/Altirra/source/fdc.cpp.i
@@ -2159,7 +2159,7 @@ __/Altirra/source/fdc.i: __/Altirra/source/fdc.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/fdc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/fdc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/fdc.cpp.i
 .PHONY : __/Altirra/source/fdc.cpp.i
 
 __/Altirra/source/fdc.s: __/Altirra/source/fdc.cpp.s
@@ -2167,7 +2167,7 @@ __/Altirra/source/fdc.s: __/Altirra/source/fdc.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/fdc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/fdc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/fdc.cpp.s
 .PHONY : __/Altirra/source/fdc.cpp.s
 
 __/Altirra/source/firmwaredetect.o: __/Altirra/source/firmwaredetect.cpp.o
@@ -2175,7 +2175,7 @@ __/Altirra/source/firmwaredetect.o: __/Altirra/source/firmwaredetect.cpp.o
 
 # target to build an object file
 __/Altirra/source/firmwaredetect.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaredetect.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaredetect.cpp.o
 .PHONY : __/Altirra/source/firmwaredetect.cpp.o
 
 __/Altirra/source/firmwaredetect.i: __/Altirra/source/firmwaredetect.cpp.i
@@ -2183,7 +2183,7 @@ __/Altirra/source/firmwaredetect.i: __/Altirra/source/firmwaredetect.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/firmwaredetect.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaredetect.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaredetect.cpp.i
 .PHONY : __/Altirra/source/firmwaredetect.cpp.i
 
 __/Altirra/source/firmwaredetect.s: __/Altirra/source/firmwaredetect.cpp.s
@@ -2191,7 +2191,7 @@ __/Altirra/source/firmwaredetect.s: __/Altirra/source/firmwaredetect.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/firmwaredetect.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaredetect.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaredetect.cpp.s
 .PHONY : __/Altirra/source/firmwaredetect.cpp.s
 
 __/Altirra/source/firmwaremanager.o: __/Altirra/source/firmwaremanager.cpp.o
@@ -2199,7 +2199,7 @@ __/Altirra/source/firmwaremanager.o: __/Altirra/source/firmwaremanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/firmwaremanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaremanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaremanager.cpp.o
 .PHONY : __/Altirra/source/firmwaremanager.cpp.o
 
 __/Altirra/source/firmwaremanager.i: __/Altirra/source/firmwaremanager.cpp.i
@@ -2207,7 +2207,7 @@ __/Altirra/source/firmwaremanager.i: __/Altirra/source/firmwaremanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/firmwaremanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaremanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaremanager.cpp.i
 .PHONY : __/Altirra/source/firmwaremanager.cpp.i
 
 __/Altirra/source/firmwaremanager.s: __/Altirra/source/firmwaremanager.cpp.s
@@ -2215,7 +2215,7 @@ __/Altirra/source/firmwaremanager.s: __/Altirra/source/firmwaremanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/firmwaremanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaremanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/firmwaremanager.cpp.s
 .PHONY : __/Altirra/source/firmwaremanager.cpp.s
 
 __/Altirra/source/gtia.o: __/Altirra/source/gtia.cpp.o
@@ -2223,7 +2223,7 @@ __/Altirra/source/gtia.o: __/Altirra/source/gtia.cpp.o
 
 # target to build an object file
 __/Altirra/source/gtia.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtia.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtia.cpp.o
 .PHONY : __/Altirra/source/gtia.cpp.o
 
 __/Altirra/source/gtia.i: __/Altirra/source/gtia.cpp.i
@@ -2231,7 +2231,7 @@ __/Altirra/source/gtia.i: __/Altirra/source/gtia.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/gtia.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtia.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtia.cpp.i
 .PHONY : __/Altirra/source/gtia.cpp.i
 
 __/Altirra/source/gtia.s: __/Altirra/source/gtia.cpp.s
@@ -2239,7 +2239,7 @@ __/Altirra/source/gtia.s: __/Altirra/source/gtia.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/gtia.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtia.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtia.cpp.s
 .PHONY : __/Altirra/source/gtia.cpp.s
 
 __/Altirra/source/gtiarenderer.o: __/Altirra/source/gtiarenderer.cpp.o
@@ -2247,7 +2247,7 @@ __/Altirra/source/gtiarenderer.o: __/Altirra/source/gtiarenderer.cpp.o
 
 # target to build an object file
 __/Altirra/source/gtiarenderer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiarenderer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiarenderer.cpp.o
 .PHONY : __/Altirra/source/gtiarenderer.cpp.o
 
 __/Altirra/source/gtiarenderer.i: __/Altirra/source/gtiarenderer.cpp.i
@@ -2255,7 +2255,7 @@ __/Altirra/source/gtiarenderer.i: __/Altirra/source/gtiarenderer.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/gtiarenderer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiarenderer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiarenderer.cpp.i
 .PHONY : __/Altirra/source/gtiarenderer.cpp.i
 
 __/Altirra/source/gtiarenderer.s: __/Altirra/source/gtiarenderer.cpp.s
@@ -2263,7 +2263,7 @@ __/Altirra/source/gtiarenderer.s: __/Altirra/source/gtiarenderer.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/gtiarenderer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiarenderer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiarenderer.cpp.s
 .PHONY : __/Altirra/source/gtiarenderer.cpp.s
 
 __/Altirra/source/gtiatables.o: __/Altirra/source/gtiatables.cpp.o
@@ -2271,7 +2271,7 @@ __/Altirra/source/gtiatables.o: __/Altirra/source/gtiatables.cpp.o
 
 # target to build an object file
 __/Altirra/source/gtiatables.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatables.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatables.cpp.o
 .PHONY : __/Altirra/source/gtiatables.cpp.o
 
 __/Altirra/source/gtiatables.i: __/Altirra/source/gtiatables.cpp.i
@@ -2279,7 +2279,7 @@ __/Altirra/source/gtiatables.i: __/Altirra/source/gtiatables.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/gtiatables.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatables.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatables.cpp.i
 .PHONY : __/Altirra/source/gtiatables.cpp.i
 
 __/Altirra/source/gtiatables.s: __/Altirra/source/gtiatables.cpp.s
@@ -2287,7 +2287,7 @@ __/Altirra/source/gtiatables.s: __/Altirra/source/gtiatables.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/gtiatables.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatables.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatables.cpp.s
 .PHONY : __/Altirra/source/gtiatables.cpp.s
 
 __/Altirra/source/gtiatypes.o: __/Altirra/source/gtiatypes.cpp.o
@@ -2295,7 +2295,7 @@ __/Altirra/source/gtiatypes.o: __/Altirra/source/gtiatypes.cpp.o
 
 # target to build an object file
 __/Altirra/source/gtiatypes.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatypes.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatypes.cpp.o
 .PHONY : __/Altirra/source/gtiatypes.cpp.o
 
 __/Altirra/source/gtiatypes.i: __/Altirra/source/gtiatypes.cpp.i
@@ -2303,7 +2303,7 @@ __/Altirra/source/gtiatypes.i: __/Altirra/source/gtiatypes.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/gtiatypes.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatypes.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatypes.cpp.i
 .PHONY : __/Altirra/source/gtiatypes.cpp.i
 
 __/Altirra/source/gtiatypes.s: __/Altirra/source/gtiatypes.cpp.s
@@ -2311,7 +2311,7 @@ __/Altirra/source/gtiatypes.s: __/Altirra/source/gtiatypes.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/gtiatypes.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatypes.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/gtiatypes.cpp.s
 .PHONY : __/Altirra/source/gtiatypes.cpp.s
 
 __/Altirra/source/hlebasicloader.o: __/Altirra/source/hlebasicloader.cpp.o
@@ -2319,7 +2319,7 @@ __/Altirra/source/hlebasicloader.o: __/Altirra/source/hlebasicloader.cpp.o
 
 # target to build an object file
 __/Altirra/source/hlebasicloader.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlebasicloader.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlebasicloader.cpp.o
 .PHONY : __/Altirra/source/hlebasicloader.cpp.o
 
 __/Altirra/source/hlebasicloader.i: __/Altirra/source/hlebasicloader.cpp.i
@@ -2327,7 +2327,7 @@ __/Altirra/source/hlebasicloader.i: __/Altirra/source/hlebasicloader.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/hlebasicloader.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlebasicloader.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlebasicloader.cpp.i
 .PHONY : __/Altirra/source/hlebasicloader.cpp.i
 
 __/Altirra/source/hlebasicloader.s: __/Altirra/source/hlebasicloader.cpp.s
@@ -2335,7 +2335,7 @@ __/Altirra/source/hlebasicloader.s: __/Altirra/source/hlebasicloader.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/hlebasicloader.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlebasicloader.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlebasicloader.cpp.s
 .PHONY : __/Altirra/source/hlebasicloader.cpp.s
 
 __/Altirra/source/hleciohook.o: __/Altirra/source/hleciohook.cpp.o
@@ -2343,7 +2343,7 @@ __/Altirra/source/hleciohook.o: __/Altirra/source/hleciohook.cpp.o
 
 # target to build an object file
 __/Altirra/source/hleciohook.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleciohook.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleciohook.cpp.o
 .PHONY : __/Altirra/source/hleciohook.cpp.o
 
 __/Altirra/source/hleciohook.i: __/Altirra/source/hleciohook.cpp.i
@@ -2351,7 +2351,7 @@ __/Altirra/source/hleciohook.i: __/Altirra/source/hleciohook.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/hleciohook.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleciohook.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleciohook.cpp.i
 .PHONY : __/Altirra/source/hleciohook.cpp.i
 
 __/Altirra/source/hleciohook.s: __/Altirra/source/hleciohook.cpp.s
@@ -2359,7 +2359,7 @@ __/Altirra/source/hleciohook.s: __/Altirra/source/hleciohook.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/hleciohook.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleciohook.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleciohook.cpp.s
 .PHONY : __/Altirra/source/hleciohook.cpp.s
 
 __/Altirra/source/hlefastboothook.o: __/Altirra/source/hlefastboothook.cpp.o
@@ -2367,7 +2367,7 @@ __/Altirra/source/hlefastboothook.o: __/Altirra/source/hlefastboothook.cpp.o
 
 # target to build an object file
 __/Altirra/source/hlefastboothook.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefastboothook.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefastboothook.cpp.o
 .PHONY : __/Altirra/source/hlefastboothook.cpp.o
 
 __/Altirra/source/hlefastboothook.i: __/Altirra/source/hlefastboothook.cpp.i
@@ -2375,7 +2375,7 @@ __/Altirra/source/hlefastboothook.i: __/Altirra/source/hlefastboothook.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/hlefastboothook.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefastboothook.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefastboothook.cpp.i
 .PHONY : __/Altirra/source/hlefastboothook.cpp.i
 
 __/Altirra/source/hlefastboothook.s: __/Altirra/source/hlefastboothook.cpp.s
@@ -2383,7 +2383,7 @@ __/Altirra/source/hlefastboothook.s: __/Altirra/source/hlefastboothook.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/hlefastboothook.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefastboothook.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefastboothook.cpp.s
 .PHONY : __/Altirra/source/hlefastboothook.cpp.s
 
 __/Altirra/source/hlefpaccelerator.o: __/Altirra/source/hlefpaccelerator.cpp.o
@@ -2391,7 +2391,7 @@ __/Altirra/source/hlefpaccelerator.o: __/Altirra/source/hlefpaccelerator.cpp.o
 
 # target to build an object file
 __/Altirra/source/hlefpaccelerator.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefpaccelerator.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefpaccelerator.cpp.o
 .PHONY : __/Altirra/source/hlefpaccelerator.cpp.o
 
 __/Altirra/source/hlefpaccelerator.i: __/Altirra/source/hlefpaccelerator.cpp.i
@@ -2399,7 +2399,7 @@ __/Altirra/source/hlefpaccelerator.i: __/Altirra/source/hlefpaccelerator.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/hlefpaccelerator.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefpaccelerator.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefpaccelerator.cpp.i
 .PHONY : __/Altirra/source/hlefpaccelerator.cpp.i
 
 __/Altirra/source/hlefpaccelerator.s: __/Altirra/source/hlefpaccelerator.cpp.s
@@ -2407,7 +2407,7 @@ __/Altirra/source/hlefpaccelerator.s: __/Altirra/source/hlefpaccelerator.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/hlefpaccelerator.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefpaccelerator.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hlefpaccelerator.cpp.s
 .PHONY : __/Altirra/source/hlefpaccelerator.cpp.s
 
 __/Altirra/source/hleprogramloader.o: __/Altirra/source/hleprogramloader.cpp.o
@@ -2415,7 +2415,7 @@ __/Altirra/source/hleprogramloader.o: __/Altirra/source/hleprogramloader.cpp.o
 
 # target to build an object file
 __/Altirra/source/hleprogramloader.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleprogramloader.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleprogramloader.cpp.o
 .PHONY : __/Altirra/source/hleprogramloader.cpp.o
 
 __/Altirra/source/hleprogramloader.i: __/Altirra/source/hleprogramloader.cpp.i
@@ -2423,7 +2423,7 @@ __/Altirra/source/hleprogramloader.i: __/Altirra/source/hleprogramloader.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/hleprogramloader.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleprogramloader.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleprogramloader.cpp.i
 .PHONY : __/Altirra/source/hleprogramloader.cpp.i
 
 __/Altirra/source/hleprogramloader.s: __/Altirra/source/hleprogramloader.cpp.s
@@ -2431,7 +2431,7 @@ __/Altirra/source/hleprogramloader.s: __/Altirra/source/hleprogramloader.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/hleprogramloader.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleprogramloader.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleprogramloader.cpp.s
 .PHONY : __/Altirra/source/hleprogramloader.cpp.s
 
 __/Altirra/source/hleutils.o: __/Altirra/source/hleutils.cpp.o
@@ -2439,7 +2439,7 @@ __/Altirra/source/hleutils.o: __/Altirra/source/hleutils.cpp.o
 
 # target to build an object file
 __/Altirra/source/hleutils.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleutils.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleutils.cpp.o
 .PHONY : __/Altirra/source/hleutils.cpp.o
 
 __/Altirra/source/hleutils.i: __/Altirra/source/hleutils.cpp.i
@@ -2447,7 +2447,7 @@ __/Altirra/source/hleutils.i: __/Altirra/source/hleutils.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/hleutils.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleutils.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleutils.cpp.i
 .PHONY : __/Altirra/source/hleutils.cpp.i
 
 __/Altirra/source/hleutils.s: __/Altirra/source/hleutils.cpp.s
@@ -2455,7 +2455,7 @@ __/Altirra/source/hleutils.s: __/Altirra/source/hleutils.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/hleutils.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleutils.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hleutils.cpp.s
 .PHONY : __/Altirra/source/hleutils.cpp.s
 
 __/Altirra/source/hostdevice.o: __/Altirra/source/hostdevice.cpp.o
@@ -2463,7 +2463,7 @@ __/Altirra/source/hostdevice.o: __/Altirra/source/hostdevice.cpp.o
 
 # target to build an object file
 __/Altirra/source/hostdevice.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdevice.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdevice.cpp.o
 .PHONY : __/Altirra/source/hostdevice.cpp.o
 
 __/Altirra/source/hostdevice.i: __/Altirra/source/hostdevice.cpp.i
@@ -2471,7 +2471,7 @@ __/Altirra/source/hostdevice.i: __/Altirra/source/hostdevice.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/hostdevice.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdevice.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdevice.cpp.i
 .PHONY : __/Altirra/source/hostdevice.cpp.i
 
 __/Altirra/source/hostdevice.s: __/Altirra/source/hostdevice.cpp.s
@@ -2479,7 +2479,7 @@ __/Altirra/source/hostdevice.s: __/Altirra/source/hostdevice.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/hostdevice.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdevice.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdevice.cpp.s
 .PHONY : __/Altirra/source/hostdevice.cpp.s
 
 __/Altirra/source/hostdeviceutils.o: __/Altirra/source/hostdeviceutils.cpp.o
@@ -2487,7 +2487,7 @@ __/Altirra/source/hostdeviceutils.o: __/Altirra/source/hostdeviceutils.cpp.o
 
 # target to build an object file
 __/Altirra/source/hostdeviceutils.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdeviceutils.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdeviceutils.cpp.o
 .PHONY : __/Altirra/source/hostdeviceutils.cpp.o
 
 __/Altirra/source/hostdeviceutils.i: __/Altirra/source/hostdeviceutils.cpp.i
@@ -2495,7 +2495,7 @@ __/Altirra/source/hostdeviceutils.i: __/Altirra/source/hostdeviceutils.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/hostdeviceutils.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdeviceutils.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdeviceutils.cpp.i
 .PHONY : __/Altirra/source/hostdeviceutils.cpp.i
 
 __/Altirra/source/hostdeviceutils.s: __/Altirra/source/hostdeviceutils.cpp.s
@@ -2503,7 +2503,7 @@ __/Altirra/source/hostdeviceutils.s: __/Altirra/source/hostdeviceutils.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/hostdeviceutils.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdeviceutils.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/hostdeviceutils.cpp.s
 .PHONY : __/Altirra/source/hostdeviceutils.cpp.s
 
 __/Altirra/source/ide.o: __/Altirra/source/ide.cpp.o
@@ -2511,7 +2511,7 @@ __/Altirra/source/ide.o: __/Altirra/source/ide.cpp.o
 
 # target to build an object file
 __/Altirra/source/ide.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ide.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ide.cpp.o
 .PHONY : __/Altirra/source/ide.cpp.o
 
 __/Altirra/source/ide.i: __/Altirra/source/ide.cpp.i
@@ -2519,7 +2519,7 @@ __/Altirra/source/ide.i: __/Altirra/source/ide.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/ide.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ide.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ide.cpp.i
 .PHONY : __/Altirra/source/ide.cpp.i
 
 __/Altirra/source/ide.s: __/Altirra/source/ide.cpp.s
@@ -2527,7 +2527,7 @@ __/Altirra/source/ide.s: __/Altirra/source/ide.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/ide.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ide.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ide.cpp.s
 .PHONY : __/Altirra/source/ide.cpp.s
 
 __/Altirra/source/idediskdevices.o: __/Altirra/source/idediskdevices.cpp.o
@@ -2535,7 +2535,7 @@ __/Altirra/source/idediskdevices.o: __/Altirra/source/idediskdevices.cpp.o
 
 # target to build an object file
 __/Altirra/source/idediskdevices.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/idediskdevices.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/idediskdevices.cpp.o
 .PHONY : __/Altirra/source/idediskdevices.cpp.o
 
 __/Altirra/source/idediskdevices.i: __/Altirra/source/idediskdevices.cpp.i
@@ -2543,7 +2543,7 @@ __/Altirra/source/idediskdevices.i: __/Altirra/source/idediskdevices.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/idediskdevices.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/idediskdevices.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/idediskdevices.cpp.i
 .PHONY : __/Altirra/source/idediskdevices.cpp.i
 
 __/Altirra/source/idediskdevices.s: __/Altirra/source/idediskdevices.cpp.s
@@ -2551,7 +2551,7 @@ __/Altirra/source/idediskdevices.s: __/Altirra/source/idediskdevices.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/idediskdevices.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/idediskdevices.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/idediskdevices.cpp.s
 .PHONY : __/Altirra/source/idediskdevices.cpp.s
 
 __/Altirra/source/iderawimage.o: __/Altirra/source/iderawimage.cpp.o
@@ -2559,7 +2559,7 @@ __/Altirra/source/iderawimage.o: __/Altirra/source/iderawimage.cpp.o
 
 # target to build an object file
 __/Altirra/source/iderawimage.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/iderawimage.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/iderawimage.cpp.o
 .PHONY : __/Altirra/source/iderawimage.cpp.o
 
 __/Altirra/source/iderawimage.i: __/Altirra/source/iderawimage.cpp.i
@@ -2567,7 +2567,7 @@ __/Altirra/source/iderawimage.i: __/Altirra/source/iderawimage.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/iderawimage.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/iderawimage.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/iderawimage.cpp.i
 .PHONY : __/Altirra/source/iderawimage.cpp.i
 
 __/Altirra/source/iderawimage.s: __/Altirra/source/iderawimage.cpp.s
@@ -2575,7 +2575,7 @@ __/Altirra/source/iderawimage.s: __/Altirra/source/iderawimage.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/iderawimage.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/iderawimage.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/iderawimage.cpp.s
 .PHONY : __/Altirra/source/iderawimage.cpp.s
 
 __/Altirra/source/inputcontroller.o: __/Altirra/source/inputcontroller.cpp.o
@@ -2583,7 +2583,7 @@ __/Altirra/source/inputcontroller.o: __/Altirra/source/inputcontroller.cpp.o
 
 # target to build an object file
 __/Altirra/source/inputcontroller.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputcontroller.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputcontroller.cpp.o
 .PHONY : __/Altirra/source/inputcontroller.cpp.o
 
 __/Altirra/source/inputcontroller.i: __/Altirra/source/inputcontroller.cpp.i
@@ -2591,7 +2591,7 @@ __/Altirra/source/inputcontroller.i: __/Altirra/source/inputcontroller.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/inputcontroller.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputcontroller.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputcontroller.cpp.i
 .PHONY : __/Altirra/source/inputcontroller.cpp.i
 
 __/Altirra/source/inputcontroller.s: __/Altirra/source/inputcontroller.cpp.s
@@ -2599,7 +2599,7 @@ __/Altirra/source/inputcontroller.s: __/Altirra/source/inputcontroller.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/inputcontroller.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputcontroller.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputcontroller.cpp.s
 .PHONY : __/Altirra/source/inputcontroller.cpp.s
 
 __/Altirra/source/inputdefs.o: __/Altirra/source/inputdefs.cpp.o
@@ -2607,7 +2607,7 @@ __/Altirra/source/inputdefs.o: __/Altirra/source/inputdefs.cpp.o
 
 # target to build an object file
 __/Altirra/source/inputdefs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputdefs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputdefs.cpp.o
 .PHONY : __/Altirra/source/inputdefs.cpp.o
 
 __/Altirra/source/inputdefs.i: __/Altirra/source/inputdefs.cpp.i
@@ -2615,7 +2615,7 @@ __/Altirra/source/inputdefs.i: __/Altirra/source/inputdefs.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/inputdefs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputdefs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputdefs.cpp.i
 .PHONY : __/Altirra/source/inputdefs.cpp.i
 
 __/Altirra/source/inputdefs.s: __/Altirra/source/inputdefs.cpp.s
@@ -2623,7 +2623,7 @@ __/Altirra/source/inputdefs.s: __/Altirra/source/inputdefs.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/inputdefs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputdefs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputdefs.cpp.s
 .PHONY : __/Altirra/source/inputdefs.cpp.s
 
 __/Altirra/source/inputmanager.o: __/Altirra/source/inputmanager.cpp.o
@@ -2631,7 +2631,7 @@ __/Altirra/source/inputmanager.o: __/Altirra/source/inputmanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/inputmanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmanager.cpp.o
 .PHONY : __/Altirra/source/inputmanager.cpp.o
 
 __/Altirra/source/inputmanager.i: __/Altirra/source/inputmanager.cpp.i
@@ -2639,7 +2639,7 @@ __/Altirra/source/inputmanager.i: __/Altirra/source/inputmanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/inputmanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmanager.cpp.i
 .PHONY : __/Altirra/source/inputmanager.cpp.i
 
 __/Altirra/source/inputmanager.s: __/Altirra/source/inputmanager.cpp.s
@@ -2647,7 +2647,7 @@ __/Altirra/source/inputmanager.s: __/Altirra/source/inputmanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/inputmanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmanager.cpp.s
 .PHONY : __/Altirra/source/inputmanager.cpp.s
 
 __/Altirra/source/inputmap.o: __/Altirra/source/inputmap.cpp.o
@@ -2655,7 +2655,7 @@ __/Altirra/source/inputmap.o: __/Altirra/source/inputmap.cpp.o
 
 # target to build an object file
 __/Altirra/source/inputmap.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmap.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmap.cpp.o
 .PHONY : __/Altirra/source/inputmap.cpp.o
 
 __/Altirra/source/inputmap.i: __/Altirra/source/inputmap.cpp.i
@@ -2663,7 +2663,7 @@ __/Altirra/source/inputmap.i: __/Altirra/source/inputmap.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/inputmap.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmap.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmap.cpp.i
 .PHONY : __/Altirra/source/inputmap.cpp.i
 
 __/Altirra/source/inputmap.s: __/Altirra/source/inputmap.cpp.s
@@ -2671,7 +2671,7 @@ __/Altirra/source/inputmap.s: __/Altirra/source/inputmap.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/inputmap.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmap.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/inputmap.cpp.s
 .PHONY : __/Altirra/source/inputmap.cpp.s
 
 __/Altirra/source/irqcontroller.o: __/Altirra/source/irqcontroller.cpp.o
@@ -2679,7 +2679,7 @@ __/Altirra/source/irqcontroller.o: __/Altirra/source/irqcontroller.cpp.o
 
 # target to build an object file
 __/Altirra/source/irqcontroller.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/irqcontroller.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/irqcontroller.cpp.o
 .PHONY : __/Altirra/source/irqcontroller.cpp.o
 
 __/Altirra/source/irqcontroller.i: __/Altirra/source/irqcontroller.cpp.i
@@ -2687,7 +2687,7 @@ __/Altirra/source/irqcontroller.i: __/Altirra/source/irqcontroller.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/irqcontroller.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/irqcontroller.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/irqcontroller.cpp.i
 .PHONY : __/Altirra/source/irqcontroller.cpp.i
 
 __/Altirra/source/irqcontroller.s: __/Altirra/source/irqcontroller.cpp.s
@@ -2695,7 +2695,7 @@ __/Altirra/source/irqcontroller.s: __/Altirra/source/irqcontroller.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/irqcontroller.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/irqcontroller.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/irqcontroller.cpp.s
 .PHONY : __/Altirra/source/irqcontroller.cpp.s
 
 __/Altirra/source/karinmaxidrive.o: __/Altirra/source/karinmaxidrive.cpp.o
@@ -2703,7 +2703,7 @@ __/Altirra/source/karinmaxidrive.o: __/Altirra/source/karinmaxidrive.cpp.o
 
 # target to build an object file
 __/Altirra/source/karinmaxidrive.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/karinmaxidrive.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/karinmaxidrive.cpp.o
 .PHONY : __/Altirra/source/karinmaxidrive.cpp.o
 
 __/Altirra/source/karinmaxidrive.i: __/Altirra/source/karinmaxidrive.cpp.i
@@ -2711,7 +2711,7 @@ __/Altirra/source/karinmaxidrive.i: __/Altirra/source/karinmaxidrive.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/karinmaxidrive.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/karinmaxidrive.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/karinmaxidrive.cpp.i
 .PHONY : __/Altirra/source/karinmaxidrive.cpp.i
 
 __/Altirra/source/karinmaxidrive.s: __/Altirra/source/karinmaxidrive.cpp.s
@@ -2719,7 +2719,7 @@ __/Altirra/source/karinmaxidrive.s: __/Altirra/source/karinmaxidrive.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/karinmaxidrive.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/karinmaxidrive.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/karinmaxidrive.cpp.s
 .PHONY : __/Altirra/source/karinmaxidrive.cpp.s
 
 __/Altirra/source/kmkjzide.o: __/Altirra/source/kmkjzide.cpp.o
@@ -2727,7 +2727,7 @@ __/Altirra/source/kmkjzide.o: __/Altirra/source/kmkjzide.cpp.o
 
 # target to build an object file
 __/Altirra/source/kmkjzide.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/kmkjzide.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/kmkjzide.cpp.o
 .PHONY : __/Altirra/source/kmkjzide.cpp.o
 
 __/Altirra/source/kmkjzide.i: __/Altirra/source/kmkjzide.cpp.i
@@ -2735,7 +2735,7 @@ __/Altirra/source/kmkjzide.i: __/Altirra/source/kmkjzide.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/kmkjzide.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/kmkjzide.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/kmkjzide.cpp.i
 .PHONY : __/Altirra/source/kmkjzide.cpp.i
 
 __/Altirra/source/kmkjzide.s: __/Altirra/source/kmkjzide.cpp.s
@@ -2743,7 +2743,7 @@ __/Altirra/source/kmkjzide.s: __/Altirra/source/kmkjzide.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/kmkjzide.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/kmkjzide.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/kmkjzide.cpp.s
 .PHONY : __/Altirra/source/kmkjzide.cpp.s
 
 __/Altirra/source/leakdetector.o: __/Altirra/source/leakdetector.cpp.o
@@ -2751,7 +2751,7 @@ __/Altirra/source/leakdetector.o: __/Altirra/source/leakdetector.cpp.o
 
 # target to build an object file
 __/Altirra/source/leakdetector.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/leakdetector.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/leakdetector.cpp.o
 .PHONY : __/Altirra/source/leakdetector.cpp.o
 
 __/Altirra/source/leakdetector.i: __/Altirra/source/leakdetector.cpp.i
@@ -2759,7 +2759,7 @@ __/Altirra/source/leakdetector.i: __/Altirra/source/leakdetector.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/leakdetector.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/leakdetector.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/leakdetector.cpp.i
 .PHONY : __/Altirra/source/leakdetector.cpp.i
 
 __/Altirra/source/leakdetector.s: __/Altirra/source/leakdetector.cpp.s
@@ -2767,7 +2767,7 @@ __/Altirra/source/leakdetector.s: __/Altirra/source/leakdetector.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/leakdetector.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/leakdetector.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/leakdetector.cpp.s
 .PHONY : __/Altirra/source/leakdetector.cpp.s
 
 __/Altirra/source/memorymanager.o: __/Altirra/source/memorymanager.cpp.o
@@ -2775,7 +2775,7 @@ __/Altirra/source/memorymanager.o: __/Altirra/source/memorymanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/memorymanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/memorymanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/memorymanager.cpp.o
 .PHONY : __/Altirra/source/memorymanager.cpp.o
 
 __/Altirra/source/memorymanager.i: __/Altirra/source/memorymanager.cpp.i
@@ -2783,7 +2783,7 @@ __/Altirra/source/memorymanager.i: __/Altirra/source/memorymanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/memorymanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/memorymanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/memorymanager.cpp.i
 .PHONY : __/Altirra/source/memorymanager.cpp.i
 
 __/Altirra/source/memorymanager.s: __/Altirra/source/memorymanager.cpp.s
@@ -2791,7 +2791,7 @@ __/Altirra/source/memorymanager.s: __/Altirra/source/memorymanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/memorymanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/memorymanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/memorymanager.cpp.s
 .PHONY : __/Altirra/source/memorymanager.cpp.s
 
 __/Altirra/source/mio.o: __/Altirra/source/mio.cpp.o
@@ -2799,7 +2799,7 @@ __/Altirra/source/mio.o: __/Altirra/source/mio.cpp.o
 
 # target to build an object file
 __/Altirra/source/mio.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mio.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mio.cpp.o
 .PHONY : __/Altirra/source/mio.cpp.o
 
 __/Altirra/source/mio.i: __/Altirra/source/mio.cpp.i
@@ -2807,7 +2807,7 @@ __/Altirra/source/mio.i: __/Altirra/source/mio.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/mio.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mio.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mio.cpp.i
 .PHONY : __/Altirra/source/mio.cpp.i
 
 __/Altirra/source/mio.s: __/Altirra/source/mio.cpp.s
@@ -2815,7 +2815,7 @@ __/Altirra/source/mio.s: __/Altirra/source/mio.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/mio.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mio.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mio.cpp.s
 .PHONY : __/Altirra/source/mio.cpp.s
 
 __/Altirra/source/misccvars.o: __/Altirra/source/misccvars.cpp.o
@@ -2823,7 +2823,7 @@ __/Altirra/source/misccvars.o: __/Altirra/source/misccvars.cpp.o
 
 # target to build an object file
 __/Altirra/source/misccvars.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/misccvars.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/misccvars.cpp.o
 .PHONY : __/Altirra/source/misccvars.cpp.o
 
 __/Altirra/source/misccvars.i: __/Altirra/source/misccvars.cpp.i
@@ -2831,7 +2831,7 @@ __/Altirra/source/misccvars.i: __/Altirra/source/misccvars.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/misccvars.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/misccvars.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/misccvars.cpp.i
 .PHONY : __/Altirra/source/misccvars.cpp.i
 
 __/Altirra/source/misccvars.s: __/Altirra/source/misccvars.cpp.s
@@ -2839,7 +2839,7 @@ __/Altirra/source/misccvars.s: __/Altirra/source/misccvars.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/misccvars.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/misccvars.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/misccvars.cpp.s
 .PHONY : __/Altirra/source/misccvars.cpp.s
 
 __/Altirra/source/mmu.o: __/Altirra/source/mmu.cpp.o
@@ -2847,7 +2847,7 @@ __/Altirra/source/mmu.o: __/Altirra/source/mmu.cpp.o
 
 # target to build an object file
 __/Altirra/source/mmu.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mmu.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mmu.cpp.o
 .PHONY : __/Altirra/source/mmu.cpp.o
 
 __/Altirra/source/mmu.i: __/Altirra/source/mmu.cpp.i
@@ -2855,7 +2855,7 @@ __/Altirra/source/mmu.i: __/Altirra/source/mmu.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/mmu.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mmu.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mmu.cpp.i
 .PHONY : __/Altirra/source/mmu.cpp.i
 
 __/Altirra/source/mmu.s: __/Altirra/source/mmu.cpp.s
@@ -2863,7 +2863,7 @@ __/Altirra/source/mmu.s: __/Altirra/source/mmu.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/mmu.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mmu.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mmu.cpp.s
 .PHONY : __/Altirra/source/mmu.cpp.s
 
 __/Altirra/source/modem.o: __/Altirra/source/modem.cpp.o
@@ -2871,7 +2871,7 @@ __/Altirra/source/modem.o: __/Altirra/source/modem.cpp.o
 
 # target to build an object file
 __/Altirra/source/modem.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/modem.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/modem.cpp.o
 .PHONY : __/Altirra/source/modem.cpp.o
 
 __/Altirra/source/modem.i: __/Altirra/source/modem.cpp.i
@@ -2879,7 +2879,7 @@ __/Altirra/source/modem.i: __/Altirra/source/modem.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/modem.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/modem.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/modem.cpp.i
 .PHONY : __/Altirra/source/modem.cpp.i
 
 __/Altirra/source/modem.s: __/Altirra/source/modem.cpp.s
@@ -2887,7 +2887,7 @@ __/Altirra/source/modem.s: __/Altirra/source/modem.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/modem.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/modem.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/modem.cpp.s
 .PHONY : __/Altirra/source/modem.cpp.s
 
 __/Altirra/source/mpp1000e.o: __/Altirra/source/mpp1000e.cpp.o
@@ -2895,7 +2895,7 @@ __/Altirra/source/mpp1000e.o: __/Altirra/source/mpp1000e.cpp.o
 
 # target to build an object file
 __/Altirra/source/mpp1000e.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mpp1000e.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mpp1000e.cpp.o
 .PHONY : __/Altirra/source/mpp1000e.cpp.o
 
 __/Altirra/source/mpp1000e.i: __/Altirra/source/mpp1000e.cpp.i
@@ -2903,7 +2903,7 @@ __/Altirra/source/mpp1000e.i: __/Altirra/source/mpp1000e.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/mpp1000e.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mpp1000e.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mpp1000e.cpp.i
 .PHONY : __/Altirra/source/mpp1000e.cpp.i
 
 __/Altirra/source/mpp1000e.s: __/Altirra/source/mpp1000e.cpp.s
@@ -2911,7 +2911,7 @@ __/Altirra/source/mpp1000e.s: __/Altirra/source/mpp1000e.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/mpp1000e.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mpp1000e.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/mpp1000e.cpp.s
 .PHONY : __/Altirra/source/mpp1000e.cpp.s
 
 __/Altirra/source/multiplexer.o: __/Altirra/source/multiplexer.cpp.o
@@ -2919,7 +2919,7 @@ __/Altirra/source/multiplexer.o: __/Altirra/source/multiplexer.cpp.o
 
 # target to build an object file
 __/Altirra/source/multiplexer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/multiplexer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/multiplexer.cpp.o
 .PHONY : __/Altirra/source/multiplexer.cpp.o
 
 __/Altirra/source/multiplexer.i: __/Altirra/source/multiplexer.cpp.i
@@ -2927,7 +2927,7 @@ __/Altirra/source/multiplexer.i: __/Altirra/source/multiplexer.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/multiplexer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/multiplexer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/multiplexer.cpp.i
 .PHONY : __/Altirra/source/multiplexer.cpp.i
 
 __/Altirra/source/multiplexer.s: __/Altirra/source/multiplexer.cpp.s
@@ -2935,7 +2935,7 @@ __/Altirra/source/multiplexer.s: __/Altirra/source/multiplexer.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/multiplexer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/multiplexer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/multiplexer.cpp.s
 .PHONY : __/Altirra/source/multiplexer.cpp.s
 
 __/Altirra/source/myide.o: __/Altirra/source/myide.cpp.o
@@ -2943,7 +2943,7 @@ __/Altirra/source/myide.o: __/Altirra/source/myide.cpp.o
 
 # target to build an object file
 __/Altirra/source/myide.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/myide.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/myide.cpp.o
 .PHONY : __/Altirra/source/myide.cpp.o
 
 __/Altirra/source/myide.i: __/Altirra/source/myide.cpp.i
@@ -2951,7 +2951,7 @@ __/Altirra/source/myide.i: __/Altirra/source/myide.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/myide.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/myide.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/myide.cpp.i
 .PHONY : __/Altirra/source/myide.cpp.i
 
 __/Altirra/source/myide.s: __/Altirra/source/myide.cpp.s
@@ -2959,7 +2959,7 @@ __/Altirra/source/myide.s: __/Altirra/source/myide.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/myide.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/myide.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/myide.cpp.s
 .PHONY : __/Altirra/source/myide.cpp.s
 
 __/Altirra/source/options.o: __/Altirra/source/options.cpp.o
@@ -2967,7 +2967,7 @@ __/Altirra/source/options.o: __/Altirra/source/options.cpp.o
 
 # target to build an object file
 __/Altirra/source/options.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/options.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/options.cpp.o
 .PHONY : __/Altirra/source/options.cpp.o
 
 __/Altirra/source/options.i: __/Altirra/source/options.cpp.i
@@ -2975,7 +2975,7 @@ __/Altirra/source/options.i: __/Altirra/source/options.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/options.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/options.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/options.cpp.i
 .PHONY : __/Altirra/source/options.cpp.i
 
 __/Altirra/source/options.s: __/Altirra/source/options.cpp.s
@@ -2983,7 +2983,7 @@ __/Altirra/source/options.s: __/Altirra/source/options.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/options.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/options.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/options.cpp.s
 .PHONY : __/Altirra/source/options.cpp.s
 
 __/Altirra/source/ostracing.o: __/Altirra/source/ostracing.cpp.o
@@ -2991,7 +2991,7 @@ __/Altirra/source/ostracing.o: __/Altirra/source/ostracing.cpp.o
 
 # target to build an object file
 __/Altirra/source/ostracing.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ostracing.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ostracing.cpp.o
 .PHONY : __/Altirra/source/ostracing.cpp.o
 
 __/Altirra/source/ostracing.i: __/Altirra/source/ostracing.cpp.i
@@ -2999,7 +2999,7 @@ __/Altirra/source/ostracing.i: __/Altirra/source/ostracing.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/ostracing.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ostracing.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ostracing.cpp.i
 .PHONY : __/Altirra/source/ostracing.cpp.i
 
 __/Altirra/source/ostracing.s: __/Altirra/source/ostracing.cpp.s
@@ -3007,7 +3007,7 @@ __/Altirra/source/ostracing.s: __/Altirra/source/ostracing.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/ostracing.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ostracing.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ostracing.cpp.s
 .PHONY : __/Altirra/source/ostracing.cpp.s
 
 __/Altirra/source/palettegenerator.o: __/Altirra/source/palettegenerator.cpp.o
@@ -3015,7 +3015,7 @@ __/Altirra/source/palettegenerator.o: __/Altirra/source/palettegenerator.cpp.o
 
 # target to build an object file
 __/Altirra/source/palettegenerator.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettegenerator.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettegenerator.cpp.o
 .PHONY : __/Altirra/source/palettegenerator.cpp.o
 
 __/Altirra/source/palettegenerator.i: __/Altirra/source/palettegenerator.cpp.i
@@ -3023,7 +3023,7 @@ __/Altirra/source/palettegenerator.i: __/Altirra/source/palettegenerator.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/palettegenerator.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettegenerator.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettegenerator.cpp.i
 .PHONY : __/Altirra/source/palettegenerator.cpp.i
 
 __/Altirra/source/palettegenerator.s: __/Altirra/source/palettegenerator.cpp.s
@@ -3031,7 +3031,7 @@ __/Altirra/source/palettegenerator.s: __/Altirra/source/palettegenerator.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/palettegenerator.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettegenerator.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettegenerator.cpp.s
 .PHONY : __/Altirra/source/palettegenerator.cpp.s
 
 __/Altirra/source/palettesolver.o: __/Altirra/source/palettesolver.cpp.o
@@ -3039,7 +3039,7 @@ __/Altirra/source/palettesolver.o: __/Altirra/source/palettesolver.cpp.o
 
 # target to build an object file
 __/Altirra/source/palettesolver.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettesolver.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettesolver.cpp.o
 .PHONY : __/Altirra/source/palettesolver.cpp.o
 
 __/Altirra/source/palettesolver.i: __/Altirra/source/palettesolver.cpp.i
@@ -3047,7 +3047,7 @@ __/Altirra/source/palettesolver.i: __/Altirra/source/palettesolver.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/palettesolver.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettesolver.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettesolver.cpp.i
 .PHONY : __/Altirra/source/palettesolver.cpp.i
 
 __/Altirra/source/palettesolver.s: __/Altirra/source/palettesolver.cpp.s
@@ -3055,7 +3055,7 @@ __/Altirra/source/palettesolver.s: __/Altirra/source/palettesolver.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/palettesolver.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettesolver.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/palettesolver.cpp.s
 .PHONY : __/Altirra/source/palettesolver.cpp.s
 
 __/Altirra/source/pbi.o: __/Altirra/source/pbi.cpp.o
@@ -3063,7 +3063,7 @@ __/Altirra/source/pbi.o: __/Altirra/source/pbi.cpp.o
 
 # target to build an object file
 __/Altirra/source/pbi.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbi.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbi.cpp.o
 .PHONY : __/Altirra/source/pbi.cpp.o
 
 __/Altirra/source/pbi.i: __/Altirra/source/pbi.cpp.i
@@ -3071,7 +3071,7 @@ __/Altirra/source/pbi.i: __/Altirra/source/pbi.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/pbi.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbi.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbi.cpp.i
 .PHONY : __/Altirra/source/pbi.cpp.i
 
 __/Altirra/source/pbi.s: __/Altirra/source/pbi.cpp.s
@@ -3079,7 +3079,7 @@ __/Altirra/source/pbi.s: __/Altirra/source/pbi.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/pbi.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbi.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbi.cpp.s
 .PHONY : __/Altirra/source/pbi.cpp.s
 
 __/Altirra/source/pbidisk.o: __/Altirra/source/pbidisk.cpp.o
@@ -3087,7 +3087,7 @@ __/Altirra/source/pbidisk.o: __/Altirra/source/pbidisk.cpp.o
 
 # target to build an object file
 __/Altirra/source/pbidisk.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbidisk.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbidisk.cpp.o
 .PHONY : __/Altirra/source/pbidisk.cpp.o
 
 __/Altirra/source/pbidisk.i: __/Altirra/source/pbidisk.cpp.i
@@ -3095,7 +3095,7 @@ __/Altirra/source/pbidisk.i: __/Altirra/source/pbidisk.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/pbidisk.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbidisk.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbidisk.cpp.i
 .PHONY : __/Altirra/source/pbidisk.cpp.i
 
 __/Altirra/source/pbidisk.s: __/Altirra/source/pbidisk.cpp.s
@@ -3103,7 +3103,7 @@ __/Altirra/source/pbidisk.s: __/Altirra/source/pbidisk.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/pbidisk.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbidisk.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pbidisk.cpp.s
 .PHONY : __/Altirra/source/pbidisk.cpp.s
 
 __/Altirra/source/pclink.o: __/Altirra/source/pclink.cpp.o
@@ -3111,7 +3111,7 @@ __/Altirra/source/pclink.o: __/Altirra/source/pclink.cpp.o
 
 # target to build an object file
 __/Altirra/source/pclink.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pclink.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pclink.cpp.o
 .PHONY : __/Altirra/source/pclink.cpp.o
 
 __/Altirra/source/pclink.i: __/Altirra/source/pclink.cpp.i
@@ -3119,7 +3119,7 @@ __/Altirra/source/pclink.i: __/Altirra/source/pclink.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/pclink.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pclink.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pclink.cpp.i
 .PHONY : __/Altirra/source/pclink.cpp.i
 
 __/Altirra/source/pclink.s: __/Altirra/source/pclink.cpp.s
@@ -3127,7 +3127,7 @@ __/Altirra/source/pclink.s: __/Altirra/source/pclink.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/pclink.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pclink.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pclink.cpp.s
 .PHONY : __/Altirra/source/pclink.cpp.s
 
 __/Altirra/source/pia.o: __/Altirra/source/pia.cpp.o
@@ -3135,7 +3135,7 @@ __/Altirra/source/pia.o: __/Altirra/source/pia.cpp.o
 
 # target to build an object file
 __/Altirra/source/pia.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pia.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pia.cpp.o
 .PHONY : __/Altirra/source/pia.cpp.o
 
 __/Altirra/source/pia.i: __/Altirra/source/pia.cpp.i
@@ -3143,7 +3143,7 @@ __/Altirra/source/pia.i: __/Altirra/source/pia.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/pia.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pia.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pia.cpp.i
 .PHONY : __/Altirra/source/pia.cpp.i
 
 __/Altirra/source/pia.s: __/Altirra/source/pia.cpp.s
@@ -3151,7 +3151,7 @@ __/Altirra/source/pia.s: __/Altirra/source/pia.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/pia.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pia.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pia.cpp.s
 .PHONY : __/Altirra/source/pia.cpp.s
 
 __/Altirra/source/pocketmodem.o: __/Altirra/source/pocketmodem.cpp.o
@@ -3159,7 +3159,7 @@ __/Altirra/source/pocketmodem.o: __/Altirra/source/pocketmodem.cpp.o
 
 # target to build an object file
 __/Altirra/source/pocketmodem.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pocketmodem.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pocketmodem.cpp.o
 .PHONY : __/Altirra/source/pocketmodem.cpp.o
 
 __/Altirra/source/pocketmodem.i: __/Altirra/source/pocketmodem.cpp.i
@@ -3167,7 +3167,7 @@ __/Altirra/source/pocketmodem.i: __/Altirra/source/pocketmodem.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/pocketmodem.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pocketmodem.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pocketmodem.cpp.i
 .PHONY : __/Altirra/source/pocketmodem.cpp.i
 
 __/Altirra/source/pocketmodem.s: __/Altirra/source/pocketmodem.cpp.s
@@ -3175,7 +3175,7 @@ __/Altirra/source/pocketmodem.s: __/Altirra/source/pocketmodem.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/pocketmodem.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pocketmodem.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pocketmodem.cpp.s
 .PHONY : __/Altirra/source/pocketmodem.cpp.s
 
 __/Altirra/source/pokeysavecompat.o: __/Altirra/source/pokeysavecompat.cpp.o
@@ -3183,7 +3183,7 @@ __/Altirra/source/pokeysavecompat.o: __/Altirra/source/pokeysavecompat.cpp.o
 
 # target to build an object file
 __/Altirra/source/pokeysavecompat.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeysavecompat.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeysavecompat.cpp.o
 .PHONY : __/Altirra/source/pokeysavecompat.cpp.o
 
 __/Altirra/source/pokeysavecompat.i: __/Altirra/source/pokeysavecompat.cpp.i
@@ -3191,7 +3191,7 @@ __/Altirra/source/pokeysavecompat.i: __/Altirra/source/pokeysavecompat.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/pokeysavecompat.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeysavecompat.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeysavecompat.cpp.i
 .PHONY : __/Altirra/source/pokeysavecompat.cpp.i
 
 __/Altirra/source/pokeysavecompat.s: __/Altirra/source/pokeysavecompat.cpp.s
@@ -3199,7 +3199,7 @@ __/Altirra/source/pokeysavecompat.s: __/Altirra/source/pokeysavecompat.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/pokeysavecompat.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeysavecompat.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeysavecompat.cpp.s
 .PHONY : __/Altirra/source/pokeysavecompat.cpp.s
 
 __/Altirra/source/pokeytrace.o: __/Altirra/source/pokeytrace.cpp.o
@@ -3207,7 +3207,7 @@ __/Altirra/source/pokeytrace.o: __/Altirra/source/pokeytrace.cpp.o
 
 # target to build an object file
 __/Altirra/source/pokeytrace.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeytrace.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeytrace.cpp.o
 .PHONY : __/Altirra/source/pokeytrace.cpp.o
 
 __/Altirra/source/pokeytrace.i: __/Altirra/source/pokeytrace.cpp.i
@@ -3215,7 +3215,7 @@ __/Altirra/source/pokeytrace.i: __/Altirra/source/pokeytrace.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/pokeytrace.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeytrace.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeytrace.cpp.i
 .PHONY : __/Altirra/source/pokeytrace.cpp.i
 
 __/Altirra/source/pokeytrace.s: __/Altirra/source/pokeytrace.cpp.s
@@ -3223,7 +3223,7 @@ __/Altirra/source/pokeytrace.s: __/Altirra/source/pokeytrace.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/pokeytrace.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeytrace.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/pokeytrace.cpp.s
 .PHONY : __/Altirra/source/pokeytrace.cpp.s
 
 __/Altirra/source/portmanager.o: __/Altirra/source/portmanager.cpp.o
@@ -3231,7 +3231,7 @@ __/Altirra/source/portmanager.o: __/Altirra/source/portmanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/portmanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/portmanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/portmanager.cpp.o
 .PHONY : __/Altirra/source/portmanager.cpp.o
 
 __/Altirra/source/portmanager.i: __/Altirra/source/portmanager.cpp.i
@@ -3239,7 +3239,7 @@ __/Altirra/source/portmanager.i: __/Altirra/source/portmanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/portmanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/portmanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/portmanager.cpp.i
 .PHONY : __/Altirra/source/portmanager.cpp.i
 
 __/Altirra/source/portmanager.s: __/Altirra/source/portmanager.cpp.s
@@ -3247,7 +3247,7 @@ __/Altirra/source/portmanager.s: __/Altirra/source/portmanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/portmanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/portmanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/portmanager.cpp.s
 .PHONY : __/Altirra/source/portmanager.cpp.s
 
 __/Altirra/source/printer.o: __/Altirra/source/printer.cpp.o
@@ -3255,7 +3255,7 @@ __/Altirra/source/printer.o: __/Altirra/source/printer.cpp.o
 
 # target to build an object file
 __/Altirra/source/printer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer.cpp.o
 .PHONY : __/Altirra/source/printer.cpp.o
 
 __/Altirra/source/printer.i: __/Altirra/source/printer.cpp.i
@@ -3263,7 +3263,7 @@ __/Altirra/source/printer.i: __/Altirra/source/printer.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/printer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer.cpp.i
 .PHONY : __/Altirra/source/printer.cpp.i
 
 __/Altirra/source/printer.s: __/Altirra/source/printer.cpp.s
@@ -3271,7 +3271,7 @@ __/Altirra/source/printer.s: __/Altirra/source/printer.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/printer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer.cpp.s
 .PHONY : __/Altirra/source/printer.cpp.s
 
 __/Altirra/source/printer1020.o: __/Altirra/source/printer1020.cpp.o
@@ -3279,7 +3279,7 @@ __/Altirra/source/printer1020.o: __/Altirra/source/printer1020.cpp.o
 
 # target to build an object file
 __/Altirra/source/printer1020.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020.cpp.o
 .PHONY : __/Altirra/source/printer1020.cpp.o
 
 __/Altirra/source/printer1020.i: __/Altirra/source/printer1020.cpp.i
@@ -3287,7 +3287,7 @@ __/Altirra/source/printer1020.i: __/Altirra/source/printer1020.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/printer1020.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020.cpp.i
 .PHONY : __/Altirra/source/printer1020.cpp.i
 
 __/Altirra/source/printer1020.s: __/Altirra/source/printer1020.cpp.s
@@ -3295,7 +3295,7 @@ __/Altirra/source/printer1020.s: __/Altirra/source/printer1020.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/printer1020.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020.cpp.s
 .PHONY : __/Altirra/source/printer1020.cpp.s
 
 __/Altirra/source/printer1020font.o: __/Altirra/source/printer1020font.cpp.o
@@ -3303,7 +3303,7 @@ __/Altirra/source/printer1020font.o: __/Altirra/source/printer1020font.cpp.o
 
 # target to build an object file
 __/Altirra/source/printer1020font.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020font.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020font.cpp.o
 .PHONY : __/Altirra/source/printer1020font.cpp.o
 
 __/Altirra/source/printer1020font.i: __/Altirra/source/printer1020font.cpp.i
@@ -3311,7 +3311,7 @@ __/Altirra/source/printer1020font.i: __/Altirra/source/printer1020font.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/printer1020font.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020font.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020font.cpp.i
 .PHONY : __/Altirra/source/printer1020font.cpp.i
 
 __/Altirra/source/printer1020font.s: __/Altirra/source/printer1020font.cpp.s
@@ -3319,7 +3319,7 @@ __/Altirra/source/printer1020font.s: __/Altirra/source/printer1020font.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/printer1020font.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020font.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printer1020font.cpp.s
 .PHONY : __/Altirra/source/printer1020font.cpp.s
 
 __/Altirra/source/printerbase.o: __/Altirra/source/printerbase.cpp.o
@@ -3327,7 +3327,7 @@ __/Altirra/source/printerbase.o: __/Altirra/source/printerbase.cpp.o
 
 # target to build an object file
 __/Altirra/source/printerbase.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerbase.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerbase.cpp.o
 .PHONY : __/Altirra/source/printerbase.cpp.o
 
 __/Altirra/source/printerbase.i: __/Altirra/source/printerbase.cpp.i
@@ -3335,7 +3335,7 @@ __/Altirra/source/printerbase.i: __/Altirra/source/printerbase.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/printerbase.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerbase.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerbase.cpp.i
 .PHONY : __/Altirra/source/printerbase.cpp.i
 
 __/Altirra/source/printerbase.s: __/Altirra/source/printerbase.cpp.s
@@ -3343,7 +3343,7 @@ __/Altirra/source/printerbase.s: __/Altirra/source/printerbase.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/printerbase.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerbase.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerbase.cpp.s
 .PHONY : __/Altirra/source/printerbase.cpp.s
 
 __/Altirra/source/printerfont.o: __/Altirra/source/printerfont.cpp.o
@@ -3351,7 +3351,7 @@ __/Altirra/source/printerfont.o: __/Altirra/source/printerfont.cpp.o
 
 # target to build an object file
 __/Altirra/source/printerfont.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerfont.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerfont.cpp.o
 .PHONY : __/Altirra/source/printerfont.cpp.o
 
 __/Altirra/source/printerfont.i: __/Altirra/source/printerfont.cpp.i
@@ -3359,7 +3359,7 @@ __/Altirra/source/printerfont.i: __/Altirra/source/printerfont.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/printerfont.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerfont.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerfont.cpp.i
 .PHONY : __/Altirra/source/printerfont.cpp.i
 
 __/Altirra/source/printerfont.s: __/Altirra/source/printerfont.cpp.s
@@ -3367,7 +3367,7 @@ __/Altirra/source/printerfont.s: __/Altirra/source/printerfont.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/printerfont.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerfont.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerfont.cpp.s
 .PHONY : __/Altirra/source/printerfont.cpp.s
 
 __/Altirra/source/printeroutput.o: __/Altirra/source/printeroutput.cpp.o
@@ -3375,7 +3375,7 @@ __/Altirra/source/printeroutput.o: __/Altirra/source/printeroutput.cpp.o
 
 # target to build an object file
 __/Altirra/source/printeroutput.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printeroutput.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printeroutput.cpp.o
 .PHONY : __/Altirra/source/printeroutput.cpp.o
 
 __/Altirra/source/printeroutput.i: __/Altirra/source/printeroutput.cpp.i
@@ -3383,7 +3383,7 @@ __/Altirra/source/printeroutput.i: __/Altirra/source/printeroutput.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/printeroutput.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printeroutput.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printeroutput.cpp.i
 .PHONY : __/Altirra/source/printeroutput.cpp.i
 
 __/Altirra/source/printeroutput.s: __/Altirra/source/printeroutput.cpp.s
@@ -3391,7 +3391,7 @@ __/Altirra/source/printeroutput.s: __/Altirra/source/printeroutput.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/printeroutput.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printeroutput.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printeroutput.cpp.s
 .PHONY : __/Altirra/source/printeroutput.cpp.s
 
 __/Altirra/source/printerttfencoder.o: __/Altirra/source/printerttfencoder.cpp.o
@@ -3399,7 +3399,7 @@ __/Altirra/source/printerttfencoder.o: __/Altirra/source/printerttfencoder.cpp.o
 
 # target to build an object file
 __/Altirra/source/printerttfencoder.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerttfencoder.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerttfencoder.cpp.o
 .PHONY : __/Altirra/source/printerttfencoder.cpp.o
 
 __/Altirra/source/printerttfencoder.i: __/Altirra/source/printerttfencoder.cpp.i
@@ -3407,7 +3407,7 @@ __/Altirra/source/printerttfencoder.i: __/Altirra/source/printerttfencoder.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/printerttfencoder.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerttfencoder.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerttfencoder.cpp.i
 .PHONY : __/Altirra/source/printerttfencoder.cpp.i
 
 __/Altirra/source/printerttfencoder.s: __/Altirra/source/printerttfencoder.cpp.s
@@ -3415,7 +3415,7 @@ __/Altirra/source/printerttfencoder.s: __/Altirra/source/printerttfencoder.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/printerttfencoder.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerttfencoder.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/printerttfencoder.cpp.s
 .PHONY : __/Altirra/source/printerttfencoder.cpp.s
 
 __/Altirra/source/profiler.o: __/Altirra/source/profiler.cpp.o
@@ -3423,7 +3423,7 @@ __/Altirra/source/profiler.o: __/Altirra/source/profiler.cpp.o
 
 # target to build an object file
 __/Altirra/source/profiler.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/profiler.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/profiler.cpp.o
 .PHONY : __/Altirra/source/profiler.cpp.o
 
 __/Altirra/source/profiler.i: __/Altirra/source/profiler.cpp.i
@@ -3431,7 +3431,7 @@ __/Altirra/source/profiler.i: __/Altirra/source/profiler.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/profiler.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/profiler.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/profiler.cpp.i
 .PHONY : __/Altirra/source/profiler.cpp.i
 
 __/Altirra/source/profiler.s: __/Altirra/source/profiler.cpp.s
@@ -3439,7 +3439,7 @@ __/Altirra/source/profiler.s: __/Altirra/source/profiler.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/profiler.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/profiler.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/profiler.cpp.s
 .PHONY : __/Altirra/source/profiler.cpp.s
 
 __/Altirra/source/rapidus.o: __/Altirra/source/rapidus.cpp.o
@@ -3447,7 +3447,7 @@ __/Altirra/source/rapidus.o: __/Altirra/source/rapidus.cpp.o
 
 # target to build an object file
 __/Altirra/source/rapidus.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rapidus.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rapidus.cpp.o
 .PHONY : __/Altirra/source/rapidus.cpp.o
 
 __/Altirra/source/rapidus.i: __/Altirra/source/rapidus.cpp.i
@@ -3455,7 +3455,7 @@ __/Altirra/source/rapidus.i: __/Altirra/source/rapidus.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/rapidus.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rapidus.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rapidus.cpp.i
 .PHONY : __/Altirra/source/rapidus.cpp.i
 
 __/Altirra/source/rapidus.s: __/Altirra/source/rapidus.cpp.s
@@ -3463,7 +3463,7 @@ __/Altirra/source/rapidus.s: __/Altirra/source/rapidus.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/rapidus.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rapidus.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rapidus.cpp.s
 .PHONY : __/Altirra/source/rapidus.cpp.s
 
 __/Altirra/source/rs232.o: __/Altirra/source/rs232.cpp.o
@@ -3471,7 +3471,7 @@ __/Altirra/source/rs232.o: __/Altirra/source/rs232.cpp.o
 
 # target to build an object file
 __/Altirra/source/rs232.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rs232.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rs232.cpp.o
 .PHONY : __/Altirra/source/rs232.cpp.o
 
 __/Altirra/source/rs232.i: __/Altirra/source/rs232.cpp.i
@@ -3479,7 +3479,7 @@ __/Altirra/source/rs232.i: __/Altirra/source/rs232.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/rs232.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rs232.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rs232.cpp.i
 .PHONY : __/Altirra/source/rs232.cpp.i
 
 __/Altirra/source/rs232.s: __/Altirra/source/rs232.cpp.s
@@ -3487,7 +3487,7 @@ __/Altirra/source/rs232.s: __/Altirra/source/rs232.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/rs232.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rs232.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rs232.cpp.s
 .PHONY : __/Altirra/source/rs232.cpp.s
 
 __/Altirra/source/rtime8.o: __/Altirra/source/rtime8.cpp.o
@@ -3495,7 +3495,7 @@ __/Altirra/source/rtime8.o: __/Altirra/source/rtime8.cpp.o
 
 # target to build an object file
 __/Altirra/source/rtime8.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rtime8.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rtime8.cpp.o
 .PHONY : __/Altirra/source/rtime8.cpp.o
 
 __/Altirra/source/rtime8.i: __/Altirra/source/rtime8.cpp.i
@@ -3503,7 +3503,7 @@ __/Altirra/source/rtime8.i: __/Altirra/source/rtime8.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/rtime8.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rtime8.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rtime8.cpp.i
 .PHONY : __/Altirra/source/rtime8.cpp.i
 
 __/Altirra/source/rtime8.s: __/Altirra/source/rtime8.cpp.s
@@ -3511,7 +3511,7 @@ __/Altirra/source/rtime8.s: __/Altirra/source/rtime8.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/rtime8.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rtime8.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rtime8.cpp.s
 .PHONY : __/Altirra/source/rtime8.cpp.s
 
 __/Altirra/source/rverter.o: __/Altirra/source/rverter.cpp.o
@@ -3519,7 +3519,7 @@ __/Altirra/source/rverter.o: __/Altirra/source/rverter.cpp.o
 
 # target to build an object file
 __/Altirra/source/rverter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rverter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rverter.cpp.o
 .PHONY : __/Altirra/source/rverter.cpp.o
 
 __/Altirra/source/rverter.i: __/Altirra/source/rverter.cpp.i
@@ -3527,7 +3527,7 @@ __/Altirra/source/rverter.i: __/Altirra/source/rverter.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/rverter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rverter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rverter.cpp.i
 .PHONY : __/Altirra/source/rverter.cpp.i
 
 __/Altirra/source/rverter.s: __/Altirra/source/rverter.cpp.s
@@ -3535,7 +3535,7 @@ __/Altirra/source/rverter.s: __/Altirra/source/rverter.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/rverter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rverter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/rverter.cpp.s
 .PHONY : __/Altirra/source/rverter.cpp.s
 
 __/Altirra/source/sapconverter.o: __/Altirra/source/sapconverter.cpp.o
@@ -3543,7 +3543,7 @@ __/Altirra/source/sapconverter.o: __/Altirra/source/sapconverter.cpp.o
 
 # target to build an object file
 __/Altirra/source/sapconverter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapconverter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapconverter.cpp.o
 .PHONY : __/Altirra/source/sapconverter.cpp.o
 
 __/Altirra/source/sapconverter.i: __/Altirra/source/sapconverter.cpp.i
@@ -3551,7 +3551,7 @@ __/Altirra/source/sapconverter.i: __/Altirra/source/sapconverter.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/sapconverter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapconverter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapconverter.cpp.i
 .PHONY : __/Altirra/source/sapconverter.cpp.i
 
 __/Altirra/source/sapconverter.s: __/Altirra/source/sapconverter.cpp.s
@@ -3559,7 +3559,7 @@ __/Altirra/source/sapconverter.s: __/Altirra/source/sapconverter.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/sapconverter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapconverter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapconverter.cpp.s
 .PHONY : __/Altirra/source/sapconverter.cpp.s
 
 __/Altirra/source/sapwriter.o: __/Altirra/source/sapwriter.cpp.o
@@ -3567,7 +3567,7 @@ __/Altirra/source/sapwriter.o: __/Altirra/source/sapwriter.cpp.o
 
 # target to build an object file
 __/Altirra/source/sapwriter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapwriter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapwriter.cpp.o
 .PHONY : __/Altirra/source/sapwriter.cpp.o
 
 __/Altirra/source/sapwriter.i: __/Altirra/source/sapwriter.cpp.i
@@ -3575,7 +3575,7 @@ __/Altirra/source/sapwriter.i: __/Altirra/source/sapwriter.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/sapwriter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapwriter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapwriter.cpp.i
 .PHONY : __/Altirra/source/sapwriter.cpp.i
 
 __/Altirra/source/sapwriter.s: __/Altirra/source/sapwriter.cpp.s
@@ -3583,7 +3583,7 @@ __/Altirra/source/sapwriter.s: __/Altirra/source/sapwriter.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/sapwriter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapwriter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sapwriter.cpp.s
 .PHONY : __/Altirra/source/sapwriter.cpp.s
 
 __/Altirra/source/savestate.o: __/Altirra/source/savestate.cpp.o
@@ -3591,7 +3591,7 @@ __/Altirra/source/savestate.o: __/Altirra/source/savestate.cpp.o
 
 # target to build an object file
 __/Altirra/source/savestate.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestate.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestate.cpp.o
 .PHONY : __/Altirra/source/savestate.cpp.o
 
 __/Altirra/source/savestate.i: __/Altirra/source/savestate.cpp.i
@@ -3599,7 +3599,7 @@ __/Altirra/source/savestate.i: __/Altirra/source/savestate.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/savestate.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestate.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestate.cpp.i
 .PHONY : __/Altirra/source/savestate.cpp.i
 
 __/Altirra/source/savestate.s: __/Altirra/source/savestate.cpp.s
@@ -3607,7 +3607,7 @@ __/Altirra/source/savestate.s: __/Altirra/source/savestate.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/savestate.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestate.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestate.cpp.s
 .PHONY : __/Altirra/source/savestate.cpp.s
 
 __/Altirra/source/savestateio.o: __/Altirra/source/savestateio.cpp.o
@@ -3615,7 +3615,7 @@ __/Altirra/source/savestateio.o: __/Altirra/source/savestateio.cpp.o
 
 # target to build an object file
 __/Altirra/source/savestateio.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestateio.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestateio.cpp.o
 .PHONY : __/Altirra/source/savestateio.cpp.o
 
 __/Altirra/source/savestateio.i: __/Altirra/source/savestateio.cpp.i
@@ -3623,7 +3623,7 @@ __/Altirra/source/savestateio.i: __/Altirra/source/savestateio.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/savestateio.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestateio.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestateio.cpp.i
 .PHONY : __/Altirra/source/savestateio.cpp.i
 
 __/Altirra/source/savestateio.s: __/Altirra/source/savestateio.cpp.s
@@ -3631,7 +3631,7 @@ __/Altirra/source/savestateio.s: __/Altirra/source/savestateio.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/savestateio.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestateio.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestateio.cpp.s
 .PHONY : __/Altirra/source/savestateio.cpp.s
 
 __/Altirra/source/savestatetypes.o: __/Altirra/source/savestatetypes.cpp.o
@@ -3639,7 +3639,7 @@ __/Altirra/source/savestatetypes.o: __/Altirra/source/savestatetypes.cpp.o
 
 # target to build an object file
 __/Altirra/source/savestatetypes.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestatetypes.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestatetypes.cpp.o
 .PHONY : __/Altirra/source/savestatetypes.cpp.o
 
 __/Altirra/source/savestatetypes.i: __/Altirra/source/savestatetypes.cpp.i
@@ -3647,7 +3647,7 @@ __/Altirra/source/savestatetypes.i: __/Altirra/source/savestatetypes.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/savestatetypes.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestatetypes.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestatetypes.cpp.i
 .PHONY : __/Altirra/source/savestatetypes.cpp.i
 
 __/Altirra/source/savestatetypes.s: __/Altirra/source/savestatetypes.cpp.s
@@ -3655,7 +3655,7 @@ __/Altirra/source/savestatetypes.s: __/Altirra/source/savestatetypes.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/savestatetypes.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestatetypes.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/savestatetypes.cpp.s
 .PHONY : __/Altirra/source/savestatetypes.cpp.s
 
 __/Altirra/source/scsidisk.o: __/Altirra/source/scsidisk.cpp.o
@@ -3663,7 +3663,7 @@ __/Altirra/source/scsidisk.o: __/Altirra/source/scsidisk.cpp.o
 
 # target to build an object file
 __/Altirra/source/scsidisk.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/scsidisk.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/scsidisk.cpp.o
 .PHONY : __/Altirra/source/scsidisk.cpp.o
 
 __/Altirra/source/scsidisk.i: __/Altirra/source/scsidisk.cpp.i
@@ -3671,7 +3671,7 @@ __/Altirra/source/scsidisk.i: __/Altirra/source/scsidisk.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/scsidisk.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/scsidisk.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/scsidisk.cpp.i
 .PHONY : __/Altirra/source/scsidisk.cpp.i
 
 __/Altirra/source/scsidisk.s: __/Altirra/source/scsidisk.cpp.s
@@ -3679,7 +3679,7 @@ __/Altirra/source/scsidisk.s: __/Altirra/source/scsidisk.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/scsidisk.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/scsidisk.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/scsidisk.cpp.s
 .PHONY : __/Altirra/source/scsidisk.cpp.s
 
 __/Altirra/source/sdrive.o: __/Altirra/source/sdrive.cpp.o
@@ -3687,7 +3687,7 @@ __/Altirra/source/sdrive.o: __/Altirra/source/sdrive.cpp.o
 
 # target to build an object file
 __/Altirra/source/sdrive.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sdrive.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sdrive.cpp.o
 .PHONY : __/Altirra/source/sdrive.cpp.o
 
 __/Altirra/source/sdrive.i: __/Altirra/source/sdrive.cpp.i
@@ -3695,7 +3695,7 @@ __/Altirra/source/sdrive.i: __/Altirra/source/sdrive.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/sdrive.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sdrive.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sdrive.cpp.i
 .PHONY : __/Altirra/source/sdrive.cpp.i
 
 __/Altirra/source/sdrive.s: __/Altirra/source/sdrive.cpp.s
@@ -3703,7 +3703,7 @@ __/Altirra/source/sdrive.s: __/Altirra/source/sdrive.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/sdrive.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sdrive.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sdrive.cpp.s
 .PHONY : __/Altirra/source/sdrive.cpp.s
 
 __/Altirra/source/side.o: __/Altirra/source/side.cpp.o
@@ -3711,7 +3711,7 @@ __/Altirra/source/side.o: __/Altirra/source/side.cpp.o
 
 # target to build an object file
 __/Altirra/source/side.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side.cpp.o
 .PHONY : __/Altirra/source/side.cpp.o
 
 __/Altirra/source/side.i: __/Altirra/source/side.cpp.i
@@ -3719,7 +3719,7 @@ __/Altirra/source/side.i: __/Altirra/source/side.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/side.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side.cpp.i
 .PHONY : __/Altirra/source/side.cpp.i
 
 __/Altirra/source/side.s: __/Altirra/source/side.cpp.s
@@ -3727,7 +3727,7 @@ __/Altirra/source/side.s: __/Altirra/source/side.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/side.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side.cpp.s
 .PHONY : __/Altirra/source/side.cpp.s
 
 __/Altirra/source/side3.o: __/Altirra/source/side3.cpp.o
@@ -3735,7 +3735,7 @@ __/Altirra/source/side3.o: __/Altirra/source/side3.cpp.o
 
 # target to build an object file
 __/Altirra/source/side3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side3.cpp.o
 .PHONY : __/Altirra/source/side3.cpp.o
 
 __/Altirra/source/side3.i: __/Altirra/source/side3.cpp.i
@@ -3743,7 +3743,7 @@ __/Altirra/source/side3.i: __/Altirra/source/side3.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/side3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side3.cpp.i
 .PHONY : __/Altirra/source/side3.cpp.i
 
 __/Altirra/source/side3.s: __/Altirra/source/side3.cpp.s
@@ -3751,7 +3751,7 @@ __/Altirra/source/side3.s: __/Altirra/source/side3.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/side3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/side3.cpp.s
 .PHONY : __/Altirra/source/side3.cpp.s
 
 __/Altirra/source/simeventmanager.o: __/Altirra/source/simeventmanager.cpp.o
@@ -3759,7 +3759,7 @@ __/Altirra/source/simeventmanager.o: __/Altirra/source/simeventmanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/simeventmanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simeventmanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simeventmanager.cpp.o
 .PHONY : __/Altirra/source/simeventmanager.cpp.o
 
 __/Altirra/source/simeventmanager.i: __/Altirra/source/simeventmanager.cpp.i
@@ -3767,7 +3767,7 @@ __/Altirra/source/simeventmanager.i: __/Altirra/source/simeventmanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/simeventmanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simeventmanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simeventmanager.cpp.i
 .PHONY : __/Altirra/source/simeventmanager.cpp.i
 
 __/Altirra/source/simeventmanager.s: __/Altirra/source/simeventmanager.cpp.s
@@ -3775,7 +3775,7 @@ __/Altirra/source/simeventmanager.s: __/Altirra/source/simeventmanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/simeventmanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simeventmanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simeventmanager.cpp.s
 .PHONY : __/Altirra/source/simeventmanager.cpp.s
 
 __/Altirra/source/simulator.o: __/Altirra/source/simulator.cpp.o
@@ -3783,7 +3783,7 @@ __/Altirra/source/simulator.o: __/Altirra/source/simulator.cpp.o
 
 # target to build an object file
 __/Altirra/source/simulator.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simulator.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simulator.cpp.o
 .PHONY : __/Altirra/source/simulator.cpp.o
 
 __/Altirra/source/simulator.i: __/Altirra/source/simulator.cpp.i
@@ -3791,7 +3791,7 @@ __/Altirra/source/simulator.i: __/Altirra/source/simulator.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/simulator.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simulator.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simulator.cpp.i
 .PHONY : __/Altirra/source/simulator.cpp.i
 
 __/Altirra/source/simulator.s: __/Altirra/source/simulator.cpp.s
@@ -3799,7 +3799,7 @@ __/Altirra/source/simulator.s: __/Altirra/source/simulator.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/simulator.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simulator.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/simulator.cpp.s
 .PHONY : __/Altirra/source/simulator.cpp.s
 
 __/Altirra/source/sio2sd.o: __/Altirra/source/sio2sd.cpp.o
@@ -3807,7 +3807,7 @@ __/Altirra/source/sio2sd.o: __/Altirra/source/sio2sd.cpp.o
 
 # target to build an object file
 __/Altirra/source/sio2sd.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sio2sd.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sio2sd.cpp.o
 .PHONY : __/Altirra/source/sio2sd.cpp.o
 
 __/Altirra/source/sio2sd.i: __/Altirra/source/sio2sd.cpp.i
@@ -3815,7 +3815,7 @@ __/Altirra/source/sio2sd.i: __/Altirra/source/sio2sd.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/sio2sd.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sio2sd.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sio2sd.cpp.i
 .PHONY : __/Altirra/source/sio2sd.cpp.i
 
 __/Altirra/source/sio2sd.s: __/Altirra/source/sio2sd.cpp.s
@@ -3823,7 +3823,7 @@ __/Altirra/source/sio2sd.s: __/Altirra/source/sio2sd.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/sio2sd.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sio2sd.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sio2sd.cpp.s
 .PHONY : __/Altirra/source/sio2sd.cpp.s
 
 __/Altirra/source/siomanager.o: __/Altirra/source/siomanager.cpp.o
@@ -3831,7 +3831,7 @@ __/Altirra/source/siomanager.o: __/Altirra/source/siomanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/siomanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/siomanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/siomanager.cpp.o
 .PHONY : __/Altirra/source/siomanager.cpp.o
 
 __/Altirra/source/siomanager.i: __/Altirra/source/siomanager.cpp.i
@@ -3839,7 +3839,7 @@ __/Altirra/source/siomanager.i: __/Altirra/source/siomanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/siomanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/siomanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/siomanager.cpp.i
 .PHONY : __/Altirra/source/siomanager.cpp.i
 
 __/Altirra/source/siomanager.s: __/Altirra/source/siomanager.cpp.s
@@ -3847,7 +3847,7 @@ __/Altirra/source/siomanager.s: __/Altirra/source/siomanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/siomanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/siomanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/siomanager.cpp.s
 .PHONY : __/Altirra/source/siomanager.cpp.s
 
 __/Altirra/source/slightsid.o: __/Altirra/source/slightsid.cpp.o
@@ -3855,7 +3855,7 @@ __/Altirra/source/slightsid.o: __/Altirra/source/slightsid.cpp.o
 
 # target to build an object file
 __/Altirra/source/slightsid.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/slightsid.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/slightsid.cpp.o
 .PHONY : __/Altirra/source/slightsid.cpp.o
 
 __/Altirra/source/slightsid.i: __/Altirra/source/slightsid.cpp.i
@@ -3863,7 +3863,7 @@ __/Altirra/source/slightsid.i: __/Altirra/source/slightsid.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/slightsid.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/slightsid.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/slightsid.cpp.i
 .PHONY : __/Altirra/source/slightsid.cpp.i
 
 __/Altirra/source/slightsid.s: __/Altirra/source/slightsid.cpp.s
@@ -3871,7 +3871,7 @@ __/Altirra/source/slightsid.s: __/Altirra/source/slightsid.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/slightsid.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/slightsid.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/slightsid.cpp.s
 .PHONY : __/Altirra/source/slightsid.cpp.s
 
 __/Altirra/source/soundboard.o: __/Altirra/source/soundboard.cpp.o
@@ -3879,7 +3879,7 @@ __/Altirra/source/soundboard.o: __/Altirra/source/soundboard.cpp.o
 
 # target to build an object file
 __/Altirra/source/soundboard.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/soundboard.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/soundboard.cpp.o
 .PHONY : __/Altirra/source/soundboard.cpp.o
 
 __/Altirra/source/soundboard.i: __/Altirra/source/soundboard.cpp.i
@@ -3887,7 +3887,7 @@ __/Altirra/source/soundboard.i: __/Altirra/source/soundboard.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/soundboard.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/soundboard.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/soundboard.cpp.i
 .PHONY : __/Altirra/source/soundboard.cpp.i
 
 __/Altirra/source/soundboard.s: __/Altirra/source/soundboard.cpp.s
@@ -3895,7 +3895,7 @@ __/Altirra/source/soundboard.s: __/Altirra/source/soundboard.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/soundboard.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/soundboard.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/soundboard.cpp.s
 .PHONY : __/Altirra/source/soundboard.cpp.s
 
 __/Altirra/source/stdafx.o: __/Altirra/source/stdafx.cpp.o
@@ -3903,7 +3903,7 @@ __/Altirra/source/stdafx.o: __/Altirra/source/stdafx.cpp.o
 
 # target to build an object file
 __/Altirra/source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/stdafx.cpp.o
 .PHONY : __/Altirra/source/stdafx.cpp.o
 
 __/Altirra/source/stdafx.i: __/Altirra/source/stdafx.cpp.i
@@ -3911,7 +3911,7 @@ __/Altirra/source/stdafx.i: __/Altirra/source/stdafx.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/stdafx.cpp.i
 .PHONY : __/Altirra/source/stdafx.cpp.i
 
 __/Altirra/source/stdafx.s: __/Altirra/source/stdafx.cpp.s
@@ -3919,7 +3919,7 @@ __/Altirra/source/stdafx.s: __/Altirra/source/stdafx.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/stdafx.cpp.s
 .PHONY : __/Altirra/source/stdafx.cpp.s
 
 __/Altirra/source/sx212.o: __/Altirra/source/sx212.cpp.o
@@ -3927,7 +3927,7 @@ __/Altirra/source/sx212.o: __/Altirra/source/sx212.cpp.o
 
 # target to build an object file
 __/Altirra/source/sx212.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sx212.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sx212.cpp.o
 .PHONY : __/Altirra/source/sx212.cpp.o
 
 __/Altirra/source/sx212.i: __/Altirra/source/sx212.cpp.i
@@ -3935,7 +3935,7 @@ __/Altirra/source/sx212.i: __/Altirra/source/sx212.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/sx212.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sx212.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sx212.cpp.i
 .PHONY : __/Altirra/source/sx212.cpp.i
 
 __/Altirra/source/sx212.s: __/Altirra/source/sx212.cpp.s
@@ -3943,7 +3943,7 @@ __/Altirra/source/sx212.s: __/Altirra/source/sx212.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/sx212.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sx212.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/sx212.cpp.s
 .PHONY : __/Altirra/source/sx212.cpp.s
 
 __/Altirra/source/textdom.o: __/Altirra/source/textdom.cpp.o
@@ -3951,7 +3951,7 @@ __/Altirra/source/textdom.o: __/Altirra/source/textdom.cpp.o
 
 # target to build an object file
 __/Altirra/source/textdom.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/textdom.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/textdom.cpp.o
 .PHONY : __/Altirra/source/textdom.cpp.o
 
 __/Altirra/source/textdom.i: __/Altirra/source/textdom.cpp.i
@@ -3959,7 +3959,7 @@ __/Altirra/source/textdom.i: __/Altirra/source/textdom.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/textdom.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/textdom.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/textdom.cpp.i
 .PHONY : __/Altirra/source/textdom.cpp.i
 
 __/Altirra/source/textdom.s: __/Altirra/source/textdom.cpp.s
@@ -3967,7 +3967,7 @@ __/Altirra/source/textdom.s: __/Altirra/source/textdom.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/textdom.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/textdom.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/textdom.cpp.s
 .PHONY : __/Altirra/source/textdom.cpp.s
 
 __/Altirra/source/thepill.o: __/Altirra/source/thepill.cpp.o
@@ -3975,7 +3975,7 @@ __/Altirra/source/thepill.o: __/Altirra/source/thepill.cpp.o
 
 # target to build an object file
 __/Altirra/source/thepill.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/thepill.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/thepill.cpp.o
 .PHONY : __/Altirra/source/thepill.cpp.o
 
 __/Altirra/source/thepill.i: __/Altirra/source/thepill.cpp.i
@@ -3983,7 +3983,7 @@ __/Altirra/source/thepill.i: __/Altirra/source/thepill.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/thepill.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/thepill.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/thepill.cpp.i
 .PHONY : __/Altirra/source/thepill.cpp.i
 
 __/Altirra/source/thepill.s: __/Altirra/source/thepill.cpp.s
@@ -3991,7 +3991,7 @@ __/Altirra/source/thepill.s: __/Altirra/source/thepill.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/thepill.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/thepill.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/thepill.cpp.s
 .PHONY : __/Altirra/source/thepill.cpp.s
 
 __/Altirra/source/trace.o: __/Altirra/source/trace.cpp.o
@@ -3999,7 +3999,7 @@ __/Altirra/source/trace.o: __/Altirra/source/trace.cpp.o
 
 # target to build an object file
 __/Altirra/source/trace.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/trace.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/trace.cpp.o
 .PHONY : __/Altirra/source/trace.cpp.o
 
 __/Altirra/source/trace.i: __/Altirra/source/trace.cpp.i
@@ -4007,7 +4007,7 @@ __/Altirra/source/trace.i: __/Altirra/source/trace.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/trace.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/trace.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/trace.cpp.i
 .PHONY : __/Altirra/source/trace.cpp.i
 
 __/Altirra/source/trace.s: __/Altirra/source/trace.cpp.s
@@ -4015,7 +4015,7 @@ __/Altirra/source/trace.s: __/Altirra/source/trace.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/trace.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/trace.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/trace.cpp.s
 .PHONY : __/Altirra/source/trace.cpp.s
 
 __/Altirra/source/tracecpu.o: __/Altirra/source/tracecpu.cpp.o
@@ -4023,7 +4023,7 @@ __/Altirra/source/tracecpu.o: __/Altirra/source/tracecpu.cpp.o
 
 # target to build an object file
 __/Altirra/source/tracecpu.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracecpu.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracecpu.cpp.o
 .PHONY : __/Altirra/source/tracecpu.cpp.o
 
 __/Altirra/source/tracecpu.i: __/Altirra/source/tracecpu.cpp.i
@@ -4031,7 +4031,7 @@ __/Altirra/source/tracecpu.i: __/Altirra/source/tracecpu.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/tracecpu.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracecpu.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracecpu.cpp.i
 .PHONY : __/Altirra/source/tracecpu.cpp.i
 
 __/Altirra/source/tracecpu.s: __/Altirra/source/tracecpu.cpp.s
@@ -4039,7 +4039,7 @@ __/Altirra/source/tracecpu.s: __/Altirra/source/tracecpu.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/tracecpu.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracecpu.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracecpu.cpp.s
 .PHONY : __/Altirra/source/tracecpu.cpp.s
 
 __/Altirra/source/tracefileencoding.o: __/Altirra/source/tracefileencoding.cpp.o
@@ -4047,7 +4047,7 @@ __/Altirra/source/tracefileencoding.o: __/Altirra/source/tracefileencoding.cpp.o
 
 # target to build an object file
 __/Altirra/source/tracefileencoding.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileencoding.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileencoding.cpp.o
 .PHONY : __/Altirra/source/tracefileencoding.cpp.o
 
 __/Altirra/source/tracefileencoding.i: __/Altirra/source/tracefileencoding.cpp.i
@@ -4055,7 +4055,7 @@ __/Altirra/source/tracefileencoding.i: __/Altirra/source/tracefileencoding.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/tracefileencoding.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileencoding.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileencoding.cpp.i
 .PHONY : __/Altirra/source/tracefileencoding.cpp.i
 
 __/Altirra/source/tracefileencoding.s: __/Altirra/source/tracefileencoding.cpp.s
@@ -4063,7 +4063,7 @@ __/Altirra/source/tracefileencoding.s: __/Altirra/source/tracefileencoding.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/tracefileencoding.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileencoding.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileencoding.cpp.s
 .PHONY : __/Altirra/source/tracefileencoding.cpp.s
 
 __/Altirra/source/tracefileformat.o: __/Altirra/source/tracefileformat.cpp.o
@@ -4071,7 +4071,7 @@ __/Altirra/source/tracefileformat.o: __/Altirra/source/tracefileformat.cpp.o
 
 # target to build an object file
 __/Altirra/source/tracefileformat.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileformat.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileformat.cpp.o
 .PHONY : __/Altirra/source/tracefileformat.cpp.o
 
 __/Altirra/source/tracefileformat.i: __/Altirra/source/tracefileformat.cpp.i
@@ -4079,7 +4079,7 @@ __/Altirra/source/tracefileformat.i: __/Altirra/source/tracefileformat.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/tracefileformat.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileformat.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileformat.cpp.i
 .PHONY : __/Altirra/source/tracefileformat.cpp.i
 
 __/Altirra/source/tracefileformat.s: __/Altirra/source/tracefileformat.cpp.s
@@ -4087,7 +4087,7 @@ __/Altirra/source/tracefileformat.s: __/Altirra/source/tracefileformat.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/tracefileformat.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileformat.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracefileformat.cpp.s
 .PHONY : __/Altirra/source/tracefileformat.cpp.s
 
 __/Altirra/source/traceimporta800.o: __/Altirra/source/traceimporta800.cpp.o
@@ -4095,7 +4095,7 @@ __/Altirra/source/traceimporta800.o: __/Altirra/source/traceimporta800.cpp.o
 
 # target to build an object file
 __/Altirra/source/traceimporta800.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceimporta800.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceimporta800.cpp.o
 .PHONY : __/Altirra/source/traceimporta800.cpp.o
 
 __/Altirra/source/traceimporta800.i: __/Altirra/source/traceimporta800.cpp.i
@@ -4103,7 +4103,7 @@ __/Altirra/source/traceimporta800.i: __/Altirra/source/traceimporta800.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/traceimporta800.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceimporta800.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceimporta800.cpp.i
 .PHONY : __/Altirra/source/traceimporta800.cpp.i
 
 __/Altirra/source/traceimporta800.s: __/Altirra/source/traceimporta800.cpp.s
@@ -4111,7 +4111,7 @@ __/Altirra/source/traceimporta800.s: __/Altirra/source/traceimporta800.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/traceimporta800.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceimporta800.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceimporta800.cpp.s
 .PHONY : __/Altirra/source/traceimporta800.cpp.s
 
 __/Altirra/source/traceio.o: __/Altirra/source/traceio.cpp.o
@@ -4119,7 +4119,7 @@ __/Altirra/source/traceio.o: __/Altirra/source/traceio.cpp.o
 
 # target to build an object file
 __/Altirra/source/traceio.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceio.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceio.cpp.o
 .PHONY : __/Altirra/source/traceio.cpp.o
 
 __/Altirra/source/traceio.i: __/Altirra/source/traceio.cpp.i
@@ -4127,7 +4127,7 @@ __/Altirra/source/traceio.i: __/Altirra/source/traceio.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/traceio.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceio.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceio.cpp.i
 .PHONY : __/Altirra/source/traceio.cpp.i
 
 __/Altirra/source/traceio.s: __/Altirra/source/traceio.cpp.s
@@ -4135,7 +4135,7 @@ __/Altirra/source/traceio.s: __/Altirra/source/traceio.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/traceio.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceio.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/traceio.cpp.s
 .PHONY : __/Altirra/source/traceio.cpp.s
 
 __/Altirra/source/tracelogger.o: __/Altirra/source/tracelogger.cpp.o
@@ -4143,7 +4143,7 @@ __/Altirra/source/tracelogger.o: __/Altirra/source/tracelogger.cpp.o
 
 # target to build an object file
 __/Altirra/source/tracelogger.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracelogger.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracelogger.cpp.o
 .PHONY : __/Altirra/source/tracelogger.cpp.o
 
 __/Altirra/source/tracelogger.i: __/Altirra/source/tracelogger.cpp.i
@@ -4151,7 +4151,7 @@ __/Altirra/source/tracelogger.i: __/Altirra/source/tracelogger.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/tracelogger.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracelogger.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracelogger.cpp.i
 .PHONY : __/Altirra/source/tracelogger.cpp.i
 
 __/Altirra/source/tracelogger.s: __/Altirra/source/tracelogger.cpp.s
@@ -4159,7 +4159,7 @@ __/Altirra/source/tracelogger.s: __/Altirra/source/tracelogger.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/tracelogger.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracelogger.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracelogger.cpp.s
 .PHONY : __/Altirra/source/tracelogger.cpp.s
 
 __/Altirra/source/tracenative.o: __/Altirra/source/tracenative.cpp.o
@@ -4167,7 +4167,7 @@ __/Altirra/source/tracenative.o: __/Altirra/source/tracenative.cpp.o
 
 # target to build an object file
 __/Altirra/source/tracenative.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracenative.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracenative.cpp.o
 .PHONY : __/Altirra/source/tracenative.cpp.o
 
 __/Altirra/source/tracenative.i: __/Altirra/source/tracenative.cpp.i
@@ -4175,7 +4175,7 @@ __/Altirra/source/tracenative.i: __/Altirra/source/tracenative.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/tracenative.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracenative.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracenative.cpp.i
 .PHONY : __/Altirra/source/tracenative.cpp.i
 
 __/Altirra/source/tracenative.s: __/Altirra/source/tracenative.cpp.s
@@ -4183,7 +4183,7 @@ __/Altirra/source/tracenative.s: __/Altirra/source/tracenative.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/tracenative.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracenative.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracenative.cpp.s
 .PHONY : __/Altirra/source/tracenative.cpp.s
 
 __/Altirra/source/tracetape.o: __/Altirra/source/tracetape.cpp.o
@@ -4191,7 +4191,7 @@ __/Altirra/source/tracetape.o: __/Altirra/source/tracetape.cpp.o
 
 # target to build an object file
 __/Altirra/source/tracetape.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracetape.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracetape.cpp.o
 .PHONY : __/Altirra/source/tracetape.cpp.o
 
 __/Altirra/source/tracetape.i: __/Altirra/source/tracetape.cpp.i
@@ -4199,7 +4199,7 @@ __/Altirra/source/tracetape.i: __/Altirra/source/tracetape.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/tracetape.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracetape.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracetape.cpp.i
 .PHONY : __/Altirra/source/tracetape.cpp.i
 
 __/Altirra/source/tracetape.s: __/Altirra/source/tracetape.cpp.s
@@ -4207,7 +4207,7 @@ __/Altirra/source/tracetape.s: __/Altirra/source/tracetape.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/tracetape.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracetape.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracetape.cpp.s
 .PHONY : __/Altirra/source/tracetape.cpp.s
 
 __/Altirra/source/tracevideo.o: __/Altirra/source/tracevideo.cpp.o
@@ -4215,7 +4215,7 @@ __/Altirra/source/tracevideo.o: __/Altirra/source/tracevideo.cpp.o
 
 # target to build an object file
 __/Altirra/source/tracevideo.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracevideo.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracevideo.cpp.o
 .PHONY : __/Altirra/source/tracevideo.cpp.o
 
 __/Altirra/source/tracevideo.i: __/Altirra/source/tracevideo.cpp.i
@@ -4223,7 +4223,7 @@ __/Altirra/source/tracevideo.i: __/Altirra/source/tracevideo.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/tracevideo.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracevideo.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracevideo.cpp.i
 .PHONY : __/Altirra/source/tracevideo.cpp.i
 
 __/Altirra/source/tracevideo.s: __/Altirra/source/tracevideo.cpp.s
@@ -4231,7 +4231,7 @@ __/Altirra/source/tracevideo.s: __/Altirra/source/tracevideo.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/tracevideo.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracevideo.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/tracevideo.cpp.s
 .PHONY : __/Altirra/source/tracevideo.cpp.s
 
 __/Altirra/source/ui.o: __/Altirra/source/ui.cpp.o
@@ -4239,7 +4239,7 @@ __/Altirra/source/ui.o: __/Altirra/source/ui.cpp.o
 
 # target to build an object file
 __/Altirra/source/ui.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ui.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ui.cpp.o
 .PHONY : __/Altirra/source/ui.cpp.o
 
 __/Altirra/source/ui.i: __/Altirra/source/ui.cpp.i
@@ -4247,7 +4247,7 @@ __/Altirra/source/ui.i: __/Altirra/source/ui.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/ui.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ui.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ui.cpp.i
 .PHONY : __/Altirra/source/ui.cpp.i
 
 __/Altirra/source/ui.s: __/Altirra/source/ui.cpp.s
@@ -4255,7 +4255,7 @@ __/Altirra/source/ui.s: __/Altirra/source/ui.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/ui.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ui.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ui.cpp.s
 .PHONY : __/Altirra/source/ui.cpp.s
 
 __/Altirra/source/ultimate1mb.o: __/Altirra/source/ultimate1mb.cpp.o
@@ -4263,7 +4263,7 @@ __/Altirra/source/ultimate1mb.o: __/Altirra/source/ultimate1mb.cpp.o
 
 # target to build an object file
 __/Altirra/source/ultimate1mb.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ultimate1mb.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ultimate1mb.cpp.o
 .PHONY : __/Altirra/source/ultimate1mb.cpp.o
 
 __/Altirra/source/ultimate1mb.i: __/Altirra/source/ultimate1mb.cpp.i
@@ -4271,7 +4271,7 @@ __/Altirra/source/ultimate1mb.i: __/Altirra/source/ultimate1mb.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/ultimate1mb.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ultimate1mb.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ultimate1mb.cpp.i
 .PHONY : __/Altirra/source/ultimate1mb.cpp.i
 
 __/Altirra/source/ultimate1mb.s: __/Altirra/source/ultimate1mb.cpp.s
@@ -4279,7 +4279,7 @@ __/Altirra/source/ultimate1mb.s: __/Altirra/source/ultimate1mb.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/ultimate1mb.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ultimate1mb.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/ultimate1mb.cpp.s
 .PHONY : __/Altirra/source/ultimate1mb.cpp.s
 
 __/Altirra/source/updatecheck.o: __/Altirra/source/updatecheck.cpp.o
@@ -4287,7 +4287,7 @@ __/Altirra/source/updatecheck.o: __/Altirra/source/updatecheck.cpp.o
 
 # target to build an object file
 __/Altirra/source/updatecheck.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatecheck.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatecheck.cpp.o
 .PHONY : __/Altirra/source/updatecheck.cpp.o
 
 __/Altirra/source/updatecheck.i: __/Altirra/source/updatecheck.cpp.i
@@ -4295,7 +4295,7 @@ __/Altirra/source/updatecheck.i: __/Altirra/source/updatecheck.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/updatecheck.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatecheck.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatecheck.cpp.i
 .PHONY : __/Altirra/source/updatecheck.cpp.i
 
 __/Altirra/source/updatecheck.s: __/Altirra/source/updatecheck.cpp.s
@@ -4303,7 +4303,7 @@ __/Altirra/source/updatecheck.s: __/Altirra/source/updatecheck.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/updatecheck.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatecheck.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatecheck.cpp.s
 .PHONY : __/Altirra/source/updatecheck.cpp.s
 
 __/Altirra/source/updatefeed.o: __/Altirra/source/updatefeed.cpp.o
@@ -4311,7 +4311,7 @@ __/Altirra/source/updatefeed.o: __/Altirra/source/updatefeed.cpp.o
 
 # target to build an object file
 __/Altirra/source/updatefeed.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatefeed.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatefeed.cpp.o
 .PHONY : __/Altirra/source/updatefeed.cpp.o
 
 __/Altirra/source/updatefeed.i: __/Altirra/source/updatefeed.cpp.i
@@ -4319,7 +4319,7 @@ __/Altirra/source/updatefeed.i: __/Altirra/source/updatefeed.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/updatefeed.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatefeed.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatefeed.cpp.i
 .PHONY : __/Altirra/source/updatefeed.cpp.i
 
 __/Altirra/source/updatefeed.s: __/Altirra/source/updatefeed.cpp.s
@@ -4327,7 +4327,7 @@ __/Altirra/source/updatefeed.s: __/Altirra/source/updatefeed.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/updatefeed.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatefeed.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/updatefeed.cpp.s
 .PHONY : __/Altirra/source/updatefeed.cpp.s
 
 __/Altirra/source/vbxe.o: __/Altirra/source/vbxe.cpp.o
@@ -4335,7 +4335,7 @@ __/Altirra/source/vbxe.o: __/Altirra/source/vbxe.cpp.o
 
 # target to build an object file
 __/Altirra/source/vbxe.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxe.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxe.cpp.o
 .PHONY : __/Altirra/source/vbxe.cpp.o
 
 __/Altirra/source/vbxe.i: __/Altirra/source/vbxe.cpp.i
@@ -4343,7 +4343,7 @@ __/Altirra/source/vbxe.i: __/Altirra/source/vbxe.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/vbxe.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxe.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxe.cpp.i
 .PHONY : __/Altirra/source/vbxe.cpp.i
 
 __/Altirra/source/vbxe.s: __/Altirra/source/vbxe.cpp.s
@@ -4351,7 +4351,7 @@ __/Altirra/source/vbxe.s: __/Altirra/source/vbxe.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/vbxe.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxe.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxe.cpp.s
 .PHONY : __/Altirra/source/vbxe.cpp.s
 
 __/Altirra/source/vbxestate.o: __/Altirra/source/vbxestate.cpp.o
@@ -4359,7 +4359,7 @@ __/Altirra/source/vbxestate.o: __/Altirra/source/vbxestate.cpp.o
 
 # target to build an object file
 __/Altirra/source/vbxestate.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxestate.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxestate.cpp.o
 .PHONY : __/Altirra/source/vbxestate.cpp.o
 
 __/Altirra/source/vbxestate.i: __/Altirra/source/vbxestate.cpp.i
@@ -4367,7 +4367,7 @@ __/Altirra/source/vbxestate.i: __/Altirra/source/vbxestate.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/vbxestate.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxestate.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxestate.cpp.i
 .PHONY : __/Altirra/source/vbxestate.cpp.i
 
 __/Altirra/source/vbxestate.s: __/Altirra/source/vbxestate.cpp.s
@@ -4375,7 +4375,7 @@ __/Altirra/source/vbxestate.s: __/Altirra/source/vbxestate.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/vbxestate.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxestate.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vbxestate.cpp.s
 .PHONY : __/Altirra/source/vbxestate.cpp.s
 
 __/Altirra/source/verifier.o: __/Altirra/source/verifier.cpp.o
@@ -4383,7 +4383,7 @@ __/Altirra/source/verifier.o: __/Altirra/source/verifier.cpp.o
 
 # target to build an object file
 __/Altirra/source/verifier.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/verifier.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/verifier.cpp.o
 .PHONY : __/Altirra/source/verifier.cpp.o
 
 __/Altirra/source/verifier.i: __/Altirra/source/verifier.cpp.i
@@ -4391,7 +4391,7 @@ __/Altirra/source/verifier.i: __/Altirra/source/verifier.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/verifier.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/verifier.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/verifier.cpp.i
 .PHONY : __/Altirra/source/verifier.cpp.i
 
 __/Altirra/source/verifier.s: __/Altirra/source/verifier.cpp.s
@@ -4399,7 +4399,7 @@ __/Altirra/source/verifier.s: __/Altirra/source/verifier.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/verifier.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/verifier.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/verifier.cpp.s
 .PHONY : __/Altirra/source/verifier.cpp.s
 
 __/Altirra/source/veronica.o: __/Altirra/source/veronica.cpp.o
@@ -4407,7 +4407,7 @@ __/Altirra/source/veronica.o: __/Altirra/source/veronica.cpp.o
 
 # target to build an object file
 __/Altirra/source/veronica.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/veronica.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/veronica.cpp.o
 .PHONY : __/Altirra/source/veronica.cpp.o
 
 __/Altirra/source/veronica.i: __/Altirra/source/veronica.cpp.i
@@ -4415,7 +4415,7 @@ __/Altirra/source/veronica.i: __/Altirra/source/veronica.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/veronica.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/veronica.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/veronica.cpp.i
 .PHONY : __/Altirra/source/veronica.cpp.i
 
 __/Altirra/source/veronica.s: __/Altirra/source/veronica.cpp.s
@@ -4423,7 +4423,7 @@ __/Altirra/source/veronica.s: __/Altirra/source/veronica.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/veronica.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/veronica.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/veronica.cpp.s
 .PHONY : __/Altirra/source/veronica.cpp.s
 
 __/Altirra/source/vgmplayer.o: __/Altirra/source/vgmplayer.cpp.o
@@ -4431,7 +4431,7 @@ __/Altirra/source/vgmplayer.o: __/Altirra/source/vgmplayer.cpp.o
 
 # target to build an object file
 __/Altirra/source/vgmplayer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vgmplayer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vgmplayer.cpp.o
 .PHONY : __/Altirra/source/vgmplayer.cpp.o
 
 __/Altirra/source/vgmplayer.i: __/Altirra/source/vgmplayer.cpp.i
@@ -4439,7 +4439,7 @@ __/Altirra/source/vgmplayer.i: __/Altirra/source/vgmplayer.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/vgmplayer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vgmplayer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vgmplayer.cpp.i
 .PHONY : __/Altirra/source/vgmplayer.cpp.i
 
 __/Altirra/source/vgmplayer.s: __/Altirra/source/vgmplayer.cpp.s
@@ -4447,7 +4447,7 @@ __/Altirra/source/vgmplayer.s: __/Altirra/source/vgmplayer.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/vgmplayer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vgmplayer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/vgmplayer.cpp.s
 .PHONY : __/Altirra/source/vgmplayer.cpp.s
 
 __/Altirra/source/videomanager.o: __/Altirra/source/videomanager.cpp.o
@@ -4455,7 +4455,7 @@ __/Altirra/source/videomanager.o: __/Altirra/source/videomanager.cpp.o
 
 # target to build an object file
 __/Altirra/source/videomanager.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videomanager.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videomanager.cpp.o
 .PHONY : __/Altirra/source/videomanager.cpp.o
 
 __/Altirra/source/videomanager.i: __/Altirra/source/videomanager.cpp.i
@@ -4463,7 +4463,7 @@ __/Altirra/source/videomanager.i: __/Altirra/source/videomanager.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/videomanager.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videomanager.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videomanager.cpp.i
 .PHONY : __/Altirra/source/videomanager.cpp.i
 
 __/Altirra/source/videomanager.s: __/Altirra/source/videomanager.cpp.s
@@ -4471,7 +4471,7 @@ __/Altirra/source/videomanager.s: __/Altirra/source/videomanager.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/videomanager.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videomanager.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videomanager.cpp.s
 .PHONY : __/Altirra/source/videomanager.cpp.s
 
 __/Altirra/source/videostillimage.o: __/Altirra/source/videostillimage.cpp.o
@@ -4479,7 +4479,7 @@ __/Altirra/source/videostillimage.o: __/Altirra/source/videostillimage.cpp.o
 
 # target to build an object file
 __/Altirra/source/videostillimage.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videostillimage.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videostillimage.cpp.o
 .PHONY : __/Altirra/source/videostillimage.cpp.o
 
 __/Altirra/source/videostillimage.i: __/Altirra/source/videostillimage.cpp.i
@@ -4487,7 +4487,7 @@ __/Altirra/source/videostillimage.i: __/Altirra/source/videostillimage.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/videostillimage.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videostillimage.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videostillimage.cpp.i
 .PHONY : __/Altirra/source/videostillimage.cpp.i
 
 __/Altirra/source/videostillimage.s: __/Altirra/source/videostillimage.cpp.s
@@ -4495,7 +4495,7 @@ __/Altirra/source/videostillimage.s: __/Altirra/source/videostillimage.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/videostillimage.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videostillimage.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/videostillimage.cpp.s
 .PHONY : __/Altirra/source/videostillimage.cpp.s
 
 __/Altirra/source/virtualscreen.o: __/Altirra/source/virtualscreen.cpp.o
@@ -4503,7 +4503,7 @@ __/Altirra/source/virtualscreen.o: __/Altirra/source/virtualscreen.cpp.o
 
 # target to build an object file
 __/Altirra/source/virtualscreen.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/virtualscreen.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/virtualscreen.cpp.o
 .PHONY : __/Altirra/source/virtualscreen.cpp.o
 
 __/Altirra/source/virtualscreen.i: __/Altirra/source/virtualscreen.cpp.i
@@ -4511,7 +4511,7 @@ __/Altirra/source/virtualscreen.i: __/Altirra/source/virtualscreen.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/virtualscreen.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/virtualscreen.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/virtualscreen.cpp.i
 .PHONY : __/Altirra/source/virtualscreen.cpp.i
 
 __/Altirra/source/virtualscreen.s: __/Altirra/source/virtualscreen.cpp.s
@@ -4519,7 +4519,7 @@ __/Altirra/source/virtualscreen.s: __/Altirra/source/virtualscreen.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/virtualscreen.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/virtualscreen.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/virtualscreen.cpp.s
 .PHONY : __/Altirra/source/virtualscreen.cpp.s
 
 __/Altirra/source/warpos.o: __/Altirra/source/warpos.cpp.o
@@ -4527,7 +4527,7 @@ __/Altirra/source/warpos.o: __/Altirra/source/warpos.cpp.o
 
 # target to build an object file
 __/Altirra/source/warpos.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/warpos.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/warpos.cpp.o
 .PHONY : __/Altirra/source/warpos.cpp.o
 
 __/Altirra/source/warpos.i: __/Altirra/source/warpos.cpp.i
@@ -4535,7 +4535,7 @@ __/Altirra/source/warpos.i: __/Altirra/source/warpos.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/warpos.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/warpos.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/warpos.cpp.i
 .PHONY : __/Altirra/source/warpos.cpp.i
 
 __/Altirra/source/warpos.s: __/Altirra/source/warpos.cpp.s
@@ -4543,7 +4543,7 @@ __/Altirra/source/warpos.s: __/Altirra/source/warpos.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/warpos.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/warpos.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/warpos.cpp.s
 .PHONY : __/Altirra/source/warpos.cpp.s
 
 __/Altirra/source/xelcf.o: __/Altirra/source/xelcf.cpp.o
@@ -4551,7 +4551,7 @@ __/Altirra/source/xelcf.o: __/Altirra/source/xelcf.cpp.o
 
 # target to build an object file
 __/Altirra/source/xelcf.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xelcf.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xelcf.cpp.o
 .PHONY : __/Altirra/source/xelcf.cpp.o
 
 __/Altirra/source/xelcf.i: __/Altirra/source/xelcf.cpp.i
@@ -4559,7 +4559,7 @@ __/Altirra/source/xelcf.i: __/Altirra/source/xelcf.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/xelcf.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xelcf.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xelcf.cpp.i
 .PHONY : __/Altirra/source/xelcf.cpp.i
 
 __/Altirra/source/xelcf.s: __/Altirra/source/xelcf.cpp.s
@@ -4567,7 +4567,7 @@ __/Altirra/source/xelcf.s: __/Altirra/source/xelcf.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/xelcf.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xelcf.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xelcf.cpp.s
 .PHONY : __/Altirra/source/xelcf.cpp.s
 
 __/Altirra/source/xep80.o: __/Altirra/source/xep80.cpp.o
@@ -4575,7 +4575,7 @@ __/Altirra/source/xep80.o: __/Altirra/source/xep80.cpp.o
 
 # target to build an object file
 __/Altirra/source/xep80.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xep80.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xep80.cpp.o
 .PHONY : __/Altirra/source/xep80.cpp.o
 
 __/Altirra/source/xep80.i: __/Altirra/source/xep80.cpp.i
@@ -4583,7 +4583,7 @@ __/Altirra/source/xep80.i: __/Altirra/source/xep80.cpp.i
 
 # target to preprocess a source file
 __/Altirra/source/xep80.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xep80.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xep80.cpp.i
 .PHONY : __/Altirra/source/xep80.cpp.i
 
 __/Altirra/source/xep80.s: __/Altirra/source/xep80.cpp.s
@@ -4591,7 +4591,7 @@ __/Altirra/source/xep80.s: __/Altirra/source/xep80.cpp.s
 
 # target to generate assembly for a file
 __/Altirra/source/xep80.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xep80.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xep80.cpp.s
 .PHONY : __/Altirra/source/xep80.cpp.s
 
 source/display_sdl3.o: source/display_sdl3.cpp.o
@@ -4599,7 +4599,7 @@ source/display_sdl3.o: source/display_sdl3.cpp.o
 
 # target to build an object file
 source/display_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/display_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/display_sdl3.cpp.o
 .PHONY : source/display_sdl3.cpp.o
 
 source/display_sdl3.i: source/display_sdl3.cpp.i
@@ -4607,7 +4607,7 @@ source/display_sdl3.i: source/display_sdl3.cpp.i
 
 # target to preprocess a source file
 source/display_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/display_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/display_sdl3.cpp.i
 .PHONY : source/display_sdl3.cpp.i
 
 source/display_sdl3.s: source/display_sdl3.cpp.s
@@ -4615,7 +4615,7 @@ source/display_sdl3.s: source/display_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/display_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/display_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/display_sdl3.cpp.s
 .PHONY : source/display_sdl3.cpp.s
 
 source/input_sdl3.o: source/input_sdl3.cpp.o
@@ -4623,7 +4623,7 @@ source/input_sdl3.o: source/input_sdl3.cpp.o
 
 # target to build an object file
 source/input_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/input_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/input_sdl3.cpp.o
 .PHONY : source/input_sdl3.cpp.o
 
 source/input_sdl3.i: source/input_sdl3.cpp.i
@@ -4631,7 +4631,7 @@ source/input_sdl3.i: source/input_sdl3.cpp.i
 
 # target to preprocess a source file
 source/input_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/input_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/input_sdl3.cpp.i
 .PHONY : source/input_sdl3.cpp.i
 
 source/input_sdl3.s: source/input_sdl3.cpp.s
@@ -4639,7 +4639,7 @@ source/input_sdl3.s: source/input_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/input_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/input_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/input_sdl3.cpp.s
 .PHONY : source/input_sdl3.cpp.s
 
 source/main_sdl3.o: source/main_sdl3.cpp.o
@@ -4647,7 +4647,7 @@ source/main_sdl3.o: source/main_sdl3.cpp.o
 
 # target to build an object file
 source/main_sdl3.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/main_sdl3.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/main_sdl3.cpp.o
 .PHONY : source/main_sdl3.cpp.o
 
 source/main_sdl3.i: source/main_sdl3.cpp.i
@@ -4655,7 +4655,7 @@ source/main_sdl3.i: source/main_sdl3.cpp.i
 
 # target to preprocess a source file
 source/main_sdl3.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/main_sdl3.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/main_sdl3.cpp.i
 .PHONY : source/main_sdl3.cpp.i
 
 source/main_sdl3.s: source/main_sdl3.cpp.s
@@ -4663,15 +4663,39 @@ source/main_sdl3.s: source/main_sdl3.cpp.s
 
 # target to generate assembly for a file
 source/main_sdl3.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/main_sdl3.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/main_sdl3.cpp.s
 .PHONY : source/main_sdl3.cpp.s
+
+source/ui_main.o: source/ui_main.cpp.o
+.PHONY : source/ui_main.o
+
+# target to build an object file
+source/ui_main.cpp.o:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_main.cpp.o
+.PHONY : source/ui_main.cpp.o
+
+source/ui_main.i: source/ui_main.cpp.i
+.PHONY : source/ui_main.i
+
+# target to preprocess a source file
+source/ui_main.cpp.i:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_main.cpp.i
+.PHONY : source/ui_main.cpp.i
+
+source/ui_main.s: source/ui_main.cpp.s
+.PHONY : source/ui_main.s
+
+# target to generate assembly for a file
+source/ui_main.cpp.s:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_main.cpp.s
+.PHONY : source/ui_main.cpp.s
 
 stubs/console_stubs.o: stubs/console_stubs.cpp.o
 .PHONY : stubs/console_stubs.o
 
 # target to build an object file
 stubs/console_stubs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/console_stubs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/console_stubs.cpp.o
 .PHONY : stubs/console_stubs.cpp.o
 
 stubs/console_stubs.i: stubs/console_stubs.cpp.i
@@ -4679,7 +4703,7 @@ stubs/console_stubs.i: stubs/console_stubs.cpp.i
 
 # target to preprocess a source file
 stubs/console_stubs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/console_stubs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/console_stubs.cpp.i
 .PHONY : stubs/console_stubs.cpp.i
 
 stubs/console_stubs.s: stubs/console_stubs.cpp.s
@@ -4687,7 +4711,7 @@ stubs/console_stubs.s: stubs/console_stubs.cpp.s
 
 # target to generate assembly for a file
 stubs/console_stubs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/console_stubs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/console_stubs.cpp.s
 .PHONY : stubs/console_stubs.cpp.s
 
 stubs/device_stubs.o: stubs/device_stubs.cpp.o
@@ -4695,7 +4719,7 @@ stubs/device_stubs.o: stubs/device_stubs.cpp.o
 
 # target to build an object file
 stubs/device_stubs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/device_stubs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/device_stubs.cpp.o
 .PHONY : stubs/device_stubs.cpp.o
 
 stubs/device_stubs.i: stubs/device_stubs.cpp.i
@@ -4703,7 +4727,7 @@ stubs/device_stubs.i: stubs/device_stubs.cpp.i
 
 # target to preprocess a source file
 stubs/device_stubs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/device_stubs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/device_stubs.cpp.i
 .PHONY : stubs/device_stubs.cpp.i
 
 stubs/device_stubs.s: stubs/device_stubs.cpp.s
@@ -4711,7 +4735,7 @@ stubs/device_stubs.s: stubs/device_stubs.cpp.s
 
 # target to generate assembly for a file
 stubs/device_stubs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/device_stubs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/device_stubs.cpp.s
 .PHONY : stubs/device_stubs.cpp.s
 
 stubs/joystick_stubs.o: stubs/joystick_stubs.cpp.o
@@ -4719,7 +4743,7 @@ stubs/joystick_stubs.o: stubs/joystick_stubs.cpp.o
 
 # target to build an object file
 stubs/joystick_stubs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/joystick_stubs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/joystick_stubs.cpp.o
 .PHONY : stubs/joystick_stubs.cpp.o
 
 stubs/joystick_stubs.i: stubs/joystick_stubs.cpp.i
@@ -4727,7 +4751,7 @@ stubs/joystick_stubs.i: stubs/joystick_stubs.cpp.i
 
 # target to preprocess a source file
 stubs/joystick_stubs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/joystick_stubs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/joystick_stubs.cpp.i
 .PHONY : stubs/joystick_stubs.cpp.i
 
 stubs/joystick_stubs.s: stubs/joystick_stubs.cpp.s
@@ -4735,7 +4759,7 @@ stubs/joystick_stubs.s: stubs/joystick_stubs.cpp.s
 
 # target to generate assembly for a file
 stubs/joystick_stubs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/joystick_stubs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/joystick_stubs.cpp.s
 .PHONY : stubs/joystick_stubs.cpp.s
 
 stubs/oshelper_stubs.o: stubs/oshelper_stubs.cpp.o
@@ -4743,7 +4767,7 @@ stubs/oshelper_stubs.o: stubs/oshelper_stubs.cpp.o
 
 # target to build an object file
 stubs/oshelper_stubs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/oshelper_stubs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/oshelper_stubs.cpp.o
 .PHONY : stubs/oshelper_stubs.cpp.o
 
 stubs/oshelper_stubs.i: stubs/oshelper_stubs.cpp.i
@@ -4751,7 +4775,7 @@ stubs/oshelper_stubs.i: stubs/oshelper_stubs.cpp.i
 
 # target to preprocess a source file
 stubs/oshelper_stubs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/oshelper_stubs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/oshelper_stubs.cpp.i
 .PHONY : stubs/oshelper_stubs.cpp.i
 
 stubs/oshelper_stubs.s: stubs/oshelper_stubs.cpp.s
@@ -4759,7 +4783,7 @@ stubs/oshelper_stubs.s: stubs/oshelper_stubs.cpp.s
 
 # target to generate assembly for a file
 stubs/oshelper_stubs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/oshelper_stubs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/oshelper_stubs.cpp.s
 .PHONY : stubs/oshelper_stubs.cpp.s
 
 stubs/uirender_stubs.o: stubs/uirender_stubs.cpp.o
@@ -4767,7 +4791,7 @@ stubs/uirender_stubs.o: stubs/uirender_stubs.cpp.o
 
 # target to build an object file
 stubs/uirender_stubs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/uirender_stubs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/uirender_stubs.cpp.o
 .PHONY : stubs/uirender_stubs.cpp.o
 
 stubs/uirender_stubs.i: stubs/uirender_stubs.cpp.i
@@ -4775,7 +4799,7 @@ stubs/uirender_stubs.i: stubs/uirender_stubs.cpp.i
 
 # target to preprocess a source file
 stubs/uirender_stubs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/uirender_stubs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/uirender_stubs.cpp.i
 .PHONY : stubs/uirender_stubs.cpp.i
 
 stubs/uirender_stubs.s: stubs/uirender_stubs.cpp.s
@@ -4783,7 +4807,7 @@ stubs/uirender_stubs.s: stubs/uirender_stubs.cpp.s
 
 # target to generate assembly for a file
 stubs/uirender_stubs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/uirender_stubs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/uirender_stubs.cpp.s
 .PHONY : stubs/uirender_stubs.cpp.s
 
 stubs/win32_stubs.o: stubs/win32_stubs.cpp.o
@@ -4791,7 +4815,7 @@ stubs/win32_stubs.o: stubs/win32_stubs.cpp.o
 
 # target to build an object file
 stubs/win32_stubs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/win32_stubs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/win32_stubs.cpp.o
 .PHONY : stubs/win32_stubs.cpp.o
 
 stubs/win32_stubs.i: stubs/win32_stubs.cpp.i
@@ -4799,7 +4823,7 @@ stubs/win32_stubs.i: stubs/win32_stubs.cpp.i
 
 # target to preprocess a source file
 stubs/win32_stubs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/win32_stubs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/win32_stubs.cpp.i
 .PHONY : stubs/win32_stubs.cpp.i
 
 stubs/win32_stubs.s: stubs/win32_stubs.cpp.s
@@ -4807,7 +4831,7 @@ stubs/win32_stubs.s: stubs/win32_stubs.cpp.s
 
 # target to generate assembly for a file
 stubs/win32_stubs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/win32_stubs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/stubs/win32_stubs.cpp.s
 .PHONY : stubs/win32_stubs.cpp.s
 
 # Help Target
@@ -5386,6 +5410,9 @@ help:
 	@echo "... source/main_sdl3.o"
 	@echo "... source/main_sdl3.i"
 	@echo "... source/main_sdl3.s"
+	@echo "... source/ui_main.o"
+	@echo "... source/ui_main.i"
+	@echo "... source/ui_main.s"
 	@echo "... stubs/console_stubs.o"
 	@echo "... stubs/console_stubs.i"
 	@echo "... stubs/console_stubs.s"
@@ -5415,6 +5442,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -380,6 +380,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/AltirraSDL.dir/source/input_sdl3.cpp.o.d"
   "CMakeFiles/AltirraSDL.dir/source/main_sdl3.cpp.o"
   "CMakeFiles/AltirraSDL.dir/source/main_sdl3.cpp.o.d"
+  "CMakeFiles/AltirraSDL.dir/source/ui_main.cpp.o"
+  "CMakeFiles/AltirraSDL.dir/source/ui_main.cpp.o.d"
   "CMakeFiles/AltirraSDL.dir/stubs/console_stubs.cpp.o"
   "CMakeFiles/AltirraSDL.dir/stubs/console_stubs.cpp.o.d"
   "CMakeFiles/AltirraSDL.dir/stubs/device_stubs.cpp.o"

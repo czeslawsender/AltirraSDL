@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATDevices//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATDevices//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATDevices/CMakeFiles/ATDevices.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/CMakeFiles/ATDevices.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/CMakeFiles/ATDevices.dir/rule
 .PHONY : src/ATDevices/CMakeFiles/ATDevices.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATDevices: src/ATDevices/CMakeFiles/ATDevices.dir/rule
 
 # fast build rule for target.
 ATDevices/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/build
 .PHONY : ATDevices/fast
 
 source/blockdevwritefilter.o: source/blockdevwritefilter.cpp.o
@@ -135,7 +135,7 @@ source/blockdevwritefilter.o: source/blockdevwritefilter.cpp.o
 
 # target to build an object file
 source/blockdevwritefilter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/blockdevwritefilter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/blockdevwritefilter.cpp.o
 .PHONY : source/blockdevwritefilter.cpp.o
 
 source/blockdevwritefilter.i: source/blockdevwritefilter.cpp.i
@@ -143,7 +143,7 @@ source/blockdevwritefilter.i: source/blockdevwritefilter.cpp.i
 
 # target to preprocess a source file
 source/blockdevwritefilter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/blockdevwritefilter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/blockdevwritefilter.cpp.i
 .PHONY : source/blockdevwritefilter.cpp.i
 
 source/blockdevwritefilter.s: source/blockdevwritefilter.cpp.s
@@ -151,7 +151,7 @@ source/blockdevwritefilter.s: source/blockdevwritefilter.cpp.s
 
 # target to generate assembly for a file
 source/blockdevwritefilter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/blockdevwritefilter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/blockdevwritefilter.cpp.s
 .PHONY : source/blockdevwritefilter.cpp.s
 
 source/computereyes.o: source/computereyes.cpp.o
@@ -159,7 +159,7 @@ source/computereyes.o: source/computereyes.cpp.o
 
 # target to build an object file
 source/computereyes.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/computereyes.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/computereyes.cpp.o
 .PHONY : source/computereyes.cpp.o
 
 source/computereyes.i: source/computereyes.cpp.i
@@ -167,7 +167,7 @@ source/computereyes.i: source/computereyes.cpp.i
 
 # target to preprocess a source file
 source/computereyes.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/computereyes.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/computereyes.cpp.i
 .PHONY : source/computereyes.cpp.i
 
 source/computereyes.s: source/computereyes.cpp.s
@@ -175,7 +175,7 @@ source/computereyes.s: source/computereyes.cpp.s
 
 # target to generate assembly for a file
 source/computereyes.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/computereyes.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/computereyes.cpp.s
 .PHONY : source/computereyes.cpp.s
 
 source/corvus.o: source/corvus.cpp.o
@@ -183,7 +183,7 @@ source/corvus.o: source/corvus.cpp.o
 
 # target to build an object file
 source/corvus.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/corvus.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/corvus.cpp.o
 .PHONY : source/corvus.cpp.o
 
 source/corvus.i: source/corvus.cpp.i
@@ -191,7 +191,7 @@ source/corvus.i: source/corvus.cpp.i
 
 # target to preprocess a source file
 source/corvus.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/corvus.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/corvus.cpp.i
 .PHONY : source/corvus.cpp.i
 
 source/corvus.s: source/corvus.cpp.s
@@ -199,7 +199,7 @@ source/corvus.s: source/corvus.cpp.s
 
 # target to generate assembly for a file
 source/corvus.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/corvus.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/corvus.cpp.s
 .PHONY : source/corvus.cpp.s
 
 source/devices.o: source/devices.cpp.o
@@ -207,7 +207,7 @@ source/devices.o: source/devices.cpp.o
 
 # target to build an object file
 source/devices.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/devices.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/devices.cpp.o
 .PHONY : source/devices.cpp.o
 
 source/devices.i: source/devices.cpp.i
@@ -215,7 +215,7 @@ source/devices.i: source/devices.cpp.i
 
 # target to preprocess a source file
 source/devices.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/devices.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/devices.cpp.i
 .PHONY : source/devices.cpp.i
 
 source/devices.s: source/devices.cpp.s
@@ -223,7 +223,7 @@ source/devices.s: source/devices.cpp.s
 
 # target to generate assembly for a file
 source/devices.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/devices.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/devices.cpp.s
 .PHONY : source/devices.cpp.s
 
 source/dongle.o: source/dongle.cpp.o
@@ -231,7 +231,7 @@ source/dongle.o: source/dongle.cpp.o
 
 # target to build an object file
 source/dongle.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/dongle.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/dongle.cpp.o
 .PHONY : source/dongle.cpp.o
 
 source/dongle.i: source/dongle.cpp.i
@@ -239,7 +239,7 @@ source/dongle.i: source/dongle.cpp.i
 
 # target to preprocess a source file
 source/dongle.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/dongle.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/dongle.cpp.i
 .PHONY : source/dongle.cpp.i
 
 source/dongle.s: source/dongle.cpp.s
@@ -247,7 +247,7 @@ source/dongle.s: source/dongle.cpp.s
 
 # target to generate assembly for a file
 source/dongle.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/dongle.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/dongle.cpp.s
 .PHONY : source/dongle.cpp.s
 
 source/exeloader.o: source/exeloader.cpp.o
@@ -255,7 +255,7 @@ source/exeloader.o: source/exeloader.cpp.o
 
 # target to build an object file
 source/exeloader.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/exeloader.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/exeloader.cpp.o
 .PHONY : source/exeloader.cpp.o
 
 source/exeloader.i: source/exeloader.cpp.i
@@ -263,7 +263,7 @@ source/exeloader.i: source/exeloader.cpp.i
 
 # target to preprocess a source file
 source/exeloader.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/exeloader.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/exeloader.cpp.i
 .PHONY : source/exeloader.cpp.i
 
 source/exeloader.s: source/exeloader.cpp.s
@@ -271,7 +271,7 @@ source/exeloader.s: source/exeloader.cpp.s
 
 # target to generate assembly for a file
 source/exeloader.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/exeloader.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/exeloader.cpp.s
 .PHONY : source/exeloader.cpp.s
 
 source/loopback.o: source/loopback.cpp.o
@@ -279,7 +279,7 @@ source/loopback.o: source/loopback.cpp.o
 
 # target to build an object file
 source/loopback.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/loopback.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/loopback.cpp.o
 .PHONY : source/loopback.cpp.o
 
 source/loopback.i: source/loopback.cpp.i
@@ -287,7 +287,7 @@ source/loopback.i: source/loopback.cpp.i
 
 # target to preprocess a source file
 source/loopback.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/loopback.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/loopback.cpp.i
 .PHONY : source/loopback.cpp.i
 
 source/loopback.s: source/loopback.cpp.s
@@ -295,7 +295,7 @@ source/loopback.s: source/loopback.cpp.s
 
 # target to generate assembly for a file
 source/loopback.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/loopback.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/loopback.cpp.s
 .PHONY : source/loopback.cpp.s
 
 source/modemsound.o: source/modemsound.cpp.o
@@ -303,7 +303,7 @@ source/modemsound.o: source/modemsound.cpp.o
 
 # target to build an object file
 source/modemsound.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/modemsound.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/modemsound.cpp.o
 .PHONY : source/modemsound.cpp.o
 
 source/modemsound.i: source/modemsound.cpp.i
@@ -311,7 +311,7 @@ source/modemsound.i: source/modemsound.cpp.i
 
 # target to preprocess a source file
 source/modemsound.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/modemsound.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/modemsound.cpp.i
 .PHONY : source/modemsound.cpp.i
 
 source/modemsound.s: source/modemsound.cpp.s
@@ -319,7 +319,7 @@ source/modemsound.s: source/modemsound.cpp.s
 
 # target to generate assembly for a file
 source/modemsound.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/modemsound.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/modemsound.cpp.s
 .PHONY : source/modemsound.cpp.s
 
 source/netserial.o: source/netserial.cpp.o
@@ -327,7 +327,7 @@ source/netserial.o: source/netserial.cpp.o
 
 # target to build an object file
 source/netserial.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/netserial.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/netserial.cpp.o
 .PHONY : source/netserial.cpp.o
 
 source/netserial.i: source/netserial.cpp.i
@@ -335,7 +335,7 @@ source/netserial.i: source/netserial.cpp.i
 
 # target to preprocess a source file
 source/netserial.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/netserial.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/netserial.cpp.i
 .PHONY : source/netserial.cpp.i
 
 source/netserial.s: source/netserial.cpp.s
@@ -343,7 +343,7 @@ source/netserial.s: source/netserial.cpp.s
 
 # target to generate assembly for a file
 source/netserial.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/netserial.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/netserial.cpp.s
 .PHONY : source/netserial.cpp.s
 
 source/paralleltoserial.o: source/paralleltoserial.cpp.o
@@ -351,7 +351,7 @@ source/paralleltoserial.o: source/paralleltoserial.cpp.o
 
 # target to build an object file
 source/paralleltoserial.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/paralleltoserial.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/paralleltoserial.cpp.o
 .PHONY : source/paralleltoserial.cpp.o
 
 source/paralleltoserial.i: source/paralleltoserial.cpp.i
@@ -359,7 +359,7 @@ source/paralleltoserial.i: source/paralleltoserial.cpp.i
 
 # target to preprocess a source file
 source/paralleltoserial.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/paralleltoserial.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/paralleltoserial.cpp.i
 .PHONY : source/paralleltoserial.cpp.i
 
 source/paralleltoserial.s: source/paralleltoserial.cpp.s
@@ -367,7 +367,7 @@ source/paralleltoserial.s: source/paralleltoserial.cpp.s
 
 # target to generate assembly for a file
 source/paralleltoserial.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/paralleltoserial.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/paralleltoserial.cpp.s
 .PHONY : source/paralleltoserial.cpp.s
 
 source/parfilewriter.o: source/parfilewriter.cpp.o
@@ -375,7 +375,7 @@ source/parfilewriter.o: source/parfilewriter.cpp.o
 
 # target to build an object file
 source/parfilewriter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/parfilewriter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/parfilewriter.cpp.o
 .PHONY : source/parfilewriter.cpp.o
 
 source/parfilewriter.i: source/parfilewriter.cpp.i
@@ -383,7 +383,7 @@ source/parfilewriter.i: source/parfilewriter.cpp.i
 
 # target to preprocess a source file
 source/parfilewriter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/parfilewriter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/parfilewriter.cpp.i
 .PHONY : source/parfilewriter.cpp.i
 
 source/parfilewriter.s: source/parfilewriter.cpp.s
@@ -391,7 +391,7 @@ source/parfilewriter.s: source/parfilewriter.cpp.s
 
 # target to generate assembly for a file
 source/parfilewriter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/parfilewriter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/parfilewriter.cpp.s
 .PHONY : source/parfilewriter.cpp.s
 
 source/serialsplitter.o: source/serialsplitter.cpp.o
@@ -399,7 +399,7 @@ source/serialsplitter.o: source/serialsplitter.cpp.o
 
 # target to build an object file
 source/serialsplitter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/serialsplitter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/serialsplitter.cpp.o
 .PHONY : source/serialsplitter.cpp.o
 
 source/serialsplitter.i: source/serialsplitter.cpp.i
@@ -407,7 +407,7 @@ source/serialsplitter.i: source/serialsplitter.cpp.i
 
 # target to preprocess a source file
 source/serialsplitter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/serialsplitter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/serialsplitter.cpp.i
 .PHONY : source/serialsplitter.cpp.i
 
 source/serialsplitter.s: source/serialsplitter.cpp.s
@@ -415,7 +415,7 @@ source/serialsplitter.s: source/serialsplitter.cpp.s
 
 # target to generate assembly for a file
 source/serialsplitter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/serialsplitter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/serialsplitter.cpp.s
 .PHONY : source/serialsplitter.cpp.s
 
 source/sioclock.o: source/sioclock.cpp.o
@@ -423,7 +423,7 @@ source/sioclock.o: source/sioclock.cpp.o
 
 # target to build an object file
 source/sioclock.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/sioclock.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/sioclock.cpp.o
 .PHONY : source/sioclock.cpp.o
 
 source/sioclock.i: source/sioclock.cpp.i
@@ -431,7 +431,7 @@ source/sioclock.i: source/sioclock.cpp.i
 
 # target to preprocess a source file
 source/sioclock.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/sioclock.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/sioclock.cpp.i
 .PHONY : source/sioclock.cpp.i
 
 source/sioclock.s: source/sioclock.cpp.s
@@ -439,7 +439,7 @@ source/sioclock.s: source/sioclock.cpp.s
 
 # target to generate assembly for a file
 source/sioclock.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/sioclock.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/sioclock.cpp.s
 .PHONY : source/sioclock.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -447,7 +447,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -455,7 +455,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -463,7 +463,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/supersalt.o: source/supersalt.cpp.o
@@ -471,7 +471,7 @@ source/supersalt.o: source/supersalt.cpp.o
 
 # target to build an object file
 source/supersalt.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/supersalt.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/supersalt.cpp.o
 .PHONY : source/supersalt.cpp.o
 
 source/supersalt.i: source/supersalt.cpp.i
@@ -479,7 +479,7 @@ source/supersalt.i: source/supersalt.cpp.i
 
 # target to preprocess a source file
 source/supersalt.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/supersalt.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/supersalt.cpp.i
 .PHONY : source/supersalt.cpp.i
 
 source/supersalt.s: source/supersalt.cpp.s
@@ -487,7 +487,7 @@ source/supersalt.s: source/supersalt.cpp.s
 
 # target to generate assembly for a file
 source/supersalt.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/supersalt.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/supersalt.cpp.s
 .PHONY : source/supersalt.cpp.s
 
 source/testdevicesiohs.o: source/testdevicesiohs.cpp.o
@@ -495,7 +495,7 @@ source/testdevicesiohs.o: source/testdevicesiohs.cpp.o
 
 # target to build an object file
 source/testdevicesiohs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiohs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiohs.cpp.o
 .PHONY : source/testdevicesiohs.cpp.o
 
 source/testdevicesiohs.i: source/testdevicesiohs.cpp.i
@@ -503,7 +503,7 @@ source/testdevicesiohs.i: source/testdevicesiohs.cpp.i
 
 # target to preprocess a source file
 source/testdevicesiohs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiohs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiohs.cpp.i
 .PHONY : source/testdevicesiohs.cpp.i
 
 source/testdevicesiohs.s: source/testdevicesiohs.cpp.s
@@ -511,7 +511,7 @@ source/testdevicesiohs.s: source/testdevicesiohs.cpp.s
 
 # target to generate assembly for a file
 source/testdevicesiohs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiohs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiohs.cpp.s
 .PHONY : source/testdevicesiohs.cpp.s
 
 source/testdevicesiopoll.o: source/testdevicesiopoll.cpp.o
@@ -519,7 +519,7 @@ source/testdevicesiopoll.o: source/testdevicesiopoll.cpp.o
 
 # target to build an object file
 source/testdevicesiopoll.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiopoll.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiopoll.cpp.o
 .PHONY : source/testdevicesiopoll.cpp.o
 
 source/testdevicesiopoll.i: source/testdevicesiopoll.cpp.i
@@ -527,7 +527,7 @@ source/testdevicesiopoll.i: source/testdevicesiopoll.cpp.i
 
 # target to preprocess a source file
 source/testdevicesiopoll.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiopoll.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiopoll.cpp.i
 .PHONY : source/testdevicesiopoll.cpp.i
 
 source/testdevicesiopoll.s: source/testdevicesiopoll.cpp.s
@@ -535,7 +535,7 @@ source/testdevicesiopoll.s: source/testdevicesiopoll.cpp.s
 
 # target to generate assembly for a file
 source/testdevicesiopoll.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiopoll.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/testdevicesiopoll.cpp.s
 .PHONY : source/testdevicesiopoll.cpp.s
 
 source/videogenerator.o: source/videogenerator.cpp.o
@@ -543,7 +543,7 @@ source/videogenerator.o: source/videogenerator.cpp.o
 
 # target to build an object file
 source/videogenerator.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/videogenerator.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/videogenerator.cpp.o
 .PHONY : source/videogenerator.cpp.o
 
 source/videogenerator.i: source/videogenerator.cpp.i
@@ -551,7 +551,7 @@ source/videogenerator.i: source/videogenerator.cpp.i
 
 # target to preprocess a source file
 source/videogenerator.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/videogenerator.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/videogenerator.cpp.i
 .PHONY : source/videogenerator.cpp.i
 
 source/videogenerator.s: source/videogenerator.cpp.s
@@ -559,7 +559,7 @@ source/videogenerator.s: source/videogenerator.cpp.s
 
 # target to generate assembly for a file
 source/videogenerator.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/videogenerator.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/source/videogenerator.cpp.s
 .PHONY : source/videogenerator.cpp.s
 
 # Help Target
@@ -636,6 +636,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

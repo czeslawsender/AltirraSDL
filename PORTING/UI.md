@@ -785,3 +785,180 @@ src/AltirraSDL/
 
 Does **not** depend on ATNativeUI, ATUI, ATUIControls, VDDisplay, Dita,
 or any Win32 headers.
+
+## SDL3/ImGui Implementation Architecture
+
+This section describes the concrete architecture chosen for the ImGui
+port, based on analysis of the existing Windows codebase.
+
+### Shared vs. Separate Layers
+
+The Windows UI has a clean three-layer separation:
+
+```
+menu_default.txt   →   ATUICommandManager   →   cmd*.cpp (logic)
+    (layout)              (dispatch)              (handlers)
+```
+
+**Key finding:** The `cmd*.cpp` files (13 files) contain all command
+logic and have zero direct Win32 API calls. However, they **cannot be
+compiled as-is** on Linux because they `#include` Altirra UI headers
+(`uiaccessors.h`, `uiconfirm.h`, `uidisplay.h`) that transitively pull
+in Win32 dependencies. They also reference globals (`g_sim`,
+`g_xepViewEnabled`, etc.) and UI accessor functions that are
+Windows-specific.
+
+The `ATUICommandManager` class (in `ATUI/source/uicommandmanager.cpp`)
+is also not compiled for Linux — ATUI has no `CMakeLists.txt` and all
+its sources are excluded from the build.
+
+**Consequence:** The ImGui UI implements its own command handling,
+calling `ATSimulator` methods directly. The menu structure mirrors the
+Windows version by following `menu_default.txt`, but command dispatch
+is done inline in the ImGui rendering code rather than through
+`ATUICommandManager`.
+
+**Future opportunity:** Once the Win32 header dependencies in the
+`cmd*.cpp` files are resolved (via stubs or `#ifdef` guards), the
+command system could be shared. This is a Phase 7+ optimization.
+
+### Menu Structure: Mirror Windows Exactly
+
+The ImGui menu replicates the Windows menu bar:
+
+**File | View | System | Input | Cheat | Debug | Record | Tools | Window | Help**
+
+Rationale:
+- Users switching between platforms get the same experience
+- Documentation, tutorials, and forum help apply to both builds
+- The menu structure is well-organized after years of refinement
+- `menu_default.txt` serves as the canonical reference
+
+Platform-irrelevant items are omitted on SDL3:
+- `Options.SetFileAssocForUser/ForAll` (Windows shell integration)
+- `Options.ToggleDisplayD3D9/D3D11` (Windows renderer selection)
+- `Help.CheckForUpdates` (Windows-specific updater)
+- `Window.Undock` (replaced by ImGui native docking)
+
+### Settings: Tree Sidebar
+
+The Windows version uses a stacked-screen navigation model (push/pop
+sub-screens). For the ImGui port, a **tree sidebar** layout is used:
+
+```
+┌─ System Configuration ──────────────────────┐
+│ ┌──────────┐ ┌────────────────────────────┐  │
+│ │ Hardware │ │ Hardware Model: [800XL  ▾] │  │
+│ │ Memory   │ │ Video Standard: [NTSC   ▾] │  │
+│ │ CPU      │ │ Internal BASIC: [☑]        │  │
+│ │ Firmware │ │ ...                        │  │
+│ │ Display  │ │                            │  │
+│ │ Audio    │ │                            │  │
+│ │ Input    │ │                            │  │
+│ └──────────┘ └────────────────────────────┘  │
+└──────────────────────────────────────────────┘
+```
+
+Rationale:
+- All categories visible at once (more discoverable)
+- Standard desktop UX convention
+- `ImGui::BeginChild()` panels make this trivial
+- The `ATUIBoolSetting`/`ATUIEnumSetting` data types can still be used
+  for the setting definitions; only the rendering changes
+
+### Debugger: ImGui Built-in Docking
+
+The Windows debugger uses a custom `ATContainerDockingPane` framework
+(~2,000 lines). ImGui's built-in docking replaces this with zero custom
+code:
+
+```
+┌─ Menu Bar ──────────────────────────────────────────┐
+├─────────────────────────┬───────────────────────────┤
+│  Disassembly            │  Registers                │
+│  $8000  LDA #$00       │  A=00  X=FF  Y=00        │
+│  $8002  STA $D40A      │  S=FF  PC=$8000          │
+│                        ├───────────────────────────┤
+│                        │  Watch                    │
+│                        │  COLPF0 = $28             │
+├─────────────────────────┴───────────────────────────┤
+│  Console                                            │
+│  > x pc                                             │
+│  > _                                                │
+└─────────────────────────────────────────────────────┘
+```
+
+- Same pane types as Windows: Console, Registers, Disassembly,
+  Memory (x4), Watch (x4), Breakpoints, Call Stack, History, Targets
+- `ImGuiConfigFlags_DockingEnable` + `DockSpaceOverViewport()`
+- Layout persists via `imgui.ini` (ImGui's built-in save/restore)
+- Each pane is an `ImGui::Begin()` window with free drag-and-drop
+
+### Rendering Pipeline
+
+With ImGui integrated, the main loop rendering changes from:
+
+```
+Old:  display.Present()  →  SDL_RenderClear + RenderTexture + RenderPresent
+```
+
+To:
+
+```
+New:  display.PrepareFrame()          // upload pixels to SDL texture
+      SDL_SetRenderDrawColor(black)
+      SDL_RenderClear()
+      SDL_RenderTexture(display)      // draw emulator frame
+      ImGui_NewFrame()                // begin ImGui frame
+      RenderUI()                      // menu bar, overlay, windows
+      ImGui::Render()                 // finalize ImGui draw data
+      ImGui_RenderDrawData()          // draw ImGui on top
+      SDL_RenderPresent()             // flip
+```
+
+ImGui event routing ensures keyboard/mouse input goes to ImGui when
+its widgets have focus, and to the emulator otherwise:
+
+```cpp
+ImGui_ImplSDL3_ProcessEvent(&event);          // always
+if (!ImGui::GetIO().WantCaptureKeyboard)      // then check
+    ATInputSDL3_HandleKeyDown(event.key);
+```
+
+### Dependency Management
+
+**Dear ImGui** is fetched automatically via CMake `FetchContent` from
+the official repository (docking branch). No manual download or
+vendoring required. The build creates a static `imgui` library target
+with the SDL3 + SDLRenderer3 backends.
+
+**SDL3** remains a system-level dependency installed via package manager.
+
+### What Changes vs. Windows
+
+| Aspect | Windows | SDL3/ImGui |
+|--------|---------|------------|
+| Menu structure | Identical | Identical |
+| Command dispatch | ATUICommandManager | Direct ATSimulator calls |
+| Settings layout | Stacked screens | Tree sidebar |
+| Docking framework | Custom ATContainerDockingPane | ImGui built-in |
+| File dialogs | Win32 GetOpenFileName | SDL_ShowOpenFileDialog |
+| Context menus | Win32 TrackPopupMenu | ImGui::BeginPopupContextItem |
+| Theme | Custom Win32 dark theme | ImGui::StyleColorsDark |
+| Window management | Win32 HWND | ImGui docking tabs |
+
+### Implementation Order
+
+| Step | Component | Est. Lines | Notes |
+|------|-----------|-----------|-------|
+| 1 | ImGui integration + menu bar | ~300 | FetchContent, init, basic menu |
+| 2 | Status overlay | ~50 | FPS, drive LEDs |
+| 3 | File open dialog | ~50 | SDL_ShowOpenFileDialog |
+| 4 | System settings | ~300 | Tree sidebar, hardware/memory/CPU |
+| 5 | Disk management | ~200 | Mount/unmount D1:-D8: |
+| 6 | Audio output (real) | ~200 | Replace stub with SDL3 audio |
+| 7 | Firmware manager | ~150 | ROM path config |
+| 8 | Debugger panes | ~1,500 | Console, registers, disassembly |
+
+Steps 1-3 produce a usable emulator. Steps 4-7 produce a comfortable
+one. Step 8 targets power users.

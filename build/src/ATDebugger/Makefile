@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATDebugger//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATDebugger//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATDebugger/CMakeFiles/ATDebugger.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/CMakeFiles/ATDebugger.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDebugger/CMakeFiles/ATDebugger.dir/rule
 .PHONY : src/ATDebugger/CMakeFiles/ATDebugger.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATDebugger: src/ATDebugger/CMakeFiles/ATDebugger.dir/rule
 
 # fast build rule for target.
 ATDebugger/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/build
 .PHONY : ATDebugger/fast
 
 source/breakpointsimpl.o: source/breakpointsimpl.cpp.o
@@ -135,7 +135,7 @@ source/breakpointsimpl.o: source/breakpointsimpl.cpp.o
 
 # target to build an object file
 source/breakpointsimpl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/breakpointsimpl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/breakpointsimpl.cpp.o
 .PHONY : source/breakpointsimpl.cpp.o
 
 source/breakpointsimpl.i: source/breakpointsimpl.cpp.i
@@ -143,7 +143,7 @@ source/breakpointsimpl.i: source/breakpointsimpl.cpp.i
 
 # target to preprocess a source file
 source/breakpointsimpl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/breakpointsimpl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/breakpointsimpl.cpp.i
 .PHONY : source/breakpointsimpl.cpp.i
 
 source/breakpointsimpl.s: source/breakpointsimpl.cpp.s
@@ -151,7 +151,7 @@ source/breakpointsimpl.s: source/breakpointsimpl.cpp.s
 
 # target to generate assembly for a file
 source/breakpointsimpl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/breakpointsimpl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/breakpointsimpl.cpp.s
 .PHONY : source/breakpointsimpl.cpp.s
 
 source/debugdevice.o: source/debugdevice.cpp.o
@@ -159,7 +159,7 @@ source/debugdevice.o: source/debugdevice.cpp.o
 
 # target to build an object file
 source/debugdevice.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/debugdevice.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/debugdevice.cpp.o
 .PHONY : source/debugdevice.cpp.o
 
 source/debugdevice.i: source/debugdevice.cpp.i
@@ -167,7 +167,7 @@ source/debugdevice.i: source/debugdevice.cpp.i
 
 # target to preprocess a source file
 source/debugdevice.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/debugdevice.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/debugdevice.cpp.i
 .PHONY : source/debugdevice.cpp.i
 
 source/debugdevice.s: source/debugdevice.cpp.s
@@ -175,7 +175,7 @@ source/debugdevice.s: source/debugdevice.cpp.s
 
 # target to generate assembly for a file
 source/debugdevice.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/debugdevice.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/debugdevice.cpp.s
 .PHONY : source/debugdevice.cpp.s
 
 source/defsymbols.o: source/defsymbols.cpp.o
@@ -183,7 +183,7 @@ source/defsymbols.o: source/defsymbols.cpp.o
 
 # target to build an object file
 source/defsymbols.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/defsymbols.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/defsymbols.cpp.o
 .PHONY : source/defsymbols.cpp.o
 
 source/defsymbols.i: source/defsymbols.cpp.i
@@ -191,7 +191,7 @@ source/defsymbols.i: source/defsymbols.cpp.i
 
 # target to preprocess a source file
 source/defsymbols.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/defsymbols.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/defsymbols.cpp.i
 .PHONY : source/defsymbols.cpp.i
 
 source/defsymbols.s: source/defsymbols.cpp.s
@@ -199,7 +199,7 @@ source/defsymbols.s: source/defsymbols.cpp.s
 
 # target to generate assembly for a file
 source/defsymbols.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/defsymbols.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/defsymbols.cpp.s
 .PHONY : source/defsymbols.cpp.s
 
 source/historytree.o: source/historytree.cpp.o
@@ -207,7 +207,7 @@ source/historytree.o: source/historytree.cpp.o
 
 # target to build an object file
 source/historytree.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytree.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytree.cpp.o
 .PHONY : source/historytree.cpp.o
 
 source/historytree.i: source/historytree.cpp.i
@@ -215,7 +215,7 @@ source/historytree.i: source/historytree.cpp.i
 
 # target to preprocess a source file
 source/historytree.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytree.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytree.cpp.i
 .PHONY : source/historytree.cpp.i
 
 source/historytree.s: source/historytree.cpp.s
@@ -223,7 +223,7 @@ source/historytree.s: source/historytree.cpp.s
 
 # target to generate assembly for a file
 source/historytree.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytree.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytree.cpp.s
 .PHONY : source/historytree.cpp.s
 
 source/historytreebuilder.o: source/historytreebuilder.cpp.o
@@ -231,7 +231,7 @@ source/historytreebuilder.o: source/historytreebuilder.cpp.o
 
 # target to build an object file
 source/historytreebuilder.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytreebuilder.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytreebuilder.cpp.o
 .PHONY : source/historytreebuilder.cpp.o
 
 source/historytreebuilder.i: source/historytreebuilder.cpp.i
@@ -239,7 +239,7 @@ source/historytreebuilder.i: source/historytreebuilder.cpp.i
 
 # target to preprocess a source file
 source/historytreebuilder.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytreebuilder.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytreebuilder.cpp.i
 .PHONY : source/historytreebuilder.cpp.i
 
 source/historytreebuilder.s: source/historytreebuilder.cpp.s
@@ -247,7 +247,7 @@ source/historytreebuilder.s: source/historytreebuilder.cpp.s
 
 # target to generate assembly for a file
 source/historytreebuilder.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytreebuilder.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/historytreebuilder.cpp.s
 .PHONY : source/historytreebuilder.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -255,7 +255,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -263,7 +263,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -271,7 +271,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/symbolio.o: source/symbolio.cpp.o
@@ -279,7 +279,7 @@ source/symbolio.o: source/symbolio.cpp.o
 
 # target to build an object file
 source/symbolio.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbolio.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbolio.cpp.o
 .PHONY : source/symbolio.cpp.o
 
 source/symbolio.i: source/symbolio.cpp.i
@@ -287,7 +287,7 @@ source/symbolio.i: source/symbolio.cpp.i
 
 # target to preprocess a source file
 source/symbolio.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbolio.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbolio.cpp.i
 .PHONY : source/symbolio.cpp.i
 
 source/symbolio.s: source/symbolio.cpp.s
@@ -295,7 +295,7 @@ source/symbolio.s: source/symbolio.cpp.s
 
 # target to generate assembly for a file
 source/symbolio.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbolio.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbolio.cpp.s
 .PHONY : source/symbolio.cpp.s
 
 source/symbols.o: source/symbols.cpp.o
@@ -303,7 +303,7 @@ source/symbols.o: source/symbols.cpp.o
 
 # target to build an object file
 source/symbols.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbols.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbols.cpp.o
 .PHONY : source/symbols.cpp.o
 
 source/symbols.i: source/symbols.cpp.i
@@ -311,7 +311,7 @@ source/symbols.i: source/symbols.cpp.i
 
 # target to preprocess a source file
 source/symbols.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbols.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbols.cpp.i
 .PHONY : source/symbols.cpp.i
 
 source/symbols.s: source/symbols.cpp.s
@@ -319,7 +319,7 @@ source/symbols.s: source/symbols.cpp.s
 
 # target to generate assembly for a file
 source/symbols.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbols.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/symbols.cpp.s
 .PHONY : source/symbols.cpp.s
 
 source/target.o: source/target.cpp.o
@@ -327,7 +327,7 @@ source/target.o: source/target.cpp.o
 
 # target to build an object file
 source/target.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/target.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/target.cpp.o
 .PHONY : source/target.cpp.o
 
 source/target.i: source/target.cpp.i
@@ -335,7 +335,7 @@ source/target.i: source/target.cpp.i
 
 # target to preprocess a source file
 source/target.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/target.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/target.cpp.i
 .PHONY : source/target.cpp.i
 
 source/target.s: source/target.cpp.s
@@ -343,7 +343,7 @@ source/target.s: source/target.cpp.s
 
 # target to generate assembly for a file
 source/target.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/target.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATDebugger/CMakeFiles/ATDebugger.dir/build.make src/ATDebugger/CMakeFiles/ATDebugger.dir/source/target.cpp.s
 .PHONY : source/target.cpp.s
 
 # Help Target
@@ -393,6 +393,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

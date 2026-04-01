@@ -49,6 +49,9 @@ add_executable(AltirraSDL
     source/display_sdl3.cpp
     source/input_sdl3.cpp
 
+    # Dear ImGui UI
+    source/ui_main.cpp
+
     # Stub implementations replacing Win32-only files
     stubs/console_stubs.cpp
     stubs/oshelper_stubs.cpp
@@ -110,6 +113,9 @@ target_link_libraries(AltirraSDL PRIVATE
 
     # SDL3
     SDL3::SDL3
+
+    # Dear ImGui
+    imgui
 )
 
 target_compile_definitions(AltirraSDL PRIVATE

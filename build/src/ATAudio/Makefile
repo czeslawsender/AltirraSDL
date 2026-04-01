@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATAudio//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATAudio//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATAudio/CMakeFiles/ATAudio.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/CMakeFiles/ATAudio.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATAudio/CMakeFiles/ATAudio.dir/rule
 .PHONY : src/ATAudio/CMakeFiles/ATAudio.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATAudio: src/ATAudio/CMakeFiles/ATAudio.dir/rule
 
 # fast build rule for target.
 ATAudio/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/build
 .PHONY : ATAudio/fast
 
 source/audioconvolutionplayer.o: source/audioconvolutionplayer.cpp.o
@@ -135,7 +135,7 @@ source/audioconvolutionplayer.o: source/audioconvolutionplayer.cpp.o
 
 # target to build an object file
 source/audioconvolutionplayer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audioconvolutionplayer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audioconvolutionplayer.cpp.o
 .PHONY : source/audioconvolutionplayer.cpp.o
 
 source/audioconvolutionplayer.i: source/audioconvolutionplayer.cpp.i
@@ -143,7 +143,7 @@ source/audioconvolutionplayer.i: source/audioconvolutionplayer.cpp.i
 
 # target to preprocess a source file
 source/audioconvolutionplayer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audioconvolutionplayer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audioconvolutionplayer.cpp.i
 .PHONY : source/audioconvolutionplayer.cpp.i
 
 source/audioconvolutionplayer.s: source/audioconvolutionplayer.cpp.s
@@ -151,7 +151,7 @@ source/audioconvolutionplayer.s: source/audioconvolutionplayer.cpp.s
 
 # target to generate assembly for a file
 source/audioconvolutionplayer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audioconvolutionplayer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audioconvolutionplayer.cpp.s
 .PHONY : source/audioconvolutionplayer.cpp.s
 
 source/audiofilters.o: source/audiofilters.cpp.o
@@ -159,7 +159,7 @@ source/audiofilters.o: source/audiofilters.cpp.o
 
 # target to build an object file
 source/audiofilters.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiofilters.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiofilters.cpp.o
 .PHONY : source/audiofilters.cpp.o
 
 source/audiofilters.i: source/audiofilters.cpp.i
@@ -167,7 +167,7 @@ source/audiofilters.i: source/audiofilters.cpp.i
 
 # target to preprocess a source file
 source/audiofilters.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiofilters.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiofilters.cpp.i
 .PHONY : source/audiofilters.cpp.i
 
 source/audiofilters.s: source/audiofilters.cpp.s
@@ -175,7 +175,7 @@ source/audiofilters.s: source/audiofilters.cpp.s
 
 # target to generate assembly for a file
 source/audiofilters.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiofilters.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiofilters.cpp.s
 .PHONY : source/audiofilters.cpp.s
 
 source/audiosamplebuffer.o: source/audiosamplebuffer.cpp.o
@@ -183,7 +183,7 @@ source/audiosamplebuffer.o: source/audiosamplebuffer.cpp.o
 
 # target to build an object file
 source/audiosamplebuffer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplebuffer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplebuffer.cpp.o
 .PHONY : source/audiosamplebuffer.cpp.o
 
 source/audiosamplebuffer.i: source/audiosamplebuffer.cpp.i
@@ -191,7 +191,7 @@ source/audiosamplebuffer.i: source/audiosamplebuffer.cpp.i
 
 # target to preprocess a source file
 source/audiosamplebuffer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplebuffer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplebuffer.cpp.i
 .PHONY : source/audiosamplebuffer.cpp.i
 
 source/audiosamplebuffer.s: source/audiosamplebuffer.cpp.s
@@ -199,7 +199,7 @@ source/audiosamplebuffer.s: source/audiosamplebuffer.cpp.s
 
 # target to generate assembly for a file
 source/audiosamplebuffer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplebuffer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplebuffer.cpp.s
 .PHONY : source/audiosamplebuffer.cpp.s
 
 source/audiosampleplayer.o: source/audiosampleplayer.cpp.o
@@ -207,7 +207,7 @@ source/audiosampleplayer.o: source/audiosampleplayer.cpp.o
 
 # target to build an object file
 source/audiosampleplayer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosampleplayer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosampleplayer.cpp.o
 .PHONY : source/audiosampleplayer.cpp.o
 
 source/audiosampleplayer.i: source/audiosampleplayer.cpp.i
@@ -215,7 +215,7 @@ source/audiosampleplayer.i: source/audiosampleplayer.cpp.i
 
 # target to preprocess a source file
 source/audiosampleplayer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosampleplayer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosampleplayer.cpp.i
 .PHONY : source/audiosampleplayer.cpp.i
 
 source/audiosampleplayer.s: source/audiosampleplayer.cpp.s
@@ -223,7 +223,7 @@ source/audiosampleplayer.s: source/audiosampleplayer.cpp.s
 
 # target to generate assembly for a file
 source/audiosampleplayer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosampleplayer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosampleplayer.cpp.s
 .PHONY : source/audiosampleplayer.cpp.s
 
 source/audiosamplepool.o: source/audiosamplepool.cpp.o
@@ -231,7 +231,7 @@ source/audiosamplepool.o: source/audiosamplepool.cpp.o
 
 # target to build an object file
 source/audiosamplepool.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplepool.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplepool.cpp.o
 .PHONY : source/audiosamplepool.cpp.o
 
 source/audiosamplepool.i: source/audiosamplepool.cpp.i
@@ -239,7 +239,7 @@ source/audiosamplepool.i: source/audiosamplepool.cpp.i
 
 # target to preprocess a source file
 source/audiosamplepool.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplepool.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplepool.cpp.i
 .PHONY : source/audiosamplepool.cpp.i
 
 source/audiosamplepool.s: source/audiosamplepool.cpp.s
@@ -247,7 +247,7 @@ source/audiosamplepool.s: source/audiosamplepool.cpp.s
 
 # target to generate assembly for a file
 source/audiosamplepool.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplepool.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/audiosamplepool.cpp.s
 .PHONY : source/audiosamplepool.cpp.s
 
 source/pokey.o: source/pokey.cpp.o
@@ -255,7 +255,7 @@ source/pokey.o: source/pokey.cpp.o
 
 # target to build an object file
 source/pokey.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokey.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokey.cpp.o
 .PHONY : source/pokey.cpp.o
 
 source/pokey.i: source/pokey.cpp.i
@@ -263,7 +263,7 @@ source/pokey.i: source/pokey.cpp.i
 
 # target to preprocess a source file
 source/pokey.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokey.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokey.cpp.i
 .PHONY : source/pokey.cpp.i
 
 source/pokey.s: source/pokey.cpp.s
@@ -271,7 +271,7 @@ source/pokey.s: source/pokey.cpp.s
 
 # target to generate assembly for a file
 source/pokey.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokey.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokey.cpp.s
 .PHONY : source/pokey.cpp.s
 
 source/pokeyrenderer.o: source/pokeyrenderer.cpp.o
@@ -279,7 +279,7 @@ source/pokeyrenderer.o: source/pokeyrenderer.cpp.o
 
 # target to build an object file
 source/pokeyrenderer.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeyrenderer.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeyrenderer.cpp.o
 .PHONY : source/pokeyrenderer.cpp.o
 
 source/pokeyrenderer.i: source/pokeyrenderer.cpp.i
@@ -287,7 +287,7 @@ source/pokeyrenderer.i: source/pokeyrenderer.cpp.i
 
 # target to preprocess a source file
 source/pokeyrenderer.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeyrenderer.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeyrenderer.cpp.i
 .PHONY : source/pokeyrenderer.cpp.i
 
 source/pokeyrenderer.s: source/pokeyrenderer.cpp.s
@@ -295,7 +295,7 @@ source/pokeyrenderer.s: source/pokeyrenderer.cpp.s
 
 # target to generate assembly for a file
 source/pokeyrenderer.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeyrenderer.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeyrenderer.cpp.s
 .PHONY : source/pokeyrenderer.cpp.s
 
 source/pokeysavestate.o: source/pokeysavestate.cpp.o
@@ -303,7 +303,7 @@ source/pokeysavestate.o: source/pokeysavestate.cpp.o
 
 # target to build an object file
 source/pokeysavestate.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeysavestate.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeysavestate.cpp.o
 .PHONY : source/pokeysavestate.cpp.o
 
 source/pokeysavestate.i: source/pokeysavestate.cpp.i
@@ -311,7 +311,7 @@ source/pokeysavestate.i: source/pokeysavestate.cpp.i
 
 # target to preprocess a source file
 source/pokeysavestate.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeysavestate.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeysavestate.cpp.i
 .PHONY : source/pokeysavestate.cpp.i
 
 source/pokeysavestate.s: source/pokeysavestate.cpp.s
@@ -319,7 +319,7 @@ source/pokeysavestate.s: source/pokeysavestate.cpp.s
 
 # target to generate assembly for a file
 source/pokeysavestate.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeysavestate.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeysavestate.cpp.s
 .PHONY : source/pokeysavestate.cpp.s
 
 source/pokeytables.o: source/pokeytables.cpp.o
@@ -327,7 +327,7 @@ source/pokeytables.o: source/pokeytables.cpp.o
 
 # target to build an object file
 source/pokeytables.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeytables.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeytables.cpp.o
 .PHONY : source/pokeytables.cpp.o
 
 source/pokeytables.i: source/pokeytables.cpp.i
@@ -335,7 +335,7 @@ source/pokeytables.i: source/pokeytables.cpp.i
 
 # target to preprocess a source file
 source/pokeytables.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeytables.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeytables.cpp.i
 .PHONY : source/pokeytables.cpp.i
 
 source/pokeytables.s: source/pokeytables.cpp.s
@@ -343,7 +343,7 @@ source/pokeytables.s: source/pokeytables.cpp.s
 
 # target to generate assembly for a file
 source/pokeytables.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeytables.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/pokeytables.cpp.s
 .PHONY : source/pokeytables.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -351,7 +351,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -359,7 +359,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -367,7 +367,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATAudio/CMakeFiles/ATAudio.dir/build.make src/ATAudio/CMakeFiles/ATAudio.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 # Help Target
@@ -420,6 +420,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

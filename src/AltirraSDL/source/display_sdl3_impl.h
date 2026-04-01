@@ -69,8 +69,16 @@ public:
 	void SetProfileHook(const vdfunction<void(ProfileEvent, uintptr)>&) override {}
 	void RequestCapture(vdfunction<void(const VDPixmap*)>) override {}
 
-	// Call from main loop each frame
+	// Upload pending frame pixels to the SDL texture (does NOT present).
+	// Returns true if the texture has valid content to render.
+	bool PrepareFrame();
+
+	// Legacy: upload + clear + render + present (used before ImGui integration)
 	void Present();
+
+	SDL_Texture* GetTexture() const { return mpTexture; }
+	int GetTextureWidth() const { return mTextureW; }
+	int GetTextureHeight() const { return mTextureH; }
 
 private:
 	SDL_Renderer *mpRenderer;

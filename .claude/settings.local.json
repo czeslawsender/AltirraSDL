@@ -86,7 +86,12 @@
       "Bash(xxd -i /tmp/altirra-roms/kernelxl.rom)",
       "Bash(sed \"s|/tmp/altirra_roms_||g; s|unsigned char .*\\\\[\\\\]|static const unsigned char kernelxl_rom[]|; s|unsigned int .*_len|static const unsigned int kernelxl_rom_len|\")",
       "Bash(xxd -i /tmp/altirra-roms/nokernel.rom)",
-      "Bash(python3 -c \":*)"
+      "Bash(python3 -c \":*)",
+      "Bash(cmake .. -DCMAKE_BUILD_TYPE=Release)",
+      "Bash(nm /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)",
+      "Bash(timeout 3 /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)",
+      "Bash(timeout 2 /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)",
+      "Bash(timeout 5 /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)"
     ]
   }
 }

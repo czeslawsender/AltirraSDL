@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATEmulation//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATEmulation//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATEmulation/CMakeFiles/ATEmulation.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/CMakeFiles/ATEmulation.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATEmulation/CMakeFiles/ATEmulation.dir/rule
 .PHONY : src/ATEmulation/CMakeFiles/ATEmulation.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATEmulation: src/ATEmulation/CMakeFiles/ATEmulation.dir/rule
 
 # fast build rule for target.
 ATEmulation/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/build
 .PHONY : ATEmulation/fast
 
 source/acia.o: source/acia.cpp.o
@@ -135,7 +135,7 @@ source/acia.o: source/acia.cpp.o
 
 # target to build an object file
 source/acia.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia.cpp.o
 .PHONY : source/acia.cpp.o
 
 source/acia.i: source/acia.cpp.i
@@ -143,7 +143,7 @@ source/acia.i: source/acia.cpp.i
 
 # target to preprocess a source file
 source/acia.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia.cpp.i
 .PHONY : source/acia.cpp.i
 
 source/acia.s: source/acia.cpp.s
@@ -151,7 +151,7 @@ source/acia.s: source/acia.cpp.s
 
 # target to generate assembly for a file
 source/acia.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia.cpp.s
 .PHONY : source/acia.cpp.s
 
 source/acia6850.o: source/acia6850.cpp.o
@@ -159,7 +159,7 @@ source/acia6850.o: source/acia6850.cpp.o
 
 # target to build an object file
 source/acia6850.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia6850.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia6850.cpp.o
 .PHONY : source/acia6850.cpp.o
 
 source/acia6850.i: source/acia6850.cpp.i
@@ -167,7 +167,7 @@ source/acia6850.i: source/acia6850.cpp.i
 
 # target to preprocess a source file
 source/acia6850.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia6850.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia6850.cpp.i
 .PHONY : source/acia6850.cpp.i
 
 source/acia6850.s: source/acia6850.cpp.s
@@ -175,7 +175,7 @@ source/acia6850.s: source/acia6850.cpp.s
 
 # target to generate assembly for a file
 source/acia6850.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia6850.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/acia6850.cpp.s
 .PHONY : source/acia6850.cpp.s
 
 source/crtc.o: source/crtc.cpp.o
@@ -183,7 +183,7 @@ source/crtc.o: source/crtc.cpp.o
 
 # target to build an object file
 source/crtc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/crtc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/crtc.cpp.o
 .PHONY : source/crtc.cpp.o
 
 source/crtc.i: source/crtc.cpp.i
@@ -191,7 +191,7 @@ source/crtc.i: source/crtc.cpp.i
 
 # target to preprocess a source file
 source/crtc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/crtc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/crtc.cpp.i
 .PHONY : source/crtc.cpp.i
 
 source/crtc.s: source/crtc.cpp.s
@@ -199,7 +199,7 @@ source/crtc.s: source/crtc.cpp.s
 
 # target to generate assembly for a file
 source/crtc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/crtc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/crtc.cpp.s
 .PHONY : source/crtc.cpp.s
 
 source/ctc.o: source/ctc.cpp.o
@@ -207,7 +207,7 @@ source/ctc.o: source/ctc.cpp.o
 
 # target to build an object file
 source/ctc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/ctc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/ctc.cpp.o
 .PHONY : source/ctc.cpp.o
 
 source/ctc.i: source/ctc.cpp.i
@@ -215,7 +215,7 @@ source/ctc.i: source/ctc.cpp.i
 
 # target to preprocess a source file
 source/ctc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/ctc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/ctc.cpp.i
 .PHONY : source/ctc.cpp.i
 
 source/ctc.s: source/ctc.cpp.s
@@ -223,7 +223,7 @@ source/ctc.s: source/ctc.cpp.s
 
 # target to generate assembly for a file
 source/ctc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/ctc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/ctc.cpp.s
 .PHONY : source/ctc.cpp.s
 
 source/diskutils.o: source/diskutils.cpp.o
@@ -231,7 +231,7 @@ source/diskutils.o: source/diskutils.cpp.o
 
 # target to build an object file
 source/diskutils.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/diskutils.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/diskutils.cpp.o
 .PHONY : source/diskutils.cpp.o
 
 source/diskutils.i: source/diskutils.cpp.i
@@ -239,7 +239,7 @@ source/diskutils.i: source/diskutils.cpp.i
 
 # target to preprocess a source file
 source/diskutils.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/diskutils.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/diskutils.cpp.i
 .PHONY : source/diskutils.cpp.i
 
 source/diskutils.s: source/diskutils.cpp.s
@@ -247,7 +247,7 @@ source/diskutils.s: source/diskutils.cpp.s
 
 # target to generate assembly for a file
 source/diskutils.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/diskutils.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/diskutils.cpp.s
 .PHONY : source/diskutils.cpp.s
 
 source/eeprom.o: source/eeprom.cpp.o
@@ -255,7 +255,7 @@ source/eeprom.o: source/eeprom.cpp.o
 
 # target to build an object file
 source/eeprom.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/eeprom.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/eeprom.cpp.o
 .PHONY : source/eeprom.cpp.o
 
 source/eeprom.i: source/eeprom.cpp.i
@@ -263,7 +263,7 @@ source/eeprom.i: source/eeprom.cpp.i
 
 # target to preprocess a source file
 source/eeprom.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/eeprom.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/eeprom.cpp.i
 .PHONY : source/eeprom.cpp.i
 
 source/eeprom.s: source/eeprom.cpp.s
@@ -271,7 +271,7 @@ source/eeprom.s: source/eeprom.cpp.s
 
 # target to generate assembly for a file
 source/eeprom.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/eeprom.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/eeprom.cpp.s
 .PHONY : source/eeprom.cpp.s
 
 source/flash.o: source/flash.cpp.o
@@ -279,7 +279,7 @@ source/flash.o: source/flash.cpp.o
 
 # target to build an object file
 source/flash.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/flash.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/flash.cpp.o
 .PHONY : source/flash.cpp.o
 
 source/flash.i: source/flash.cpp.i
@@ -287,7 +287,7 @@ source/flash.i: source/flash.cpp.i
 
 # target to preprocess a source file
 source/flash.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/flash.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/flash.cpp.i
 .PHONY : source/flash.cpp.i
 
 source/flash.s: source/flash.cpp.s
@@ -295,7 +295,7 @@ source/flash.s: source/flash.cpp.s
 
 # target to generate assembly for a file
 source/flash.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/flash.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/flash.cpp.s
 .PHONY : source/flash.cpp.s
 
 source/phone.o: source/phone.cpp.o
@@ -303,7 +303,7 @@ source/phone.o: source/phone.cpp.o
 
 # target to build an object file
 source/phone.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/phone.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/phone.cpp.o
 .PHONY : source/phone.cpp.o
 
 source/phone.i: source/phone.cpp.i
@@ -311,7 +311,7 @@ source/phone.i: source/phone.cpp.i
 
 # target to preprocess a source file
 source/phone.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/phone.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/phone.cpp.i
 .PHONY : source/phone.cpp.i
 
 source/phone.s: source/phone.cpp.s
@@ -319,7 +319,7 @@ source/phone.s: source/phone.cpp.s
 
 # target to generate assembly for a file
 source/phone.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/phone.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/phone.cpp.s
 .PHONY : source/phone.cpp.s
 
 source/riot.o: source/riot.cpp.o
@@ -327,7 +327,7 @@ source/riot.o: source/riot.cpp.o
 
 # target to build an object file
 source/riot.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/riot.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/riot.cpp.o
 .PHONY : source/riot.cpp.o
 
 source/riot.i: source/riot.cpp.i
@@ -335,7 +335,7 @@ source/riot.i: source/riot.cpp.i
 
 # target to preprocess a source file
 source/riot.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/riot.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/riot.cpp.i
 .PHONY : source/riot.cpp.i
 
 source/riot.s: source/riot.cpp.s
@@ -343,7 +343,7 @@ source/riot.s: source/riot.cpp.s
 
 # target to generate assembly for a file
 source/riot.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/riot.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/riot.cpp.s
 .PHONY : source/riot.cpp.s
 
 source/rtcds1305.o: source/rtcds1305.cpp.o
@@ -351,7 +351,7 @@ source/rtcds1305.o: source/rtcds1305.cpp.o
 
 # target to build an object file
 source/rtcds1305.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcds1305.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcds1305.cpp.o
 .PHONY : source/rtcds1305.cpp.o
 
 source/rtcds1305.i: source/rtcds1305.cpp.i
@@ -359,7 +359,7 @@ source/rtcds1305.i: source/rtcds1305.cpp.i
 
 # target to preprocess a source file
 source/rtcds1305.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcds1305.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcds1305.cpp.i
 .PHONY : source/rtcds1305.cpp.i
 
 source/rtcds1305.s: source/rtcds1305.cpp.s
@@ -367,7 +367,7 @@ source/rtcds1305.s: source/rtcds1305.cpp.s
 
 # target to generate assembly for a file
 source/rtcds1305.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcds1305.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcds1305.cpp.s
 .PHONY : source/rtcds1305.cpp.s
 
 source/rtcmcp7951x.o: source/rtcmcp7951x.cpp.o
@@ -375,7 +375,7 @@ source/rtcmcp7951x.o: source/rtcmcp7951x.cpp.o
 
 # target to build an object file
 source/rtcmcp7951x.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcmcp7951x.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcmcp7951x.cpp.o
 .PHONY : source/rtcmcp7951x.cpp.o
 
 source/rtcmcp7951x.i: source/rtcmcp7951x.cpp.i
@@ -383,7 +383,7 @@ source/rtcmcp7951x.i: source/rtcmcp7951x.cpp.i
 
 # target to preprocess a source file
 source/rtcmcp7951x.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcmcp7951x.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcmcp7951x.cpp.i
 .PHONY : source/rtcmcp7951x.cpp.i
 
 source/rtcmcp7951x.s: source/rtcmcp7951x.cpp.s
@@ -391,7 +391,7 @@ source/rtcmcp7951x.s: source/rtcmcp7951x.cpp.s
 
 # target to generate assembly for a file
 source/rtcmcp7951x.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcmcp7951x.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcmcp7951x.cpp.s
 .PHONY : source/rtcmcp7951x.cpp.s
 
 source/rtcv3021.o: source/rtcv3021.cpp.o
@@ -399,7 +399,7 @@ source/rtcv3021.o: source/rtcv3021.cpp.o
 
 # target to build an object file
 source/rtcv3021.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcv3021.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcv3021.cpp.o
 .PHONY : source/rtcv3021.cpp.o
 
 source/rtcv3021.i: source/rtcv3021.cpp.i
@@ -407,7 +407,7 @@ source/rtcv3021.i: source/rtcv3021.cpp.i
 
 # target to preprocess a source file
 source/rtcv3021.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcv3021.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcv3021.cpp.i
 .PHONY : source/rtcv3021.cpp.i
 
 source/rtcv3021.s: source/rtcv3021.cpp.s
@@ -415,7 +415,7 @@ source/rtcv3021.s: source/rtcv3021.cpp.s
 
 # target to generate assembly for a file
 source/rtcv3021.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcv3021.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/rtcv3021.cpp.s
 .PHONY : source/rtcv3021.cpp.s
 
 source/scsi.o: source/scsi.cpp.o
@@ -423,7 +423,7 @@ source/scsi.o: source/scsi.cpp.o
 
 # target to build an object file
 source/scsi.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/scsi.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/scsi.cpp.o
 .PHONY : source/scsi.cpp.o
 
 source/scsi.i: source/scsi.cpp.i
@@ -431,7 +431,7 @@ source/scsi.i: source/scsi.cpp.i
 
 # target to preprocess a source file
 source/scsi.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/scsi.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/scsi.cpp.i
 .PHONY : source/scsi.cpp.i
 
 source/scsi.s: source/scsi.cpp.s
@@ -439,7 +439,7 @@ source/scsi.s: source/scsi.cpp.s
 
 # target to generate assembly for a file
 source/scsi.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/scsi.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/scsi.cpp.s
 .PHONY : source/scsi.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -447,7 +447,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -455,7 +455,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -463,7 +463,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/via.o: source/via.cpp.o
@@ -471,7 +471,7 @@ source/via.o: source/via.cpp.o
 
 # target to build an object file
 source/via.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/via.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/via.cpp.o
 .PHONY : source/via.cpp.o
 
 source/via.i: source/via.cpp.i
@@ -479,7 +479,7 @@ source/via.i: source/via.cpp.i
 
 # target to preprocess a source file
 source/via.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/via.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/via.cpp.i
 .PHONY : source/via.cpp.i
 
 source/via.s: source/via.cpp.s
@@ -487,7 +487,7 @@ source/via.s: source/via.cpp.s
 
 # target to generate assembly for a file
 source/via.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/via.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/source/via.cpp.s
 .PHONY : source/via.cpp.s
 
 # Help Target
@@ -555,6 +555,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

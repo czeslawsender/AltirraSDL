@@ -1,4 +1,4 @@
-# Install script for directory: /home/ilm/Documents/GitHub/Altirra/src
+# Install script for directory: /home/ilm/Documents/GitHub/AltirraSDL/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -44,72 +44,72 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/system/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/system/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/vdjson/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/Kasumi/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/Kasumi/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATCore/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCore/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATCPU/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATEmulation/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATEmulation/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATDevices/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATDevices/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATIO/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATIO/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATAudio/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATAudio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATDebugger/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATDebugger/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/ATVM/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/ilm/Documents/GitHub/Altirra/build/src/AltirraSDL/cmake_install.cmake")
+  include("/home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/ilm/Documents/GitHub/Altirra/build/src/install_local_manifest.txt"
+  file(WRITE "/home/ilm/Documents/GitHub/AltirraSDL/build/src/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

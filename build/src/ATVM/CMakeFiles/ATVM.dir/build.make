@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 # Include any dependencies generated for this target.
 include src/ATVM/CMakeFiles/ATVM.dir/depend.make
@@ -73,46 +73,46 @@ src/ATVM/CMakeFiles/ATVM.dir/codegen:
 .PHONY : src/ATVM/CMakeFiles/ATVM.dir/codegen
 
 src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o: src/ATVM/CMakeFiles/ATVM.dir/flags.make
-src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/compiler.cpp
+src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/compiler.cpp
 src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o: src/ATVM/CMakeFiles/ATVM.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o -MF CMakeFiles/ATVM.dir/source/compiler.cpp.o.d -o CMakeFiles/ATVM.dir/source/compiler.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/compiler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.o -MF CMakeFiles/ATVM.dir/source/compiler.cpp.o.d -o CMakeFiles/ATVM.dir/source/compiler.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/compiler.cpp
 
 src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATVM.dir/source/compiler.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/compiler.cpp > CMakeFiles/ATVM.dir/source/compiler.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/compiler.cpp > CMakeFiles/ATVM.dir/source/compiler.cpp.i
 
 src/ATVM/CMakeFiles/ATVM.dir/source/compiler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATVM.dir/source/compiler.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/compiler.cpp -o CMakeFiles/ATVM.dir/source/compiler.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/compiler.cpp -o CMakeFiles/ATVM.dir/source/compiler.cpp.s
 
 src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o: src/ATVM/CMakeFiles/ATVM.dir/flags.make
-src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/stdafx.cpp
+src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/stdafx.cpp
 src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o: src/ATVM/CMakeFiles/ATVM.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o -MF CMakeFiles/ATVM.dir/source/stdafx.cpp.o.d -o CMakeFiles/ATVM.dir/source/stdafx.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/stdafx.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o -MF CMakeFiles/ATVM.dir/source/stdafx.cpp.o.d -o CMakeFiles/ATVM.dir/source/stdafx.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/stdafx.cpp
 
 src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATVM.dir/source/stdafx.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/stdafx.cpp > CMakeFiles/ATVM.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/stdafx.cpp > CMakeFiles/ATVM.dir/source/stdafx.cpp.i
 
 src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATVM.dir/source/stdafx.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/stdafx.cpp -o CMakeFiles/ATVM.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/stdafx.cpp -o CMakeFiles/ATVM.dir/source/stdafx.cpp.s
 
 src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o: src/ATVM/CMakeFiles/ATVM.dir/flags.make
-src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/vm.cpp
+src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/vm.cpp
 src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o: src/ATVM/CMakeFiles/ATVM.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o -MF CMakeFiles/ATVM.dir/source/vm.cpp.o.d -o CMakeFiles/ATVM.dir/source/vm.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/vm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o -MF CMakeFiles/ATVM.dir/source/vm.cpp.o.d -o CMakeFiles/ATVM.dir/source/vm.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/vm.cpp
 
 src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATVM.dir/source/vm.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/vm.cpp > CMakeFiles/ATVM.dir/source/vm.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/vm.cpp > CMakeFiles/ATVM.dir/source/vm.cpp.i
 
 src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATVM.dir/source/vm.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATVM/source/vm.cpp -o CMakeFiles/ATVM.dir/source/vm.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM/source/vm.cpp -o CMakeFiles/ATVM.dir/source/vm.cpp.s
 
 # Object files for target ATVM
 ATVM_OBJECTS = \
@@ -128,19 +128,19 @@ src/ATVM/libATVM.a: src/ATVM/CMakeFiles/ATVM.dir/source/stdafx.cpp.o
 src/ATVM/libATVM.a: src/ATVM/CMakeFiles/ATVM.dir/source/vm.cpp.o
 src/ATVM/libATVM.a: src/ATVM/CMakeFiles/ATVM.dir/build.make
 src/ATVM/libATVM.a: src/ATVM/CMakeFiles/ATVM.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libATVM.a"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && $(CMAKE_COMMAND) -P CMakeFiles/ATVM.dir/cmake_clean_target.cmake
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATVM.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libATVM.a"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && $(CMAKE_COMMAND) -P CMakeFiles/ATVM.dir/cmake_clean_target.cmake
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATVM.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/ATVM/CMakeFiles/ATVM.dir/build: src/ATVM/libATVM.a
 .PHONY : src/ATVM/CMakeFiles/ATVM.dir/build
 
 src/ATVM/CMakeFiles/ATVM.dir/clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATVM && $(CMAKE_COMMAND) -P CMakeFiles/ATVM.dir/cmake_clean.cmake
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM && $(CMAKE_COMMAND) -P CMakeFiles/ATVM.dir/cmake_clean.cmake
 .PHONY : src/ATVM/CMakeFiles/ATVM.dir/clean
 
 src/ATVM/CMakeFiles/ATVM.dir/depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilm/Documents/GitHub/Altirra /home/ilm/Documents/GitHub/Altirra/src/ATVM /home/ilm/Documents/GitHub/Altirra/build /home/ilm/Documents/GitHub/Altirra/build/src/ATVM /home/ilm/Documents/GitHub/Altirra/build/src/ATVM/CMakeFiles/ATVM.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilm/Documents/GitHub/AltirraSDL /home/ilm/Documents/GitHub/AltirraSDL/src/ATVM /home/ilm/Documents/GitHub/AltirraSDL/build /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATVM/CMakeFiles/ATVM.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : src/ATVM/CMakeFiles/ATVM.dir/depend
 

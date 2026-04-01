@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATCore//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCore//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATCore/CMakeFiles/ATCore.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/CMakeFiles/ATCore.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATCore/CMakeFiles/ATCore.dir/rule
 .PHONY : src/ATCore/CMakeFiles/ATCore.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATCore: src/ATCore/CMakeFiles/ATCore.dir/rule
 
 # fast build rule for target.
 ATCore/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/build
 .PHONY : ATCore/fast
 
 source/address.o: source/address.cpp.o
@@ -135,7 +135,7 @@ source/address.o: source/address.cpp.o
 
 # target to build an object file
 source/address.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/address.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/address.cpp.o
 .PHONY : source/address.cpp.o
 
 source/address.i: source/address.cpp.i
@@ -143,7 +143,7 @@ source/address.i: source/address.cpp.i
 
 # target to preprocess a source file
 source/address.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/address.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/address.cpp.i
 .PHONY : source/address.cpp.i
 
 source/address.s: source/address.cpp.s
@@ -151,7 +151,7 @@ source/address.s: source/address.cpp.s
 
 # target to generate assembly for a file
 source/address.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/address.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/address.cpp.s
 .PHONY : source/address.cpp.s
 
 source/asyncdispatcherimpl.o: source/asyncdispatcherimpl.cpp.o
@@ -159,7 +159,7 @@ source/asyncdispatcherimpl.o: source/asyncdispatcherimpl.cpp.o
 
 # target to build an object file
 source/asyncdispatcherimpl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/asyncdispatcherimpl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/asyncdispatcherimpl.cpp.o
 .PHONY : source/asyncdispatcherimpl.cpp.o
 
 source/asyncdispatcherimpl.i: source/asyncdispatcherimpl.cpp.i
@@ -167,7 +167,7 @@ source/asyncdispatcherimpl.i: source/asyncdispatcherimpl.cpp.i
 
 # target to preprocess a source file
 source/asyncdispatcherimpl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/asyncdispatcherimpl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/asyncdispatcherimpl.cpp.i
 .PHONY : source/asyncdispatcherimpl.cpp.i
 
 source/asyncdispatcherimpl.s: source/asyncdispatcherimpl.cpp.s
@@ -175,7 +175,7 @@ source/asyncdispatcherimpl.s: source/asyncdispatcherimpl.cpp.s
 
 # target to generate assembly for a file
 source/asyncdispatcherimpl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/asyncdispatcherimpl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/asyncdispatcherimpl.cpp.s
 .PHONY : source/asyncdispatcherimpl.cpp.s
 
 source/atascii.o: source/atascii.cpp.o
@@ -183,7 +183,7 @@ source/atascii.o: source/atascii.cpp.o
 
 # target to build an object file
 source/atascii.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/atascii.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/atascii.cpp.o
 .PHONY : source/atascii.cpp.o
 
 source/atascii.i: source/atascii.cpp.i
@@ -191,7 +191,7 @@ source/atascii.i: source/atascii.cpp.i
 
 # target to preprocess a source file
 source/atascii.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/atascii.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/atascii.cpp.i
 .PHONY : source/atascii.cpp.i
 
 source/atascii.s: source/atascii.cpp.s
@@ -199,7 +199,7 @@ source/atascii.s: source/atascii.cpp.s
 
 # target to generate assembly for a file
 source/atascii.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/atascii.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/atascii.cpp.s
 .PHONY : source/atascii.cpp.s
 
 source/bussignal.o: source/bussignal.cpp.o
@@ -207,7 +207,7 @@ source/bussignal.o: source/bussignal.cpp.o
 
 # target to build an object file
 source/bussignal.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/bussignal.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/bussignal.cpp.o
 .PHONY : source/bussignal.cpp.o
 
 source/bussignal.i: source/bussignal.cpp.i
@@ -215,7 +215,7 @@ source/bussignal.i: source/bussignal.cpp.i
 
 # target to preprocess a source file
 source/bussignal.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/bussignal.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/bussignal.cpp.i
 .PHONY : source/bussignal.cpp.i
 
 source/bussignal.s: source/bussignal.cpp.s
@@ -223,7 +223,7 @@ source/bussignal.s: source/bussignal.cpp.s
 
 # target to generate assembly for a file
 source/bussignal.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/bussignal.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/bussignal.cpp.s
 .PHONY : source/bussignal.cpp.s
 
 source/checksum.o: source/checksum.cpp.o
@@ -231,7 +231,7 @@ source/checksum.o: source/checksum.cpp.o
 
 # target to build an object file
 source/checksum.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum.cpp.o
 .PHONY : source/checksum.cpp.o
 
 source/checksum.i: source/checksum.cpp.i
@@ -239,7 +239,7 @@ source/checksum.i: source/checksum.cpp.i
 
 # target to preprocess a source file
 source/checksum.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum.cpp.i
 .PHONY : source/checksum.cpp.i
 
 source/checksum.s: source/checksum.cpp.s
@@ -247,7 +247,7 @@ source/checksum.s: source/checksum.cpp.s
 
 # target to generate assembly for a file
 source/checksum.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum.cpp.s
 .PHONY : source/checksum.cpp.s
 
 source/checksum_intrin.o: source/checksum_intrin.cpp.o
@@ -255,7 +255,7 @@ source/checksum_intrin.o: source/checksum_intrin.cpp.o
 
 # target to build an object file
 source/checksum_intrin.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum_intrin.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum_intrin.cpp.o
 .PHONY : source/checksum_intrin.cpp.o
 
 source/checksum_intrin.i: source/checksum_intrin.cpp.i
@@ -263,7 +263,7 @@ source/checksum_intrin.i: source/checksum_intrin.cpp.i
 
 # target to preprocess a source file
 source/checksum_intrin.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum_intrin.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum_intrin.cpp.i
 .PHONY : source/checksum_intrin.cpp.i
 
 source/checksum_intrin.s: source/checksum_intrin.cpp.s
@@ -271,7 +271,7 @@ source/checksum_intrin.s: source/checksum_intrin.cpp.s
 
 # target to generate assembly for a file
 source/checksum_intrin.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum_intrin.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/checksum_intrin.cpp.s
 .PHONY : source/checksum_intrin.cpp.s
 
 source/configvar.o: source/configvar.cpp.o
@@ -279,7 +279,7 @@ source/configvar.o: source/configvar.cpp.o
 
 # target to build an object file
 source/configvar.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/configvar.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/configvar.cpp.o
 .PHONY : source/configvar.cpp.o
 
 source/configvar.i: source/configvar.cpp.i
@@ -287,7 +287,7 @@ source/configvar.i: source/configvar.cpp.i
 
 # target to preprocess a source file
 source/configvar.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/configvar.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/configvar.cpp.i
 .PHONY : source/configvar.cpp.i
 
 source/configvar.s: source/configvar.cpp.s
@@ -295,7 +295,7 @@ source/configvar.s: source/configvar.cpp.s
 
 # target to generate assembly for a file
 source/configvar.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/configvar.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/configvar.cpp.s
 .PHONY : source/configvar.cpp.s
 
 source/consoleoutput.o: source/consoleoutput.cpp.o
@@ -303,7 +303,7 @@ source/consoleoutput.o: source/consoleoutput.cpp.o
 
 # target to build an object file
 source/consoleoutput.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/consoleoutput.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/consoleoutput.cpp.o
 .PHONY : source/consoleoutput.cpp.o
 
 source/consoleoutput.i: source/consoleoutput.cpp.i
@@ -311,7 +311,7 @@ source/consoleoutput.i: source/consoleoutput.cpp.i
 
 # target to preprocess a source file
 source/consoleoutput.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/consoleoutput.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/consoleoutput.cpp.i
 .PHONY : source/consoleoutput.cpp.i
 
 source/consoleoutput.s: source/consoleoutput.cpp.s
@@ -319,7 +319,7 @@ source/consoleoutput.s: source/consoleoutput.cpp.s
 
 # target to generate assembly for a file
 source/consoleoutput.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/consoleoutput.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/consoleoutput.cpp.s
 .PHONY : source/consoleoutput.cpp.s
 
 source/crc.o: source/crc.cpp.o
@@ -327,7 +327,7 @@ source/crc.o: source/crc.cpp.o
 
 # target to build an object file
 source/crc.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/crc.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/crc.cpp.o
 .PHONY : source/crc.cpp.o
 
 source/crc.i: source/crc.cpp.i
@@ -335,7 +335,7 @@ source/crc.i: source/crc.cpp.i
 
 # target to preprocess a source file
 source/crc.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/crc.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/crc.cpp.i
 .PHONY : source/crc.cpp.i
 
 source/crc.s: source/crc.cpp.s
@@ -343,7 +343,7 @@ source/crc.s: source/crc.cpp.s
 
 # target to generate assembly for a file
 source/crc.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/crc.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/crc.cpp.s
 .PHONY : source/crc.cpp.s
 
 source/decmath.o: source/decmath.cpp.o
@@ -351,7 +351,7 @@ source/decmath.o: source/decmath.cpp.o
 
 # target to build an object file
 source/decmath.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/decmath.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/decmath.cpp.o
 .PHONY : source/decmath.cpp.o
 
 source/decmath.i: source/decmath.cpp.i
@@ -359,7 +359,7 @@ source/decmath.i: source/decmath.cpp.i
 
 # target to preprocess a source file
 source/decmath.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/decmath.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/decmath.cpp.i
 .PHONY : source/decmath.cpp.i
 
 source/decmath.s: source/decmath.cpp.s
@@ -367,7 +367,7 @@ source/decmath.s: source/decmath.cpp.s
 
 # target to generate assembly for a file
 source/decmath.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/decmath.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/decmath.cpp.s
 .PHONY : source/decmath.cpp.s
 
 source/deferredevent.o: source/deferredevent.cpp.o
@@ -375,7 +375,7 @@ source/deferredevent.o: source/deferredevent.cpp.o
 
 # target to build an object file
 source/deferredevent.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deferredevent.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deferredevent.cpp.o
 .PHONY : source/deferredevent.cpp.o
 
 source/deferredevent.i: source/deferredevent.cpp.i
@@ -383,7 +383,7 @@ source/deferredevent.i: source/deferredevent.cpp.i
 
 # target to preprocess a source file
 source/deferredevent.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deferredevent.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deferredevent.cpp.i
 .PHONY : source/deferredevent.cpp.i
 
 source/deferredevent.s: source/deferredevent.cpp.s
@@ -391,7 +391,7 @@ source/deferredevent.s: source/deferredevent.cpp.s
 
 # target to generate assembly for a file
 source/deferredevent.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deferredevent.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deferredevent.cpp.s
 .PHONY : source/deferredevent.cpp.s
 
 source/deviceimpl.o: source/deviceimpl.cpp.o
@@ -399,7 +399,7 @@ source/deviceimpl.o: source/deviceimpl.cpp.o
 
 # target to build an object file
 source/deviceimpl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceimpl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceimpl.cpp.o
 .PHONY : source/deviceimpl.cpp.o
 
 source/deviceimpl.i: source/deviceimpl.cpp.i
@@ -407,7 +407,7 @@ source/deviceimpl.i: source/deviceimpl.cpp.i
 
 # target to preprocess a source file
 source/deviceimpl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceimpl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceimpl.cpp.i
 .PHONY : source/deviceimpl.cpp.i
 
 source/deviceimpl.s: source/deviceimpl.cpp.s
@@ -415,7 +415,7 @@ source/deviceimpl.s: source/deviceimpl.cpp.s
 
 # target to generate assembly for a file
 source/deviceimpl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceimpl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceimpl.cpp.s
 .PHONY : source/deviceimpl.cpp.s
 
 source/deviceparentimpl.o: source/deviceparentimpl.cpp.o
@@ -423,7 +423,7 @@ source/deviceparentimpl.o: source/deviceparentimpl.cpp.o
 
 # target to build an object file
 source/deviceparentimpl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceparentimpl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceparentimpl.cpp.o
 .PHONY : source/deviceparentimpl.cpp.o
 
 source/deviceparentimpl.i: source/deviceparentimpl.cpp.i
@@ -431,7 +431,7 @@ source/deviceparentimpl.i: source/deviceparentimpl.cpp.i
 
 # target to preprocess a source file
 source/deviceparentimpl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceparentimpl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceparentimpl.cpp.i
 .PHONY : source/deviceparentimpl.cpp.i
 
 source/deviceparentimpl.s: source/deviceparentimpl.cpp.s
@@ -439,7 +439,7 @@ source/deviceparentimpl.s: source/deviceparentimpl.cpp.s
 
 # target to generate assembly for a file
 source/deviceparentimpl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceparentimpl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/deviceparentimpl.cpp.s
 .PHONY : source/deviceparentimpl.cpp.s
 
 source/devicesioimpl.o: source/devicesioimpl.cpp.o
@@ -447,7 +447,7 @@ source/devicesioimpl.o: source/devicesioimpl.cpp.o
 
 # target to build an object file
 source/devicesioimpl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicesioimpl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicesioimpl.cpp.o
 .PHONY : source/devicesioimpl.cpp.o
 
 source/devicesioimpl.i: source/devicesioimpl.cpp.i
@@ -455,7 +455,7 @@ source/devicesioimpl.i: source/devicesioimpl.cpp.i
 
 # target to preprocess a source file
 source/devicesioimpl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicesioimpl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicesioimpl.cpp.i
 .PHONY : source/devicesioimpl.cpp.i
 
 source/devicesioimpl.s: source/devicesioimpl.cpp.s
@@ -463,7 +463,7 @@ source/devicesioimpl.s: source/devicesioimpl.cpp.s
 
 # target to generate assembly for a file
 source/devicesioimpl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicesioimpl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicesioimpl.cpp.s
 .PHONY : source/devicesioimpl.cpp.s
 
 source/devicestorageimpl.o: source/devicestorageimpl.cpp.o
@@ -471,7 +471,7 @@ source/devicestorageimpl.o: source/devicestorageimpl.cpp.o
 
 # target to build an object file
 source/devicestorageimpl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicestorageimpl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicestorageimpl.cpp.o
 .PHONY : source/devicestorageimpl.cpp.o
 
 source/devicestorageimpl.i: source/devicestorageimpl.cpp.i
@@ -479,7 +479,7 @@ source/devicestorageimpl.i: source/devicestorageimpl.cpp.i
 
 # target to preprocess a source file
 source/devicestorageimpl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicestorageimpl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicestorageimpl.cpp.i
 .PHONY : source/devicestorageimpl.cpp.i
 
 source/devicestorageimpl.s: source/devicestorageimpl.cpp.s
@@ -487,7 +487,7 @@ source/devicestorageimpl.s: source/devicestorageimpl.cpp.s
 
 # target to generate assembly for a file
 source/devicestorageimpl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicestorageimpl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/devicestorageimpl.cpp.s
 .PHONY : source/devicestorageimpl.cpp.s
 
 source/enumparse.o: source/enumparse.cpp.o
@@ -495,7 +495,7 @@ source/enumparse.o: source/enumparse.cpp.o
 
 # target to build an object file
 source/enumparse.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/enumparse.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/enumparse.cpp.o
 .PHONY : source/enumparse.cpp.o
 
 source/enumparse.i: source/enumparse.cpp.i
@@ -503,7 +503,7 @@ source/enumparse.i: source/enumparse.cpp.i
 
 # target to preprocess a source file
 source/enumparse.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/enumparse.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/enumparse.cpp.i
 .PHONY : source/enumparse.cpp.i
 
 source/enumparse.s: source/enumparse.cpp.s
@@ -511,7 +511,7 @@ source/enumparse.s: source/enumparse.cpp.s
 
 # target to generate assembly for a file
 source/enumparse.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/enumparse.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/enumparse.cpp.s
 .PHONY : source/enumparse.cpp.s
 
 source/fft.o: source/fft.cpp.o
@@ -519,7 +519,7 @@ source/fft.o: source/fft.cpp.o
 
 # target to build an object file
 source/fft.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft.cpp.o
 .PHONY : source/fft.cpp.o
 
 source/fft.i: source/fft.cpp.i
@@ -527,7 +527,7 @@ source/fft.i: source/fft.cpp.i
 
 # target to preprocess a source file
 source/fft.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft.cpp.i
 .PHONY : source/fft.cpp.i
 
 source/fft.s: source/fft.cpp.s
@@ -535,7 +535,7 @@ source/fft.s: source/fft.cpp.s
 
 # target to generate assembly for a file
 source/fft.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft.cpp.s
 .PHONY : source/fft.cpp.s
 
 source/fft_avx2.o: source/fft_avx2.cpp.o
@@ -543,7 +543,7 @@ source/fft_avx2.o: source/fft_avx2.cpp.o
 
 # target to build an object file
 source/fft_avx2.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_avx2.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_avx2.cpp.o
 .PHONY : source/fft_avx2.cpp.o
 
 source/fft_avx2.i: source/fft_avx2.cpp.i
@@ -551,7 +551,7 @@ source/fft_avx2.i: source/fft_avx2.cpp.i
 
 # target to preprocess a source file
 source/fft_avx2.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_avx2.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_avx2.cpp.i
 .PHONY : source/fft_avx2.cpp.i
 
 source/fft_avx2.s: source/fft_avx2.cpp.s
@@ -559,7 +559,7 @@ source/fft_avx2.s: source/fft_avx2.cpp.s
 
 # target to generate assembly for a file
 source/fft_avx2.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_avx2.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_avx2.cpp.s
 .PHONY : source/fft_avx2.cpp.s
 
 source/fft_scalar.o: source/fft_scalar.cpp.o
@@ -567,7 +567,7 @@ source/fft_scalar.o: source/fft_scalar.cpp.o
 
 # target to build an object file
 source/fft_scalar.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_scalar.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_scalar.cpp.o
 .PHONY : source/fft_scalar.cpp.o
 
 source/fft_scalar.i: source/fft_scalar.cpp.i
@@ -575,7 +575,7 @@ source/fft_scalar.i: source/fft_scalar.cpp.i
 
 # target to preprocess a source file
 source/fft_scalar.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_scalar.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_scalar.cpp.i
 .PHONY : source/fft_scalar.cpp.i
 
 source/fft_scalar.s: source/fft_scalar.cpp.s
@@ -583,7 +583,7 @@ source/fft_scalar.s: source/fft_scalar.cpp.s
 
 # target to generate assembly for a file
 source/fft_scalar.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_scalar.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_scalar.cpp.s
 .PHONY : source/fft_scalar.cpp.s
 
 source/fft_sse2.o: source/fft_sse2.cpp.o
@@ -591,7 +591,7 @@ source/fft_sse2.o: source/fft_sse2.cpp.o
 
 # target to build an object file
 source/fft_sse2.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_sse2.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_sse2.cpp.o
 .PHONY : source/fft_sse2.cpp.o
 
 source/fft_sse2.i: source/fft_sse2.cpp.i
@@ -599,7 +599,7 @@ source/fft_sse2.i: source/fft_sse2.cpp.i
 
 # target to preprocess a source file
 source/fft_sse2.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_sse2.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_sse2.cpp.i
 .PHONY : source/fft_sse2.cpp.i
 
 source/fft_sse2.s: source/fft_sse2.cpp.s
@@ -607,7 +607,7 @@ source/fft_sse2.s: source/fft_sse2.cpp.s
 
 # target to generate assembly for a file
 source/fft_sse2.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_sse2.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/fft_sse2.cpp.s
 .PHONY : source/fft_sse2.cpp.s
 
 source/logging.o: source/logging.cpp.o
@@ -615,7 +615,7 @@ source/logging.o: source/logging.cpp.o
 
 # target to build an object file
 source/logging.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/logging.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/logging.cpp.o
 .PHONY : source/logging.cpp.o
 
 source/logging.i: source/logging.cpp.i
@@ -623,7 +623,7 @@ source/logging.i: source/logging.cpp.i
 
 # target to preprocess a source file
 source/logging.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/logging.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/logging.cpp.i
 .PHONY : source/logging.cpp.i
 
 source/logging.s: source/logging.cpp.s
@@ -631,7 +631,7 @@ source/logging.s: source/logging.cpp.s
 
 # target to generate assembly for a file
 source/logging.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/logging.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/logging.cpp.s
 .PHONY : source/logging.cpp.s
 
 source/md5.o: source/md5.cpp.o
@@ -639,7 +639,7 @@ source/md5.o: source/md5.cpp.o
 
 # target to build an object file
 source/md5.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/md5.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/md5.cpp.o
 .PHONY : source/md5.cpp.o
 
 source/md5.i: source/md5.cpp.i
@@ -647,7 +647,7 @@ source/md5.i: source/md5.cpp.i
 
 # target to preprocess a source file
 source/md5.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/md5.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/md5.cpp.i
 .PHONY : source/md5.cpp.i
 
 source/md5.s: source/md5.cpp.s
@@ -655,7 +655,7 @@ source/md5.s: source/md5.cpp.s
 
 # target to generate assembly for a file
 source/md5.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/md5.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/md5.cpp.s
 .PHONY : source/md5.cpp.s
 
 source/memoryutils.o: source/memoryutils.cpp.o
@@ -663,7 +663,7 @@ source/memoryutils.o: source/memoryutils.cpp.o
 
 # target to build an object file
 source/memoryutils.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/memoryutils.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/memoryutils.cpp.o
 .PHONY : source/memoryutils.cpp.o
 
 source/memoryutils.i: source/memoryutils.cpp.i
@@ -671,7 +671,7 @@ source/memoryutils.i: source/memoryutils.cpp.i
 
 # target to preprocess a source file
 source/memoryutils.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/memoryutils.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/memoryutils.cpp.i
 .PHONY : source/memoryutils.cpp.i
 
 source/memoryutils.s: source/memoryutils.cpp.s
@@ -679,7 +679,7 @@ source/memoryutils.s: source/memoryutils.cpp.s
 
 # target to generate assembly for a file
 source/memoryutils.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/memoryutils.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/memoryutils.cpp.s
 .PHONY : source/memoryutils.cpp.s
 
 source/notifylist.o: source/notifylist.cpp.o
@@ -687,7 +687,7 @@ source/notifylist.o: source/notifylist.cpp.o
 
 # target to build an object file
 source/notifylist.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/notifylist.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/notifylist.cpp.o
 .PHONY : source/notifylist.cpp.o
 
 source/notifylist.i: source/notifylist.cpp.i
@@ -695,7 +695,7 @@ source/notifylist.i: source/notifylist.cpp.i
 
 # target to preprocess a source file
 source/notifylist.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/notifylist.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/notifylist.cpp.i
 .PHONY : source/notifylist.cpp.i
 
 source/notifylist.s: source/notifylist.cpp.s
@@ -703,7 +703,7 @@ source/notifylist.s: source/notifylist.cpp.s
 
 # target to generate assembly for a file
 source/notifylist.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/notifylist.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/notifylist.cpp.s
 .PHONY : source/notifylist.cpp.s
 
 source/profile.o: source/profile.cpp.o
@@ -711,7 +711,7 @@ source/profile.o: source/profile.cpp.o
 
 # target to build an object file
 source/profile.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/profile.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/profile.cpp.o
 .PHONY : source/profile.cpp.o
 
 source/profile.i: source/profile.cpp.i
@@ -719,7 +719,7 @@ source/profile.i: source/profile.cpp.i
 
 # target to preprocess a source file
 source/profile.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/profile.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/profile.cpp.i
 .PHONY : source/profile.cpp.i
 
 source/profile.s: source/profile.cpp.s
@@ -727,7 +727,7 @@ source/profile.s: source/profile.cpp.s
 
 # target to generate assembly for a file
 source/profile.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/profile.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/profile.cpp.s
 .PHONY : source/profile.cpp.s
 
 source/progress.o: source/progress.cpp.o
@@ -735,7 +735,7 @@ source/progress.o: source/progress.cpp.o
 
 # target to build an object file
 source/progress.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/progress.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/progress.cpp.o
 .PHONY : source/progress.cpp.o
 
 source/progress.i: source/progress.cpp.i
@@ -743,7 +743,7 @@ source/progress.i: source/progress.cpp.i
 
 # target to preprocess a source file
 source/progress.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/progress.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/progress.cpp.i
 .PHONY : source/progress.cpp.i
 
 source/progress.s: source/progress.cpp.s
@@ -751,7 +751,7 @@ source/progress.s: source/progress.cpp.s
 
 # target to generate assembly for a file
 source/progress.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/progress.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/progress.cpp.s
 .PHONY : source/progress.cpp.s
 
 source/propertyset.o: source/propertyset.cpp.o
@@ -759,7 +759,7 @@ source/propertyset.o: source/propertyset.cpp.o
 
 # target to build an object file
 source/propertyset.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/propertyset.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/propertyset.cpp.o
 .PHONY : source/propertyset.cpp.o
 
 source/propertyset.i: source/propertyset.cpp.i
@@ -767,7 +767,7 @@ source/propertyset.i: source/propertyset.cpp.i
 
 # target to preprocess a source file
 source/propertyset.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/propertyset.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/propertyset.cpp.i
 .PHONY : source/propertyset.cpp.i
 
 source/propertyset.s: source/propertyset.cpp.s
@@ -775,7 +775,7 @@ source/propertyset.s: source/propertyset.cpp.s
 
 # target to generate assembly for a file
 source/propertyset.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/propertyset.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/propertyset.cpp.s
 .PHONY : source/propertyset.cpp.s
 
 source/randomization.o: source/randomization.cpp.o
@@ -783,7 +783,7 @@ source/randomization.o: source/randomization.cpp.o
 
 # target to build an object file
 source/randomization.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/randomization.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/randomization.cpp.o
 .PHONY : source/randomization.cpp.o
 
 source/randomization.i: source/randomization.cpp.i
@@ -791,7 +791,7 @@ source/randomization.i: source/randomization.cpp.i
 
 # target to preprocess a source file
 source/randomization.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/randomization.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/randomization.cpp.i
 .PHONY : source/randomization.cpp.i
 
 source/randomization.s: source/randomization.cpp.s
@@ -799,7 +799,7 @@ source/randomization.s: source/randomization.cpp.s
 
 # target to generate assembly for a file
 source/randomization.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/randomization.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/randomization.cpp.s
 .PHONY : source/randomization.cpp.s
 
 source/savestate.o: source/savestate.cpp.o
@@ -807,7 +807,7 @@ source/savestate.o: source/savestate.cpp.o
 
 # target to build an object file
 source/savestate.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/savestate.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/savestate.cpp.o
 .PHONY : source/savestate.cpp.o
 
 source/savestate.i: source/savestate.cpp.i
@@ -815,7 +815,7 @@ source/savestate.i: source/savestate.cpp.i
 
 # target to preprocess a source file
 source/savestate.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/savestate.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/savestate.cpp.i
 .PHONY : source/savestate.cpp.i
 
 source/savestate.s: source/savestate.cpp.s
@@ -823,7 +823,7 @@ source/savestate.s: source/savestate.cpp.s
 
 # target to generate assembly for a file
 source/savestate.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/savestate.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/savestate.cpp.s
 .PHONY : source/savestate.cpp.s
 
 source/scheduler.o: source/scheduler.cpp.o
@@ -831,7 +831,7 @@ source/scheduler.o: source/scheduler.cpp.o
 
 # target to build an object file
 source/scheduler.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/scheduler.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/scheduler.cpp.o
 .PHONY : source/scheduler.cpp.o
 
 source/scheduler.i: source/scheduler.cpp.i
@@ -839,7 +839,7 @@ source/scheduler.i: source/scheduler.cpp.i
 
 # target to preprocess a source file
 source/scheduler.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/scheduler.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/scheduler.cpp.i
 .PHONY : source/scheduler.cpp.i
 
 source/scheduler.s: source/scheduler.cpp.s
@@ -847,7 +847,7 @@ source/scheduler.s: source/scheduler.cpp.s
 
 # target to generate assembly for a file
 source/scheduler.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/scheduler.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/scheduler.cpp.s
 .PHONY : source/scheduler.cpp.s
 
 source/serialization.o: source/serialization.cpp.o
@@ -855,7 +855,7 @@ source/serialization.o: source/serialization.cpp.o
 
 # target to build an object file
 source/serialization.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/serialization.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/serialization.cpp.o
 .PHONY : source/serialization.cpp.o
 
 source/serialization.i: source/serialization.cpp.i
@@ -863,7 +863,7 @@ source/serialization.i: source/serialization.cpp.i
 
 # target to preprocess a source file
 source/serialization.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/serialization.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/serialization.cpp.i
 .PHONY : source/serialization.cpp.i
 
 source/serialization.s: source/serialization.cpp.s
@@ -871,7 +871,7 @@ source/serialization.s: source/serialization.cpp.s
 
 # target to generate assembly for a file
 source/serialization.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/serialization.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/serialization.cpp.s
 .PHONY : source/serialization.cpp.s
 
 source/sioutils.o: source/sioutils.cpp.o
@@ -879,7 +879,7 @@ source/sioutils.o: source/sioutils.cpp.o
 
 # target to build an object file
 source/sioutils.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/sioutils.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/sioutils.cpp.o
 .PHONY : source/sioutils.cpp.o
 
 source/sioutils.i: source/sioutils.cpp.i
@@ -887,7 +887,7 @@ source/sioutils.i: source/sioutils.cpp.i
 
 # target to preprocess a source file
 source/sioutils.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/sioutils.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/sioutils.cpp.i
 .PHONY : source/sioutils.cpp.i
 
 source/sioutils.s: source/sioutils.cpp.s
@@ -895,7 +895,7 @@ source/sioutils.s: source/sioutils.cpp.s
 
 # target to generate assembly for a file
 source/sioutils.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/sioutils.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/sioutils.cpp.s
 .PHONY : source/sioutils.cpp.s
 
 source/snapshotimpl.o: source/snapshotimpl.cpp.o
@@ -903,7 +903,7 @@ source/snapshotimpl.o: source/snapshotimpl.cpp.o
 
 # target to build an object file
 source/snapshotimpl.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/snapshotimpl.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/snapshotimpl.cpp.o
 .PHONY : source/snapshotimpl.cpp.o
 
 source/snapshotimpl.i: source/snapshotimpl.cpp.i
@@ -911,7 +911,7 @@ source/snapshotimpl.i: source/snapshotimpl.cpp.i
 
 # target to preprocess a source file
 source/snapshotimpl.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/snapshotimpl.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/snapshotimpl.cpp.i
 .PHONY : source/snapshotimpl.cpp.i
 
 source/snapshotimpl.s: source/snapshotimpl.cpp.s
@@ -919,7 +919,7 @@ source/snapshotimpl.s: source/snapshotimpl.cpp.s
 
 # target to generate assembly for a file
 source/snapshotimpl.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/snapshotimpl.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/snapshotimpl.cpp.s
 .PHONY : source/snapshotimpl.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -927,7 +927,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -935,7 +935,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -943,7 +943,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/vfs.o: source/vfs.cpp.o
@@ -951,7 +951,7 @@ source/vfs.o: source/vfs.cpp.o
 
 # target to build an object file
 source/vfs.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/vfs.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/vfs.cpp.o
 .PHONY : source/vfs.cpp.o
 
 source/vfs.i: source/vfs.cpp.i
@@ -959,7 +959,7 @@ source/vfs.i: source/vfs.cpp.i
 
 # target to preprocess a source file
 source/vfs.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/vfs.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/vfs.cpp.i
 .PHONY : source/vfs.cpp.i
 
 source/vfs.s: source/vfs.cpp.s
@@ -967,7 +967,7 @@ source/vfs.s: source/vfs.cpp.s
 
 # target to generate assembly for a file
 source/vfs.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/vfs.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATCore/CMakeFiles/ATCore.dir/build.make src/ATCore/CMakeFiles/ATCore.dir/source/vfs.cpp.s
 .PHONY : source/vfs.cpp.s
 
 # Help Target
@@ -1095,6 +1095,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

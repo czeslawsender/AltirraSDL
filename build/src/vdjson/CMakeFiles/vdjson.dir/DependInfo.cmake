@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonnametable.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o.d"
-  "/home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonoutput.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o.d"
-  "/home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonreader.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o.d"
-  "/home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonvalue.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o.d"
-  "/home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonwriter.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o.d"
-  "/home/ilm/Documents/GitHub/Altirra/src/vdjson/source/stdafx.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonnametable.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonoutput.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonreader.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonvalue.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonwriter.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o.d"
+  "/home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/stdafx.cpp" "src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o" "gcc" "src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

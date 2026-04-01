@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 # Include any dependencies generated for this target.
 include src/ATCPU/CMakeFiles/ATCPU.dir/depend.make
@@ -73,186 +73,186 @@ src/ATCPU/CMakeFiles/ATCPU.dir/codegen:
 .PHONY : src/ATCPU/CMakeFiles/ATCPU.dir/codegen
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6502.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6502.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o -MF CMakeFiles/ATCPU.dir/source/co6502.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co6502.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6502.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.o -MF CMakeFiles/ATCPU.dir/source/co6502.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co6502.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6502.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/co6502.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6502.cpp > CMakeFiles/ATCPU.dir/source/co6502.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6502.cpp > CMakeFiles/ATCPU.dir/source/co6502.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/co6502.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6502.cpp -o CMakeFiles/ATCPU.dir/source/co6502.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6502.cpp -o CMakeFiles/ATCPU.dir/source/co6502.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6502machine.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6502machine.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o -MF CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6502machine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o -MF CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co6502machine.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6502machine.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/co6502machine.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6502machine.cpp > CMakeFiles/ATCPU.dir/source/co6502machine.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6502machine.cpp > CMakeFiles/ATCPU.dir/source/co6502machine.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6502machine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/co6502machine.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6502machine.cpp -o CMakeFiles/ATCPU.dir/source/co6502machine.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6502machine.cpp -o CMakeFiles/ATCPU.dir/source/co6502machine.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co65802.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co65802.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o -MF CMakeFiles/ATCPU.dir/source/co65802.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co65802.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co65802.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.o -MF CMakeFiles/ATCPU.dir/source/co65802.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co65802.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co65802.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/co65802.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co65802.cpp > CMakeFiles/ATCPU.dir/source/co65802.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co65802.cpp > CMakeFiles/ATCPU.dir/source/co65802.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co65802.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/co65802.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co65802.cpp -o CMakeFiles/ATCPU.dir/source/co65802.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co65802.cpp -o CMakeFiles/ATCPU.dir/source/co65802.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6809.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6809.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o -MF CMakeFiles/ATCPU.dir/source/co6809.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co6809.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6809.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.o -MF CMakeFiles/ATCPU.dir/source/co6809.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co6809.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6809.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/co6809.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6809.cpp > CMakeFiles/ATCPU.dir/source/co6809.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6809.cpp > CMakeFiles/ATCPU.dir/source/co6809.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co6809.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/co6809.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co6809.cpp -o CMakeFiles/ATCPU.dir/source/co6809.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co6809.cpp -o CMakeFiles/ATCPU.dir/source/co6809.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co8048.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co8048.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o -MF CMakeFiles/ATCPU.dir/source/co8048.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co8048.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co8048.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.o -MF CMakeFiles/ATCPU.dir/source/co8048.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co8048.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co8048.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/co8048.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co8048.cpp > CMakeFiles/ATCPU.dir/source/co8048.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co8048.cpp > CMakeFiles/ATCPU.dir/source/co8048.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co8048.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/co8048.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co8048.cpp -o CMakeFiles/ATCPU.dir/source/co8048.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co8048.cpp -o CMakeFiles/ATCPU.dir/source/co8048.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co8051.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co8051.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o -MF CMakeFiles/ATCPU.dir/source/co8051.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co8051.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co8051.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.o -MF CMakeFiles/ATCPU.dir/source/co8051.cpp.o.d -o CMakeFiles/ATCPU.dir/source/co8051.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co8051.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/co8051.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co8051.cpp > CMakeFiles/ATCPU.dir/source/co8051.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co8051.cpp > CMakeFiles/ATCPU.dir/source/co8051.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/co8051.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/co8051.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/co8051.cpp -o CMakeFiles/ATCPU.dir/source/co8051.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/co8051.cpp -o CMakeFiles/ATCPU.dir/source/co8051.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/coz80.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/coz80.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o -MF CMakeFiles/ATCPU.dir/source/coz80.cpp.o.d -o CMakeFiles/ATCPU.dir/source/coz80.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/coz80.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.o -MF CMakeFiles/ATCPU.dir/source/coz80.cpp.o.d -o CMakeFiles/ATCPU.dir/source/coz80.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/coz80.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/coz80.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/coz80.cpp > CMakeFiles/ATCPU.dir/source/coz80.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/coz80.cpp > CMakeFiles/ATCPU.dir/source/coz80.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/coz80.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/coz80.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/coz80.cpp -o CMakeFiles/ATCPU.dir/source/coz80.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/coz80.cpp -o CMakeFiles/ATCPU.dir/source/coz80.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode6502.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode6502.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o -MF CMakeFiles/ATCPU.dir/source/decode6502.cpp.o.d -o CMakeFiles/ATCPU.dir/source/decode6502.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode6502.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.o -MF CMakeFiles/ATCPU.dir/source/decode6502.cpp.o.d -o CMakeFiles/ATCPU.dir/source/decode6502.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode6502.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/decode6502.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode6502.cpp > CMakeFiles/ATCPU.dir/source/decode6502.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode6502.cpp > CMakeFiles/ATCPU.dir/source/decode6502.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6502.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/decode6502.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode6502.cpp -o CMakeFiles/ATCPU.dir/source/decode6502.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode6502.cpp -o CMakeFiles/ATCPU.dir/source/decode6502.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode65816.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode65816.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o -MF CMakeFiles/ATCPU.dir/source/decode65816.cpp.o.d -o CMakeFiles/ATCPU.dir/source/decode65816.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode65816.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.o -MF CMakeFiles/ATCPU.dir/source/decode65816.cpp.o.d -o CMakeFiles/ATCPU.dir/source/decode65816.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode65816.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/decode65816.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode65816.cpp > CMakeFiles/ATCPU.dir/source/decode65816.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode65816.cpp > CMakeFiles/ATCPU.dir/source/decode65816.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode65816.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/decode65816.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode65816.cpp -o CMakeFiles/ATCPU.dir/source/decode65816.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode65816.cpp -o CMakeFiles/ATCPU.dir/source/decode65816.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode6809.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode6809.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o -MF CMakeFiles/ATCPU.dir/source/decode6809.cpp.o.d -o CMakeFiles/ATCPU.dir/source/decode6809.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode6809.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.o -MF CMakeFiles/ATCPU.dir/source/decode6809.cpp.o.d -o CMakeFiles/ATCPU.dir/source/decode6809.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode6809.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/decode6809.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode6809.cpp > CMakeFiles/ATCPU.dir/source/decode6809.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode6809.cpp > CMakeFiles/ATCPU.dir/source/decode6809.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decode6809.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/decode6809.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decode6809.cpp -o CMakeFiles/ATCPU.dir/source/decode6809.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decode6809.cpp -o CMakeFiles/ATCPU.dir/source/decode6809.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decodez80.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decodez80.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o -MF CMakeFiles/ATCPU.dir/source/decodez80.cpp.o.d -o CMakeFiles/ATCPU.dir/source/decodez80.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decodez80.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.o -MF CMakeFiles/ATCPU.dir/source/decodez80.cpp.o.d -o CMakeFiles/ATCPU.dir/source/decodez80.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decodez80.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/decodez80.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decodez80.cpp > CMakeFiles/ATCPU.dir/source/decodez80.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decodez80.cpp > CMakeFiles/ATCPU.dir/source/decodez80.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/decodez80.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/decodez80.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/decodez80.cpp -o CMakeFiles/ATCPU.dir/source/decodez80.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/decodez80.cpp -o CMakeFiles/ATCPU.dir/source/decodez80.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/memorymap.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/memorymap.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o -MF CMakeFiles/ATCPU.dir/source/memorymap.cpp.o.d -o CMakeFiles/ATCPU.dir/source/memorymap.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/memorymap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o -MF CMakeFiles/ATCPU.dir/source/memorymap.cpp.o.d -o CMakeFiles/ATCPU.dir/source/memorymap.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/memorymap.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/memorymap.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/memorymap.cpp > CMakeFiles/ATCPU.dir/source/memorymap.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/memorymap.cpp > CMakeFiles/ATCPU.dir/source/memorymap.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/memorymap.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/memorymap.cpp -o CMakeFiles/ATCPU.dir/source/memorymap.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/memorymap.cpp -o CMakeFiles/ATCPU.dir/source/memorymap.cpp.s
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/flags.make
-src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/stdafx.cpp
+src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/stdafx.cpp
 src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o: src/ATCPU/CMakeFiles/ATCPU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o -MF CMakeFiles/ATCPU.dir/source/stdafx.cpp.o.d -o CMakeFiles/ATCPU.dir/source/stdafx.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/stdafx.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o -MF CMakeFiles/ATCPU.dir/source/stdafx.cpp.o.d -o CMakeFiles/ATCPU.dir/source/stdafx.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/stdafx.cpp
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ATCPU.dir/source/stdafx.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/stdafx.cpp > CMakeFiles/ATCPU.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/stdafx.cpp > CMakeFiles/ATCPU.dir/source/stdafx.cpp.i
 
 src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ATCPU.dir/source/stdafx.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/ATCPU/source/stdafx.cpp -o CMakeFiles/ATCPU.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU/source/stdafx.cpp -o CMakeFiles/ATCPU.dir/source/stdafx.cpp.s
 
 # Object files for target ATCPU
 ATCPU_OBJECTS = \
@@ -288,19 +288,19 @@ src/ATCPU/libATCPU.a: src/ATCPU/CMakeFiles/ATCPU.dir/source/memorymap.cpp.o
 src/ATCPU/libATCPU.a: src/ATCPU/CMakeFiles/ATCPU.dir/source/stdafx.cpp.o
 src/ATCPU/libATCPU.a: src/ATCPU/CMakeFiles/ATCPU.dir/build.make
 src/ATCPU/libATCPU.a: src/ATCPU/CMakeFiles/ATCPU.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX static library libATCPU.a"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && $(CMAKE_COMMAND) -P CMakeFiles/ATCPU.dir/cmake_clean_target.cmake
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATCPU.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX static library libATCPU.a"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && $(CMAKE_COMMAND) -P CMakeFiles/ATCPU.dir/cmake_clean_target.cmake
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATCPU.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/ATCPU/CMakeFiles/ATCPU.dir/build: src/ATCPU/libATCPU.a
 .PHONY : src/ATCPU/CMakeFiles/ATCPU.dir/build
 
 src/ATCPU/CMakeFiles/ATCPU.dir/clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU && $(CMAKE_COMMAND) -P CMakeFiles/ATCPU.dir/cmake_clean.cmake
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU && $(CMAKE_COMMAND) -P CMakeFiles/ATCPU.dir/cmake_clean.cmake
 .PHONY : src/ATCPU/CMakeFiles/ATCPU.dir/clean
 
 src/ATCPU/CMakeFiles/ATCPU.dir/depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilm/Documents/GitHub/Altirra /home/ilm/Documents/GitHub/Altirra/src/ATCPU /home/ilm/Documents/GitHub/Altirra/build /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU /home/ilm/Documents/GitHub/Altirra/build/src/ATCPU/CMakeFiles/ATCPU.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilm/Documents/GitHub/AltirraSDL /home/ilm/Documents/GitHub/AltirraSDL/src/ATCPU /home/ilm/Documents/GitHub/AltirraSDL/build /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATCPU/CMakeFiles/ATCPU.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : src/ATCPU/CMakeFiles/ATCPU.dir/depend
 

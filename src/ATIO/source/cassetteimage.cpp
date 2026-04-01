@@ -84,7 +84,9 @@ void ATTapeSlidingWindowCursor::Update(IATCassetteImage& image, uint32 pos) {
 		return preroll + image.GetBitSum(pos - offset, window - preroll, bypassFSK);
 	};
 
+#ifdef _DEBUG
 	VDASSERT(pos >= mCurrentPos);
+#endif
 
 	while (pos >= mNextTransition) {
 		// check if we need to initialize state after a seek

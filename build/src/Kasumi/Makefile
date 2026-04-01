@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/Kasumi//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/Kasumi//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/Kasumi/CMakeFiles/Kasumi.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/CMakeFiles/Kasumi.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/Kasumi/CMakeFiles/Kasumi.dir/rule
 .PHONY : src/Kasumi/CMakeFiles/Kasumi.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ Kasumi: src/Kasumi/CMakeFiles/Kasumi.dir/rule
 
 # fast build rule for target.
 Kasumi/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/build
 .PHONY : Kasumi/fast
 
 source/alphablt.o: source/alphablt.cpp.o
@@ -135,7 +135,7 @@ source/alphablt.o: source/alphablt.cpp.o
 
 # target to build an object file
 source/alphablt.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/alphablt.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/alphablt.cpp.o
 .PHONY : source/alphablt.cpp.o
 
 source/alphablt.i: source/alphablt.cpp.i
@@ -143,7 +143,7 @@ source/alphablt.i: source/alphablt.cpp.i
 
 # target to preprocess a source file
 source/alphablt.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/alphablt.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/alphablt.cpp.i
 .PHONY : source/alphablt.cpp.i
 
 source/alphablt.s: source/alphablt.cpp.s
@@ -151,7 +151,7 @@ source/alphablt.s: source/alphablt.cpp.s
 
 # target to generate assembly for a file
 source/alphablt.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/alphablt.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/alphablt.cpp.s
 .PHONY : source/alphablt.cpp.s
 
 source/blitter.o: source/blitter.cpp.o
@@ -159,7 +159,7 @@ source/blitter.o: source/blitter.cpp.o
 
 # target to build an object file
 source/blitter.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blitter.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blitter.cpp.o
 .PHONY : source/blitter.cpp.o
 
 source/blitter.i: source/blitter.cpp.i
@@ -167,7 +167,7 @@ source/blitter.i: source/blitter.cpp.i
 
 # target to preprocess a source file
 source/blitter.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blitter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blitter.cpp.i
 .PHONY : source/blitter.cpp.i
 
 source/blitter.s: source/blitter.cpp.s
@@ -175,7 +175,7 @@ source/blitter.s: source/blitter.cpp.s
 
 # target to generate assembly for a file
 source/blitter.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blitter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blitter.cpp.s
 .PHONY : source/blitter.cpp.s
 
 source/blt.o: source/blt.cpp.o
@@ -183,7 +183,7 @@ source/blt.o: source/blt.cpp.o
 
 # target to build an object file
 source/blt.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt.cpp.o
 .PHONY : source/blt.cpp.o
 
 source/blt.i: source/blt.cpp.i
@@ -191,7 +191,7 @@ source/blt.i: source/blt.cpp.i
 
 # target to preprocess a source file
 source/blt.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt.cpp.i
 .PHONY : source/blt.cpp.i
 
 source/blt.s: source/blt.cpp.s
@@ -199,7 +199,7 @@ source/blt.s: source/blt.cpp.s
 
 # target to generate assembly for a file
 source/blt.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt.cpp.s
 .PHONY : source/blt.cpp.s
 
 source/blt_reference.o: source/blt_reference.cpp.o
@@ -207,7 +207,7 @@ source/blt_reference.o: source/blt_reference.cpp.o
 
 # target to build an object file
 source/blt_reference.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference.cpp.o
 .PHONY : source/blt_reference.cpp.o
 
 source/blt_reference.i: source/blt_reference.cpp.i
@@ -215,7 +215,7 @@ source/blt_reference.i: source/blt_reference.cpp.i
 
 # target to preprocess a source file
 source/blt_reference.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference.cpp.i
 .PHONY : source/blt_reference.cpp.i
 
 source/blt_reference.s: source/blt_reference.cpp.s
@@ -223,7 +223,7 @@ source/blt_reference.s: source/blt_reference.cpp.s
 
 # target to generate assembly for a file
 source/blt_reference.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference.cpp.s
 .PHONY : source/blt_reference.cpp.s
 
 source/blt_reference_pal.o: source/blt_reference_pal.cpp.o
@@ -231,7 +231,7 @@ source/blt_reference_pal.o: source/blt_reference_pal.cpp.o
 
 # target to build an object file
 source/blt_reference_pal.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_pal.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_pal.cpp.o
 .PHONY : source/blt_reference_pal.cpp.o
 
 source/blt_reference_pal.i: source/blt_reference_pal.cpp.i
@@ -239,7 +239,7 @@ source/blt_reference_pal.i: source/blt_reference_pal.cpp.i
 
 # target to preprocess a source file
 source/blt_reference_pal.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_pal.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_pal.cpp.i
 .PHONY : source/blt_reference_pal.cpp.i
 
 source/blt_reference_pal.s: source/blt_reference_pal.cpp.s
@@ -247,7 +247,7 @@ source/blt_reference_pal.s: source/blt_reference_pal.cpp.s
 
 # target to generate assembly for a file
 source/blt_reference_pal.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_pal.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_pal.cpp.s
 .PHONY : source/blt_reference_pal.cpp.s
 
 source/blt_reference_rgb.o: source/blt_reference_rgb.cpp.o
@@ -255,7 +255,7 @@ source/blt_reference_rgb.o: source/blt_reference_rgb.cpp.o
 
 # target to build an object file
 source/blt_reference_rgb.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_rgb.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_rgb.cpp.o
 .PHONY : source/blt_reference_rgb.cpp.o
 
 source/blt_reference_rgb.i: source/blt_reference_rgb.cpp.i
@@ -263,7 +263,7 @@ source/blt_reference_rgb.i: source/blt_reference_rgb.cpp.i
 
 # target to preprocess a source file
 source/blt_reference_rgb.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_rgb.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_rgb.cpp.i
 .PHONY : source/blt_reference_rgb.cpp.i
 
 source/blt_reference_rgb.s: source/blt_reference_rgb.cpp.s
@@ -271,7 +271,7 @@ source/blt_reference_rgb.s: source/blt_reference_rgb.cpp.s
 
 # target to generate assembly for a file
 source/blt_reference_rgb.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_rgb.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_rgb.cpp.s
 .PHONY : source/blt_reference_rgb.cpp.s
 
 source/blt_reference_yuv.o: source/blt_reference_yuv.cpp.o
@@ -279,7 +279,7 @@ source/blt_reference_yuv.o: source/blt_reference_yuv.cpp.o
 
 # target to build an object file
 source/blt_reference_yuv.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv.cpp.o
 .PHONY : source/blt_reference_yuv.cpp.o
 
 source/blt_reference_yuv.i: source/blt_reference_yuv.cpp.i
@@ -287,7 +287,7 @@ source/blt_reference_yuv.i: source/blt_reference_yuv.cpp.i
 
 # target to preprocess a source file
 source/blt_reference_yuv.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv.cpp.i
 .PHONY : source/blt_reference_yuv.cpp.i
 
 source/blt_reference_yuv.s: source/blt_reference_yuv.cpp.s
@@ -295,7 +295,7 @@ source/blt_reference_yuv.s: source/blt_reference_yuv.cpp.s
 
 # target to generate assembly for a file
 source/blt_reference_yuv.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv.cpp.s
 .PHONY : source/blt_reference_yuv.cpp.s
 
 source/blt_reference_yuv2yuv.o: source/blt_reference_yuv2yuv.cpp.o
@@ -303,7 +303,7 @@ source/blt_reference_yuv2yuv.o: source/blt_reference_yuv2yuv.cpp.o
 
 # target to build an object file
 source/blt_reference_yuv2yuv.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv2yuv.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv2yuv.cpp.o
 .PHONY : source/blt_reference_yuv2yuv.cpp.o
 
 source/blt_reference_yuv2yuv.i: source/blt_reference_yuv2yuv.cpp.i
@@ -311,7 +311,7 @@ source/blt_reference_yuv2yuv.i: source/blt_reference_yuv2yuv.cpp.i
 
 # target to preprocess a source file
 source/blt_reference_yuv2yuv.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv2yuv.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv2yuv.cpp.i
 .PHONY : source/blt_reference_yuv2yuv.cpp.i
 
 source/blt_reference_yuv2yuv.s: source/blt_reference_yuv2yuv.cpp.s
@@ -319,7 +319,7 @@ source/blt_reference_yuv2yuv.s: source/blt_reference_yuv2yuv.cpp.s
 
 # target to generate assembly for a file
 source/blt_reference_yuv2yuv.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv2yuv.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuv2yuv.cpp.s
 .PHONY : source/blt_reference_yuv2yuv.cpp.s
 
 source/blt_reference_yuvrev.o: source/blt_reference_yuvrev.cpp.o
@@ -327,7 +327,7 @@ source/blt_reference_yuvrev.o: source/blt_reference_yuvrev.cpp.o
 
 # target to build an object file
 source/blt_reference_yuvrev.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuvrev.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuvrev.cpp.o
 .PHONY : source/blt_reference_yuvrev.cpp.o
 
 source/blt_reference_yuvrev.i: source/blt_reference_yuvrev.cpp.i
@@ -335,7 +335,7 @@ source/blt_reference_yuvrev.i: source/blt_reference_yuvrev.cpp.i
 
 # target to preprocess a source file
 source/blt_reference_yuvrev.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuvrev.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuvrev.cpp.i
 .PHONY : source/blt_reference_yuvrev.cpp.i
 
 source/blt_reference_yuvrev.s: source/blt_reference_yuvrev.cpp.s
@@ -343,7 +343,7 @@ source/blt_reference_yuvrev.s: source/blt_reference_yuvrev.cpp.s
 
 # target to generate assembly for a file
 source/blt_reference_yuvrev.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuvrev.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_reference_yuvrev.cpp.s
 .PHONY : source/blt_reference_yuvrev.cpp.s
 
 source/blt_setup.o: source/blt_setup.cpp.o
@@ -351,7 +351,7 @@ source/blt_setup.o: source/blt_setup.cpp.o
 
 # target to build an object file
 source/blt_setup.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_setup.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_setup.cpp.o
 .PHONY : source/blt_setup.cpp.o
 
 source/blt_setup.i: source/blt_setup.cpp.i
@@ -359,7 +359,7 @@ source/blt_setup.i: source/blt_setup.cpp.i
 
 # target to preprocess a source file
 source/blt_setup.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_setup.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_setup.cpp.i
 .PHONY : source/blt_setup.cpp.i
 
 source/blt_setup.s: source/blt_setup.cpp.s
@@ -367,7 +367,7 @@ source/blt_setup.s: source/blt_setup.cpp.s
 
 # target to generate assembly for a file
 source/blt_setup.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_setup.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_setup.cpp.s
 .PHONY : source/blt_setup.cpp.s
 
 source/blt_spanutils.o: source/blt_spanutils.cpp.o
@@ -375,7 +375,7 @@ source/blt_spanutils.o: source/blt_spanutils.cpp.o
 
 # target to build an object file
 source/blt_spanutils.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_spanutils.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_spanutils.cpp.o
 .PHONY : source/blt_spanutils.cpp.o
 
 source/blt_spanutils.i: source/blt_spanutils.cpp.i
@@ -383,7 +383,7 @@ source/blt_spanutils.i: source/blt_spanutils.cpp.i
 
 # target to preprocess a source file
 source/blt_spanutils.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_spanutils.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_spanutils.cpp.i
 .PHONY : source/blt_spanutils.cpp.i
 
 source/blt_spanutils.s: source/blt_spanutils.cpp.s
@@ -391,7 +391,7 @@ source/blt_spanutils.s: source/blt_spanutils.cpp.s
 
 # target to generate assembly for a file
 source/blt_spanutils.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_spanutils.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_spanutils.cpp.s
 .PHONY : source/blt_spanutils.cpp.s
 
 source/blt_uberblit.o: source/blt_uberblit.cpp.o
@@ -399,7 +399,7 @@ source/blt_uberblit.o: source/blt_uberblit.cpp.o
 
 # target to build an object file
 source/blt_uberblit.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_uberblit.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_uberblit.cpp.o
 .PHONY : source/blt_uberblit.cpp.o
 
 source/blt_uberblit.i: source/blt_uberblit.cpp.i
@@ -407,7 +407,7 @@ source/blt_uberblit.i: source/blt_uberblit.cpp.i
 
 # target to preprocess a source file
 source/blt_uberblit.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_uberblit.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_uberblit.cpp.i
 .PHONY : source/blt_uberblit.cpp.i
 
 source/blt_uberblit.s: source/blt_uberblit.cpp.s
@@ -415,7 +415,7 @@ source/blt_uberblit.s: source/blt_uberblit.cpp.s
 
 # target to generate assembly for a file
 source/blt_uberblit.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_uberblit.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/blt_uberblit.cpp.s
 .PHONY : source/blt_uberblit.cpp.s
 
 source/pixel.o: source/pixel.cpp.o
@@ -423,7 +423,7 @@ source/pixel.o: source/pixel.cpp.o
 
 # target to build an object file
 source/pixel.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixel.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixel.cpp.o
 .PHONY : source/pixel.cpp.o
 
 source/pixel.i: source/pixel.cpp.i
@@ -431,7 +431,7 @@ source/pixel.i: source/pixel.cpp.i
 
 # target to preprocess a source file
 source/pixel.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixel.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixel.cpp.i
 .PHONY : source/pixel.cpp.i
 
 source/pixel.s: source/pixel.cpp.s
@@ -439,7 +439,7 @@ source/pixel.s: source/pixel.cpp.s
 
 # target to generate assembly for a file
 source/pixel.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixel.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixel.cpp.s
 .PHONY : source/pixel.cpp.s
 
 source/pixmaputils.o: source/pixmaputils.cpp.o
@@ -447,7 +447,7 @@ source/pixmaputils.o: source/pixmaputils.cpp.o
 
 # target to build an object file
 source/pixmaputils.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixmaputils.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixmaputils.cpp.o
 .PHONY : source/pixmaputils.cpp.o
 
 source/pixmaputils.i: source/pixmaputils.cpp.i
@@ -455,7 +455,7 @@ source/pixmaputils.i: source/pixmaputils.cpp.i
 
 # target to preprocess a source file
 source/pixmaputils.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixmaputils.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixmaputils.cpp.i
 .PHONY : source/pixmaputils.cpp.i
 
 source/pixmaputils.s: source/pixmaputils.cpp.s
@@ -463,7 +463,7 @@ source/pixmaputils.s: source/pixmaputils.cpp.s
 
 # target to generate assembly for a file
 source/pixmaputils.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixmaputils.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/pixmaputils.cpp.s
 .PHONY : source/pixmaputils.cpp.s
 
 source/region.o: source/region.cpp.o
@@ -471,7 +471,7 @@ source/region.o: source/region.cpp.o
 
 # target to build an object file
 source/region.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region.cpp.o
 .PHONY : source/region.cpp.o
 
 source/region.i: source/region.cpp.i
@@ -479,7 +479,7 @@ source/region.i: source/region.cpp.i
 
 # target to preprocess a source file
 source/region.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region.cpp.i
 .PHONY : source/region.cpp.i
 
 source/region.s: source/region.cpp.s
@@ -487,7 +487,7 @@ source/region.s: source/region.cpp.s
 
 # target to generate assembly for a file
 source/region.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region.cpp.s
 .PHONY : source/region.cpp.s
 
 source/region_sse2.o: source/region_sse2.cpp.o
@@ -495,7 +495,7 @@ source/region_sse2.o: source/region_sse2.cpp.o
 
 # target to build an object file
 source/region_sse2.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region_sse2.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region_sse2.cpp.o
 .PHONY : source/region_sse2.cpp.o
 
 source/region_sse2.i: source/region_sse2.cpp.i
@@ -503,7 +503,7 @@ source/region_sse2.i: source/region_sse2.cpp.i
 
 # target to preprocess a source file
 source/region_sse2.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region_sse2.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region_sse2.cpp.i
 .PHONY : source/region_sse2.cpp.i
 
 source/region_sse2.s: source/region_sse2.cpp.s
@@ -511,7 +511,7 @@ source/region_sse2.s: source/region_sse2.cpp.s
 
 # target to generate assembly for a file
 source/region_sse2.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region_sse2.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/region_sse2.cpp.s
 .PHONY : source/region_sse2.cpp.s
 
 source/resample.o: source/resample.cpp.o
@@ -519,7 +519,7 @@ source/resample.o: source/resample.cpp.o
 
 # target to build an object file
 source/resample.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample.cpp.o
 .PHONY : source/resample.cpp.o
 
 source/resample.i: source/resample.cpp.i
@@ -527,7 +527,7 @@ source/resample.i: source/resample.cpp.i
 
 # target to preprocess a source file
 source/resample.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample.cpp.i
 .PHONY : source/resample.cpp.i
 
 source/resample.s: source/resample.cpp.s
@@ -535,7 +535,7 @@ source/resample.s: source/resample.cpp.s
 
 # target to generate assembly for a file
 source/resample.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample.cpp.s
 .PHONY : source/resample.cpp.s
 
 source/resample_kernels.o: source/resample_kernels.cpp.o
@@ -543,7 +543,7 @@ source/resample_kernels.o: source/resample_kernels.cpp.o
 
 # target to build an object file
 source/resample_kernels.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_kernels.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_kernels.cpp.o
 .PHONY : source/resample_kernels.cpp.o
 
 source/resample_kernels.i: source/resample_kernels.cpp.i
@@ -551,7 +551,7 @@ source/resample_kernels.i: source/resample_kernels.cpp.i
 
 # target to preprocess a source file
 source/resample_kernels.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_kernels.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_kernels.cpp.i
 .PHONY : source/resample_kernels.cpp.i
 
 source/resample_kernels.s: source/resample_kernels.cpp.s
@@ -559,7 +559,7 @@ source/resample_kernels.s: source/resample_kernels.cpp.s
 
 # target to generate assembly for a file
 source/resample_kernels.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_kernels.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_kernels.cpp.s
 .PHONY : source/resample_kernels.cpp.s
 
 source/resample_stages.o: source/resample_stages.cpp.o
@@ -567,7 +567,7 @@ source/resample_stages.o: source/resample_stages.cpp.o
 
 # target to build an object file
 source/resample_stages.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages.cpp.o
 .PHONY : source/resample_stages.cpp.o
 
 source/resample_stages.i: source/resample_stages.cpp.i
@@ -575,7 +575,7 @@ source/resample_stages.i: source/resample_stages.cpp.i
 
 # target to preprocess a source file
 source/resample_stages.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages.cpp.i
 .PHONY : source/resample_stages.cpp.i
 
 source/resample_stages.s: source/resample_stages.cpp.s
@@ -583,7 +583,7 @@ source/resample_stages.s: source/resample_stages.cpp.s
 
 # target to generate assembly for a file
 source/resample_stages.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages.cpp.s
 .PHONY : source/resample_stages.cpp.s
 
 source/resample_stages_reference.o: source/resample_stages_reference.cpp.o
@@ -591,7 +591,7 @@ source/resample_stages_reference.o: source/resample_stages_reference.cpp.o
 
 # target to build an object file
 source/resample_stages_reference.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_reference.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_reference.cpp.o
 .PHONY : source/resample_stages_reference.cpp.o
 
 source/resample_stages_reference.i: source/resample_stages_reference.cpp.i
@@ -599,7 +599,7 @@ source/resample_stages_reference.i: source/resample_stages_reference.cpp.i
 
 # target to preprocess a source file
 source/resample_stages_reference.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_reference.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_reference.cpp.i
 .PHONY : source/resample_stages_reference.cpp.i
 
 source/resample_stages_reference.s: source/resample_stages_reference.cpp.s
@@ -607,7 +607,7 @@ source/resample_stages_reference.s: source/resample_stages_reference.cpp.s
 
 # target to generate assembly for a file
 source/resample_stages_reference.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_reference.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_reference.cpp.s
 .PHONY : source/resample_stages_reference.cpp.s
 
 source/resample_stages_x64.o: source/resample_stages_x64.cpp.o
@@ -615,7 +615,7 @@ source/resample_stages_x64.o: source/resample_stages_x64.cpp.o
 
 # target to build an object file
 source/resample_stages_x64.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_x64.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_x64.cpp.o
 .PHONY : source/resample_stages_x64.cpp.o
 
 source/resample_stages_x64.i: source/resample_stages_x64.cpp.i
@@ -623,7 +623,7 @@ source/resample_stages_x64.i: source/resample_stages_x64.cpp.i
 
 # target to preprocess a source file
 source/resample_stages_x64.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_x64.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_x64.cpp.i
 .PHONY : source/resample_stages_x64.cpp.i
 
 source/resample_stages_x64.s: source/resample_stages_x64.cpp.s
@@ -631,7 +631,7 @@ source/resample_stages_x64.s: source/resample_stages_x64.cpp.s
 
 # target to generate assembly for a file
 source/resample_stages_x64.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_x64.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/resample_stages_x64.cpp.s
 .PHONY : source/resample_stages_x64.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -639,7 +639,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -647,7 +647,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -655,7 +655,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/stretchblt_reference.o: source/stretchblt_reference.cpp.o
@@ -663,7 +663,7 @@ source/stretchblt_reference.o: source/stretchblt_reference.cpp.o
 
 # target to build an object file
 source/stretchblt_reference.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stretchblt_reference.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stretchblt_reference.cpp.o
 .PHONY : source/stretchblt_reference.cpp.o
 
 source/stretchblt_reference.i: source/stretchblt_reference.cpp.i
@@ -671,7 +671,7 @@ source/stretchblt_reference.i: source/stretchblt_reference.cpp.i
 
 # target to preprocess a source file
 source/stretchblt_reference.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stretchblt_reference.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stretchblt_reference.cpp.i
 .PHONY : source/stretchblt_reference.cpp.i
 
 source/stretchblt_reference.s: source/stretchblt_reference.cpp.s
@@ -679,7 +679,7 @@ source/stretchblt_reference.s: source/stretchblt_reference.cpp.s
 
 # target to generate assembly for a file
 source/stretchblt_reference.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stretchblt_reference.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/stretchblt_reference.cpp.s
 .PHONY : source/stretchblt_reference.cpp.s
 
 source/uberblit.o: source/uberblit.cpp.o
@@ -687,7 +687,7 @@ source/uberblit.o: source/uberblit.cpp.o
 
 # target to build an object file
 source/uberblit.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit.cpp.o
 .PHONY : source/uberblit.cpp.o
 
 source/uberblit.i: source/uberblit.cpp.i
@@ -695,7 +695,7 @@ source/uberblit.i: source/uberblit.cpp.i
 
 # target to preprocess a source file
 source/uberblit.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit.cpp.i
 .PHONY : source/uberblit.cpp.i
 
 source/uberblit.s: source/uberblit.cpp.s
@@ -703,7 +703,7 @@ source/uberblit.s: source/uberblit.cpp.s
 
 # target to generate assembly for a file
 source/uberblit.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit.cpp.s
 .PHONY : source/uberblit.cpp.s
 
 source/uberblit_16f.o: source/uberblit_16f.cpp.o
@@ -711,7 +711,7 @@ source/uberblit_16f.o: source/uberblit_16f.cpp.o
 
 # target to build an object file
 source/uberblit_16f.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_16f.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_16f.cpp.o
 .PHONY : source/uberblit_16f.cpp.o
 
 source/uberblit_16f.i: source/uberblit_16f.cpp.i
@@ -719,7 +719,7 @@ source/uberblit_16f.i: source/uberblit_16f.cpp.i
 
 # target to preprocess a source file
 source/uberblit_16f.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_16f.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_16f.cpp.i
 .PHONY : source/uberblit_16f.cpp.i
 
 source/uberblit_16f.s: source/uberblit_16f.cpp.s
@@ -727,7 +727,7 @@ source/uberblit_16f.s: source/uberblit_16f.cpp.s
 
 # target to generate assembly for a file
 source/uberblit_16f.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_16f.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_16f.cpp.s
 .PHONY : source/uberblit_16f.cpp.s
 
 source/uberblit_gen.o: source/uberblit_gen.cpp.o
@@ -735,7 +735,7 @@ source/uberblit_gen.o: source/uberblit_gen.cpp.o
 
 # target to build an object file
 source/uberblit_gen.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_gen.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_gen.cpp.o
 .PHONY : source/uberblit_gen.cpp.o
 
 source/uberblit_gen.i: source/uberblit_gen.cpp.i
@@ -743,7 +743,7 @@ source/uberblit_gen.i: source/uberblit_gen.cpp.i
 
 # target to preprocess a source file
 source/uberblit_gen.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_gen.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_gen.cpp.i
 .PHONY : source/uberblit_gen.cpp.i
 
 source/uberblit_gen.s: source/uberblit_gen.cpp.s
@@ -751,7 +751,7 @@ source/uberblit_gen.s: source/uberblit_gen.cpp.s
 
 # target to generate assembly for a file
 source/uberblit_gen.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_gen.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_gen.cpp.s
 .PHONY : source/uberblit_gen.cpp.s
 
 source/uberblit_resample.o: source/uberblit_resample.cpp.o
@@ -759,7 +759,7 @@ source/uberblit_resample.o: source/uberblit_resample.cpp.o
 
 # target to build an object file
 source/uberblit_resample.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample.cpp.o
 .PHONY : source/uberblit_resample.cpp.o
 
 source/uberblit_resample.i: source/uberblit_resample.cpp.i
@@ -767,7 +767,7 @@ source/uberblit_resample.i: source/uberblit_resample.cpp.i
 
 # target to preprocess a source file
 source/uberblit_resample.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample.cpp.i
 .PHONY : source/uberblit_resample.cpp.i
 
 source/uberblit_resample.s: source/uberblit_resample.cpp.s
@@ -775,7 +775,7 @@ source/uberblit_resample.s: source/uberblit_resample.cpp.s
 
 # target to generate assembly for a file
 source/uberblit_resample.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample.cpp.s
 .PHONY : source/uberblit_resample.cpp.s
 
 source/uberblit_resample_special.o: source/uberblit_resample_special.cpp.o
@@ -783,7 +783,7 @@ source/uberblit_resample_special.o: source/uberblit_resample_special.cpp.o
 
 # target to build an object file
 source/uberblit_resample_special.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample_special.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample_special.cpp.o
 .PHONY : source/uberblit_resample_special.cpp.o
 
 source/uberblit_resample_special.i: source/uberblit_resample_special.cpp.i
@@ -791,7 +791,7 @@ source/uberblit_resample_special.i: source/uberblit_resample_special.cpp.i
 
 # target to preprocess a source file
 source/uberblit_resample_special.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample_special.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample_special.cpp.i
 .PHONY : source/uberblit_resample_special.cpp.i
 
 source/uberblit_resample_special.s: source/uberblit_resample_special.cpp.s
@@ -799,7 +799,7 @@ source/uberblit_resample_special.s: source/uberblit_resample_special.cpp.s
 
 # target to generate assembly for a file
 source/uberblit_resample_special.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample_special.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_resample_special.cpp.s
 .PHONY : source/uberblit_resample_special.cpp.s
 
 source/uberblit_swizzle.o: source/uberblit_swizzle.cpp.o
@@ -807,7 +807,7 @@ source/uberblit_swizzle.o: source/uberblit_swizzle.cpp.o
 
 # target to build an object file
 source/uberblit_swizzle.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_swizzle.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_swizzle.cpp.o
 .PHONY : source/uberblit_swizzle.cpp.o
 
 source/uberblit_swizzle.i: source/uberblit_swizzle.cpp.i
@@ -815,7 +815,7 @@ source/uberblit_swizzle.i: source/uberblit_swizzle.cpp.i
 
 # target to preprocess a source file
 source/uberblit_swizzle.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_swizzle.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_swizzle.cpp.i
 .PHONY : source/uberblit_swizzle.cpp.i
 
 source/uberblit_swizzle.s: source/uberblit_swizzle.cpp.s
@@ -823,7 +823,7 @@ source/uberblit_swizzle.s: source/uberblit_swizzle.cpp.s
 
 # target to generate assembly for a file
 source/uberblit_swizzle.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_swizzle.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_swizzle.cpp.s
 .PHONY : source/uberblit_swizzle.cpp.s
 
 source/uberblit_ycbcr_generic.o: source/uberblit_ycbcr_generic.cpp.o
@@ -831,7 +831,7 @@ source/uberblit_ycbcr_generic.o: source/uberblit_ycbcr_generic.cpp.o
 
 # target to build an object file
 source/uberblit_ycbcr_generic.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_generic.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_generic.cpp.o
 .PHONY : source/uberblit_ycbcr_generic.cpp.o
 
 source/uberblit_ycbcr_generic.i: source/uberblit_ycbcr_generic.cpp.i
@@ -839,7 +839,7 @@ source/uberblit_ycbcr_generic.i: source/uberblit_ycbcr_generic.cpp.i
 
 # target to preprocess a source file
 source/uberblit_ycbcr_generic.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_generic.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_generic.cpp.i
 .PHONY : source/uberblit_ycbcr_generic.cpp.i
 
 source/uberblit_ycbcr_generic.s: source/uberblit_ycbcr_generic.cpp.s
@@ -847,7 +847,7 @@ source/uberblit_ycbcr_generic.s: source/uberblit_ycbcr_generic.cpp.s
 
 # target to generate assembly for a file
 source/uberblit_ycbcr_generic.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_generic.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_generic.cpp.s
 .PHONY : source/uberblit_ycbcr_generic.cpp.s
 
 source/uberblit_ycbcr_sse2_intrin.o: source/uberblit_ycbcr_sse2_intrin.cpp.o
@@ -855,7 +855,7 @@ source/uberblit_ycbcr_sse2_intrin.o: source/uberblit_ycbcr_sse2_intrin.cpp.o
 
 # target to build an object file
 source/uberblit_ycbcr_sse2_intrin.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_sse2_intrin.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_sse2_intrin.cpp.o
 .PHONY : source/uberblit_ycbcr_sse2_intrin.cpp.o
 
 source/uberblit_ycbcr_sse2_intrin.i: source/uberblit_ycbcr_sse2_intrin.cpp.i
@@ -863,7 +863,7 @@ source/uberblit_ycbcr_sse2_intrin.i: source/uberblit_ycbcr_sse2_intrin.cpp.i
 
 # target to preprocess a source file
 source/uberblit_ycbcr_sse2_intrin.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_sse2_intrin.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_sse2_intrin.cpp.i
 .PHONY : source/uberblit_ycbcr_sse2_intrin.cpp.i
 
 source/uberblit_ycbcr_sse2_intrin.s: source/uberblit_ycbcr_sse2_intrin.cpp.s
@@ -871,7 +871,7 @@ source/uberblit_ycbcr_sse2_intrin.s: source/uberblit_ycbcr_sse2_intrin.cpp.s
 
 # target to generate assembly for a file
 source/uberblit_ycbcr_sse2_intrin.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_sse2_intrin.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/Kasumi/CMakeFiles/Kasumi.dir/build.make src/Kasumi/CMakeFiles/Kasumi.dir/source/uberblit_ycbcr_sse2_intrin.cpp.s
 .PHONY : source/uberblit_ycbcr_sse2_intrin.cpp.s
 
 # Help Target
@@ -987,6 +987,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

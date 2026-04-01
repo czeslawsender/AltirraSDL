@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 # Include any dependencies generated for this target.
 include src/vdjson/CMakeFiles/vdjson.dir/depend.make
@@ -73,88 +73,88 @@ src/vdjson/CMakeFiles/vdjson.dir/codegen:
 .PHONY : src/vdjson/CMakeFiles/vdjson.dir/codegen
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/flags.make
-src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonnametable.cpp
+src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonnametable.cpp
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonnametable.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonnametable.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonnametable.cpp
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vdjson.dir/source/jsonnametable.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonnametable.cpp > CMakeFiles/vdjson.dir/source/jsonnametable.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonnametable.cpp > CMakeFiles/vdjson.dir/source/jsonnametable.cpp.i
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonnametable.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vdjson.dir/source/jsonnametable.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonnametable.cpp -o CMakeFiles/vdjson.dir/source/jsonnametable.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonnametable.cpp -o CMakeFiles/vdjson.dir/source/jsonnametable.cpp.s
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/flags.make
-src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonoutput.cpp
+src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonoutput.cpp
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonoutput.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonoutput.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonoutput.cpp
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vdjson.dir/source/jsonoutput.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonoutput.cpp > CMakeFiles/vdjson.dir/source/jsonoutput.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonoutput.cpp > CMakeFiles/vdjson.dir/source/jsonoutput.cpp.i
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonoutput.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vdjson.dir/source/jsonoutput.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonoutput.cpp -o CMakeFiles/vdjson.dir/source/jsonoutput.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonoutput.cpp -o CMakeFiles/vdjson.dir/source/jsonoutput.cpp.s
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/flags.make
-src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonreader.cpp
+src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonreader.cpp
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonreader.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonreader.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonreader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonreader.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonreader.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonreader.cpp
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vdjson.dir/source/jsonreader.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonreader.cpp > CMakeFiles/vdjson.dir/source/jsonreader.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonreader.cpp > CMakeFiles/vdjson.dir/source/jsonreader.cpp.i
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonreader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vdjson.dir/source/jsonreader.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonreader.cpp -o CMakeFiles/vdjson.dir/source/jsonreader.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonreader.cpp -o CMakeFiles/vdjson.dir/source/jsonreader.cpp.s
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/flags.make
-src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonvalue.cpp
+src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonvalue.cpp
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonvalue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonvalue.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonvalue.cpp
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vdjson.dir/source/jsonvalue.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonvalue.cpp > CMakeFiles/vdjson.dir/source/jsonvalue.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonvalue.cpp > CMakeFiles/vdjson.dir/source/jsonvalue.cpp.i
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonvalue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vdjson.dir/source/jsonvalue.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonvalue.cpp -o CMakeFiles/vdjson.dir/source/jsonvalue.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonvalue.cpp -o CMakeFiles/vdjson.dir/source/jsonvalue.cpp.s
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/flags.make
-src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonwriter.cpp
+src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonwriter.cpp
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonwriter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o -MF CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o.d -o CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonwriter.cpp
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vdjson.dir/source/jsonwriter.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonwriter.cpp > CMakeFiles/vdjson.dir/source/jsonwriter.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonwriter.cpp > CMakeFiles/vdjson.dir/source/jsonwriter.cpp.i
 
 src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vdjson.dir/source/jsonwriter.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/jsonwriter.cpp -o CMakeFiles/vdjson.dir/source/jsonwriter.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/jsonwriter.cpp -o CMakeFiles/vdjson.dir/source/jsonwriter.cpp.s
 
 src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/flags.make
-src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o: /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/stdafx.cpp
+src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o: /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/stdafx.cpp
 src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o: src/vdjson/CMakeFiles/vdjson.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o -MF CMakeFiles/vdjson.dir/source/stdafx.cpp.o.d -o CMakeFiles/vdjson.dir/source/stdafx.cpp.o -c /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/stdafx.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o -MF CMakeFiles/vdjson.dir/source/stdafx.cpp.o.d -o CMakeFiles/vdjson.dir/source/stdafx.cpp.o -c /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/stdafx.cpp
 
 src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vdjson.dir/source/stdafx.cpp.i"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/stdafx.cpp > CMakeFiles/vdjson.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/stdafx.cpp > CMakeFiles/vdjson.dir/source/stdafx.cpp.i
 
 src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vdjson.dir/source/stdafx.cpp.s"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/Altirra/src/vdjson/source/stdafx.cpp -o CMakeFiles/vdjson.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson/source/stdafx.cpp -o CMakeFiles/vdjson.dir/source/stdafx.cpp.s
 
 # Object files for target vdjson
 vdjson_OBJECTS = \
@@ -176,19 +176,19 @@ src/vdjson/libvdjson.a: src/vdjson/CMakeFiles/vdjson.dir/source/jsonwriter.cpp.o
 src/vdjson/libvdjson.a: src/vdjson/CMakeFiles/vdjson.dir/source/stdafx.cpp.o
 src/vdjson/libvdjson.a: src/vdjson/CMakeFiles/vdjson.dir/build.make
 src/vdjson/libvdjson.a: src/vdjson/CMakeFiles/vdjson.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilm/Documents/GitHub/Altirra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libvdjson.a"
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && $(CMAKE_COMMAND) -P CMakeFiles/vdjson.dir/cmake_clean_target.cmake
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vdjson.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libvdjson.a"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && $(CMAKE_COMMAND) -P CMakeFiles/vdjson.dir/cmake_clean_target.cmake
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vdjson.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/vdjson/CMakeFiles/vdjson.dir/build: src/vdjson/libvdjson.a
 .PHONY : src/vdjson/CMakeFiles/vdjson.dir/build
 
 src/vdjson/CMakeFiles/vdjson.dir/clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build/src/vdjson && $(CMAKE_COMMAND) -P CMakeFiles/vdjson.dir/cmake_clean.cmake
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson && $(CMAKE_COMMAND) -P CMakeFiles/vdjson.dir/cmake_clean.cmake
 .PHONY : src/vdjson/CMakeFiles/vdjson.dir/clean
 
 src/vdjson/CMakeFiles/vdjson.dir/depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilm/Documents/GitHub/Altirra /home/ilm/Documents/GitHub/Altirra/src/vdjson /home/ilm/Documents/GitHub/Altirra/build /home/ilm/Documents/GitHub/Altirra/build/src/vdjson /home/ilm/Documents/GitHub/Altirra/build/src/vdjson/CMakeFiles/vdjson.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ilm/Documents/GitHub/AltirraSDL /home/ilm/Documents/GitHub/AltirraSDL/src/vdjson /home/ilm/Documents/GitHub/AltirraSDL/build /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson /home/ilm/Documents/GitHub/AltirraSDL/build/src/vdjson/CMakeFiles/vdjson.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : src/vdjson/CMakeFiles/vdjson.dir/depend
 

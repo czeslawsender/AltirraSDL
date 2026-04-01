@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/Altirra
+CMAKE_SOURCE_DIR = /home/ilm/Documents/GitHub/AltirraSDL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/Altirra/build
+CMAKE_BINARY_DIR = /home/ilm/Documents/GitHub/AltirraSDL/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles /home/ilm/Documents/GitHub/Altirra/build/src/ATNetwork//CMakeFiles/progress.marks
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/Altirra/build/CMakeFiles 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/ATNetwork//CMakeFiles/progress.marks
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/clean
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/preinstall
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/ATNetwork/CMakeFiles/ATNetwork.dir/rule:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/CMakeFiles/ATNetwork.dir/rule
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATNetwork/CMakeFiles/ATNetwork.dir/rule
 .PHONY : src/ATNetwork/CMakeFiles/ATNetwork.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ ATNetwork: src/ATNetwork/CMakeFiles/ATNetwork.dir/rule
 
 # fast build rule for target.
 ATNetwork/fast:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/build
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/build
 .PHONY : ATNetwork/fast
 
 source/dhcpd.o: source/dhcpd.cpp.o
@@ -135,7 +135,7 @@ source/dhcpd.o: source/dhcpd.cpp.o
 
 # target to build an object file
 source/dhcpd.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.o
 .PHONY : source/dhcpd.cpp.o
 
 source/dhcpd.i: source/dhcpd.cpp.i
@@ -143,7 +143,7 @@ source/dhcpd.i: source/dhcpd.cpp.i
 
 # target to preprocess a source file
 source/dhcpd.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.i
 .PHONY : source/dhcpd.cpp.i
 
 source/dhcpd.s: source/dhcpd.cpp.s
@@ -151,7 +151,7 @@ source/dhcpd.s: source/dhcpd.cpp.s
 
 # target to generate assembly for a file
 source/dhcpd.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/dhcpd.cpp.s
 .PHONY : source/dhcpd.cpp.s
 
 source/ethernetbus.o: source/ethernetbus.cpp.o
@@ -159,7 +159,7 @@ source/ethernetbus.o: source/ethernetbus.cpp.o
 
 # target to build an object file
 source/ethernetbus.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.o
 .PHONY : source/ethernetbus.cpp.o
 
 source/ethernetbus.i: source/ethernetbus.cpp.i
@@ -167,7 +167,7 @@ source/ethernetbus.i: source/ethernetbus.cpp.i
 
 # target to preprocess a source file
 source/ethernetbus.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.i
 .PHONY : source/ethernetbus.cpp.i
 
 source/ethernetbus.s: source/ethernetbus.cpp.s
@@ -175,7 +175,7 @@ source/ethernetbus.s: source/ethernetbus.cpp.s
 
 # target to generate assembly for a file
 source/ethernetbus.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetbus.cpp.s
 .PHONY : source/ethernetbus.cpp.s
 
 source/ethernetframe.o: source/ethernetframe.cpp.o
@@ -183,7 +183,7 @@ source/ethernetframe.o: source/ethernetframe.cpp.o
 
 # target to build an object file
 source/ethernetframe.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.o
 .PHONY : source/ethernetframe.cpp.o
 
 source/ethernetframe.i: source/ethernetframe.cpp.i
@@ -191,7 +191,7 @@ source/ethernetframe.i: source/ethernetframe.cpp.i
 
 # target to preprocess a source file
 source/ethernetframe.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.i
 .PHONY : source/ethernetframe.cpp.i
 
 source/ethernetframe.s: source/ethernetframe.cpp.s
@@ -199,7 +199,7 @@ source/ethernetframe.s: source/ethernetframe.cpp.s
 
 # target to generate assembly for a file
 source/ethernetframe.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ethernetframe.cpp.s
 .PHONY : source/ethernetframe.cpp.s
 
 source/gatewayserver.o: source/gatewayserver.cpp.o
@@ -207,7 +207,7 @@ source/gatewayserver.o: source/gatewayserver.cpp.o
 
 # target to build an object file
 source/gatewayserver.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.o
 .PHONY : source/gatewayserver.cpp.o
 
 source/gatewayserver.i: source/gatewayserver.cpp.i
@@ -215,7 +215,7 @@ source/gatewayserver.i: source/gatewayserver.cpp.i
 
 # target to preprocess a source file
 source/gatewayserver.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.i
 .PHONY : source/gatewayserver.cpp.i
 
 source/gatewayserver.s: source/gatewayserver.cpp.s
@@ -223,7 +223,7 @@ source/gatewayserver.s: source/gatewayserver.cpp.s
 
 # target to generate assembly for a file
 source/gatewayserver.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/gatewayserver.cpp.s
 .PHONY : source/gatewayserver.cpp.s
 
 source/ipstack.o: source/ipstack.cpp.o
@@ -231,7 +231,7 @@ source/ipstack.o: source/ipstack.cpp.o
 
 # target to build an object file
 source/ipstack.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.o
 .PHONY : source/ipstack.cpp.o
 
 source/ipstack.i: source/ipstack.cpp.i
@@ -239,7 +239,7 @@ source/ipstack.i: source/ipstack.cpp.i
 
 # target to preprocess a source file
 source/ipstack.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.i
 .PHONY : source/ipstack.cpp.i
 
 source/ipstack.s: source/ipstack.cpp.s
@@ -247,7 +247,7 @@ source/ipstack.s: source/ipstack.cpp.s
 
 # target to generate assembly for a file
 source/ipstack.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/ipstack.cpp.s
 .PHONY : source/ipstack.cpp.s
 
 source/socket.o: source/socket.cpp.o
@@ -255,7 +255,7 @@ source/socket.o: source/socket.cpp.o
 
 # target to build an object file
 source/socket.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.o
 .PHONY : source/socket.cpp.o
 
 source/socket.i: source/socket.cpp.i
@@ -263,7 +263,7 @@ source/socket.i: source/socket.cpp.i
 
 # target to preprocess a source file
 source/socket.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.i
 .PHONY : source/socket.cpp.i
 
 source/socket.s: source/socket.cpp.s
@@ -271,7 +271,7 @@ source/socket.s: source/socket.cpp.s
 
 # target to generate assembly for a file
 source/socket.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/socket.cpp.s
 .PHONY : source/socket.cpp.s
 
 source/stdafx.o: source/stdafx.cpp.o
@@ -279,7 +279,7 @@ source/stdafx.o: source/stdafx.cpp.o
 
 # target to build an object file
 source/stdafx.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.o
 .PHONY : source/stdafx.cpp.o
 
 source/stdafx.i: source/stdafx.cpp.i
@@ -287,7 +287,7 @@ source/stdafx.i: source/stdafx.cpp.i
 
 # target to preprocess a source file
 source/stdafx.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.i
 .PHONY : source/stdafx.cpp.i
 
 source/stdafx.s: source/stdafx.cpp.s
@@ -295,7 +295,7 @@ source/stdafx.s: source/stdafx.cpp.s
 
 # target to generate assembly for a file
 source/stdafx.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/stdafx.cpp.s
 .PHONY : source/stdafx.cpp.s
 
 source/tcp.o: source/tcp.cpp.o
@@ -303,7 +303,7 @@ source/tcp.o: source/tcp.cpp.o
 
 # target to build an object file
 source/tcp.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.o
 .PHONY : source/tcp.cpp.o
 
 source/tcp.i: source/tcp.cpp.i
@@ -311,7 +311,7 @@ source/tcp.i: source/tcp.cpp.i
 
 # target to preprocess a source file
 source/tcp.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.i
 .PHONY : source/tcp.cpp.i
 
 source/tcp.s: source/tcp.cpp.s
@@ -319,7 +319,7 @@ source/tcp.s: source/tcp.cpp.s
 
 # target to generate assembly for a file
 source/tcp.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcp.cpp.s
 .PHONY : source/tcp.cpp.s
 
 source/tcpstack.o: source/tcpstack.cpp.o
@@ -327,7 +327,7 @@ source/tcpstack.o: source/tcpstack.cpp.o
 
 # target to build an object file
 source/tcpstack.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.o
 .PHONY : source/tcpstack.cpp.o
 
 source/tcpstack.i: source/tcpstack.cpp.i
@@ -335,7 +335,7 @@ source/tcpstack.i: source/tcpstack.cpp.i
 
 # target to preprocess a source file
 source/tcpstack.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.i
 .PHONY : source/tcpstack.cpp.i
 
 source/tcpstack.s: source/tcpstack.cpp.s
@@ -343,7 +343,7 @@ source/tcpstack.s: source/tcpstack.cpp.s
 
 # target to generate assembly for a file
 source/tcpstack.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/tcpstack.cpp.s
 .PHONY : source/tcpstack.cpp.s
 
 source/udp.o: source/udp.cpp.o
@@ -351,7 +351,7 @@ source/udp.o: source/udp.cpp.o
 
 # target to build an object file
 source/udp.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.o
 .PHONY : source/udp.cpp.o
 
 source/udp.i: source/udp.cpp.i
@@ -359,7 +359,7 @@ source/udp.i: source/udp.cpp.i
 
 # target to preprocess a source file
 source/udp.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.i
 .PHONY : source/udp.cpp.i
 
 source/udp.s: source/udp.cpp.s
@@ -367,7 +367,7 @@ source/udp.s: source/udp.cpp.s
 
 # target to generate assembly for a file
 source/udp.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udp.cpp.s
 .PHONY : source/udp.cpp.s
 
 source/udpstack.o: source/udpstack.cpp.o
@@ -375,7 +375,7 @@ source/udpstack.o: source/udpstack.cpp.o
 
 # target to build an object file
 source/udpstack.cpp.o:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.o
 .PHONY : source/udpstack.cpp.o
 
 source/udpstack.i: source/udpstack.cpp.i
@@ -383,7 +383,7 @@ source/udpstack.i: source/udpstack.cpp.i
 
 # target to preprocess a source file
 source/udpstack.cpp.i:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.i
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.i
 .PHONY : source/udpstack.cpp.i
 
 source/udpstack.s: source/udpstack.cpp.s
@@ -391,7 +391,7 @@ source/udpstack.s: source/udpstack.cpp.s
 
 # target to generate assembly for a file
 source/udpstack.cpp.s:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.s
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/ATNetwork/CMakeFiles/ATNetwork.dir/build.make src/ATNetwork/CMakeFiles/ATNetwork.dir/source/udpstack.cpp.s
 .PHONY : source/udpstack.cpp.s
 
 # Help Target
@@ -447,6 +447,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ilm/Documents/GitHub/Altirra/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
