@@ -150,3 +150,42 @@ Detailed documentation lives in `PORTING/`:
 - The `system` library uses `VDStringW` (wchar_t) for all file paths. On non-Windows, `_sdl3.cpp` files convert to UTF-8 at the OS boundary using `VDTextWToU8()` / `VDTextU8ToW()` from `text.h`.
 - Link errors during build usually mean an upstream project failed — always look for the first error.
 - Core emulation libraries (ATCPU, ATEmulation, ATDevices, ATIO, ATNetwork, ATDebugger, ATCompiler, ATVM, Kasumi, vdjson) contain zero Win32 API calls and compile unchanged on any platform once system library headers are cleaned up.
+
+## SDL3 Porting Pitfalls
+
+### Member default values assume Windows settings will override them
+
+The emulation core classes have member defaults in their headers (e.g.
+`mFoo = SomeEnum::NonObviousValue`).  On Windows, `settings.cpp` and the
+UI command handlers load user preferences from the registry and call the
+appropriate setters, so the defaults rarely matter.  The SDL3 build
+**excludes** `settings.cpp` and all `cmd*.cpp` files, so any default that
+differs from the "normal user experience" will silently produce wrong
+behaviour.
+
+**Rule:** When the SDL3 frontend creates or initialises an emulation
+object, explicitly set every configuration property to match the Windows
+defaults rather than relying on the member initialiser.  The canonical
+reference for "what Windows sets" is `settings.cpp` (load path) and the
+`cmd*.cpp` command handlers (UI defaults).
+
+### Debugging rendering or emulation mismatches
+
+When the SDL3 output differs from Windows Altirra, the problem is almost
+never in the core rendering code — it is correct and battle-tested.
+Follow this checklist:
+
+1. **Check which code path is actually executing.**  Add a one-shot
+   `fprintf(stderr, ...)` at each dispatch branch (not in tight loops)
+   to confirm the expected function is called.  A wrong mode, flag, or
+   enum silently routes to a different renderer.
+2. **Compare configuration state, not just output pixels.**  Dump the
+   relevant flags/enums (`mPRIOR`, `mDefectMode`, `mbHiresMode`,
+   `mArtifactMode`, frame properties, etc.) and compare with what
+   Windows would have after loading default settings.
+3. **Trace from the display back to the renderer.**  Start from the
+   displayed frame data, identify which render function wrote those
+   bytes, then check why that function was chosen.
+4. **Force-recompile touched files.**  The CMake incremental build
+   sometimes misses timestamp changes — use `touch <file>` before
+   `cmake --build` to be sure.

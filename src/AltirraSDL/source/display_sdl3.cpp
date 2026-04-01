@@ -102,6 +102,9 @@ bool VDVideoDisplaySDL3::PrepareFrame() {
 		mTextureW = px.w;
 		mTextureH = px.h;
 
+		if (mpTexture)
+			SDL_SetTextureScaleMode(mpTexture, SDL_SCALEMODE_LINEAR);
+
 		// Resize conversion buffer for palettized frames
 		mConvertBuffer.resize((size_t)px.w * px.h);
 	}

@@ -91,7 +91,12 @@
       "Bash(nm /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)",
       "Bash(timeout 3 /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)",
       "Bash(timeout 2 /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)",
-      "Bash(timeout 5 /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)"
+      "Bash(timeout 5 /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL/AltirraSDL)",
+      "Bash(timeout 8 ./src/AltirraSDL/AltirraSDL /home/ilm/Documents/GitHub/AltirraSDL/EXAMPLES/torus3d.xex)",
+      "Bash(timeout 10 ./src/AltirraSDL/AltirraSDL /home/ilm/Documents/GitHub/AltirraSDL/EXAMPLES/torus3d.xex)",
+      "Bash(timeout 15 ./src/AltirraSDL/AltirraSDL /home/ilm/Documents/GitHub/AltirraSDL/EXAMPLES/torus3d.xex)",
+      "Bash(convert /tmp/altirra_sdl_frame.bmp /tmp/altirra_sdl_frame.png)",
+      "Bash(/tmp/analysis.txt:*)"
     ]
   }
 }

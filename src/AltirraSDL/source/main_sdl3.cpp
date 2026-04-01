@@ -215,6 +215,7 @@ int main(int argc, char *argv[]) {
 	g_sim.LoadROMs();
 
 	g_sim.GetGTIA().SetVideoOutput(g_pDisplay);
+	g_sim.GetGTIA().SetDefectMode(ATGTIADefectMode::None);
 	ATInputSDL3_Init(&g_sim.GetPokey());
 
 	if (argc > 1) {
