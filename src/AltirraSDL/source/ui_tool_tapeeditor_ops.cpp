@@ -1242,18 +1242,18 @@ void ATTapeEditorState::EnsureSelectionVisible() {
 
 	uint32 startSample = mSelSortedStartSample;
 	uint32 endSample = mSelSortedEndSample;
+	if (startSample > endSample)
+		return;
 
-	sint64 centerSample = startSample + ((endSample - startSample + 1) >> 1);
-	mScrollX = mZoom < 0 ? centerSample >> -mZoom : centerSample << mZoom;
+	// Check if selection is already visible (matches Windows EnsureRangeVisible)
+	uint32 viewSampleL = ClientXToSampleEdge(0, mLastViewWidth, true);
+	uint32 viewSampleR = ClientXToSampleEdge(mLastViewWidth, mLastViewWidth, true);
 
-	sint64 len = mSampleCount;
-	if (len) {
-		if (mZoom < 0)
-			len = ((len - 1) >> -mZoom) + 1;
-		else
-			len <<= mZoom;
+	if (viewSampleL >= endSample || viewSampleR <= startSample) {
+		sint64 centerSample = startSample + ((endSample - startSample + 1) >> 1);
+		mScrollX = mZoom < 0 ? centerSample >> -mZoom : centerSample << mZoom;
+		mScrollX = std::clamp<sint64>(mScrollX, 0, mScrollMax);
 	}
-	mScrollX = std::clamp<sint64>(mScrollX, 0, len);
 }
 
 void ATTapeEditorState::UpdateScrollLimit() {

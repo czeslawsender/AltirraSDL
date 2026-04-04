@@ -81,8 +81,17 @@ static void TapeEditorSyncImage() {
 	ATCassetteEmulator& cas = g_sim.GetCassette();
 	IATCassetteImage *img = cas.GetImage();
 
-	if (g_tapeEditor.mpImage != img)
+	if (g_tapeEditor.mpImage != img) {
+		// Unwire SIO monitor callback before image change to avoid stale delegate
+		if (g_tapeEditor.mbSIOMonitorEnabled && g_tapeEditor.mFnByteDecoded)
+			cas.ByteDecoded.Remove(&g_tapeEditor.mFnByteDecoded);
+
 		g_tapeEditor.SetImage(img);
+
+		// Rewire SIO monitor callback after image change
+		if (g_tapeEditor.mbSIOMonitorEnabled && g_tapeEditor.mFnByteDecoded && cas.IsLoaded())
+			cas.ByteDecoded.Add(&g_tapeEditor.mFnByteDecoded);
+	}
 
 	// Update head position
 	if (cas.IsLoaded()) {
@@ -110,8 +119,18 @@ static void TapeEditorSaveSettings() {
 static bool g_tapeDiscardPending = false;
 static enum class TapePendingAction { None, New, Open, Reload } g_tapePendingAction = TapePendingAction::None;
 
+// CAS incompatibility warning state
+static bool g_tapeCASIncompatPending = false;
+static std::string g_tapeCASIncompatPath;
+
 static bool TapeEditorOKToDiscard() {
 	return !g_sim.GetCassette().IsImageDirty();
+}
+
+static void TapeEditorCleanup() {
+	// Unwire SIO monitor callback if still connected
+	if (g_tapeEditor.mbSIOMonitorEnabled)
+		g_tapeEditor.SetSIOMonitorEnabled(false);
 }
 
 // ---- File operations ----
@@ -345,18 +364,22 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 	if (!ImGui::Begin(title, &windowOpen, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar)) {
 		if (!windowOpen) {
 			TapeEditorSaveSettings();
+			TapeEditorCleanup();
 			state.showTapeEditor = false;
 		}
 		ImGui::End();
 		return;
 	}
 
-	if (!windowOpen || ATUICheckEscClose()) {
+	if (!windowOpen) {
 		TapeEditorSaveSettings();
+		TapeEditorCleanup();
 		state.showTapeEditor = false;
 		ImGui::End();
 		return;
 	}
+	// Note: Windows blocks ESC from closing the tape editor (OnCancel returns true).
+	// We match this by NOT calling ATUICheckEscClose() here.
 
 	// ---- Menu bar ----
 	if (ImGui::BeginMenuBar()) {
@@ -371,7 +394,7 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 				}
 			}
 
-			if (ImGui::MenuItem("Open...")) {
+			if (ImGui::MenuItem("Open...", "Ctrl+O")) {
 				if (TapeEditorOKToDiscard()) {
 					static const SDL_DialogFileFilter kFilters[] = {
 						{ "Cassette Images", "cas;wav;flac;ogg" },
@@ -384,7 +407,7 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 				}
 			}
 
-			if (ImGui::MenuItem("Reload", nullptr, false, hasImage && cas.IsImagePersistent())) {
+			if (ImGui::MenuItem("Reload", "Ctrl+R", false, hasImage && cas.IsImagePersistent())) {
 				if (TapeEditorOKToDiscard()) {
 					try { TapeEditorReload(); }
 					catch (const MyError& e) { LOG_ERROR("TapeEditor", "Reload failed: %s", e.c_str()); }
@@ -394,13 +417,16 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 				}
 			}
 
-			ImGui::Separator();
-
 			if (ImGui::MenuItem("Save As CAS...", nullptr, false, hasImage)) {
-				static const SDL_DialogFileFilter kFilters[] = {
-					{ "Atari Cassette Image", "cas" },
-				};
-				SDL_ShowSaveFileDialog(TapeEditorFileCallback, (void*)(uintptr_t)TapeFileAction::SaveCAS, window, kFilters, 1, nullptr);
+				// Check for CAS-incompatible standard blocks before opening save dialog
+				if (te.mpImage && te.mpImage->HasCASIncompatibleStdBlocks()) {
+					g_tapeCASIncompatPending = true;
+				} else {
+					static const SDL_DialogFileFilter kFilters[] = {
+						{ "Atari Cassette Image", "cas" },
+					};
+					SDL_ShowSaveFileDialog(TapeEditorFileCallback, (void*)(uintptr_t)TapeFileAction::SaveCAS, window, kFilters, 1, nullptr);
+				}
 			}
 
 			if (ImGui::MenuItem("Save As WAV...", nullptr, false, hasImage)) {
@@ -414,6 +440,7 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 
 			if (ImGui::MenuItem("Close")) {
 				TapeEditorSaveSettings();
+				TapeEditorCleanup();
 				state.showTapeEditor = false;
 			}
 
@@ -433,10 +460,8 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 			if (ImGui::MenuItem("Select All", "Ctrl+A", false, hasImage))
 				te.SelectAll();
 
-			if (ImGui::MenuItem("Deselect", nullptr, false, hasImage))
+			if (ImGui::MenuItem("Deselect", "Ctrl+Shift+A", false, hasImage))
 				te.DeselectAll();
-
-			ImGui::Separator();
 
 			if (ImGui::MenuItem("Cut", "Ctrl+X", false, hasNonEmptySel))
 				te.Cut();
@@ -444,7 +469,7 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 			if (ImGui::MenuItem("Copy", "Ctrl+C", false, hasNonEmptySel))
 				te.Copy();
 
-			if (ImGui::MenuItem("Copy Decoded Data", nullptr, false, te.HasDecodedData()))
+			if (ImGui::MenuItem("Copy Decoded Data", "Ctrl+Shift+C", false, te.HasDecodedData()))
 				te.CopyDecodedData();
 
 			if (ImGui::MenuItem("Paste", "Ctrl+V", false, hasImage && te.HasClip()))
@@ -461,12 +486,10 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 			if (ImGui::MenuItem("Convert to Raw Block", nullptr, false, !te.mbShowTurboData && hasNonEmptySel))
 				te.ConvertToRawBlock();
 
-			ImGui::Separator();
-
-			if (ImGui::MenuItem("Repeat Last Analysis", nullptr, false, hasImage))
+			if (ImGui::MenuItem("Repeat Last Analysis", "Z", false, hasImage))
 				te.ReAnalyze();
 
-			if (ImGui::MenuItem("Repeat Last Analysis (Flip)", nullptr, false, hasImage))
+			if (ImGui::MenuItem("Repeat Last Analysis (Flip Mode)", "Shift+Z", false, hasImage))
 				te.ReAnalyzeFlip();
 
 			ImGui::EndMenu();
@@ -651,16 +674,45 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 			te.Undo();
 		if (io.KeyCtrl && (ImGui::IsKeyPressed(ImGuiKey_Y) || (ImGui::IsKeyPressed(ImGuiKey_Z) && io.KeyShift)))
 			te.Redo();
-		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_A))
+		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_A) && !io.KeyShift)
 			te.SelectAll();
+		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_A) && io.KeyShift)
+			te.DeselectAll();
 		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_X))
 			te.Cut();
-		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_C))
+		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_C) && !io.KeyShift)
 			te.Copy();
+		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_C) && io.KeyShift)
+			te.CopyDecodedData();
 		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_V))
 			te.Paste();
 		if (ImGui::IsKeyPressed(ImGuiKey_Delete))
 			te.Delete();
+		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_O)) {
+			if (TapeEditorOKToDiscard()) {
+				static const SDL_DialogFileFilter kFilters[] = {
+					{ "Cassette Images", "cas;wav;flac;ogg" },
+					{ "All Files", "*" },
+				};
+				SDL_ShowOpenFileDialog(TapeEditorFileCallback, (void*)(uintptr_t)TapeFileAction::Open, window, kFilters, 2, nullptr, false);
+			} else {
+				g_tapePendingAction = TapePendingAction::Open;
+				g_tapeDiscardPending = true;
+			}
+		}
+		if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_R) && hasImage && cas.IsImagePersistent()) {
+			if (TapeEditorOKToDiscard()) {
+				try { TapeEditorReload(); }
+				catch (const MyError& e) { LOG_ERROR("TapeEditor", "Reload failed: %s", e.c_str()); }
+			} else {
+				g_tapePendingAction = TapePendingAction::Reload;
+				g_tapeDiscardPending = true;
+			}
+		}
+		if (!io.KeyCtrl && !io.KeyAlt && ImGui::IsKeyPressed(ImGuiKey_Z) && !io.KeyShift)
+			te.ReAnalyze();
+		if (!io.KeyCtrl && !io.KeyAlt && ImGui::IsKeyPressed(ImGuiKey_Z) && io.KeyShift)
+			te.ReAnalyzeFlip();
 	}
 
 	// ---- Discard confirmation popup ----
@@ -707,6 +759,34 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 			ImGui::CloseCurrentPopup();
 			g_tapePendingAction = TapePendingAction::None;
 		}
+
+		ImGui::EndPopup();
+	}
+
+	// ---- CAS incompatibility warning popup ----
+	if (g_tapeCASIncompatPending) {
+		ImGui::OpenPopup("CAS Compatibility##CASIncompat");
+		g_tapeCASIncompatPending = false;
+	}
+
+	if (ImGui::BeginPopupModal("CAS Compatibility##CASIncompat", nullptr, ImGuiWindowFlags_AlwaysAutoResize)) {
+		ImGui::TextWrapped(
+			"The current tape image contains standard data blocks that have been "
+			"trimmed or split. These will be saved as FSK blocks instead, which will "
+			"only work with programs that support raw FSK pulse data. Save anyway?");
+		ImGui::Separator();
+
+		if (ImGui::Button("Save", ImVec2(120, 0))) {
+			ImGui::CloseCurrentPopup();
+			static const SDL_DialogFileFilter kFilters[] = {
+				{ "Atari Cassette Image", "cas" },
+			};
+			SDL_ShowSaveFileDialog(TapeEditorFileCallback, (void*)(uintptr_t)TapeFileAction::SaveCAS, window, kFilters, 1, nullptr);
+		}
+
+		ImGui::SameLine();
+		if (ImGui::Button("Cancel", ImVec2(120, 0)))
+			ImGui::CloseCurrentPopup();
 
 		ImGui::EndPopup();
 	}

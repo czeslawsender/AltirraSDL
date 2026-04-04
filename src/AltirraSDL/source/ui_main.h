@@ -41,11 +41,13 @@ struct ATUIState {
 	bool showDiskExplorer = false;
 	bool showSetupWizard = false;
 	bool showKeyboardShortcuts = false;
+	bool showKeyboardCustomize = false;
 	bool showCompatDB = false;
 	bool showAdvancedConfig = false;
 	bool showCheater = false;
 	bool showLightPen = false;
 	bool showRewind = false;
+	bool showTapeEditor = false;
 	bool showScreenEffects = false;
 	bool showShaderParams = false;
 	bool showShaderSetup = false;
@@ -176,8 +178,10 @@ void ATUIQuickRewind();
 void ATUIRenderRewindDialog(ATSimulator &sim, ATUIState &state);
 void ATUIRenderLightPenDialog(ATSimulator &sim, ATUIState &state);
 void ATUIRenderKeyboardShortcuts(ATUIState &state);
+void ATUIRenderKeyboardCustomize(ATUIState &state);
 void ATUIRenderCompatDB(ATSimulator &sim, ATUIState &state);
 void ATUIRenderAdvancedConfig(ATUIState &state);
+void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window);
 void ATUIRenderScreenEffects(ATSimulator &sim, ATUIState &state);
 
 // Shader presets (ui_shader_presets.cpp)

@@ -1309,11 +1309,13 @@ void ATUIRenderFrame(ATSimulator &sim, VDVideoDisplaySDL3 &display,
 	if (state.showDiskExplorer)      ATUIRenderDiskExplorer(sim, state, window);
 	if (state.showSetupWizard)       ATUIRenderSetupWizard(sim, state, window);
 	if (state.showKeyboardShortcuts) ATUIRenderKeyboardShortcuts(state);
+	if (state.showKeyboardCustomize) ATUIRenderKeyboardCustomize(state);
 	if (state.showCompatDB)          ATUIRenderCompatDB(sim, state);
 	if (state.showAdvancedConfig)    ATUIRenderAdvancedConfig(state);
 	if (state.showCheater)          ATUIRenderCheater(sim, state);
 	if (state.showRewind)           ATUIRenderRewindDialog(sim, state);
 	if (state.showLightPen)         ATUIRenderLightPenDialog(sim, state);
+	if (state.showTapeEditor)       ATUIRenderTapeEditor(sim, state, window);
 	if (state.showScreenEffects)    ATUIRenderScreenEffects(sim, state);
 	if (state.showShaderParams)     ATUIRenderShaderParameters(state);
 	if (state.showShaderSetup)      ATUIRenderShaderSetupHelp(state);

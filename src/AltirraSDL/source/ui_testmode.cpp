@@ -274,6 +274,7 @@ static const DialogMapping kDialogMap[] = {
 	{ "DiskExplorer",      &ATUIState::showDiskExplorer },
 	{ "SetupWizard",       &ATUIState::showSetupWizard },
 	{ "KeyboardShortcuts", &ATUIState::showKeyboardShortcuts },
+	{ "KeyboardCustomize", &ATUIState::showKeyboardCustomize },
 	{ "CompatDB",          &ATUIState::showCompatDB },
 	{ "AdvancedConfig",    &ATUIState::showAdvancedConfig },
 	{ "Cheater",           &ATUIState::showCheater },

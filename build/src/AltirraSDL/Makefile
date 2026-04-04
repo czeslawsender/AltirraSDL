@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles /home/ilm/Documents/GitHub/AltirraSDL/build/src/AltirraSDL//CMakeFiles/progress.marks
@@ -129,6 +174,20 @@ AltirraSDL: src/AltirraSDL/CMakeFiles/AltirraSDL.dir/rule
 AltirraSDL/fast:
 	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build
 .PHONY : AltirraSDL/fast
+
+# Convenience name for target.
+src/AltirraSDL/CMakeFiles/package_altirra.dir/rule:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/AltirraSDL/CMakeFiles/package_altirra.dir/rule
+.PHONY : src/AltirraSDL/CMakeFiles/package_altirra.dir/rule
+
+# Convenience name for target.
+package_altirra: src/AltirraSDL/CMakeFiles/package_altirra.dir/rule
+.PHONY : package_altirra
+
+# fast build rule for target.
+package_altirra/fast:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/package_altirra.dir/build.make src/AltirraSDL/CMakeFiles/package_altirra.dir/build
+.PHONY : package_altirra/fast
 
 __/ATAudio/source/audiooutput_sdl3.o: __/ATAudio/source/audiooutput_sdl3.cpp.o
 .PHONY : __/ATAudio/source/audiooutput_sdl3.o
@@ -5794,6 +5853,30 @@ source/ui_input.cpp.s:
 	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_input.cpp.s
 .PHONY : source/ui_input.cpp.s
 
+source/ui_keyboard_customize.o: source/ui_keyboard_customize.cpp.o
+.PHONY : source/ui_keyboard_customize.o
+
+# target to build an object file
+source/ui_keyboard_customize.cpp.o:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_keyboard_customize.cpp.o
+.PHONY : source/ui_keyboard_customize.cpp.o
+
+source/ui_keyboard_customize.i: source/ui_keyboard_customize.cpp.i
+.PHONY : source/ui_keyboard_customize.i
+
+# target to preprocess a source file
+source/ui_keyboard_customize.cpp.i:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_keyboard_customize.cpp.i
+.PHONY : source/ui_keyboard_customize.cpp.i
+
+source/ui_keyboard_customize.s: source/ui_keyboard_customize.cpp.s
+.PHONY : source/ui_keyboard_customize.s
+
+# target to generate assembly for a file
+source/ui_keyboard_customize.cpp.s:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_keyboard_customize.cpp.s
+.PHONY : source/ui_keyboard_customize.cpp.s
+
 source/ui_lightpen.o: source/ui_lightpen.cpp.o
 .PHONY : source/ui_lightpen.o
 
@@ -6058,6 +6141,78 @@ source/ui_testmode.cpp.s:
 	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_testmode.cpp.s
 .PHONY : source/ui_testmode.cpp.s
 
+source/ui_tool_tapeeditor.o: source/ui_tool_tapeeditor.cpp.o
+.PHONY : source/ui_tool_tapeeditor.o
+
+# target to build an object file
+source/ui_tool_tapeeditor.cpp.o:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor.cpp.o
+.PHONY : source/ui_tool_tapeeditor.cpp.o
+
+source/ui_tool_tapeeditor.i: source/ui_tool_tapeeditor.cpp.i
+.PHONY : source/ui_tool_tapeeditor.i
+
+# target to preprocess a source file
+source/ui_tool_tapeeditor.cpp.i:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor.cpp.i
+.PHONY : source/ui_tool_tapeeditor.cpp.i
+
+source/ui_tool_tapeeditor.s: source/ui_tool_tapeeditor.cpp.s
+.PHONY : source/ui_tool_tapeeditor.s
+
+# target to generate assembly for a file
+source/ui_tool_tapeeditor.cpp.s:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor.cpp.s
+.PHONY : source/ui_tool_tapeeditor.cpp.s
+
+source/ui_tool_tapeeditor_ops.o: source/ui_tool_tapeeditor_ops.cpp.o
+.PHONY : source/ui_tool_tapeeditor_ops.o
+
+# target to build an object file
+source/ui_tool_tapeeditor_ops.cpp.o:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor_ops.cpp.o
+.PHONY : source/ui_tool_tapeeditor_ops.cpp.o
+
+source/ui_tool_tapeeditor_ops.i: source/ui_tool_tapeeditor_ops.cpp.i
+.PHONY : source/ui_tool_tapeeditor_ops.i
+
+# target to preprocess a source file
+source/ui_tool_tapeeditor_ops.cpp.i:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor_ops.cpp.i
+.PHONY : source/ui_tool_tapeeditor_ops.cpp.i
+
+source/ui_tool_tapeeditor_ops.s: source/ui_tool_tapeeditor_ops.cpp.s
+.PHONY : source/ui_tool_tapeeditor_ops.s
+
+# target to generate assembly for a file
+source/ui_tool_tapeeditor_ops.cpp.s:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor_ops.cpp.s
+.PHONY : source/ui_tool_tapeeditor_ops.cpp.s
+
+source/ui_tool_tapeeditor_view.o: source/ui_tool_tapeeditor_view.cpp.o
+.PHONY : source/ui_tool_tapeeditor_view.o
+
+# target to build an object file
+source/ui_tool_tapeeditor_view.cpp.o:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor_view.cpp.o
+.PHONY : source/ui_tool_tapeeditor_view.cpp.o
+
+source/ui_tool_tapeeditor_view.i: source/ui_tool_tapeeditor_view.cpp.i
+.PHONY : source/ui_tool_tapeeditor_view.i
+
+# target to preprocess a source file
+source/ui_tool_tapeeditor_view.cpp.i:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor_view.cpp.i
+.PHONY : source/ui_tool_tapeeditor_view.cpp.i
+
+source/ui_tool_tapeeditor_view.s: source/ui_tool_tapeeditor_view.cpp.s
+.PHONY : source/ui_tool_tapeeditor_view.s
+
+# target to generate assembly for a file
+source/ui_tool_tapeeditor_view.cpp.s:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/ui_tool_tapeeditor_view.cpp.s
+.PHONY : source/ui_tool_tapeeditor_view.cpp.s
+
 source/ui_tools.o: source/ui_tools.cpp.o
 .PHONY : source/ui_tools.o
 
@@ -6233,7 +6388,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... package_altirra"
 	@echo "... AltirraSDL"
 	@echo "... __/ATAudio/source/audiooutput_sdl3.o"
 	@echo "... __/ATAudio/source/audiooutput_sdl3.i"
@@ -6943,6 +7103,9 @@ help:
 	@echo "... source/ui_input.o"
 	@echo "... source/ui_input.i"
 	@echo "... source/ui_input.s"
+	@echo "... source/ui_keyboard_customize.o"
+	@echo "... source/ui_keyboard_customize.i"
+	@echo "... source/ui_keyboard_customize.s"
 	@echo "... source/ui_lightpen.o"
 	@echo "... source/ui_lightpen.i"
 	@echo "... source/ui_lightpen.s"
@@ -6976,6 +7139,15 @@ help:
 	@echo "... source/ui_testmode.o"
 	@echo "... source/ui_testmode.i"
 	@echo "... source/ui_testmode.s"
+	@echo "... source/ui_tool_tapeeditor.o"
+	@echo "... source/ui_tool_tapeeditor.i"
+	@echo "... source/ui_tool_tapeeditor.s"
+	@echo "... source/ui_tool_tapeeditor_ops.o"
+	@echo "... source/ui_tool_tapeeditor_ops.i"
+	@echo "... source/ui_tool_tapeeditor_ops.s"
+	@echo "... source/ui_tool_tapeeditor_view.o"
+	@echo "... source/ui_tool_tapeeditor_view.i"
+	@echo "... source/ui_tool_tapeeditor_view.s"
 	@echo "... source/ui_tools.o"
 	@echo "... source/ui_tools.i"
 	@echo "... source/ui_tools.s"

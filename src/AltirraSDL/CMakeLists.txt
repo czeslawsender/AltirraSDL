@@ -78,6 +78,7 @@ add_executable(AltirraSDL
     source/ui_devconfig.cpp
     source/ui_devconfig_devices.cpp
     source/ui_tools.cpp
+    source/ui_keyboard_customize.cpp
 
     # Debugger pane manager and panes
     source/ui_debugger.cpp
@@ -114,6 +115,11 @@ add_executable(AltirraSDL
 
     # Light pen/gun configuration dialog
     source/ui_lightpen.cpp
+
+    # Tape Editor dialog (waveform visualization, editing, analysis)
+    source/ui_tool_tapeeditor.cpp
+    source/ui_tool_tapeeditor_view.cpp
+    source/ui_tool_tapeeditor_ops.cpp
 
     # Test mode (headless automated testing via stdin/stdout commands)
     source/ui_testmode.cpp
@@ -232,6 +238,64 @@ elseif(APPLE)
 elseif(UNIX)
     target_compile_definitions(AltirraSDL PRIVATE VD_OS_LINUX=1)
 endif()
+
+# ===========================================================================
+# Install rules — creates a self-contained distribution folder.
+#
+# Usage:
+#   cmake --install <builddir> --prefix <outdir>
+#
+# Produces:
+#   <outdir>/
+#   ├── AltirraSDL                  (binary)
+#   └── extras/                     (custom effects, sample devices, etc.)
+#       ├── customeffects/
+#       ├── sampledevices/
+#       ├── deviceserver/
+#       └── readme.txt
+#
+# The binary and extras are co-located in the same folder — matches the
+# Windows Altirra distribution layout (zip → extract → run).
+# ===========================================================================
+
+include(GNUInstallDirs)
+
+install(TARGETS AltirraSDL
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+)
+
+# Extras — custom effects, sample devices, device server scripts
+if(EXISTS "${CMAKE_SOURCE_DIR}/dist/extras")
+    install(DIRECTORY "${CMAKE_SOURCE_DIR}/dist/extras/"
+        DESTINATION "${CMAKE_INSTALL_DATADIR}/altirra/extras"
+    )
+endif()
+
+# ===========================================================================
+# Package target — builds a portable distribution folder.
+#
+# Usage:
+#   cmake --build <builddir> --target package_altirra
+#
+# Produces: <builddir>/AltirraSDL-<version>/
+#           ready to zip/tar and distribute.
+# ===========================================================================
+
+set(ALTIRRA_PKG_DIR "${CMAKE_BINARY_DIR}/AltirraSDL-${PROJECT_VERSION}")
+
+add_custom_target(package_altirra
+    DEPENDS AltirraSDL
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${ALTIRRA_PKG_DIR}"
+    COMMAND ${CMAKE_COMMAND} -E copy "$<TARGET_FILE:AltirraSDL>" "${ALTIRRA_PKG_DIR}/"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/dist/extras"
+        "${ALTIRRA_PKG_DIR}/extras"
+    # Include license file (matches Windows Altirra distribution)
+    COMMAND ${CMAKE_COMMAND} -E copy
+        "${CMAKE_SOURCE_DIR}/Copying"
+        "${ALTIRRA_PKG_DIR}/Copying"
+    COMMENT "Packaging AltirraSDL ${PROJECT_VERSION} -> ${ALTIRRA_PKG_DIR}"
+)
 
 # Per-file SIMD flags for GCC/Clang (MSVC handles this via /arch: flags)
 if(NOT MSVC AND CMAKE_SYSTEM_PROCESSOR MATCHES "(x86_64|AMD64)")

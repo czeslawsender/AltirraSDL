@@ -125,6 +125,7 @@ struct ATTapeEditorState {
 	float mZoomAccum = 0;
 	uint32 mSampleCount = 0;
 	uint32 mViewResetLock = 0;
+	float mLastViewWidth = 800.0f;
 
 	// Draw mode
 	TapeDrawMode mDrawMode = TapeDrawMode::Scroll;

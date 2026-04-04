@@ -298,7 +298,7 @@ void ATImGuiMemoryPaneImpl::RenderHexDump() {
 						}
 					}
 
-				} else if (IsBitmapMode() && mpBitmapTexture) {
+				} else if (IsBitmapMode() && GetBitmapImTextureID()) {
 					ImGui::SameLine(0, charW * 2);
 
 					// Calculate display size
@@ -351,7 +351,7 @@ void ATImGuiMemoryPaneImpl::RenderHexDump() {
 						ImVec2 uv1((float)contentW / mBitmapTexW,
 									(float)((row + 1) * rawH) / mBitmapTexH);
 
-						ImGui::Image((ImTextureID)(intptr_t)mpBitmapTexture,
+						ImGui::Image((ImTextureID)GetBitmapImTextureID(),
 							ImVec2(displayW, displayH), uv0, uv1);
 					}
 				}

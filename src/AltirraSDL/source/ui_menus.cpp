@@ -544,7 +544,8 @@ static void RenderFileMenu(ATSimulator &sim, ATUIState &state, SDL_Window *windo
 		if (ImGui::MenuItem("Tape Control..."))
 			state.showCassetteControl = true;
 
-		ImGui::MenuItem("Tape Editor...", nullptr, false, false);  // placeholder
+		if (ImGui::MenuItem("Tape Editor..."))
+			state.showTapeEditor = true;
 
 		ImGui::Separator();
 

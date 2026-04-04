@@ -16,6 +16,8 @@
 //	translating SDL scancodes to the same VK code values (ATInputCode).
 
 #include <stdafx.h>
+#include <algorithm>
+#include <unordered_map>
 #include <SDL3/SDL.h>
 #include <at/ataudio/pokey.h>
 #include "inputmanager.h"
@@ -24,6 +26,10 @@
 #include "simulator.h"
 #include "uiaccessors.h"
 #include "uikeyboard.h"
+
+// Declared in uiaccessors_stubs.cpp — provides read-only access to the sorted
+// custom key map without copying.
+extern const vdfastvector<uint32>& ATUIGetCustomKeyMapRef();
 
 // -------------------------------------------------------------------------
 // SDL scancode → Atari KBCODE mapping (POKEY direct path)
@@ -189,6 +195,10 @@ static uint32 SDLScancodeToInputCode(SDL_Scancode sc) {
 	case SDL_SCANCODE_F11: return kATInputCode_KeyF11;
 	case SDL_SCANCODE_F12: return kATInputCode_KeyF12;
 
+	// Special
+	case SDL_SCANCODE_PAUSE:    return 0x13;  // VK_PAUSE
+	case SDL_SCANCODE_CAPSLOCK: return 0x14;  // VK_CAPITAL
+
 	// Numpad
 	case SDL_SCANCODE_KP_0: return kATInputCode_KeyNumpad0;
 	case SDL_SCANCODE_KP_1: return kATInputCode_KeyNumpad1;
@@ -297,6 +307,76 @@ void ATInputSDL3_Init(ATPokeyEmulator *pokey, ATInputManager *inputMgr, ATGTIAEm
 		inputMgr->SetConsoleCallback(&g_consoleCallback);
 }
 
+// -------------------------------------------------------------------------
+// Custom key map lookup for kLM_Custom layout mode.
+// Uses the same packed uint32 format and binary search as Windows.
+// -------------------------------------------------------------------------
+
+static bool IsExtendedSDLKey(SDL_Scancode sc) {
+	switch (sc) {
+	case SDL_SCANCODE_LEFT: case SDL_SCANCODE_RIGHT:
+	case SDL_SCANCODE_UP: case SDL_SCANCODE_DOWN:
+	case SDL_SCANCODE_INSERT: case SDL_SCANCODE_DELETE:
+	case SDL_SCANCODE_HOME: case SDL_SCANCODE_END:
+	case SDL_SCANCODE_PAGEUP: case SDL_SCANCODE_PAGEDOWN:
+	case SDL_SCANCODE_KP_ENTER:
+		return true;
+	default:
+		return false;
+	}
+}
+
+static bool LookupCustomKeyMap(uint32 vk, bool shift, bool ctrl, bool alt,
+	bool extended, uint32& scanCode)
+{
+	uint32 keyInputCode = vk << 9;
+	if (shift)    keyInputCode += kATUIKeyboardMappingModifier_Shift;
+	if (ctrl)     keyInputCode += kATUIKeyboardMappingModifier_Ctrl;
+	if (alt)      keyInputCode += kATUIKeyboardMappingModifier_Alt;
+	if (extended) keyInputCode += kATUIKeyboardMappingModifier_Extended;
+
+	const auto& keyMap = ATUIGetCustomKeyMapRef();
+	auto it = std::lower_bound(keyMap.begin(), keyMap.end(), keyInputCode);
+	if (it == keyMap.end() || (*it & 0xFFFFFE00) != keyInputCode)
+		return false;
+
+	scanCode = *it & 0x1FF;
+	return true;
+}
+
+// Track which SDL scancodes have activated console switches in custom mode,
+// so we can release them on key-up regardless of modifier state.
+// Thread safety: SDL3 event callbacks are always on the main thread, same as
+// Windows WM_KEYDOWN/UP — no synchronization needed.
+static std::unordered_map<SDL_Scancode, uint32> g_customConsoleSwitches;
+
+static void HandleCustomConsoleSwitch(uint32 scanCode, bool down, SDL_Scancode sdlSc) {
+	if (!g_inputState.mpGTIA)
+		return;
+
+	uint32 switchBit = 0;
+	switch (scanCode) {
+	case kATUIKeyScanCode_Start:  switchBit = 0x01; break;
+	case kATUIKeyScanCode_Select: switchBit = 0x02; break;
+	case kATUIKeyScanCode_Option: switchBit = 0x04; break;
+	case kATUIKeyScanCode_Break:
+		if (down && g_inputState.mpPokey)
+			g_inputState.mpPokey->PushBreak();
+		return;
+	default:
+		return;
+	}
+
+	g_inputState.mpGTIA->SetConsoleSwitch(switchBit, down);
+
+	if (down)
+		g_customConsoleSwitches[sdlSc] = switchBit;
+	else
+		g_customConsoleSwitches.erase(sdlSc);
+}
+
+// -------------------------------------------------------------------------
+
 // Handle console switches (Start/Select/Option) — these are PIA/GTIA
 // buttons, not keyboard keys.  They must be held (down on press, up on
 // release) for proper behavior.
@@ -385,12 +465,6 @@ void ATInputSDL3_HandleKeyDown(const SDL_KeyboardEvent& ev) {
 	bool shift = (ev.mod & SDL_KMOD_SHIFT) != 0;
 	bool ctrl  = (ev.mod & SDL_KMOD_CTRL) != 0;
 
-	// Handle Break (Pause/Break key — Ctrl+Pause is Debug.Break in main_sdl3.cpp)
-	if (ev.scancode == SDL_SCANCODE_PAUSE) {
-		g_inputState.mpPokey->PushBreak();
-		return;
-	}
-
 	// Exclude Ctrl/Shift from POKEY path when they're input-mapped.
 	// This prevents e.g. Left Ctrl (joystick fire) from also activating
 	// Atari Ctrl.  Matches Windows ExcludeMappedCtrlShiftState().
@@ -423,6 +497,33 @@ void ATInputSDL3_HandleKeyDown(const SDL_KeyboardEvent& ev) {
 	g_inputState.mpPokey->SetShiftKeyState(shift, true);
 	g_inputState.mpPokey->SetControlKeyState(ctrl);
 
+	// Custom layout mode: use custom key map for lookup instead of
+	// hardcoded SDLScancodeToAtari() table.
+	if (g_kbdOpts.mLayoutMode == ATUIKeyboardOptions::kLM_Custom) {
+		uint32 vk = SDLScancodeToInputCode(ev.scancode);
+		if (vk != kATInputCode_None) {
+			uint32 scanCode;
+			if (LookupCustomKeyMap(vk, shift, ctrl, alt,
+					IsExtendedSDLKey(ev.scancode), scanCode)) {
+				if (scanCode >= kATUIKeyScanCodeFirst) {
+					HandleCustomConsoleSwitch(scanCode, true, ev.scancode);
+				} else {
+					// Scan code from custom map already has shift/ctrl baked in
+					g_inputState.mpPokey->PushKey((uint8)scanCode, ev.repeat);
+				}
+			}
+		}
+		return;  // Custom mode: unmapped keys do nothing
+	}
+
+	// Handle Break (Pause/Break key) for Natural/Raw modes.
+	// Ctrl+Pause is Debug.Break, handled in main_sdl3.cpp before reaching here.
+	// In Custom mode, Break is routed through the custom key map above.
+	if (ev.scancode == SDL_SCANCODE_PAUSE) {
+		g_inputState.mpPokey->PushBreak();
+		return;
+	}
+
 	uint8 atariCode = SDLScancodeToAtari(ev.scancode, shift, ctrl);
 	if (atariCode == 0xFF) return;
 
@@ -441,8 +542,57 @@ void ATInputSDL3_HandleKeyUp(const SDL_KeyboardEvent& ev) {
 			g_inputState.mpInputManager->OnButtonUp(0, inputCode);
 	}
 
-	// Console switches
+	// Release any console switches activated by custom key map, regardless of
+	// current mode — the user may have switched modes while a key was held.
+	{
+		auto it = g_customConsoleSwitches.find(ev.scancode);
+		if (it != g_customConsoleSwitches.end()) {
+			if (g_inputState.mpGTIA)
+				g_inputState.mpGTIA->SetConsoleSwitch(it->second, false);
+			g_customConsoleSwitches.erase(it);
+			return;
+		}
+	}
+
+	// Console switches (standard F2/F3/F4 path)
 	HandleConsoleSwitch(ev.scancode, false);
+}
+
+void ATInputSDL3_HandleTextInput(const char *text) {
+	// Handle character ("cooked") mode mappings in custom layout.
+	// SDL_EVENT_TEXT_INPUT fires for printable characters after key composition.
+	extern ATUIKeyboardOptions g_kbdOpts;
+	if (g_kbdOpts.mLayoutMode != ATUIKeyboardOptions::kLM_Custom)
+		return;
+
+	if (!g_inputState.mpPokey || !text || !text[0])
+		return;
+
+	// Decode first UTF-8 character (SDL3 guarantees valid UTF-8)
+	uint32 ch = 0;
+	uint8 c0 = (uint8)text[0];
+	if (c0 < 0x80)
+		ch = c0;
+	else if (c0 >= 0xC2 && c0 < 0xE0 && ((uint8)text[1] & 0xC0) == 0x80)
+		ch = ((c0 & 0x1F) << 6) | ((uint8)text[1] & 0x3F);
+	else if (c0 >= 0xE0 && c0 < 0xF0
+		&& ((uint8)text[1] & 0xC0) == 0x80 && ((uint8)text[2] & 0xC0) == 0x80)
+		ch = ((c0 & 0x0F) << 12) | (((uint8)text[1] & 0x3F) << 6) | ((uint8)text[2] & 0x3F);
+	else
+		return;
+
+	if (ch == 0 || ch > 0xFFFF)
+		return;
+
+	// Search custom map for cooked mapping
+	uint32 keyInputCode = (ch << 9) | kATUIKeyboardMappingModifier_Cooked;
+	const auto& keyMap = ATUIGetCustomKeyMapRef();
+	auto it = std::lower_bound(keyMap.begin(), keyMap.end(), keyInputCode);
+	if (it != keyMap.end() && (*it & 0xFFFFFE00) == keyInputCode) {
+		uint32 scanCode = *it & 0x1FF;
+		if (scanCode < kATUIKeyScanCodeFirst)
+			g_inputState.mpPokey->PushKey((uint8)scanCode, false);
+	}
 }
 
 void ATInputSDL3_ReleaseAllKeys() {
@@ -462,7 +612,8 @@ void ATInputSDL3_ReleaseAllKeys() {
 		g_inputState.mpPokey->ReleaseAllRawKeys(!g_kbdOpts.mbFullRawKeys);
 	}
 
-	// Release console switches
+	// Release console switches (including any custom-mapped ones)
 	if (g_inputState.mpGTIA)
 		g_inputState.mpGTIA->SetConsoleSwitch(0x07, false);
+	g_customConsoleSwitches.clear();
 }

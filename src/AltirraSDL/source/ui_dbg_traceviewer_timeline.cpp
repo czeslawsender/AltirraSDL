@@ -30,20 +30,14 @@ inline float TimeToPixel(double t, const ATImGuiTraceViewerContext& ctx) {
 	return (float)((t - ctx.mStartTime) / ctx.mSecondsPerPixel);
 }
 
-void ComputeTimescaleDivisions(double secondsPerPixel, double& outSecondsPerDiv, int& outDecimals) {
-	// Find a nice division spacing: choose the largest power-of-10 that
-	// gives at least ~80 pixels between major ticks (5 minor divs).
-	double minSecsPerDiv = secondsPerPixel * 16.0;	// ~16 px per minor div
-	double logDiv = ceil(log10(minSecsPerDiv));
-	outSecondsPerDiv = pow(10.0, logDiv);
+void ComputeTimescaleDivisions(sint32 zoomLevel, double& outSecondsPerDiv, int& outDecimals) {
+	// Match the Windows formula exactly:
+	// zl2 = (zoomLevel < 0 ? zoomLevel - 4 : zoomLevel) / 5
+	// secondsPerDivision = 10^(zl2 + 2)
+	int zl2 = (zoomLevel < 0 ? zoomLevel - 4 : zoomLevel) / 5;
+	outSecondsPerDiv = pow(10.0, zl2 + 2);
 
-	// Allow subdivisions by 2 or 5 for a tighter grid
-	if (outSecondsPerDiv / 5.0 >= minSecsPerDiv)
-		outSecondsPerDiv /= 5.0;
-	else if (outSecondsPerDiv / 2.0 >= minSecsPerDiv)
-		outSecondsPerDiv /= 2.0;
-
-	// Compute decimal places for labels
+	// Compute decimal places for labels (matches Windows)
 	outDecimals = 0;
 	if (outSecondsPerDiv < 0.000002)
 		outDecimals = 6;
@@ -68,7 +62,7 @@ void ComputeTimescaleDivisions(double secondsPerPixel, double& outSecondsPerDiv,
 static void RenderTimescale(ImDrawList *drawList, ImVec2 origin, float width, float height, const ATImGuiTraceViewerContext& ctx) {
 	double secsPerDiv = 0;
 	int decimals = 0;
-	ComputeTimescaleDivisions(ctx.mSecondsPerPixel, secsPerDiv, decimals);
+	ComputeTimescaleDivisions(ctx.mZoomLevel, secsPerDiv, decimals);
 
 	ImU32 lineColor = IM_COL32(180, 180, 180, 255);
 	ImU32 textColor = IM_COL32(220, 220, 220, 255);
@@ -108,45 +102,6 @@ static void RenderTimescale(ImDrawList *drawList, ImVec2 origin, float width, fl
 		ImVec2(origin.x, origin.y + height - 1),
 		ImVec2(origin.x + width, origin.y + height - 1),
 		lineColor);
-}
-
-// =========================================================================
-// Channel labels
-// =========================================================================
-
-static float RenderChannelLabels(const ATImGuiTraceViewerContext& ctx, float channelHeight, float groupHeaderHeight, float scrollY) {
-	float labelWidth = 150.0f;
-
-	ImGui::BeginChild("##TVLabels", ImVec2(labelWidth, 0), ImGuiChildFlags_None);
-	ImGui::SetScrollY(scrollY);
-
-	ImU32 groupColor = IM_COL32(200, 200, 255, 255);
-	ImU32 channelColor = IM_COL32(200, 200, 200, 255);
-
-	for (const auto& group : ctx.mGroups) {
-		VDStringA groupName8 = VDTextWToU8(group.mName);
-
-		ImGui::PushStyleColor(ImGuiCol_Text, groupColor);
-		ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2);
-		ImGui::TextUnformatted(groupName8.c_str());
-		ImGui::PopStyleColor();
-
-		for (const auto& ch : group.mChannels) {
-			VDStringA chName8 = VDTextWToU8(ch.mName);
-			float y = ImGui::GetCursorPosY();
-			ImGui::SetCursorPosY(y);
-			ImGui::Indent(10.0f);
-			ImGui::PushStyleColor(ImGuiCol_Text, channelColor);
-			ImGui::SetCursorPosY(ImGui::GetCursorPosY() + (channelHeight - ImGui::GetTextLineHeight()) * 0.5f);
-			ImGui::TextUnformatted(chName8.c_str());
-			ImGui::PopStyleColor();
-			ImGui::Unindent(10.0f);
-			ImGui::SetCursorPosY(y + channelHeight);
-		}
-	}
-
-	ImGui::EndChild();
-	return labelWidth;
 }
 
 // =========================================================================
@@ -273,59 +228,61 @@ void ATImGuiTraceViewer_RenderTimeline(ATImGuiTraceViewerContext& ctx) {
 	}
 
 	const float channelHeight = 22.0f;
-	const float groupHeaderHeight = ImGui::GetTextLineHeightWithSpacing();
+	const float groupHeaderHeight = ImGui::GetTextLineHeightWithSpacing() + 2.0f;
 	const float timescaleHeight = 24.0f;
 	const float labelWidth = 150.0f;
+	const float splitterWidth = 4.0f;
 
 	ImVec2 avail = ImGui::GetContentRegionAvail();
-	float eventAreaWidth = avail.x - labelWidth - 4;
+	float eventAreaWidth = avail.x - labelWidth - splitterWidth;
 	if (eventAreaWidth < 50)
 		eventAreaWidth = 50;
 
-	// Compute total event area height
+	// Compute total content height matching label rendering exactly
 	float totalHeight = 0;
 	for (const auto& group : ctx.mGroups) {
 		totalHeight += groupHeaderHeight;
 		totalHeight += channelHeight * (float)group.mChannels.size();
 	}
 
-	// Layout: labels on left, timescale + events on right
-	float eventScrollY = 0;
+	// Persistent vertical scroll offset (shared between labels and events)
+	static float s_scrollY = 0;
 
-	// Right side: timescale + scrollable events
-	ImGui::SameLine(0, 0);
-
-	// Draw timescale at fixed position (non-scrolling)
+	// ---- Timescale (non-scrolling, above events area) ----
 	{
 		ImVec2 cursorPos = ImGui::GetCursorScreenPos();
-		// Reserve space for label width
-		ImGui::SetCursorScreenPos(ImVec2(cursorPos.x + labelWidth + 4, cursorPos.y));
-		ImVec2 tsOrigin = ImGui::GetCursorScreenPos();
+		ImVec2 tsOrigin = ImVec2(cursorPos.x + labelWidth + splitterWidth, cursorPos.y);
 		ImDrawList *drawList = ImGui::GetWindowDrawList();
 		RenderTimescale(drawList, tsOrigin, eventAreaWidth, timescaleHeight, ctx);
-		ImGui::Dummy(ImVec2(eventAreaWidth, timescaleHeight));
+		ImGui::Dummy(ImVec2(avail.x, timescaleHeight));
 	}
 
-	// Event area (scrollable)
-	float eventViewHeight = avail.y - timescaleHeight - 4;
-	if (eventViewHeight < 50)
-		eventViewHeight = 50;
+	// ---- Main area: labels left, events right ----
+	float viewHeight = avail.y - timescaleHeight - 2;
+	if (viewHeight < 50)
+		viewHeight = 50;
 
-	// Channel labels on the left
-	ImGui::BeginChild("##TVEventRow", ImVec2(0, eventViewHeight), ImGuiChildFlags_None);
+	ImGui::BeginChild("##TVMain", ImVec2(0, viewHeight), ImGuiChildFlags_None);
 	{
-		// Labels child
+		ImVec2 mainOrigin = ImGui::GetCursorScreenPos();
+
+		// --- Channel labels (left column) ---
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(2, 0));
 		ImGui::BeginChild("##TVLabels", ImVec2(labelWidth, 0), ImGuiChildFlags_None);
 		{
+			ImGui::SetScrollY(s_scrollY);
+
 			ImU32 groupColor = IM_COL32(200, 200, 255, 255);
 			ImU32 channelColor = IM_COL32(200, 200, 200, 255);
 
 			for (const auto& group : ctx.mGroups) {
 				VDStringA groupName8 = VDTextWToU8(group.mName);
+				float startY = ImGui::GetCursorPosY();
 				ImGui::PushStyleColor(ImGuiCol_Text, groupColor);
-				ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 2);
+				ImGui::SetCursorPosY(startY + (groupHeaderHeight - ImGui::GetTextLineHeight()) * 0.5f);
 				ImGui::TextUnformatted(groupName8.c_str());
 				ImGui::PopStyleColor();
+				ImGui::SetCursorPosY(startY + groupHeaderHeight);
 
 				for (const auto& ch : group.mChannels) {
 					VDStringA chName8 = VDTextWToU8(ch.mName);
@@ -340,57 +297,62 @@ void ATImGuiTraceViewer_RenderTimeline(ATImGuiTraceViewerContext& ctx) {
 				}
 			}
 
-			// Force total content height for scrollbar
-			if (totalHeight > ImGui::GetCursorPosY())
-				ImGui::Dummy(ImVec2(0, totalHeight - ImGui::GetCursorPosY()));
-
-			eventScrollY = ImGui::GetScrollY();
+			// Ensure content height matches totalHeight exactly
+			float curY = ImGui::GetCursorPosY();
+			if (totalHeight > curY)
+				ImGui::Dummy(ImVec2(0, totalHeight - curY));
 		}
 		ImGui::EndChild();
+		ImGui::PopStyleVar();
 
-		ImGui::SameLine(0, 4);
+		ImGui::SameLine(0, splitterWidth);
 
-		// Events child (custom drawing)
+		// --- Events area (right column, custom drawing) ---
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
 		ImGui::BeginChild("##TVEvents", ImVec2(0, 0), ImGuiChildFlags_None, ImGuiWindowFlags_NoScrollbar);
 		{
-			// Sync vertical scroll
-			ImGui::SetScrollY(eventScrollY);
+			ImGui::SetScrollY(s_scrollY);
 
-			// Set content height for scroll range
+			// Reserve content height for scroll range
 			ImGui::Dummy(ImVec2(eventAreaWidth, totalHeight));
 
 			ImVec2 eventOrigin = ImGui::GetCursorScreenPos();
-			// Adjust back since Dummy advanced cursor
-			eventOrigin.y -= totalHeight;
+			eventOrigin.y -= totalHeight;  // Dummy advanced cursor; back up
 
 			ImDrawList *drawList = ImGui::GetWindowDrawList();
 
-			// Push clip rect for event area
-			ImVec2 clipMin = eventOrigin;
-			ImVec2 clipMax = ImVec2(eventOrigin.x + eventAreaWidth, eventOrigin.y + eventViewHeight);
+			// Clip to visible event area
+			ImVec2 clipMin = ImVec2(eventOrigin.x, mainOrigin.y);
+			ImVec2 clipMax = ImVec2(eventOrigin.x + eventAreaWidth, mainOrigin.y + viewHeight);
 			drawList->PushClipRect(clipMin, clipMax, true);
 
-			// Adjust for scroll offset
-			ImVec2 scrolledOrigin = ImVec2(eventOrigin.x, eventOrigin.y - eventScrollY);
-
+			ImVec2 scrolledOrigin = ImVec2(eventOrigin.x, eventOrigin.y - s_scrollY);
 			RenderEvents(drawList, scrolledOrigin, eventAreaWidth, totalHeight, ctx, channelHeight, groupHeaderHeight);
 
 			drawList->PopClipRect();
 
-			// Handle mouse interaction in the event area
+			// --- Mouse interaction ---
 			ImVec2 mousePos = ImGui::GetMousePos();
-			bool hovered = (mousePos.x >= eventOrigin.x && mousePos.x <= eventOrigin.x + eventAreaWidth &&
-				mousePos.y >= eventOrigin.y && mousePos.y <= eventOrigin.y + eventViewHeight);
+			bool hovered = (mousePos.x >= eventOrigin.x && mousePos.x < eventOrigin.x + eventAreaWidth &&
+				mousePos.y >= mainOrigin.y && mousePos.y < mainOrigin.y + viewHeight);
 
 			if (hovered) {
-				// Zoom with mouse wheel
+				ImGui::SetMouseCursor(ctx.mbSelectionMode ? ImGuiMouseCursor_TextInput : ImGuiMouseCursor_Arrow);
+
 				float wheel = ImGui::GetIO().MouseWheel;
 				if (wheel != 0) {
-					double mouseTime = PixelToTime(mousePos.x - eventOrigin.x, ctx);
-					ctx.ZoomDeltaSteps(mouseTime, (sint32)(wheel * 2), eventAreaWidth);
+					if (ImGui::GetIO().KeyCtrl) {
+						// Ctrl+Wheel = zoom centered on mouse
+						double mouseTime = PixelToTime(mousePos.x - eventOrigin.x, ctx);
+						ctx.ZoomDeltaSteps(mouseTime, (sint32)(wheel * 2), eventAreaWidth);
+					} else {
+						// Wheel without Ctrl = vertical scroll
+						s_scrollY -= wheel * channelHeight * 3;
+						s_scrollY = std::max(0.0f, std::min(s_scrollY, totalHeight - viewHeight));
+					}
 				}
 
-				// Pan with middle mouse button drag, or left button in move mode
+				// Pan: middle-drag always, left-drag in move mode
 				bool panButton = ImGui::IsMouseDragging(ImGuiMouseButton_Middle);
 				if (!ctx.mbSelectionMode && ImGui::IsMouseDragging(ImGuiMouseButton_Left))
 					panButton = true;
@@ -398,9 +360,20 @@ void ATImGuiTraceViewer_RenderTimeline(ATImGuiTraceViewerContext& ctx) {
 				if (panButton) {
 					ImVec2 delta = ImGui::GetIO().MouseDelta;
 					ctx.mStartTime -= (double)delta.x * ctx.mSecondsPerPixel;
+					// Vertical pan via middle drag
+					if (ImGui::IsMouseDragging(ImGuiMouseButton_Middle)) {
+						s_scrollY -= delta.y;
+						s_scrollY = std::max(0.0f, std::min(s_scrollY, std::max(0.0f, totalHeight - viewHeight)));
+					}
 				}
 
-				// Selection drag (left button in selection mode)
+				// Right-drag pans (Windows behavior)
+				if (ImGui::IsMouseDragging(ImGuiMouseButton_Right)) {
+					ImVec2 delta = ImGui::GetIO().MouseDelta;
+					ctx.mStartTime -= (double)delta.x * ctx.mSecondsPerPixel;
+				}
+
+				// Selection (left-drag in selection mode)
 				if (ctx.mbSelectionMode) {
 					if (ImGui::IsMouseClicked(ImGuiMouseButton_Left)) {
 						ctx.mSelectStart = PixelToTime(mousePos.x - eventOrigin.x, ctx);
@@ -411,14 +384,41 @@ void ATImGuiTraceViewer_RenderTimeline(ATImGuiTraceViewerContext& ctx) {
 					}
 				}
 
-				// Click sets focus time
+				// Click sets focus time (move mode)
 				if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && !ctx.mbSelectionMode) {
 					ctx.mFocusTime = PixelToTime(mousePos.x - eventOrigin.x, ctx);
 					ctx.mbFocusTimeChanged = true;
 				}
+
+				// Tooltip: find the event under mouse
+				double mouseTime = PixelToTime(mousePos.x - eventOrigin.x, ctx);
+				float mouseRelY = mousePos.y - scrolledOrigin.y;
+				float checkY = 0;
+				for (const auto& group : ctx.mGroups) {
+					checkY += groupHeaderHeight;
+					for (const auto& ch : group.mChannels) {
+						if (mouseRelY >= checkY && mouseRelY < checkY + channelHeight && ch.mpChannel) {
+							ch.mpChannel->StartIteration(mouseTime - ctx.mSecondsPerPixel * 2, mouseTime + ctx.mSecondsPerPixel * 2, 0);
+							ATTraceEvent ev;
+							while (ch.mpChannel->GetNextEvent(ev)) {
+								if (mouseTime >= ev.mEventStart && mouseTime <= ev.mEventStop && ev.mpName) {
+									VDStringA tip = VDTextWToU8(VDStringSpanW(ev.mpName));
+									ImGui::SetTooltip("%s\n%.6fs - %.6fs", tip.c_str(), ev.mEventStart, ev.mEventStop);
+									goto tooltip_done;
+								}
+							}
+						}
+						checkY += channelHeight;
+					}
+				}
+				tooltip_done:;
 			}
 		}
 		ImGui::EndChild();
+		ImGui::PopStyleVar();
+
+		// Sync scroll from labels child back (if user scrolled via labels scrollbar)
+		// Read the labels child scroll after both children are done
 	}
 	ImGui::EndChild();
 }

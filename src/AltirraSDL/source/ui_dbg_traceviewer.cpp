@@ -5,6 +5,7 @@
 #include <cmath>
 #include <SDL3/SDL.h>
 #include <imgui.h>
+#include <imgui_internal.h>
 #include <vd2/system/vdtypes.h>
 #include <vd2/system/VDString.h>
 #include <vd2/system/refcount.h>
@@ -34,13 +35,14 @@ vdrefptr<ATTraceCollection> ATLoadTraceFromAtari800(const wchar_t *file);
 // =========================================================================
 
 void ATImGuiTraceViewerContext::ZoomDeltaSteps(double centerTime, sint32 steps, float viewWidthPixels) {
-	sint32 newLevel = std::clamp(mZoomLevel + steps, -40, 0);
+	// Positive steps = zoom in (lower zoom level = more zoomed in)
+	sint32 newLevel = std::clamp(mZoomLevel - steps, -40, 0);
 	if (newLevel == mZoomLevel)
 		return;
 
 	double oldSecsPerPixel = mSecondsPerPixel;
 	mZoomLevel = newLevel;
-	mSecondsPerPixel = pow(10.0, mZoomLevel / 5.0);
+	mSecondsPerPixel = pow(10.0, (double)mZoomLevel / 5.0);
 
 	// Keep centerTime at the same pixel position
 	if (viewWidthPixels > 0) {
@@ -63,6 +65,7 @@ private:
 	void SetCollection(ATTraceCollection *coll);
 	void RebuildViews();
 	void StartStopTracing();
+	void StartNativeTrace();
 
 	void DoLoad();
 	void DoSave();
@@ -105,8 +108,16 @@ bool ATImGuiTraceViewerPane::Render() {
 	ImGui::SetNextWindowSize(ImVec2(900, 600), ImGuiCond_Appearing);
 	ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(), ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 
+	// Build window title with loaded trace name; use ### for stable ImGui ID
+	VDStringA windowTitle("Performance Analyzer");
+	if (!mTraceName.empty()) {
+		VDStringA traceName8 = VDTextWToU8(mTraceName);
+		windowTitle.append_sprintf(" - %s", traceName8.c_str());
+	}
+	windowTitle += "###PerfAnalyzer";
+
 	ImGuiWindowFlags flags = ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar;
-	if (!ImGui::Begin(mTitle.c_str(), &open, flags)) {
+	if (!ImGui::Begin(windowTitle.c_str(), &open, flags)) {
 		ImGui::End();
 		return open;
 	}
@@ -168,6 +179,8 @@ void ATImGuiTraceViewerPane::RenderMenuBar() {
 		const char *traceLabel = mContext.mbRecording ? "Stop Trace" : "Start Trace";
 		if (ImGui::MenuItem(traceLabel))
 			StartStopTracing();
+		if (ImGui::MenuItem("Start Native Trace", nullptr, false, !mContext.mbRecording))
+			StartNativeTrace();
 
 		ImGui::Separator();
 		ImGui::SeparatorText("Settings");
@@ -204,7 +217,7 @@ void ATImGuiTraceViewerPane::RenderToolbar() {
 		mContext.ZoomDeltaSteps(mContext.mStartTime + ImGui::GetContentRegionAvail().x * 0.5 * mContext.mSecondsPerPixel, -2, ImGui::GetContentRegionAvail().x);
 
 	ImGui::SameLine();
-	ImGui::Separator();
+	ImGui::SeparatorEx(ImGuiSeparatorFlags_Vertical);
 	ImGui::SameLine();
 
 	if (ImGui::RadioButton("Select", mContext.mbSelectionMode))
@@ -212,8 +225,6 @@ void ATImGuiTraceViewerPane::RenderToolbar() {
 	ImGui::SameLine();
 	if (ImGui::RadioButton("Move", !mContext.mbSelectionMode))
 		mContext.mbSelectionMode = false;
-
-	ImGui::Separator();
 }
 
 // =========================================================================
@@ -317,6 +328,16 @@ void ATImGuiTraceViewerPane::StartStopTracing() {
 		SetCollection(newColl);
 		mTraceName.sprintf(L"Captured Trace %d", ++mCapturedTraceIndex);
 	}
+}
+
+void ATImGuiTraceViewerPane::StartNativeTrace() {
+	mContext.mbRecording = true;
+	SetCollection(nullptr);
+
+	ATNativeTraceSettings nts;
+	nts.mbAutoLimitTraceMemory = mContext.mSettings.mbAutoLimitTraceMemory;
+	g_sim.StartNativeTracing(nts);
+	g_sim.Resume();
 }
 
 // =========================================================================
@@ -716,12 +737,12 @@ void ATImGuiTraceViewerPane::RenderMemoryStatisticsPopup() {
 	ImGui::SetNextWindowSize(ImVec2(500, 300), ImGuiCond_Appearing);
 	ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(), ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
 
-	if (ImGui::Begin("Memory Statistics", &mbShowMemStats, ImGuiWindowFlags_NoSavedSettings)) {
+	if (ImGui::Begin("Memory Statistics###MemStats", &mbShowMemStats, ImGuiWindowFlags_NoSavedSettings)) {
 		if (mContext.mpCollection) {
 			const size_t numGroups = mContext.mpCollection->GetGroupCount();
 			for (size_t i = 0; i < numGroups; ++i) {
 				ATTraceGroup *group = mContext.mpCollection->GetGroup(i);
-				const wchar_t *groupName = group->GetName();
+				VDStringA groupName8 = VDTextWToU8(VDStringSpanW(group->GetName()));
 
 				const size_t channelCount = group->GetChannelCount();
 				for (size_t j = 0; j < channelCount; ++j) {
@@ -729,10 +750,11 @@ void ATImGuiTraceViewerPane::RenderMemoryStatisticsPopup() {
 					if (channel->IsEmpty())
 						continue;
 
+					VDStringA channelName8 = VDTextWToU8(VDStringSpanW(channel->GetName()));
 					const uint64 traceSize = channel->GetTraceSize();
 					VDStringA line;
-					line.sprintf("%ls:%ls: %.1fMB",
-						groupName, channel->GetName(), (double)traceSize / 1048576.0);
+					line.sprintf("%s:%s: %.1fMB",
+						groupName8.c_str(), channelName8.c_str(), (double)traceSize / 1048576.0);
 
 					auto *cpuChannel = vdpoly_cast<ATTraceChannelCPUHistory *>(channel);
 					if (cpuChannel) {

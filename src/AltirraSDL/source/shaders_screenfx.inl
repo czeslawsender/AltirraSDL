@@ -24,6 +24,11 @@ uniform sampler2D uGammaTex;     // 256x1 gamma ramp LUT
 
 #ifdef FEAT_SCANLINES
 uniform sampler2D uScanlineTex;  // 1xH scanline mask
+#endif
+
+// UV transform for scanline/mask lookup — maps viewport UV to window UV.
+// Needed whenever scanlines or mask are active.
+#if defined(FEAT_SCANLINES) || defined(FEAT_DOT_MASK)
 uniform vec4 uScanlineInfo;      // xy = UV scale, zw = UV offset
 #endif
 
@@ -61,13 +66,20 @@ void main() {
 
 #ifdef FEAT_DISTORTION
 	// CRT barrel distortion — fragment shader UV warp
-	// Map from screen [0,1] to centered [-0.5,+0.5]
-	vec2 v = uv - vec2(0.5);
-	vec2 v2 = v * uDistortionScales.xy;
-	float r2 = dot(v2, v2);
-	float scale = sqrt(uDistortionScales.z / (1.0 + r2));
-	uv = v * scale + vec2(0.5);
-	uvScanMask = uv;
+	// This is the screen-to-image (inverse) mapping: given a screen
+	// position, compute the source image UV.  The forward mapping
+	// (image-to-screen) is used in the D3D9 vertex shader; the inverse
+	// is needed here because we work per-fragment.
+	//
+	// See VDDisplayDistortionMapping::MapScreenToImage() for derivation.
+	{
+		vec2 v = uv - vec2(0.5);
+		vec2 v2 = v * uDistortionScales.xy;
+		float d = max(1e-5, uDistortionScales.z - dot(v2, v2));
+		uv = v / sqrt(d) + vec2(0.5);
+	}
+	// uvScanMask stays as the original screen UV — the mask/scanline
+	// pattern is screen-aligned and must not follow the distortion.
 
 	// Discard pixels outside the distorted image boundary
 	if (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
@@ -76,7 +88,10 @@ void main() {
 	}
 #endif
 
-#ifdef FEAT_SCANLINES
+	// Map viewport UV [0,1] to window-space UV for scanline/mask textures.
+	// In D3D9 this is always computed in the vertex shader; here it must
+	// run whenever scanlines or mask are active.
+#if defined(FEAT_SCANLINES) || defined(FEAT_DOT_MASK)
 	uvScanMask = uvScanMask * uScanlineInfo.xy + uScanlineInfo.zw;
 #endif
 

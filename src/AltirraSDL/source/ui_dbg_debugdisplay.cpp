@@ -14,6 +14,8 @@
 #include <vd2/Kasumi/pixmap.h>
 #include <vd2/Kasumi/pixmaputils.h>
 #include "ui_debugger.h"
+#include "display_backend.h"
+#include "gl_helpers.h"
 #include "console.h"
 #include "debugger.h"
 #include "debugdisplay.h"
@@ -109,6 +111,7 @@ private:
 	ATDebugDisplayImGui mDebugDisplay;
 
 	SDL_Texture *mpTexture = nullptr;
+	uint32 mGLTexture = 0;	// GLuint for OpenGL backend
 	bool mbNeedsRebuild = true;
 
 	// Address bar inputs
@@ -138,6 +141,10 @@ ATImGuiDebugDisplayPaneImpl::~ATImGuiDebugDisplayPaneImpl() {
 		SDL_DestroyTexture(mpTexture);
 		mpTexture = nullptr;
 	}
+	if (mGLTexture) {
+		glDeleteTextures(1, &mGLTexture);
+		mGLTexture = 0;
+	}
 }
 
 void ATImGuiDebugDisplayPaneImpl::OnDebuggerSystemStateUpdate(const ATDebuggerSystemState& state) {
@@ -163,40 +170,63 @@ void ATImGuiDebugDisplayPaneImpl::UpdateTexture() {
 	if (buf.w <= 0 || buf.h <= 0)
 		return;
 
-	// Create or recreate texture if needed
-	if (!mpTexture) {
-		SDL_Renderer *renderer = SDL_GetRenderer(g_pWindow);
-		if (!renderer) return;
-		mpTexture = SDL_CreateTexture(
-			renderer,
-			SDL_PIXELFORMAT_ARGB8888,
-			SDL_TEXTUREACCESS_STREAMING,
-			kDisplayW, kDisplayH
-		);
-		if (!mpTexture) return;
-	}
+	IDisplayBackend *backend = ATUIGetDisplayBackend();
+	bool useGL = backend && backend->GetType() == DisplayBackendType::OpenGL33;
 
-	// Lock texture and convert Pal8 → ARGB8888
-	void *pixels = nullptr;
-	int pitch = 0;
-	if (!SDL_LockTexture(mpTexture, nullptr, &pixels, &pitch))
-		return;
+	// Convert Pal8 → ARGB8888 into a temporary buffer
+	std::vector<uint32> pixelBuf(kDisplayW * kDisplayH, 0xFF000000u);
 
 	const uint8 *src = (const uint8 *)buf.data;
 	int srcPitch = buf.pitch;
 
 	for (int y = 0; y < kDisplayH && y < buf.h; ++y) {
 		const uint8 *srcRow = src + y * srcPitch;
-		uint32 *dstRow = (uint32 *)((uint8 *)pixels + y * pitch);
+		uint32 *dstRow = &pixelBuf[y * kDisplayW];
 		int w = std::min((int)buf.w, kDisplayW);
 
 		for (int x = 0; x < w; ++x) {
 			uint8 idx = srcRow[x];
-			dstRow[x] = palette[idx] | 0xFF000000u;  // ensure full alpha
+			dstRow[x] = palette[idx] | 0xFF000000u;
 		}
 	}
 
-	SDL_UnlockTexture(mpTexture);
+	if (useGL) {
+		if (!mGLTexture) {
+			mGLTexture = GLCreateTexture2D(
+				kDisplayW, kDisplayH,
+				GL_RGBA8, GL_BGRA, GL_UNSIGNED_INT_8_8_8_8_REV,
+				pixelBuf.data(), false);
+		} else {
+			glBindTexture(GL_TEXTURE_2D, mGLTexture);
+			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, kDisplayW, kDisplayH,
+				GL_BGRA, GL_UNSIGNED_INT_8_8_8_8_REV, pixelBuf.data());
+		}
+	} else {
+		if (!mpTexture) {
+			SDL_Renderer *renderer = SDL_GetRenderer(g_pWindow);
+			if (!renderer) return;
+			mpTexture = SDL_CreateTexture(
+				renderer,
+				SDL_PIXELFORMAT_ARGB8888,
+				SDL_TEXTUREACCESS_STREAMING,
+				kDisplayW, kDisplayH
+			);
+			if (!mpTexture) return;
+		}
+
+		void *pixels = nullptr;
+		int pitch = 0;
+		if (!SDL_LockTexture(mpTexture, nullptr, &pixels, &pitch))
+			return;
+
+		for (int y = 0; y < kDisplayH; ++y) {
+			memcpy((uint8 *)pixels + y * pitch,
+				   &pixelBuf[y * kDisplayW],
+				   kDisplayW * 4);
+		}
+
+		SDL_UnlockTexture(mpTexture);
+	}
 }
 
 bool ATImGuiDebugDisplayPaneImpl::Render() {
@@ -274,7 +304,10 @@ bool ATImGuiDebugDisplayPaneImpl::Render() {
 		RebuildDisplay();
 
 	// Render the display texture
-	if (mpTexture) {
+	void *texID = mpTexture ? (void *)(intptr_t)mpTexture
+			   : mGLTexture ? (void *)(intptr_t)mGLTexture
+			   : nullptr;
+	if (texID) {
 		ImVec2 avail = ImGui::GetContentRegionAvail();
 		if (avail.x > 0 && avail.y > 0) {
 			// Maintain aspect ratio
@@ -290,7 +323,7 @@ bool ATImGuiDebugDisplayPaneImpl::Render() {
 			float offsetY = (avail.y - drawH) * 0.5f;
 			if (offsetX > 0) ImGui::SetCursorPosX(ImGui::GetCursorPosX() + offsetX);
 			if (offsetY > 0) ImGui::SetCursorPosY(ImGui::GetCursorPosY() + offsetY);
-			ImGui::Image((ImTextureID)(intptr_t)mpTexture, ImVec2(drawW, drawH));
+			ImGui::Image((ImTextureID)texID, ImVec2(drawW, drawH));
 		}
 	} else {
 		ImGui::TextDisabled("(no debug display available)");

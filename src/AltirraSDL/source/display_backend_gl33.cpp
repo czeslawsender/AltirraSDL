@@ -497,6 +497,7 @@ void DisplayBackendGL33::UpdateLookupTextures() {
 		// D3D9 conditionally sets useInputConversion: true when color correction
 		// is active or screen mask is enabled, false for gamma-only correction.
 		const bool useInputConversion = hasColorCorrect || hasMask;
+
 		VDDisplayCreateGammaRamp(mLookupBuffer.data(), 256,
 			useInputConversion, mScreenFX.mOutputGamma, mScreenFX.mGamma);
 
@@ -569,16 +570,23 @@ void DisplayBackendGL33::UpdateLookupTextures() {
 		}
 
 		if (maskW > 0 && maskH > 0) {
+			// The mask generation functions (VDDisplayCreate*Texture) produce
+			// uint32 pixels in D3D BGRA convention (0x00RRGGBB on little-endian).
+			// Upload as GL_BGRA so the channels map correctly to the GL_RGBA8
+			// internal format.
 			if (!mMaskTexture || mMaskTexW != maskW || mMaskTexH != maskH) {
 				if (mMaskTexture) glDeleteTextures(1, &mMaskTexture);
-				mMaskTexture = GLCreateTexture2D(maskW, maskH, GL_RGBA8, GL_RGBA,
-					GL_UNSIGNED_BYTE, mLookupBuffer.data(), true);
+				// D3D9 uses POINT filtering for the mask texture — pass false
+				// for linear to use GL_NEAREST.  This preserves sharp phosphor
+				// boundaries and matches the Windows rendering exactly.
+				mMaskTexture = GLCreateTexture2D(maskW, maskH, GL_RGBA8, GL_BGRA,
+					GL_UNSIGNED_BYTE, mLookupBuffer.data(), false);
 				mMaskTexW = maskW;
 				mMaskTexH = maskH;
 			} else {
 				glBindTexture(GL_TEXTURE_2D, mMaskTexture);
 				glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, maskW, maskH,
-					GL_RGBA, GL_UNSIGNED_BYTE, mLookupBuffer.data());
+					GL_BGRA, GL_UNSIGNED_BYTE, mLookupBuffer.data());
 			}
 		}
 	}
@@ -779,11 +787,16 @@ void DisplayBackendGL33::RenderScreenFX(float dstX, float dstY, float dstW, floa
 		glUniform4f(u.uSharpnessInfo, snapScaleX, snapScaleY, uvScaleX, uvScaleY);
 	}
 
-	if ((features & kSFX_Scanlines) && u.uScanlineInfo >= 0) {
-		// Scanline UV transform: map destination Y to scanline texture V
+	if ((features & (kSFX_Scanlines | kSFX_DotMask)) && u.uScanlineInfo >= 0) {
+		// Scanline/mask UV transform: map viewport UV [0,1] to window UV.
+		// In D3D9 this is always set in the VS constants; here we set it
+		// whenever scanlines or mask are active (the shader declares the
+		// uniform under either feature).
+		float scaleX = dstW / mWinW;
 		float scaleY = dstH / mWinH;
+		float offsetX = dstX / mWinW;
 		float offsetY = dstY / mWinH;
-		glUniform4f(u.uScanlineInfo, 1.0f, scaleY, 0.0f, offsetY);
+		glUniform4f(u.uScanlineInfo, scaleX, scaleY, offsetX, offsetY);
 	}
 
 	if ((features & kSFX_ColorCorrect) && u.uColorCorrectM0 >= 0) {

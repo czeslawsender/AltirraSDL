@@ -34,6 +34,7 @@ struct HistoryState {
 	vdfastvector<ATCPUHistoryEntry> mEntries;
 	uint32 mFocusEntryIndex = 0;
 	bool mbValid = false;
+	bool mbScrollToFocus = false;
 };
 
 static HistoryState s_histState;
@@ -77,6 +78,8 @@ struct LogState {
 	bool mbValid = false;
 	int mTimestampMode = 2;		// 0=none, 1=beam, 2=cycle, 3=microseconds
 	IATTraceChannel *mpLastChannel = nullptr;
+	double mTimestampOrigin = 0;	// offset for relative timestamps
+	int mSelectedRow = -1;
 };
 
 static LogState s_logState;
@@ -129,6 +132,7 @@ static void RenderCPUHistory(ATImGuiTraceViewerContext& ctx) {
 
 			s_histState.mFocusEntryIndex = relFocusIdx;
 			s_histState.mbValid = !s_histState.mEntries.empty();
+			s_histState.mbScrollToFocus = s_histState.mbValid;
 		}
 
 		ctx.mbFocusTimeChanged = false;
@@ -148,7 +152,7 @@ static void RenderCPUHistory(ATImGuiTraceViewerContext& ctx) {
 		ImGui::TableSetupScrollFreeze(0, 1);
 		ImGui::TableSetupColumn("Cycle", ImGuiTableColumnFlags_WidthFixed, 70);
 		ImGui::TableSetupColumn("PC", ImGuiTableColumnFlags_WidthFixed, 50);
-		ImGui::TableSetupColumn("Opcode", ImGuiTableColumnFlags_WidthFixed, 80);
+		ImGui::TableSetupColumn("Instruction", ImGuiTableColumnFlags_WidthFixed, 200);
 		ImGui::TableSetupColumn("A", ImGuiTableColumnFlags_WidthFixed, 30);
 		ImGui::TableSetupColumn("X", ImGuiTableColumnFlags_WidthFixed, 30);
 		ImGui::TableSetupColumn("Y", ImGuiTableColumnFlags_WidthFixed, 30);
@@ -211,10 +215,13 @@ static void RenderCPUHistory(ATImGuiTraceViewerContext& ctx) {
 			}
 		}
 
-		// Auto-scroll to focus entry
-		if (ctx.mFocusTime != s_histState.mLastFocusTime || s_histState.mFocusEntryIndex > 0) {
+		// Auto-scroll to focus entry (only once after rebuild)
+		if (s_histState.mbScrollToFocus) {
+			s_histState.mbScrollToFocus = false;
 			float itemHeight = ImGui::GetTextLineHeightWithSpacing();
-			ImGui::SetScrollY(s_histState.mFocusEntryIndex * itemHeight - ImGui::GetWindowHeight() * 0.5f);
+			float targetY = s_histState.mFocusEntryIndex * itemHeight - ImGui::GetWindowHeight() * 0.5f;
+			if (targetY < 0) targetY = 0;
+			ImGui::SetScrollY(targetY);
 		}
 
 		ImGui::EndTable();
@@ -258,7 +265,9 @@ static void BuildProfile(ATImGuiTraceViewerContext& ctx) {
 
 	// Open a single frame for the whole range
 	const ATCPUHistoryEntry *firstHents[1];
-	cpuCh.ReadHistoryEvents(cursor, firstHents, startIdx, 1);
+	if (cpuCh.ReadHistoryEvents(cursor, firstHents, startIdx, 1) == 0)
+		return;
+	builder.SetS(firstHents[0]->mS);
 	builder.OpenFrame(firstHents[0]->mCycle, firstHents[0]->mCycle, tsDecoder);
 
 	const ATCPUHistoryEntry *hents[257];
@@ -348,7 +357,7 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 		s_profState.mLastSelectEnd = ctx.mSelectEnd;
 	}
 
-	if (s_profState.mbNeedsRefresh)
+	if (s_profState.mbNeedsRefresh && ctx.mpCPUHistoryChannel && ctx.mpCPUHistoryChannel->GetEventCount() > 0)
 		BuildProfile(ctx);
 
 	if (!s_profState.mbValid) {
@@ -463,6 +472,63 @@ static void RebuildLogEntries(ATImGuiTraceViewerContext& ctx) {
 	s_logState.mbValid = true;
 }
 
+static void FormatLogTimestamp(char *buf, size_t bufSize, double time, int mode, const ATImGuiTraceViewerContext& ctx) {
+	double relTime = time - s_logState.mTimestampOrigin;
+
+	switch (mode) {
+		case 0:		// None
+			buf[0] = 0;
+			break;
+		case 1: {	// Beam position: (Frame:Y,X)
+			if (ctx.mpCPUHistoryChannel) {
+				uint32 cycle = (uint32)(time / ctx.mpCPUHistoryChannel->GetSecondsPerTick());
+				ATCPUBeamPosition bp = ctx.mTimestampDecoder.GetBeamPosition(cycle);
+				snprintf(buf, bufSize, "(%u:%u,%u)", bp.mFrame, bp.mY, bp.mX);
+			} else {
+				buf[0] = 0;
+			}
+			break;
+		}
+		case 2:		// Cycle: (T[relative_cycles])
+			if (ctx.mpCPUHistoryChannel) {
+				double secsPerTick = ctx.mpCPUHistoryChannel->GetSecondsPerTick();
+				sint64 relCycles = (sint64)(relTime / secsPerTick);
+				snprintf(buf, bufSize, "(T%+lld)", (long long)relCycles);
+			} else {
+				snprintf(buf, bufSize, "%.6f", relTime);
+			}
+			break;
+		case 3:		// Microseconds: (seconds.microseconds)
+			snprintf(buf, bufSize, "(%.6f)", relTime);
+			break;
+		default:
+			buf[0] = 0;
+			break;
+	}
+}
+
+static void CopyLogEntries(const ATImGuiTraceViewerContext& ctx, bool allEntries, int selectedRow) {
+	VDStringA result;
+	char tsBuf[64];
+
+	for (int i = 0; i < (int)s_logState.mEntries.size(); ++i) {
+		if (!allEntries && i != selectedRow)
+			continue;
+
+		const auto& entry = s_logState.mEntries[i];
+		if (s_logState.mTimestampMode > 0) {
+			FormatLogTimestamp(tsBuf, sizeof(tsBuf), entry.mTime, s_logState.mTimestampMode, ctx);
+			result += tsBuf;
+			result += ' ';
+		}
+		result += entry.mName;
+		result += '\n';
+	}
+
+	if (!result.empty())
+		SDL_SetClipboardText(result.c_str());
+}
+
 static void RenderLog(ATImGuiTraceViewerContext& ctx) {
 	if (!ctx.mpLogChannel) {
 		ImGui::TextUnformatted("No log channel in this trace.");
@@ -473,74 +539,100 @@ static void RenderLog(ATImGuiTraceViewerContext& ctx) {
 	if (ctx.mpLogChannel != s_logState.mpLastChannel)
 		RebuildLogEntries(ctx);
 
-	// Timestamp mode selector
-	const char *tsModes[] = { "None", "Beam Position", "Cycle", "Microseconds" };
-	ImGui::Combo("Timestamp", &s_logState.mTimestampMode, tsModes, 4);
-
-	ImGui::SameLine();
-	if (ImGui::Button("Copy All")) {
-		VDStringA all;
-		for (const auto& entry : s_logState.mEntries) {
-			if (s_logState.mTimestampMode == 2)
-				all.append_sprintf("%.6f  ", entry.mTime);
-			else if (s_logState.mTimestampMode == 3)
-				all.append_sprintf("%.2f us  ", entry.mTime * 1000000.0);
-			all += entry.mName;
-			all += '\n';
-		}
-		SDL_SetClipboardText(all.c_str());
-	}
-
 	if (!s_logState.mbValid) {
 		RebuildLogEntries(ctx);
 		if (!s_logState.mbValid)
 			return;
 	}
 
+	// Timestamp mode selector
+	const char *tsModes[] = { "None", "Beam Position", "Cycle", "Microseconds" };
+	ImGui::Combo("Timestamp", &s_logState.mTimestampMode, tsModes, 4);
+
+	ImGui::SameLine();
+	if (ImGui::Button("Copy Selected"))
+		CopyLogEntries(ctx, false, s_logState.mSelectedRow);
+	ImGui::SameLine();
+	if (ImGui::Button("Copy All"))
+		CopyLogEntries(ctx, true, -1);
+	ImGui::SameLine();
+	if (ImGui::Button("Reset Origin"))
+		s_logState.mTimestampOrigin = 0;
+
 	ImGuiTableFlags tableFlags = ImGuiTableFlags_ScrollY | ImGuiTableFlags_RowBg
 		| ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_Resizable;
 
 	if (ImGui::BeginTable("##LogTable", 2, tableFlags)) {
 		ImGui::TableSetupScrollFreeze(0, 1);
-		ImGui::TableSetupColumn("Time", ImGuiTableColumnFlags_WidthFixed, 120);
+		ImGui::TableSetupColumn("Time", ImGuiTableColumnFlags_WidthFixed, 150);
 		ImGui::TableSetupColumn("Event", ImGuiTableColumnFlags_WidthStretch);
 		ImGui::TableHeadersRow();
+
+		char tsBuf[64];
 
 		ImGuiListClipper clipper;
 		clipper.Begin((int)s_logState.mEntries.size());
 		while (clipper.Step()) {
 			for (int row = clipper.DisplayStart; row < clipper.DisplayEnd; ++row) {
 				const auto& entry = s_logState.mEntries[row];
+				bool isSelected = (row == s_logState.mSelectedRow);
 
 				ImGui::TableNextRow();
+
+				if (isSelected)
+					ImGui::TableSetBgColor(ImGuiTableBgTarget_RowBg1, IM_COL32(60, 60, 100, 255));
+
+				// Timestamp column
 				ImGui::TableSetColumnIndex(0);
+				FormatLogTimestamp(tsBuf, sizeof(tsBuf), entry.mTime, s_logState.mTimestampMode, ctx);
+				ImGui::TextUnformatted(tsBuf);
 
-				switch (s_logState.mTimestampMode) {
-					case 0:		// None
-						break;
-					case 1: {	// Beam position
-						uint32 cycle = (uint32)(entry.mTime / ctx.mpCPUHistoryChannel->GetSecondsPerTick());
-						ATCPUBeamPosition bp = ctx.mTimestampDecoder.GetBeamPosition(cycle);
-						ImGui::Text("%u:%u", bp.mFrame, bp.mY * 114 + bp.mX);
-						break;
-					}
-					case 2:		// Cycle
-						ImGui::Text("%.6f", entry.mTime);
-						break;
-					case 3:		// Microseconds
-						ImGui::Text("%.2f us", entry.mTime * 1000000.0);
-						break;
-				}
-
+				// Event column
 				ImGui::TableSetColumnIndex(1);
 				ImGui::TextUnformatted(entry.mName.c_str());
 
-				// Double-click to navigate
-				if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
-					ctx.mFocusTime = entry.mTime;
-					ctx.mbFocusTimeChanged = true;
+				// Row interaction
+				if (ImGui::IsItemHovered()) {
+					if (ImGui::IsMouseClicked(ImGuiMouseButton_Left))
+						s_logState.mSelectedRow = row;
+
+					// Double-click to navigate timeline
+					if (ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left)) {
+						ctx.mFocusTime = entry.mTime;
+						ctx.mbFocusTimeChanged = true;
+					}
+
+					// Right-click context menu
+					if (ImGui::IsMouseClicked(ImGuiMouseButton_Right)) {
+						s_logState.mSelectedRow = row;
+						ImGui::OpenPopup("LogContextMenu");
+					}
 				}
 			}
+		}
+
+		// Context menu
+		if (ImGui::BeginPopup("LogContextMenu")) {
+			if (ImGui::MenuItem("Copy Selected", nullptr, false, s_logState.mSelectedRow >= 0))
+				CopyLogEntries(ctx, false, s_logState.mSelectedRow);
+			if (ImGui::MenuItem("Copy All", nullptr, false, !s_logState.mEntries.empty()))
+				CopyLogEntries(ctx, true, -1);
+
+			ImGui::Separator();
+
+			if (ImGui::MenuItem("Reset Timestamp Origin"))
+				s_logState.mTimestampOrigin = 0;
+			if (ImGui::MenuItem("Set Timestamp Origin", nullptr, false, s_logState.mSelectedRow >= 0 && s_logState.mSelectedRow < (int)s_logState.mEntries.size()))
+				s_logState.mTimestampOrigin = s_logState.mEntries[s_logState.mSelectedRow].mTime;
+
+			ImGui::Separator();
+
+			for (int m = 0; m < 4; ++m) {
+				if (ImGui::MenuItem(tsModes[m], nullptr, s_logState.mTimestampMode == m))
+					s_logState.mTimestampMode = m;
+			}
+
+			ImGui::EndPopup();
 		}
 
 		ImGui::EndTable();

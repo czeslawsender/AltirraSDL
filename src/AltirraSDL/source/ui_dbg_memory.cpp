@@ -9,6 +9,7 @@
 #include <at/atcore/address.h>
 #include <at/atdebugger/target.h>
 #include "ui_dbg_memory.h"
+#include "gl_helpers.h"
 #include "console.h"
 #include "debugger.h"
 #include "simulator.h"
@@ -37,6 +38,10 @@ ATImGuiMemoryPaneImpl::~ATImGuiMemoryPaneImpl() {
 	if (mpBitmapTexture) {
 		SDL_DestroyTexture(mpBitmapTexture);
 		mpBitmapTexture = nullptr;
+	}
+	if (mBitmapGLTexture) {
+		glDeleteTextures(1, &mBitmapGLTexture);
+		mBitmapGLTexture = 0;
 	}
 }
 

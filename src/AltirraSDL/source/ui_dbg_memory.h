@@ -137,10 +137,16 @@ public:
 	// Zoom
 	float mZoomFactor = 1.0f;
 
-	// Bitmap interpretation texture
+	// Bitmap interpretation texture — dual backend support
+	// For SDL_Renderer backend: mpBitmapTexture is used.
+	// For OpenGL backend: mBitmapGLTexture is used.
 	SDL_Texture *mpBitmapTexture = nullptr;
+	uint32 mBitmapGLTexture = 0;	// GLuint — 0 means not allocated
 	int mBitmapTexW = 0;
 	int mBitmapTexH = 0;
+
+	// Returns the bitmap texture as an ImTextureID (backend-aware).
+	void *GetBitmapImTextureID() const;
 
 	// Address space selection
 	static constexpr struct { const char *name; uint32 base; } kAddressSpaces[] = {

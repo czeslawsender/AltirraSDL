@@ -13,6 +13,8 @@
 #include <vd2/Kasumi/pixmaputils.h>
 
 #include "ui_main.h"
+#include "display_backend.h"
+#include "gl_helpers.h"
 #include "simulator.h"
 #include "autosavemanager.h"
 
@@ -24,6 +26,7 @@ static vdvector<vdrefptr<IATAutoSaveView>> s_rewindSaves;
 static int s_rewindIndex = 0;
 static int s_previewLastIndex = -1;     // track which save was last uploaded
 static SDL_Texture *s_previewSDLTexture = nullptr;
+static uint32 s_previewGLTexture = 0;
 static int s_previewTexW = 0;
 static int s_previewTexH = 0;
 static bool s_rewindJustOpened = false;
@@ -33,6 +36,10 @@ static void CleanupPreviewTexture() {
 	if (s_previewSDLTexture) {
 		SDL_DestroyTexture(s_previewSDLTexture);
 		s_previewSDLTexture = nullptr;
+	}
+	if (s_previewGLTexture) {
+		glDeleteTextures(1, &s_previewGLTexture);
+		s_previewGLTexture = 0;
 	}
 	s_previewTexW = 0;
 	s_previewTexH = 0;
@@ -46,41 +53,72 @@ static ImTextureID UpdatePreviewTexture(int saveIndex, const VDPixmap *px) {
 		return (ImTextureID)nullptr;
 	}
 
-	SDL_Renderer *renderer = SDL_GetRenderer(g_pWindow);
-	if (!renderer)
-		return (ImTextureID)nullptr;
+	IDisplayBackend *backend = ATUIGetDisplayBackend();
+	bool useGL = backend && backend->GetType() == DisplayBackendType::OpenGL33;
 
-	bool needsAlloc = (!s_previewSDLTexture || s_previewTexW != px->w || s_previewTexH != px->h);
+	bool needsAlloc = (s_previewTexW != px->w || s_previewTexH != px->h);
+	if (useGL)
+		needsAlloc = needsAlloc || !s_previewGLTexture;
+	else
+		needsAlloc = needsAlloc || !s_previewSDLTexture;
+
 	if (needsAlloc) {
 		CleanupPreviewTexture();
-		s_previewSDLTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_XRGB8888,
-			SDL_TEXTUREACCESS_STREAMING, px->w, px->h);
-		if (!s_previewSDLTexture)
-			return (ImTextureID)nullptr;
 		s_previewTexW = px->w;
 		s_previewTexH = px->h;
 		s_previewLastIndex = -1; // force upload
+
+		if (useGL) {
+			s_previewGLTexture = GLCreateTexture2D(
+				px->w, px->h, GL_RGBA8, GL_BGRA,
+				GL_UNSIGNED_INT_8_8_8_8_REV, nullptr, false);
+			if (!s_previewGLTexture)
+				return (ImTextureID)nullptr;
+		} else {
+			SDL_Renderer *renderer = SDL_GetRenderer(g_pWindow);
+			if (!renderer)
+				return (ImTextureID)nullptr;
+			s_previewSDLTexture = SDL_CreateTexture(renderer,
+				SDL_PIXELFORMAT_XRGB8888,
+				SDL_TEXTUREACCESS_STREAMING, px->w, px->h);
+			if (!s_previewSDLTexture)
+				return (ImTextureID)nullptr;
+		}
 	}
 
 	// Only re-upload when the selected save changed
 	if (s_previewLastIndex != saveIndex) {
-		void *pixels = nullptr;
-		int pitch = 0;
-		if (SDL_LockTexture(s_previewSDLTexture, nullptr, &pixels, &pitch)) {
+		if (useGL && s_previewGLTexture) {
+			// Convert to contiguous buffer for GL upload
+			std::vector<uint32> buf(px->w * px->h);
 			const uint8 *src = (const uint8 *)px->data;
-			uint8 *dst = (uint8 *)pixels;
-			int copyBytes = px->w * 4;
-
 			for (int y = 0; y < px->h; ++y) {
-				memcpy(dst, src, copyBytes);
-				src += px->pitch;
-				dst += pitch;
+				memcpy(&buf[y * px->w], src + y * px->pitch, px->w * 4);
 			}
-			SDL_UnlockTexture(s_previewSDLTexture);
+			glBindTexture(GL_TEXTURE_2D, s_previewGLTexture);
+			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, px->w, px->h,
+				GL_BGRA, GL_UNSIGNED_INT_8_8_8_8_REV, buf.data());
+		} else if (s_previewSDLTexture) {
+			void *pixels = nullptr;
+			int pitch = 0;
+			if (SDL_LockTexture(s_previewSDLTexture, nullptr, &pixels, &pitch)) {
+				const uint8 *src = (const uint8 *)px->data;
+				uint8 *dst = (uint8 *)pixels;
+				int copyBytes = px->w * 4;
+
+				for (int y = 0; y < px->h; ++y) {
+					memcpy(dst, src, copyBytes);
+					src += px->pitch;
+					dst += pitch;
+				}
+				SDL_UnlockTexture(s_previewSDLTexture);
+			}
 		}
 		s_previewLastIndex = saveIndex;
 	}
 
+	if (useGL)
+		return (ImTextureID)(intptr_t)s_previewGLTexture;
 	return (ImTextureID)s_previewSDLTexture;
 }
 

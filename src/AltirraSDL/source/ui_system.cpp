@@ -1125,7 +1125,10 @@ static void RenderAudioCategory(ATSimulator &sim, ATUIState &state) {
 // Keyboard (matches Windows IDD_CONFIGURE_KEYBOARD)
 // =========================================================================
 
-static void RenderKeyboardCategory(ATSimulator &) {
+// Declared in ui_keyboard_customize.cpp
+void ATUIGetDefaultKeyMap(const ATUIKeyboardOptions& options, vdfastvector<uint32>& mappings);
+
+static void RenderKeyboardCategory(ATSimulator &, ATUIState &state) {
 	// Matches Windows IDD_CONFIGURE_KEYBOARD
 	extern ATUIKeyboardOptions g_kbdOpts;
 
@@ -1170,6 +1173,25 @@ static void RenderKeyboardCategory(ATSimulator &) {
 		ATUIInitVirtualKeyMap(g_kbdOpts);
 	}
 	ImGui::SetItemTooltip("Select mapping from host to emulated keyboard.");
+
+	// "Copy Default Layout to Custom" — copies current default map as starting point
+	if (g_kbdOpts.mLayoutMode != ATUIKeyboardOptions::kLM_Custom) {
+		if (ImGui::Button("Copy Default Layout to Custom")) {
+			vdfastvector<uint32> mappings;
+			ATUIGetDefaultKeyMap(g_kbdOpts, mappings);
+			ATUISetCustomKeyMap(mappings.data(), mappings.size());
+			g_kbdOpts.mLayoutMode = ATUIKeyboardOptions::kLM_Custom;
+			ATUIInitVirtualKeyMap(g_kbdOpts);
+		}
+		ImGui::SetItemTooltip("Copy the current default key layout to the custom map for editing.");
+	}
+
+	// "Customize..." — open the custom keyboard layout editor
+	if (g_kbdOpts.mLayoutMode == ATUIKeyboardOptions::kLM_Custom) {
+		if (ImGui::Button("Customize..."))
+			state.showKeyboardCustomize = true;
+		ImGui::SetItemTooltip("Open the custom keyboard layout editor.");
+	}
 
 	ImGui::Separator();
 
@@ -2510,7 +2532,7 @@ void ATUIRenderSystemConfig(ATSimulator &sim, ATUIState &state) {
 	case kCat_EnhancedText:   RenderEnhancedTextCategory(sim); break;
 	case kCat_Audio:          RenderAudioCategory(sim, state); break;
 	case kCat_Devices:        RenderDevicesCategory(sim); break;
-	case kCat_Keyboard:       RenderKeyboardCategory(sim); break;
+	case kCat_Keyboard:       RenderKeyboardCategory(sim, state); break;
 	case kCat_MediaDefaults:  RenderMediaDefaultsCategory(sim); break;
 	case kCat_Disk:           RenderDiskCategory(sim); break;
 	case kCat_Cassette:       RenderCassetteCategory(sim); break;

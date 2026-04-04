@@ -416,6 +416,11 @@ static void HandleEvents() {
 			}
 			break;
 
+		case SDL_EVENT_TEXT_INPUT:
+			if (!ATUIWantCaptureKeyboard())
+				ATInputSDL3_HandleTextInput(ev.text.text);
+			break;
+
 		case SDL_EVENT_MOUSE_MOTION:
 			if (!ATUIWantCaptureMouse()) {
 				ATInputManager *im = g_sim.GetInputManager();

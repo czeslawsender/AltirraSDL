@@ -2,7 +2,7 @@
 //	Replaces Win32 ATDisassemblyWindow (uidbgdisasm.cpp).
 //	Shows disassembled instructions around the current PC with current-line
 //	highlighting, breakpoint indicators, symbol labels, address navigation,
-//	and click-to-toggle breakpoints.
+//	and F9/context-menu breakpoint toggling.
 
 #include <stdafx.h>
 #include <algorithm>
@@ -59,14 +59,14 @@ private:
 
 	// View state
 	uint32 mViewAddr = 0;		// address to center view around
-	bool mbFollowPC = true;		// true = auto-follow PC, false = user navigated
 	uint32 mPCAddr = 0;
 	uint32 mFramePCAddr = 0;
 
 	// Address bar
 	char mAddrInput[64] = {};
 
-	// Context menu state
+	// Selection and context menu state
+	int mSelectedLine = -1;			// line clicked by user (for F9 etc.)
 	uint32 mContextAddr = 0;
 	bool mbContextAddrValid = false;
 
@@ -109,30 +109,30 @@ void ATImGuiDisassemblyPaneImpl::OnDebuggerSystemStateUpdate(const ATDebuggerSys
 		return;
 	}
 
+	// Windows Altirra always snaps the disassembly view to the current PC
+	// when execution stops (breakpoint, step, etc.).  There is no "Follow PC"
+	// toggle — the view unconditionally centers on the frame PC.
 	uint32 newPCAddr = (uint32)state.mInsnPC + ((uint32)state.mPCBank << 16);
 	uint32 newFramePCAddr = state.mFrameExtPC;
 
-	bool pcChanged = (newPCAddr != mPCAddr || newFramePCAddr != mFramePCAddr);
 	mPCAddr = newPCAddr;
 	mFramePCAddr = newFramePCAddr;
 
-	if (mbFollowPC && pcChanged) {
-		mViewAddr = newFramePCAddr;
-		mbNeedsRebuild = true;
-	} else if (mbNeedsRebuild) {
-		// Force rebuild even if not following PC (e.g. breakpoint change)
-	}
+	mViewAddr = newFramePCAddr;
+	mbNeedsRebuild = true;
 }
 
 void ATImGuiDisassemblyPaneImpl::OnDebuggerEvent(ATDebugEvent eventId) {
-	if (eventId == kATDebugEvent_BreakpointsChanged
-		|| eventId == kATDebugEvent_SymbolsChanged)
+	// Breakpoint changes only affect coloring — no need to rebuild the full
+	// view (which would reset scroll position and selection).  ImGui redraws
+	// every frame so the breakpoint indicators update automatically.
+	// Symbol changes require a full rebuild because label text changes.
+	if (eventId == kATDebugEvent_SymbolsChanged)
 		mbNeedsRebuild = true;
 }
 
 void ATImGuiDisassemblyPaneImpl::SetPosition(uint32 addr) {
 	mViewAddr = addr;
-	mbFollowPC = false;
 	mbNeedsRebuild = true;
 }
 
@@ -152,6 +152,7 @@ void ATImGuiDisassemblyPaneImpl::RebuildView() {
 	mbNeedsRebuild = false;
 	mLines.clear();
 	mScrollToLine = -1;
+	mSelectedLine = -1;
 
 	if (!mbStateValid || !mLastState.mpDebugTarget || mLastState.mbRunning)
 		return;
@@ -541,10 +542,19 @@ bool ATImGuiDisassemblyPaneImpl::Render() {
 		if (ImGui::Button("Go"))
 			NavigateToExpression(mAddrInput);
 		ImGui::SameLine();
-		if (ImGui::Button("Follow PC")) {
-			mbFollowPC = true;
-			mViewAddr = mFramePCAddr;
-			mbNeedsRebuild = true;
+		if (mbStateValid && mLastState.mbRunning) {
+			// Break button — stops execution (nice addition over Windows)
+			if (ImGui::Button("Break")) {
+				IATDebugger *dbg = ATGetDebugger();
+				if (dbg)
+					dbg->Break();
+			}
+		} else {
+			// Show PC button — snaps view to current PC while paused
+			if (ImGui::Button("Show PC")) {
+				mViewAddr = mFramePCAddr;
+				mbNeedsRebuild = true;
+			}
 		}
 		ImGui::Separator();
 	}
@@ -555,11 +565,6 @@ bool ATImGuiDisassemblyPaneImpl::Render() {
 	if (mLines.empty()) {
 		if (mbStateValid && mLastState.mbRunning) {
 			ImGui::TextDisabled("(running)");
-			if (ImGui::Button("Break")) {
-				IATDebugger *dbg = ATGetDebugger();
-				if (dbg)
-					dbg->Break();
-			}
 		} else {
 			ImGui::TextDisabled("(no disassembly)");
 		}
@@ -630,15 +635,16 @@ bool ATImGuiDisassemblyPaneImpl::Render() {
 					ImGui::SameLine(0, 0);
 				}
 
-				// Selectable line — click to toggle breakpoint, right-click for context menu
+				// Selectable line — click to select, right-click for context menu.
+				// Breakpoints are toggled via F9 or the context menu, matching
+				// Windows Altirra (single click just selects the line).
 				ImGui::PushID(i);
-				if (ImGui::Selectable(li.mText.c_str(), false,
+				if (ImGui::Selectable(li.mText.c_str(), i == mSelectedLine,
 						ImGuiSelectableFlags_AllowOverlap)) {
-					// Single click toggles breakpoint at this address
-					if (dbg)
-						dbg->ToggleBreakpoint(li.mAddress);
+					mSelectedLine = i;
 				}
 				if (ImGui::IsItemClicked(ImGuiMouseButton_Right)) {
+					mSelectedLine = i;
 					mContextAddr = li.mAddress;
 					mbContextAddrValid = true;
 				}
@@ -672,8 +678,8 @@ bool ATImGuiDisassemblyPaneImpl::Render() {
 				}
 				// Show Next Statement — jump to current PC
 				if (ImGui::MenuItem("Show Next Statement")) {
-					SetPosition(dbg->GetExtPC());
-					mbFollowPC = true;
+					mViewAddr = dbg->GetExtPC();
+					mbNeedsRebuild = true;
 				}
 				ImGui::Separator();
 				if (ImGui::MenuItem("Toggle Breakpoint")) {
@@ -751,15 +757,23 @@ bool ATImGuiDisassemblyPaneImpl::Render() {
 			ImGui::EndPopup();
 		}
 
-		// Page Up/Down scrolling — preserve bank byte, clamp within 16-bit range
+		// Keyboard shortcuts — matching Windows Altirra keybindings
 		if (ImGui::IsWindowFocused() && !ImGui::GetIO().WantTextInput) {
+			// F9 — Toggle Breakpoint (matches Windows Debug.ToggleBreakpoint)
+			if (ImGui::IsKeyPressed(ImGuiKey_F9)) {
+				if (mSelectedLine >= 0 && (size_t)mSelectedLine < mLines.size()) {
+					IATDebugger *dbg2 = ATGetDebugger();
+					if (dbg2)
+						dbg2->ToggleBreakpoint(mLines[mSelectedLine].mAddress);
+				}
+			}
+			// Page Up/Down scrolling — preserve bank byte, clamp within 16-bit range
 			if (ImGui::IsKeyPressed(ImGuiKey_PageUp)) {
 				uint32 bank = mViewAddr & 0xFFFF0000;
 				uint32 offset = mViewAddr & 0xFFFF;
 				uint32 scrollAmt = kTotalLines * 2;
 				offset = (offset >= scrollAmt) ? offset - scrollAmt : 0;
 				mViewAddr = bank | offset;
-				mbFollowPC = false;
 				mbNeedsRebuild = true;
 			}
 			if (ImGui::IsKeyPressed(ImGuiKey_PageDown)) {
@@ -768,7 +782,6 @@ bool ATImGuiDisassemblyPaneImpl::Render() {
 				uint32 scrollAmt = kTotalLines * 2;
 				offset = std::min<uint32>(offset + scrollAmt, 0xFFFF);
 				mViewAddr = bank | offset;
-				mbFollowPC = false;
 				mbNeedsRebuild = true;
 			}
 			// Escape → focus Console
@@ -785,7 +798,6 @@ bool ATImGuiDisassemblyPaneImpl::Render() {
 			if (offset < 0) offset = 0;
 			if (offset > 0xFFFF) offset = 0xFFFF;
 			mViewAddr = bank | (uint32)offset;
-			mbFollowPC = false;
 			mbNeedsRebuild = true;
 		}
 	}

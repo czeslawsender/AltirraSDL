@@ -9,6 +9,7 @@
 //	action functions are no-ops until the ImGui UI implements them.
 
 #include <stdafx.h>
+#include <algorithm>
 #include <SDL3/SDL.h>
 #include <vd2/system/vdtypes.h>
 #include <vd2/system/vectors.h>
@@ -275,8 +276,17 @@ void ATUISetCustomKeyMap(const uint32 *mappings, size_t n) {
 	s_customKeyMap.assign(mappings, mappings + n);
 }
 
-void ATUIInitVirtualKeyMap(const ATUIKeyboardOptions&) {
-	// No-op on SDL3 — keyboard mapping is handled by input_sdl3.cpp
+void ATUIInitVirtualKeyMap(const ATUIKeyboardOptions& opts) {
+	// On SDL3, Natural/Raw modes use the hardcoded SDLScancodeToAtari() table
+	// in input_sdl3.cpp.  Custom mode uses the custom key map.  We ensure the
+	// stored map is sorted so runtime binary search works correctly.
+	if (opts.mLayoutMode == ATUIKeyboardOptions::kLM_Custom) {
+		std::sort(s_customKeyMap.begin(), s_customKeyMap.end());
+	}
+}
+
+const vdfastvector<uint32>& ATUIGetCustomKeyMapRef() {
+	return s_customKeyMap;
 }
 
 // =========================================================================

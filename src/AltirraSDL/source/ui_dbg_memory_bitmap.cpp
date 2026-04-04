@@ -1,6 +1,6 @@
 //	AltirraSDL - Dear ImGui debugger memory viewer pane
 //	Bitmap interpretation modes: font and graphics pixel generation,
-//	SDL_Texture management.
+//	texture management (SDL_Texture or OpenGL depending on backend).
 
 #include <stdafx.h>
 #include <algorithm>
@@ -8,6 +8,8 @@
 #include <SDL3/SDL.h>
 #include <vd2/system/vdtypes.h>
 #include "ui_dbg_memory.h"
+#include "display_backend.h"
+#include "gl_helpers.h"
 
 extern SDL_Window *g_pWindow;
 
@@ -132,6 +134,18 @@ void ATImGuiMemoryPaneImpl::GenerateBitmapRow(
 }
 
 // =========================================================================
+// GetBitmapImTextureID — return the correct ImTextureID for the active backend
+// =========================================================================
+
+void *ATImGuiMemoryPaneImpl::GetBitmapImTextureID() const {
+	IDisplayBackend *backend = ATUIGetDisplayBackend();
+	if (backend && backend->GetType() == DisplayBackendType::OpenGL33) {
+		return (void *)(intptr_t)mBitmapGLTexture;
+	}
+	return (void *)(intptr_t)mpBitmapTexture;
+}
+
+// =========================================================================
 // UpdateBitmapTexture — generate texture for all visible rows
 // =========================================================================
 
@@ -173,51 +187,96 @@ void ATImGuiMemoryPaneImpl::UpdateBitmapTexture(int rowCount) {
 	if (rawW <= 0) return;
 	int totalH = rawH * rowCount;
 
-	// (Re)allocate texture if needed
-	if (!mpBitmapTexture || mBitmapTexW < rawW || mBitmapTexH < totalH) {
-		if (mpBitmapTexture) {
-			SDL_DestroyTexture(mpBitmapTexture);
-			mpBitmapTexture = nullptr;
+	IDisplayBackend *backend = ATUIGetDisplayBackend();
+	bool useGL = backend && backend->GetType() == DisplayBackendType::OpenGL33;
+
+	if (useGL) {
+		// ---- OpenGL path ----
+		int allocW = std::max(rawW, 256);
+		int allocH = std::max(totalH, 64);
+
+		if (!mBitmapGLTexture || mBitmapTexW < rawW || mBitmapTexH < totalH) {
+			if (mBitmapGLTexture) {
+				glDeleteTextures(1, &mBitmapGLTexture);
+				mBitmapGLTexture = 0;
+			}
+
+			mBitmapTexW = allocW;
+			mBitmapTexH = allocH;
+
+			mBitmapGLTexture = GLCreateTexture2D(
+				mBitmapTexW, mBitmapTexH,
+				GL_RGBA8, GL_BGRA, GL_UNSIGNED_INT_8_8_8_8_REV,
+				nullptr, false);	// nearest filtering for pixel art
+
+			if (!mBitmapGLTexture) return;
 		}
 
-		SDL_Renderer *renderer = SDL_GetRenderer(g_pWindow);
-		if (!renderer) return;
+		// Generate pixel data into a temporary buffer
+		int pitchPixels = rawW;
+		std::vector<uint32> pixelBuf(rawW * totalH, 0);
 
-		// Round up to reasonable sizes to avoid frequent reallocation
-		mBitmapTexW = std::max(rawW, 256);
-		mBitmapTexH = std::max(totalH, 64);
+		for (int row = 0; row < rowCount; row++) {
+			uint32 rowOffset = (uint32)row * mColumns;
+			if (rowOffset + mColumns > (uint32)mViewData.size())
+				break;
 
-		mpBitmapTexture = SDL_CreateTexture(
-			renderer,
-			SDL_PIXELFORMAT_ARGB8888,
-			SDL_TEXTUREACCESS_STREAMING,
-			mBitmapTexW, mBitmapTexH);
+			uint32 *rowDst = &pixelBuf[row * rawH * pitchPixels];
+			GenerateBitmapRow(rowDst, pitchPixels,
+							  &mViewData[rowOffset], mColumns);
+		}
 
-		if (!mpBitmapTexture) return;
+		// Upload to GL texture
+		glBindTexture(GL_TEXTURE_2D, mBitmapGLTexture);
+		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, rawW, totalH,
+			GL_BGRA, GL_UNSIGNED_INT_8_8_8_8_REV, pixelBuf.data());
+
+	} else {
+		// ---- SDL_Renderer path ----
+		if (!mpBitmapTexture || mBitmapTexW < rawW || mBitmapTexH < totalH) {
+			if (mpBitmapTexture) {
+				SDL_DestroyTexture(mpBitmapTexture);
+				mpBitmapTexture = nullptr;
+			}
+
+			SDL_Renderer *renderer = SDL_GetRenderer(g_pWindow);
+			if (!renderer) return;
+
+			mBitmapTexW = std::max(rawW, 256);
+			mBitmapTexH = std::max(totalH, 64);
+
+			mpBitmapTexture = SDL_CreateTexture(
+				renderer,
+				SDL_PIXELFORMAT_ARGB8888,
+				SDL_TEXTUREACCESS_STREAMING,
+				mBitmapTexW, mBitmapTexH);
+
+			if (!mpBitmapTexture) return;
+		}
+
+		// Lock and fill
+		void *pixels = nullptr;
+		int pitch = 0;
+		if (!SDL_LockTexture(mpBitmapTexture, nullptr, &pixels, &pitch))
+			return;
+
+		int pitchPixels = pitch / 4;
+
+		// Clear the texture region we'll use
+		for (int y = 0; y < totalH; y++)
+			std::memset((uint8 *)pixels + y * pitch, 0, rawW * 4);
+
+		// Generate pixel data for each row
+		for (int row = 0; row < rowCount; row++) {
+			uint32 rowOffset = (uint32)row * mColumns;
+			if (rowOffset + mColumns > (uint32)mViewData.size())
+				break;
+
+			uint32 *rowDst = (uint32 *)pixels + row * rawH * pitchPixels;
+			GenerateBitmapRow(rowDst, pitchPixels,
+							  &mViewData[rowOffset], mColumns);
+		}
+
+		SDL_UnlockTexture(mpBitmapTexture);
 	}
-
-	// Lock and fill
-	void *pixels = nullptr;
-	int pitch = 0;
-	if (!SDL_LockTexture(mpBitmapTexture, nullptr, &pixels, &pitch))
-		return;
-
-	int pitchPixels = pitch / 4;
-
-	// Clear the texture region we'll use
-	for (int y = 0; y < totalH; y++)
-		std::memset((uint8 *)pixels + y * pitch, 0, rawW * 4);
-
-	// Generate pixel data for each row
-	for (int row = 0; row < rowCount; row++) {
-		uint32 rowOffset = (uint32)row * mColumns;
-		if (rowOffset + mColumns > (uint32)mViewData.size())
-			break;
-
-		uint32 *rowDst = (uint32 *)pixels + row * rawH * pitchPixels;
-		GenerateBitmapRow(rowDst, pitchPixels,
-						  &mViewData[rowOffset], mColumns);
-	}
-
-	SDL_UnlockTexture(mpBitmapTexture);
 }

@@ -123,6 +123,8 @@ void ATTapeEditorState::RenderTapeView(float viewWidth, float viewHeight, float 
 	if (!mpImage || viewWidth <= 0 || viewHeight <= 0)
 		return;
 
+	mLastViewWidth = viewWidth;
+
 	ImDrawList *dl = ImGui::GetWindowDrawList();
 	const float hw = viewWidth * 0.5f;
 
@@ -219,9 +221,19 @@ void ATTapeEditorState::RenderTapeView(float viewWidth, float viewHeight, float 
 		}
 
 		if (pixPerMarker < targetPix) {
+			// Switch to hours and step through 2x, 5x, 10x
 			pixPerMarker *= 60000.0 * 60.0;
-			while (pixPerMarker < targetPix)
+			while (pixPerMarker < targetPix) {
+				if (double x2 = pixPerMarker * 2.0; x2 >= targetPix) {
+					pixPerMarker = x2;
+					break;
+				}
+				if (double x5 = pixPerMarker * 5.0; x5 >= targetPix) {
+					pixPerMarker = x5;
+					break;
+				}
 				pixPerMarker *= 10.0;
+			}
 		}
 
 		sint64 div1 = std::max<sint64>(0, (sint64)floor((double)gx1 / pixPerMarker));
@@ -406,20 +418,27 @@ void ATTapeEditorState::RenderTapeView(float viewWidth, float viewHeight, float 
 		UpdatePalettes();
 
 		if (mZoom < 0) {
-			// Zoomed out — density bars
+			// Zoomed out — density bars (3 rows: mark top, transitions middle, space bottom)
 			uint32 range = 1 << -mZoom;
 			pos = posStart;
 
 			for (sint32 i = 0; i < n; ++i) {
 				const IATCassetteImage::TransitionInfo ti = mpImage->GetTransitionInfo(pos, range, mbShowTurboData);
 				const uint32 markCount = ti.mMarkBits + ti.mTransitionBits;
+				const uint32 changeCount = ti.mTransitionBits;
 				const uint32 spaceCount = ti.mSpaceBits + ti.mTransitionBits;
 
 				float px = drawX + (float)i;
 
+				// Top pixel row: mark density
 				if (markCount > 0)
 					dl->AddRectFilled(ImVec2(px, yhi), ImVec2(px + 1.0f, yhi + 1.0f), mPalette[markCount >> mPaletteShift]);
 
+				// Middle stretched region: transition density
+				if (changeCount > 0 && ylo - yhi > 2.0f)
+					dl->AddRectFilled(ImVec2(px, yhi + 1.0f), ImVec2(px + 1.0f, ylo), mPalette[changeCount >> mPaletteShift]);
+
+				// Bottom pixel row: space density
 				if (spaceCount > 0)
 					dl->AddRectFilled(ImVec2(px, ylo), ImVec2(px + 1.0f, ylo + 1.0f), mPalette[spaceCount >> mPaletteShift]);
 
@@ -646,10 +665,9 @@ void ATTapeEditorState::RenderTapeView(float viewWidth, float viewHeight, float 
 				break;
 
 			case TapeDrawMode::Analyze:
-				if (HasNonEmptySelection()) {
+				if (HasNonEmptySelection())
 					Analyze(mSelSortedStartSample, mSelSortedEndSample);
-					ClearSelection();
-				}
+				ClearSelection();
 				break;
 
 			default:

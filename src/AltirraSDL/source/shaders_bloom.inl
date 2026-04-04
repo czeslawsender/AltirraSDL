@@ -118,13 +118,27 @@ vec3 LinearToSrgb(vec3 c) {
 }
 
 void main() {
+	// The bloom pipeline renders through multiple FBO passes using the
+	// same Y-flipping fullscreen triangle VS.  Each FBO pass flips the
+	// image orientation, so after an even number of passes a texture is
+	// back in "source convention" (v=0 = frame top) and after an odd
+	// number it is in "GL convention" (v=0 = frame bottom).
+	//
+	// In this final pass:
+	//   uSourceTex = bloom pyramid[0] — 2 FBO passes from source → source convention
+	//   uBaseTex   = bloomLinearFBO   — 1 FBO pass from source  → GL convention
+	//
+	// They have different Y orientations.  We flip the bloom pyramid UV
+	// so both textures agree, producing a correctly oriented output.
+	vec2 bloomUV = vec2(vUV.x, 1.0 - vUV.y);
+
 	// Upsample from bloom pyramid (same kernel as BloomUp)
-	vec2 fracPos = fract(vUV * uTexSize);
+	vec2 fracPos = fract(bloomUV * uTexSize);
 	vec2 flipSign = mix(vec2(1.0), vec2(-1.0), greaterThanEqual(fracPos, vec2(0.5)));
 	vec2 flippedStep = uUVStep * flipSign;
 
-	vec2 uvA = vUV + flippedStep * vec2(-0.75 - 1.0/6.0, -0.75 - 1.0/6.0);
-	vec2 uvB = vUV + flippedStep * vec2(+0.25 + 0.3,     +0.25 + 0.3);
+	vec2 uvA = bloomUV + flippedStep * vec2(-0.75 - 1.0/6.0, -0.75 - 1.0/6.0);
+	vec2 uvB = bloomUV + flippedStep * vec2(+0.25 + 0.3,     +0.25 + 0.3);
 
 	vec3 c = vec3(0.0);
 	c += texture(uSourceTex, vec2(uvA.x, uvA.y)).rgb * (36.0 / 256.0);

@@ -148,7 +148,22 @@ static void RenderMaskPage(VDDScreenMaskParams &maskParams, bool &changed) {
 
 	int maskType = (int)maskParams.mType;
 	if (ImGui::Combo("Mask Type", &maskType, maskTypes, 4)) {
-		maskParams.mType = (VDDScreenMaskType)maskType;
+		VDDScreenMaskType newType = (VDDScreenMaskType)maskType;
+
+		// When switching from None to a mask type, populate with sane
+		// defaults if the current values are zeros (from default init
+		// or settings that never had a mask configured).
+		if (maskParams.mType == VDDScreenMaskType::None
+			&& newType != VDDScreenMaskType::None
+			&& maskParams.mSourcePixelsPerDot <= 0.0f)
+		{
+			auto defaults = ATGTIAEmulator::GetDefaultScreenMaskParams();
+			maskParams.mSourcePixelsPerDot = defaults.mSourcePixelsPerDot;
+			maskParams.mOpenness = defaults.mOpenness;
+			maskParams.mbScreenMaskIntensityCompensation = defaults.mbScreenMaskIntensityCompensation;
+		}
+
+		maskParams.mType = newType;
 		changed = true;
 	}
 
@@ -269,7 +284,7 @@ void ATUIRenderScreenEffects(ATSimulator &sim, ATUIState &state) {
 	if (hwSupport) {
 		if (ImGui::Button("Reset to Defaults")) {
 			params = ATArtifactingParams::GetDefault();
-			maskParams = VDDScreenMaskParams{};
+			maskParams = ATGTIAEmulator::GetDefaultScreenMaskParams();
 			changed = true;
 			maskChanged = true;
 		}

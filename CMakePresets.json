@@ -137,6 +137,10 @@
         {
             "name": "windows-sdl-release",
             "configurePreset": "windows-sdl-release"
+        },
+        {
+            "name": "windows-libs-only",
+            "configurePreset": "windows-libs-only"
         }
     ]
 }
