@@ -154,7 +154,8 @@ public:
 
 class ATDeserializer {
 public:
-	enum : bool { IsReader = true, IsWriter = false };
+	static constexpr bool IsReader = true;
+	static constexpr bool IsWriter = false;
 
 	ATDeserializer(IATSerializationInput& input, int inlineDepth)
 		: mInput(input)
@@ -402,7 +403,8 @@ T ATDeserializer::ReadEnum(const char *key) {
 
 class ATSerializer {
 public:
-	enum : bool { IsReader = false, IsWriter = true };
+	static constexpr bool IsReader = false;
+	static constexpr bool IsWriter = true;
 
 	ATSerializer(IATSerializationOutput& output)
 		: mOutput(output)

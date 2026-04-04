@@ -1505,7 +1505,7 @@ public:
 		rw.Transfer("active_prior", &mActivePRIOR);
 		rw.Transfer("renderer_state", &mpRendererState);
 
-		if constexpr (rw.IsReader) {
+		if constexpr (T::IsReader) {
 			const size_t n = mRegisterChanges.size();
 
 			if (n % 3)

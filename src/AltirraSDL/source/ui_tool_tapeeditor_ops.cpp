@@ -9,6 +9,7 @@
 
 #include <stdafx.h>
 #include <algorithm>
+#include <cmath>
 #include <string>
 #include <SDL3/SDL.h>
 #include <vd2/system/vdtypes.h>
@@ -1284,6 +1285,24 @@ void ATTapeEditorState::SetZoom(sint32 newZoom, sint32 centerClientX, sint32 vie
 
 	UpdateScrollLimit();
 	mScrollX = std::clamp<sint64>(mScrollX, 0, mScrollMax);
+}
+
+void ATTapeEditorState::GoToLocation(uint32 sample, float pixelsPerSample) {
+	if (pixelsPerSample > 0) {
+		sint32 newZoom = (sint32)log2f(pixelsPerSample);
+		sint32 hw = (sint32)(mLastViewWidth * 0.5f);
+		SetZoom(newZoom, hw, (sint32)mLastViewWidth);
+	}
+
+	// Compute global pixel for sample and scroll to center on it
+	sint64 gpx = (sint64)sample;
+	if (mZoom < 0)
+		gpx = ((gpx >> (-mZoom - 1)) + 1) >> 1;
+	else
+		gpx <<= mZoom;
+
+	mScrollX = std::clamp<sint64>(gpx, 0, mScrollMax);
+	SetSelection(sample, sample);
 }
 
 // ---- Coordinate conversion ----

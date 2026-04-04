@@ -67,7 +67,9 @@ static IATJoystickManager *g_pJoystickMgr = nullptr;
 static bool g_running = true;
 static bool g_winActive = true;
 static ATUIState g_uiState;
-static ATMobileUIState g_mobileState;
+#ifdef ALTIRRA_MOBILE
+ATMobileUIState g_mobileState;
+#endif
 
 // Forward declaration — defined in window placement section below
 void ATUpdateWindowedGeometry(SDL_Window *window);

@@ -64,6 +64,13 @@ struct ProfileState {
 	double mLastSelectEnd = -1;
 	uint32 mLastCollectionGen = 0;
 
+	// Boundary rule state (frame trigger)
+	ATProfileBoundaryRule mBoundaryRule = kATProfileBoundaryRule_None;
+	char mBoundaryAddrExpr[256] = {};
+	char mBoundaryAddrExpr2[256] = {};
+	bool mbEndFunction = false;
+	bool mbShowBoundaryRuleDialog = false;
+
 	struct SortedRecord {
 		uint32 mAddress;
 		uint32 mCalls;
@@ -370,6 +377,171 @@ static void BuildProfile(ATImGuiTraceViewerContext& ctx) {
 	s_profState.mbNeedsRefresh = false;
 }
 
+static void CopyProfileAsCsv() {
+	if (s_profState.mSortedRecords.empty())
+		return;
+
+	VDStringA csv;
+
+	// Header
+	csv += "Address,Calls,Insns,Cycles,%\r\n";
+
+	uint32 totalCycles = s_profState.mpMergedFrame ? s_profState.mpMergedFrame->mTotalCycles : 1;
+
+	const auto appendQuoted = [&](const char *s) {
+		if (strchr(s, ' ') || strchr(s, ',') || strchr(s, '"')) {
+			csv += '"';
+			for (const char *p = s; *p; ++p) {
+				if (*p == '"')
+					csv += '"';
+				csv += *p;
+			}
+			csv += '"';
+		} else {
+			csv += s;
+		}
+	};
+
+	for (const auto& rec : s_profState.mSortedRecords) {
+		// Address with symbol
+		IATDebugger *dbg = ATGetDebugger();
+		if (dbg) {
+			VDStringA addrText = dbg->GetAddressText(rec.mAddress, false, true);
+			appendQuoted(addrText.c_str());
+		} else {
+			char buf[16];
+			snprintf(buf, sizeof(buf), "$%04X", rec.mAddress);
+			csv += buf;
+		}
+
+		char buf[128];
+		snprintf(buf, sizeof(buf), ",%u,%u,%u,%.1f%%\r\n",
+			rec.mCalls, rec.mInsns, rec.mCycles,
+			(double)rec.mCycles * 100.0 / (double)totalCycles);
+		csv += buf;
+	}
+
+	SDL_SetClipboardText(csv.c_str());
+}
+
+static void RenderBoundaryRuleDialog() {
+	// Temporary edit buffers — populated from s_profState on open, committed
+	// back only on OK.  Cancel discards edits (matches Windows behaviour
+	// where the dialog has its own copy of the expressions).
+	static char sEditAddr1[256];
+	static char sEditAddr2[256];
+	static bool sEditEndFunction;
+	static bool sWasOpen;
+	static VDStringA sValidationError;
+
+	if (!s_profState.mbShowBoundaryRuleDialog) {
+		sWasOpen = false;
+		return;
+	}
+
+	// First frame the dialog is shown — snapshot current values
+	if (!sWasOpen) {
+		memcpy(sEditAddr1, s_profState.mBoundaryAddrExpr, sizeof(sEditAddr1));
+		memcpy(sEditAddr2, s_profState.mBoundaryAddrExpr2, sizeof(sEditAddr2));
+		sEditEndFunction = s_profState.mbEndFunction;
+		sValidationError.clear();
+		sWasOpen = true;
+	}
+
+	ImGui::SetNextWindowSize(ImVec2(420, 0), ImGuiCond_Appearing);
+	ImGui::SetNextWindowPos(ImGui::GetMainViewport()->GetCenter(),
+		ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
+
+	if (ImGui::Begin("Trigger On PC Address", &s_profState.mbShowBoundaryRuleDialog,
+			ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoDocking
+			| ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize)) {
+
+		ImGui::AlignTextToFramePadding();
+		ImGui::TextUnformatted("Start frame address");
+		ImGui::SameLine(160.0f);
+		ImGui::SetNextItemWidth(-1);
+		ImGui::InputText("##addr1", sEditAddr1, sizeof(sEditAddr1));
+
+		ImGui::Spacing();
+		ImGui::SetCursorPosX(160.0f);
+		ImGui::Checkbox("End frame when function returns", &sEditEndFunction);
+
+		if (!sEditEndFunction) {
+			ImGui::Spacing();
+			ImGui::AlignTextToFramePadding();
+			ImGui::TextUnformatted("End frame address (optional)");
+			ImGui::SameLine(160.0f);
+			ImGui::SetNextItemWidth(-1);
+			ImGui::InputText("##addr2", sEditAddr2, sizeof(sEditAddr2));
+		}
+
+		ImGui::Spacing();
+		ImGui::Separator();
+		ImGui::Spacing();
+
+		// Show validation error above buttons (if any)
+		if (!sValidationError.empty()) {
+			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.3f, 0.3f, 1.0f));
+			ImGui::TextWrapped("%s", sValidationError.c_str());
+			ImGui::PopStyleColor();
+			ImGui::Spacing();
+		}
+
+		float buttonWidth = 80.0f;
+		float spacing = ImGui::GetStyle().ItemSpacing.x;
+		ImGui::SetCursorPosX(ImGui::GetContentRegionAvail().x - buttonWidth * 2 - spacing + ImGui::GetStyle().WindowPadding.x);
+
+		if (ImGui::Button("OK", ImVec2(buttonWidth, 0))) {
+			IATDebugger *dbg = ATGetDebugger();
+			sValidationError.clear();
+			bool valid = true;
+
+			// Validate start address (required)
+			if (!sEditAddr1[0]) {
+				sValidationError = "Start frame address is required.";
+				valid = false;
+			} else if (dbg) {
+				try {
+					dbg->EvaluateThrow(sEditAddr1);
+				} catch (const MyError& e) {
+					sValidationError.sprintf("Start address: %s", e.c_str());
+					valid = false;
+				}
+			}
+
+			// Validate end address if applicable
+			if (valid && !sEditEndFunction && sEditAddr2[0] && dbg) {
+				try {
+					dbg->EvaluateThrow(sEditAddr2);
+				} catch (const MyError& e) {
+					sValidationError.sprintf("End address: %s", e.c_str());
+					valid = false;
+				}
+			}
+
+			if (valid) {
+				// Commit edits back to profile state
+				memcpy(s_profState.mBoundaryAddrExpr, sEditAddr1, sizeof(s_profState.mBoundaryAddrExpr));
+				if (sEditEndFunction) {
+					s_profState.mBoundaryRule = kATProfileBoundaryRule_PCAddressFunction;
+					s_profState.mBoundaryAddrExpr2[0] = 0;
+				} else {
+					memcpy(s_profState.mBoundaryAddrExpr2, sEditAddr2, sizeof(s_profState.mBoundaryAddrExpr2));
+					s_profState.mBoundaryRule = kATProfileBoundaryRule_PCAddress;
+				}
+				s_profState.mbEndFunction = sEditEndFunction;
+				s_profState.mbShowBoundaryRuleDialog = false;
+			}
+		}
+
+		ImGui::SameLine();
+		if (ImGui::Button("Cancel", ImVec2(buttonWidth, 0))) {
+			s_profState.mbShowBoundaryRuleDialog = false;
+		}
+	}
+	ImGui::End();
+}
+
 static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 	if (!ctx.mpCPUHistoryChannel) {
 		ImGui::TextUnformatted("No CPU history in this trace.");
@@ -428,12 +600,30 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 		}
 
 		ImGui::Separator();
+
+		if (ImGui::BeginMenu("Frame Trigger")) {
+			if (ImGui::MenuItem("None", nullptr, s_profState.mBoundaryRule == kATProfileBoundaryRule_None))
+				s_profState.mBoundaryRule = kATProfileBoundaryRule_None;
+			if (ImGui::MenuItem("Vertical Blank", nullptr, s_profState.mBoundaryRule == kATProfileBoundaryRule_VBlank))
+				s_profState.mBoundaryRule = kATProfileBoundaryRule_VBlank;
+			if (ImGui::MenuItem("PC Address...", nullptr,
+					s_profState.mBoundaryRule == kATProfileBoundaryRule_PCAddress
+					|| s_profState.mBoundaryRule == kATProfileBoundaryRule_PCAddressFunction)) {
+				s_profState.mbShowBoundaryRuleDialog = true;
+			}
+			ImGui::EndMenu();
+		}
+
+		ImGui::Separator();
 		if (ImGui::MenuItem("Enable Global Addresses", nullptr, ctx.mbGlobalAddressesEnabled)) {
 			ctx.mbGlobalAddressesEnabled = !ctx.mbGlobalAddressesEnabled;
 			s_profState.mbNeedsRefresh = true;
 		}
 		ImGui::EndPopup();
 	}
+
+	// Render boundary rule dialog (outside popup)
+	RenderBoundaryRuleDialog();
 
 	if (ctx.mbSelectionValid) {
 		ImGui::SameLine();
@@ -545,6 +735,13 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 				ImGui::TableSetColumnIndex(4);
 				ImGui::Text("%.1f%%", (double)rec.mCycles * 100.0 / (double)totalCycles);
 			}
+		}
+
+		// Context menu — scoped to the table's scroll area (child window)
+		if (ImGui::BeginPopupContextWindow("##ProfileContextMenu", ImGuiPopupFlags_MouseButtonRight)) {
+			if (ImGui::MenuItem("Copy As CSV"))
+				CopyProfileAsCsv();
+			ImGui::EndPopup();
 		}
 
 		ImGui::EndTable();

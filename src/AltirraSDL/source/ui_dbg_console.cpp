@@ -197,9 +197,12 @@ bool ATImGuiConsolePaneImpl::Render() {
 	ImGuiInputTextFlags outputFlags = ImGuiInputTextFlags_ReadOnly
 		| ImGuiInputTextFlags_CallbackAlways;
 
-	// Capture the child window ID before InputTextMultiline (which creates a
-	// child window with GetID("##ConsoleOutput") in the current window context).
+	// Build the child window name that InputTextMultiline will create
+	// internally: "ParentName/##Label_HexID" (see imgui.cpp BeginChildEx).
 	ImGuiID childId = ImGui::GetID("##ConsoleOutput");
+	char childName[256];
+	snprintf(childName, sizeof(childName), "%s/##ConsoleOutput_%08X",
+		ImGui::GetCurrentWindow()->Name, childId);
 
 	ImGui::InputTextMultiline("##ConsoleOutput", &mRenderSnapshot,
 		ImVec2(-FLT_MIN, -footerHeight), outputFlags,
@@ -210,11 +213,7 @@ bool ATImGuiConsolePaneImpl::Render() {
 	// because Begin() clamps against the previous frame's stale ScrollMax, and
 	// the CallbackAlways approach only fires when the widget is focused.
 	if (mScrollFrames > 0) {
-		ImGuiWindow *child = ImGui::FindWindowByID(childId);
-		fprintf(stderr, "[ConsoleScroll] frame=%d child=%p scrollMax=%.1f scroll=%.1f\n",
-			mScrollFrames, (void*)child,
-			child ? child->ScrollMax.y : -1.0f,
-			child ? child->Scroll.y : -1.0f);
+		ImGuiWindow *child = ImGui::FindWindowByName(childName);
 		if (child && child->ScrollMax.y > 0.0f) {
 			ImGui::SetScrollY(child, child->ScrollMax.y);
 		}

@@ -353,7 +353,7 @@ public:
 		rw.Transfer("last_read_sector", &mLastReadSector);
 		rw.Transfer("active_command", &mpActiveCommand);
 
-		if constexpr (rw.IsReader) {
+		if constexpr (T::IsReader) {
 			// Allow for up to a ~10 minute idle time -- beyond that consider it broken.
 			if (mIdleTimer >= 0x40000000)
 				throw ATInvalidSaveStateException();

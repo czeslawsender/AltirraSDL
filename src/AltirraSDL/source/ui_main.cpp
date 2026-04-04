@@ -1470,6 +1470,12 @@ void ATUIRenderFrame(ATSimulator &sim, VDVideoDisplaySDL3 &display,
 		g_cartMapperPending = false;
 	}
 
+	if (g_tapeEditorRequest.pending) {
+		state.showTapeEditor = true;
+		// Location is consumed by the tape editor on next render
+		g_tapeEditorRequest.pending = false;
+	}
+
 	// Pick up pending compatibility check from boot
 	if (g_compatCheckPending) {
 		g_compatCheckPending = false;

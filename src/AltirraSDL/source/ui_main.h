@@ -135,6 +135,15 @@ enum ATDeferredActionType {
 // Push a deferred action (thread-safe — may be called from file dialog callbacks)
 void ATUIPushDeferred(ATDeferredActionType type, const char *utf8path, int extra = 0);
 
+// Tape editor request from trace viewer (ui_dbg_traceviewer_timeline.cpp)
+struct ATTapeEditorRequest {
+	bool pending = false;
+	bool hasLocation = false;
+	uint32 sample = 0;
+	float pixelsPerSample = 0;
+};
+extern ATTapeEditorRequest g_tapeEditorRequest;
+
 // Cartridge mapper dialog (ui_cartmapper.cpp)
 extern bool g_cartMapperPending;
 void ATUIOpenCartridgeMapperDialog(ATDeferredActionType origAction,

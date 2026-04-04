@@ -104,7 +104,8 @@
       "Bash(/tmp/extract_dialogs.sh)",
       "WebSearch",
       "Bash(git ls-remote:*)",
-      "Bash(chmod +x:*)"
+      "Bash(chmod +x:*)",
+      "Bash(./build.sh --android --release)"
     ]
   }
 }

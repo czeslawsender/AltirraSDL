@@ -22,7 +22,7 @@ template<ATExchanger T>
 void ATSaveStateInfo::Exchange(T& ex) {
 	vdrefptr<ATSaveStateMemoryBuffer> image;
 
-	if constexpr (ex.IsReader) {
+	if constexpr (T::IsReader) {
 		ex.Transfer("thumbnail", &image);
 	} else {
 		vdautoptr pngEncoder { VDCreateImageEncoderPNG() };

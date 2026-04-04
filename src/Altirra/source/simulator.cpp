@@ -4177,7 +4177,7 @@ public:
 
 		rw.Transfer("front_end", &mpFrontEnd);
 
-		if constexpr (rw.IsReader) {
+		if constexpr (T::IsReader) {
 			// if aliasing is specified, there must be more than two bits
 			if (mbXmemAliasing && VDCountBits8(mXmemPortbMask) < 3)
 				throw ATInvalidSaveStateException();

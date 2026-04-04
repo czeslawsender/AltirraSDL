@@ -25,14 +25,14 @@ namespace nsATGTIARenderer {
 	// We do unaligned loads from this array, so it's important that we
 	// avoid cache line split penalties on older CPUs. The Cortex-A73
 	// uses 64-byte lines for loads (stores are only 16).
-	const __declspec(align(64)) uint64 window_table[6] = {
+	alignas(64) const uint64 window_table[6] = {
 		0, 0, (uint64)0 - 1, (uint64)0 - 1, 0, 0
 	};
 
-	const __declspec(align(16)) uint8 color_table_preshuffle[16] = { 8, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7 };
-	const __declspec(align(16)) uint64 hires_splat_pf1[2] = { 0x0505050505050505, 0x0505050505050505 };
-	const __declspec(align(16)) uint64 hires_mask_1[2] = { 0x0f000f000f000f00, 0x0f000f000f000f00 };
-	const __declspec(align(16)) uint64 hires_mask_2[2] = { 0x0f0f00000f0f0000, 0x0f0f00000f0f0000 };
+	alignas(16) const uint8 color_table_preshuffle[16] = { 8, 4, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7 };
+	alignas(16) const uint64 hires_splat_pf1[2] = { 0x0505050505050505, 0x0505050505050505 };
+	alignas(16) const uint64 hires_mask_1[2] = { 0x0f000f000f000f00, 0x0f000f000f000f00 };
+	alignas(16) const uint64 hires_mask_2[2] = { 0x0f0f00000f0f0000, 0x0f0f00000f0f0000 };
 }
 
 void atasm_gtia_render_lores_fast_neon(void *dst0, const uint8 *src, uint32 n, const uint8 *color_table) {

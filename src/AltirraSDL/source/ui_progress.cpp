@@ -21,9 +21,6 @@
 //	thread with a null context.
 
 #include <stdafx.h>
-#include <atomic>
-#include <mutex>
-#include <thread>
 #include <imgui.h>
 #include <vd2/system/error.h>
 #include <vd2/system/vdtypes.h>
@@ -32,59 +29,6 @@
 #include <at/atcore/progress.h>
 
 #include "ui_progress.h"
-
-///////////////////////////////////////////////////////////////////////////
-// Background task context — communicates progress from worker thread
-// to main thread via mutex-protected state.
-///////////////////////////////////////////////////////////////////////////
-
-class ATUITaskProgressContextImGui final : public IATTaskProgressContext {
-public:
-	bool CheckForCancellationOrStatus() override {
-		if (mCancelled.load(std::memory_order_relaxed))
-			throw MyUserAbortError();
-		return false;
-	}
-
-	void SetProgress(double progress) override {
-		std::lock_guard<std::mutex> lock(mMutex);
-		mProgress = progress;
-	}
-
-	void SetProgressF(double progress, const wchar_t *format, ...) override {
-		va_list val;
-		va_start(val, format);
-		{
-			std::lock_guard<std::mutex> lock(mMutex);
-			mProgress = progress;
-			mStatus.clear();
-			mStatus.append_vsprintf(format, val);
-		}
-		va_end(val);
-	}
-
-	void Cancel() { mCancelled.store(true, std::memory_order_relaxed); }
-	bool IsDone() const { return mDone.load(std::memory_order_acquire); }
-	void SetDone() { mDone.store(true, std::memory_order_release); }
-
-	void ReadState(double &progress, VDStringA &statusUtf8) {
-		std::lock_guard<std::mutex> lock(mMutex);
-		progress = mProgress;
-		if (!mStatus.empty())
-			statusUtf8 = VDTextWToU8(mStatus);
-		else
-			statusUtf8.clear();
-	}
-
-	MyError mError;
-
-private:
-	std::mutex mMutex;
-	double mProgress = -1.0;  // negative = indeterminate
-	VDStringW mStatus;
-	std::atomic<bool> mCancelled{false};
-	std::atomic<bool> mDone{false};
-};
 
 ///////////////////////////////////////////////////////////////////////////
 // ImGui progress handler — single instance, registered via
@@ -116,14 +60,6 @@ private:
 	VDStringA mDescriptionUtf8;
 	VDStringW mStatusFormat;
 	VDStringA mStatusUtf8;
-
-	// Background task state (managed by Render, set by main thread only)
-	bool mRunningTask = false;
-	bool mTaskNeedOpen = false;
-	ATUITaskProgressContextImGui *mpTaskCtx = nullptr;
-	std::thread mTaskThread;
-	VDStringA mTaskDescUtf8;
-	bool mTaskFinished = false;
 };
 
 ///////////////////////////////////////////////////////////////////////////

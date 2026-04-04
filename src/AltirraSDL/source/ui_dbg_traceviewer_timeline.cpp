@@ -11,6 +11,14 @@
 #include <vd2/system/text.h>
 #include "ui_dbg_traceviewer.h"
 #include "trace.h"
+#include "tracetape.h"
+#include "ui_main.h"
+
+ATTapeEditorRequest g_tapeEditorRequest;
+
+// Context menu state for tape channel right-click
+static uint32 s_tapeContextSample = 0;
+static float s_tapeContextPixelsPerSample = 0;
 
 // =========================================================================
 // Helpers
@@ -477,6 +485,55 @@ void ATImGuiTraceViewer_RenderTimeline(ATImGuiTraceViewerContext& ctx) {
 					}
 				}
 				tooltip_done:;
+
+				// Right-click context menu on tape channels.
+				// Use IsMouseReleased (not IsMouseClicked) so right-drag panning
+				// still works — matching Windows WM_CONTEXTMENU which fires on
+				// button release.  GetMouseDragDelta checks that the user didn't
+				// drag before releasing.
+				ImVec2 rDragDelta = ImGui::GetMouseDragDelta(ImGuiMouseButton_Right);
+				bool rightClicked = ImGui::IsMouseReleased(ImGuiMouseButton_Right)
+					&& (fabsf(rDragDelta.x) < 3.0f && fabsf(rDragDelta.y) < 3.0f);
+				if (rightClicked) {
+					float rcCheckY = 0;
+					for (const auto& group : ctx.mGroups) {
+						rcCheckY += groupHeaderHeight;
+						for (const auto& ch : group.mChannels) {
+							if (mouseRelY >= rcCheckY && mouseRelY < rcCheckY + channelHeight
+								&& ch.mType == ATImGuiTraceViewerContext::kChannelType_Tape
+								&& ch.mpChannel) {
+								// Compute tape sample position under mouse (matching Windows OnContextMenuTape)
+								ATTraceChannelTape *tapeChannel = static_cast<ATTraceChannelTape *>(&*ch.mpChannel);
+								tapeChannel->StartIteration(mouseTime, tapeChannel->GetDuration(), 0);
+								ATTraceEvent tev;
+								if (tapeChannel->GetNextEvent(tev)) {
+									const auto& tapeEvent = tapeChannel->GetLastEvent();
+									const double samplesPerSec = tapeChannel->GetSamplesPerSec();
+									uint32 pos = VDClampToUint32((sint64)(0.5 + (mouseTime - tev.mEventStart) * samplesPerSec) + (sint64)tapeEvent.mPosition);
+									float pixelsPerTapeSample = (float)(1.0 / (ctx.mSecondsPerPixel * samplesPerSec));
+
+									// Store for popup handler (file-scope statics below)
+									s_tapeContextSample = pos;
+									s_tapeContextPixelsPerSample = pixelsPerTapeSample;
+
+									ImGui::OpenPopup("##TapeContextMenu");
+								}
+							}
+							rcCheckY += channelHeight;
+						}
+					}
+				}
+			}
+
+			// Tape channel context popup (must be outside hovered block for ImGui popup handling)
+			if (ImGui::BeginPopup("##TapeContextMenu")) {
+				if (ImGui::MenuItem("Go To Tape Editor...")) {
+					g_tapeEditorRequest.pending = true;
+					g_tapeEditorRequest.hasLocation = true;
+					g_tapeEditorRequest.sample = s_tapeContextSample;
+					g_tapeEditorRequest.pixelsPerSample = s_tapeContextPixelsPerSample;
+				}
+				ImGui::EndPopup();
 			}
 		}
 		ImGui::EndChild();

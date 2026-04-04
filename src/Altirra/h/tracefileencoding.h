@@ -268,7 +268,7 @@ public:
 		ex.Transfer("insn_size", &mInsnSize);
 		ex.Transfer("flags_bit_offset", &mFlagsBitOffset);
 
-		if constexpr(ex.IsReader) {
+		if constexpr(T_Ex::IsReader) {
 			if (mInsnSize == 0 || mInsnSize > 8)
 				throw ATInvalidSaveStateException();
 
@@ -432,7 +432,7 @@ public:
 		ex.Transfer("offset", &mOffset);
 		ex.Transfer("count", &mCount);
 
-		if constexpr(ex.IsReader) {
+		if constexpr(T_Ex::IsReader) {
 			if (!mCount)
 				throw ATInvalidSaveStateException();
 		}

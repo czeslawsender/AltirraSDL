@@ -73,7 +73,7 @@ void ATSaveStateVbxe::Exchange(T& ex) {
 	ex.Transfer("int_gtia_prior", &mGtiaPrior);
 	ex.Transfer("int_gtia_changes", &mGtiaRegisterChanges);
 
-	if constexpr (ex.IsReader) {
+	if constexpr (T::IsReader) {
 		// validate that register changes have ascending position and full triples
 		size_t rcn = mGtiaRegisterChanges.size();
 

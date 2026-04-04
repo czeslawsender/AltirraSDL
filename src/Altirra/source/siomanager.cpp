@@ -67,7 +67,7 @@ public:
 		rw.Transfer("command_buffer_index", &mCommandBufferIndex);
 		rw.TransferArray("command_buffer", mCommandBuffer);
 
-		if constexpr (rw.IsReader) {
+		if constexpr (T::IsReader) {
 			if (mCommandBufferIndex > 5)
 				throw ATInvalidSaveStateException();
 		}
@@ -99,7 +99,7 @@ public:
 		rw.Transfer("command_frame_end_time", &mCommandFrameEndTime);
 		rw.Transfer("command_deassert_time", &mCommandDeassertTime);
 
-		if constexpr (rw.IsReader) {
+		if constexpr (T::IsReader) {
 			if (mTransferIndex > ATSIOManager::kMaxTransferSize)
 				throw ATInvalidSaveStateException();
 		}
@@ -135,7 +135,7 @@ public:
 		uint32 arg1 = 0;
 		uint32 arg2 = 0;
 
-		if constexpr (rw.IsWriter) {
+		if constexpr (T::IsWriter) {
 			stepType = mStep.mType;
 			arg1 = 0;
 			arg2 = 0;
@@ -179,7 +179,7 @@ public:
 		rw.Transfer("arg2", &arg2);
 		rw.Transfer("transfer_data", &mTransferData);
 
-		if constexpr (rw.IsReader) {
+		if constexpr (T::IsReader) {
 			mStep.mType = stepType;
 
 			switch(stepType) {

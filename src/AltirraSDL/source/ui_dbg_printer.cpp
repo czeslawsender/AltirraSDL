@@ -37,11 +37,15 @@ extern SDL_Window *g_pWindow;
 // Graphical printer renderer — software rasterizer
 // =========================================================================
 //
-// This is a simplified scalar version of the Windows 8x8 anti-aliased
-// rasterizer. It renders dots and vectors to an XRGB8888 framebuffer
-// that is then uploaded to an OpenGL or SDL texture for ImGui display.
+// Scalar version of the Windows 8x8 anti-aliased rasterizer.  Renders dots
+// and vectors from ATPrinterGraphicalOutput to an XRGB8888 framebuffer.
+// Uses 4x sub-sampling vertically with analytical horizontal coverage for
+// anti-aliasing.  Supports full per-dot and per-vector color using the same
+// linear RGB colour model as the Windows version.
 
 namespace {
+
+static constexpr uint32 kPaperBorderColor = 0xFF808080;
 
 struct PrinterViewTransform {
 	float mOriginX = 0;		// document-space left edge of viewport (mm)
@@ -50,26 +54,82 @@ struct PrinterViewTransform {
 	float mMMPerPixel = 1;
 };
 
+// Convert a linear-space printer color (packed with 1/64 scale factor per
+// channel, matching the Windows rasterizer convention) to an sRGB ARGB8888
+// pixel value (0xAARRGGBB).
+static uint32 LinearColorToSRGB8(uint32 linearColor) {
+	// ToRGB8() returns 0x00RRGGBB — the correct byte order for our ARGB
+	// framebuffer and for GL_BGRA + GL_UNSIGNED_INT_8_8_8_8_REV upload.
+	uint32 srgb = VDColorRGB(vdfloat32x4::unpacku8(linearColor) * (1.0f / 64.0f)).LinearToSRGB().ToRGB8();
+	return 0xFF000000 | srgb;
+}
+
+// Composite a printer dot (with color) onto an existing pixel.
+// Uses 'darken' compositing — the printer deposits ink, so a new dot can
+// only make the paper darker, never lighter.
+static uint32 CompositePixel(uint32 bg, uint32 inkSRGB, float coverage) {
+	if (coverage <= 0.0f)
+		return bg;
+	if (coverage > 1.0f)
+		coverage = 1.0f;
+
+	uint32 ir = (inkSRGB >> 16) & 0xFF;
+	uint32 ig = (inkSRGB >> 8) & 0xFF;
+	uint32 ib = inkSRGB & 0xFF;
+
+	uint32 br = (bg >> 16) & 0xFF;
+	uint32 bg_ = (bg >> 8) & 0xFF;
+	uint32 bb = bg & 0xFF;
+
+	// Lerp toward ink color based on coverage
+	uint32 or_ = (uint32)(br + (int)(((int)ir - (int)br) * coverage));
+	uint32 og = (uint32)(bg_ + (int)(((int)ig - (int)bg_) * coverage));
+	uint32 ob = (uint32)(bb + (int)(((int)ib - (int)bb) * coverage));
+
+	return 0xFF000000 | (or_ << 16) | (og << 8) | ob;
+}
+
 // Render dots and vectors to a framebuffer.
 // The framebuffer is stored top-down (row 0 = top of image).
+// Areas outside the paper are filled with kPaperBorderColor.
 static void RenderPrinterOutput(
 	ATPrinterGraphicalOutput& output,
 	const PrinterViewTransform& vt,
 	uint32 *framebuffer,
 	uint32 w, uint32 h,
-	float dotRadiusMM)
+	float dotRadiusMM,
+	float pageWidthMM)
 {
 	if (w == 0 || h == 0)
 		return;
-
-	// Clear to white
-	std::fill(framebuffer, framebuffer + w * h, 0xFFFFFFFF);
 
 	// Compute document-space bounds of the viewport
 	const float docX1 = vt.mOriginX;
 	const float docY1 = vt.mOriginY;
 	const float docX2 = vt.mOriginX + (float)w * vt.mMMPerPixel;
 	const float docY2 = vt.mOriginY + (float)h * vt.mMMPerPixel;
+
+	// Fill framebuffer: white for paper area, gray for outside.
+	// Precompute paper edge pixel positions for efficiency.
+	int paperLeftPx = std::max(0, (int)ceilf(-docX1 * vt.mPixelsPerMM));
+	int paperRightPx = std::min((int)w, (int)ceilf((pageWidthMM - docX1) * vt.mPixelsPerMM));
+	int paperTopPx = std::max(0, (int)ceilf(-docY1 * vt.mPixelsPerMM));
+
+	for (uint32 y = 0; y < h; ++y) {
+		uint32 *row = &framebuffer[y * w];
+		if ((int)y < paperTopPx || paperLeftPx >= paperRightPx) {
+			std::fill(row, row + w, kPaperBorderColor);
+		} else {
+			if (paperLeftPx > 0)
+				std::fill(row, row + paperLeftPx, kPaperBorderColor);
+			int pl = std::max(0, paperLeftPx);
+			int pr = std::max(0, std::min((int)w, paperRightPx));
+			if (pr > pl)
+				std::fill(row + pl, row + pr, 0xFFFFFFFF);
+			if (paperRightPx < (int)w)
+				std::fill(row + std::max(0, paperRightPx), row + w, kPaperBorderColor);
+		}
+	}
 
 	const bool hasVectors = output.HasVectors();
 
@@ -81,18 +141,21 @@ static void RenderPrinterOutput(
 	if (!hasDots && !hasVectors)
 		return;
 
-	// Render parameters
-	const float subPixelsPerMM = vt.mPixelsPerMM * 4.0f;	// 4x4 sub-sampling
 	const float dotRadius = dotRadiusMM;
 	const float dotRadiusSq = dotRadius * dotRadius;
+	static constexpr int kSubRows = 4;
 
 	using RenderDot = ATPrinterGraphicalOutput::RenderDot;
 	using RenderVector = ATPrinterGraphicalOutput::RenderVector;
 	vdfastvector<RenderDot> dotBuf;
 	vdfastvector<RenderVector> vecBuf;
 
-	// 4x4 anti-aliasing buffer (one row of pixels × 4 sub-rows)
-	std::vector<uint16> abuf(w * 4, 0);
+	// Per-pixel coverage buffer (one row of pixels × kSubRows sub-rows).
+	// Each entry stores 0..256 for that sub-row (256 = fully covered).
+	// Final coverage = sum of kSubRows entries / (kSubRows * 256).
+	std::vector<uint16> abufCov(w * kSubRows, 0);
+	// Per-pixel ink color for blending (accumulated sRGB)
+	std::vector<uint32> inkColor(w, 0);
 
 	for (uint32 yoff = 0; yoff < h; ++yoff) {
 		const float docRowYC = docY1 + ((float)yoff + 0.5f) * vt.mMMPerPixel;
@@ -111,7 +174,6 @@ static void RenderPrinterOutput(
 		if (hasVectors) {
 			output.ExtractVectors(vecBuf, lineCullRect);
 
-			// Add endpoint dots from vectors
 			vdrect32f dotCullRect(
 				lineCullRect.left - dotRadiusMM,
 				lineCullRect.top - dotRadiusMM,
@@ -126,38 +188,60 @@ static void RenderPrinterOutput(
 			}
 		}
 
-		// Clear AA buffer
-		std::fill(abuf.begin(), abuf.end(), (uint16)0);
+		if (dotBuf.empty() && vecBuf.empty())
+			continue;
 
-		// Render dots into AA buffer (4x4 sub-sampling, grayscale only for simplicity)
+		// Clear coverage and ink buffers
+		std::fill(abufCov.begin(), abufCov.end(), (uint16)0);
+		std::fill(inkColor.begin(), inkColor.end(), (uint32)0);
+
+		// Render dots with analytical horizontal coverage
 		for (const RenderDot& dot : dotBuf) {
 			float dy = dot.mY - docRowYC;
 			if (fabsf(dy) >= docRowYD + dotRadius)
 				continue;
 
-			// Process 4 sub-rows
-			for (int sr = 0; sr < 4; ++sr) {
-				float subRowY = docRowYC + ((float)sr - 1.5f) * vt.mMMPerPixel / 4.0f;
+			uint32 srgbInk = LinearColorToSRGB8(dot.mLinearColor);
+
+			for (int sr = 0; sr < kSubRows; ++sr) {
+				float subRowY = docRowYC + ((float)sr - (kSubRows - 1) * 0.5f) / (float)kSubRows * vt.mMMPerPixel;
 				float sdy = dot.mY - subRowY;
 				float dxSq = dotRadiusSq - sdy * sdy;
 				if (dxSq <= 0.0f)
 					continue;
 
-				float dx = sqrtf(dxSq);
-				float xc = (dot.mX - docX1) * vt.mPixelsPerMM;
-				float x1f = xc - dx * vt.mPixelsPerMM;
-				float x2f = xc + dx * vt.mPixelsPerMM;
+				float dxMM = sqrtf(dxSq);
+				// Dot circle x-range in pixel coordinates
+				float dotLeftPx = (dot.mX - dxMM - docX1) * vt.mPixelsPerMM;
+				float dotRightPx = (dot.mX + dxMM - docX1) * vt.mPixelsPerMM;
 
-				int ix1 = std::max(0, (int)ceilf(x1f));
-				int ix2 = std::min((int)w, (int)ceilf(x2f));
+				// Pixel range affected (with 1px margin for partial coverage)
+				int ix1 = std::max(0, (int)floorf(dotLeftPx));
+				int ix2 = std::min((int)w, (int)ceilf(dotRightPx));
 
-				uint16 *row = &abuf[sr * w];
-				for (int x = ix1; x < ix2; ++x)
-					row[x] = std::min<uint16>(row[x] + 4, 16);
+				uint16 *row = &abufCov[sr * w];
+				for (int x = ix1; x < ix2; ++x) {
+					// Analytical horizontal coverage: fraction of pixel [x, x+1] covered
+					float pxLeft = (float)x;
+					float pxRight = (float)(x + 1);
+					float covLeft = std::max(pxLeft, dotLeftPx);
+					float covRight = std::min(pxRight, dotRightPx);
+					float hCov = std::max(0.0f, covRight - covLeft);
+
+					// Each sub-row tracks its own 0..256 coverage (256 = fully covered).
+					// Final coverage is the average across kSubRows sub-rows.
+					uint16 covVal = (uint16)std::min(256.0f, hCov * 256.0f);
+					row[x] = std::min<uint16>(row[x] + covVal, 256);
+
+					// Track ink color (first writer wins for simplicity, like the
+					// Windows dither approach for single-color dots)
+					if (covVal > 0 && inkColor[x] == 0)
+						inkColor[x] = srgbInk;
+				}
 			}
 		}
 
-		// Render vectors into AA buffer
+		// Render vectors
 		for (const RenderVector& v : vecBuf) {
 			float dx = v.mX2 - v.mX1;
 			float dy = v.mY2 - v.mY1;
@@ -166,11 +250,10 @@ static void RenderPrinterOutput(
 				continue;
 
 			float invLen = 1.0f / sqrtf(lenSq);
-			// Perpendicular (points left): (-dy, dx) * dotRadius / len
 			float px = -dy * invLen * dotRadius;
 			float py = dx * invLen * dotRadius;
 
-			// Four corners of the line rectangle
+			// Four corners of the line rectangle (counterclockwise)
 			float cx[4] = {
 				v.mX1 + px, v.mX1 - px,
 				v.mX2 - px, v.mX2 + px
@@ -180,8 +263,10 @@ static void RenderPrinterOutput(
 				v.mY2 - py, v.mY2 + py
 			};
 
-			for (int sr = 0; sr < 4; ++sr) {
-				float subRowY = docRowYC + ((float)sr - 1.5f) * vt.mMMPerPixel / 4.0f;
+			uint32 srgbInk = LinearColorToSRGB8(v.mLinearColor);
+
+			for (int sr = 0; sr < kSubRows; ++sr) {
+				float subRowY = docRowYC + ((float)sr - (kSubRows - 1) * 0.5f) / (float)kSubRows * vt.mMMPerPixel;
 
 				// Find x-range of the rectangle at this y using edge intersections
 				float xmin = 1e10f, xmax = -1e10f;
@@ -200,47 +285,52 @@ static void RenderPrinterOutput(
 				if (xmin >= xmax)
 					continue;
 
-				float xc1 = (xmin - docX1) * vt.mPixelsPerMM;
-				float xc2 = (xmax - docX1) * vt.mPixelsPerMM;
-				int ix1 = std::max(0, (int)ceilf(xc1));
-				int ix2 = std::min((int)w, (int)ceilf(xc2));
+				float vecLeftPx = (xmin - docX1) * vt.mPixelsPerMM;
+				float vecRightPx = (xmax - docX1) * vt.mPixelsPerMM;
 
-				uint16 *row = &abuf[sr * w];
-				for (int x = ix1; x < ix2; ++x)
-					row[x] = std::min<uint16>(row[x] + 4, 16);
+				int ix1 = std::max(0, (int)floorf(vecLeftPx));
+				int ix2 = std::min((int)w, (int)ceilf(vecRightPx));
+
+				uint16 *row = &abufCov[sr * w];
+				for (int x = ix1; x < ix2; ++x) {
+					float pxLeft = (float)x;
+					float pxRight = (float)(x + 1);
+					float covLeft = std::max(pxLeft, vecLeftPx);
+					float covRight = std::min(pxRight, vecRightPx);
+					float hCov = std::max(0.0f, covRight - covLeft);
+
+					uint16 covVal = (uint16)std::min(256.0f, hCov * 256.0f);
+					row[x] = std::min<uint16>(row[x] + covVal, 256);
+
+					if (covVal > 0 && inkColor[x] == 0)
+						inkColor[x] = srgbInk;
+				}
 			}
 		}
 
-		// Downsample AA buffer to framebuffer pixel row
+		// Composite coverage into framebuffer
 		uint32 *dst = &framebuffer[yoff * w];
 		for (uint32 x = 0; x < w; ++x) {
-			uint32 coverage = abuf[0 * w + x] + abuf[1 * w + x] +
-				abuf[2 * w + x] + abuf[3 * w + x];
-			// coverage is 0..64, map to luminance 255..0
-			uint32 luma = 255 - (coverage * 255 / 64);
-			dst[x] = 0xFF000000 | (luma << 16) | (luma << 8) | luma;
+			uint32 totalCov = abufCov[0 * w + x] + abufCov[1 * w + x] +
+				abufCov[2 * w + x] + abufCov[3 * w + x];
+
+			if (totalCov == 0)
+				continue;
+
+			float coverage = std::min(1.0f, (float)totalCov / 1024.0f);
+			uint32 ink = inkColor[x];
+			if (ink == 0)
+				ink = 0xFF000000;	// fallback to black
+
+			dst[x] = CompositePixel(dst[x], ink, coverage);
 		}
 	}
 }
 
 // =========================================================================
-// PNG encoding — minimal encoder using SDL surfaces
+// PNG encoding — minimal uncompressed PNG writer (no external dependency)
 // =========================================================================
 
-static bool SaveFramebufferAsBMP(const uint32 *framebuffer, int w, int h, const char *path) {
-	SDL_Surface *surface = SDL_CreateSurfaceFrom(w, h,
-		SDL_PIXELFORMAT_ARGB8888,
-		(void *)framebuffer, w * 4);
-	if (!surface)
-		return false;
-
-	bool ok = SDL_SaveBMP(surface, path);
-	SDL_DestroySurface(surface);
-	return ok;
-}
-
-// Minimal PNG writer — writes uncompressed (store) DEFLATE blocks.
-// This avoids any external dependency.
 static bool SaveFramebufferAsPNG(const uint32 *framebuffer, int w, int h, const char *path) {
 	FILE *f = fopen(path, "wb");
 	if (!f)
@@ -266,13 +356,6 @@ static bool SaveFramebufferAsPNG(const uint32 *framebuffer, int w, int h, const 
 		crcInit = true;
 	}
 
-	auto crc32 = [&](const uint8 *data, size_t len) -> uint32 {
-		uint32 c = 0xFFFFFFFF;
-		for (size_t i = 0; i < len; i++)
-			c = crcTable[(c ^ data[i]) & 0xFF] ^ (c >> 8);
-		return c ^ 0xFFFFFFFF;
-	};
-
 	auto writeChunk = [&](const char *type, const uint8 *data, uint32 len) {
 		uint8 hdr[8];
 		writeBE32(hdr, len);
@@ -285,7 +368,8 @@ static bool SaveFramebufferAsPNG(const uint32 *framebuffer, int w, int h, const 
 		for (uint32 i = 0; i < len; i++)
 			crc = crcTable[(crc ^ data[i]) & 0xFF] ^ (crc >> 8);
 		crc ^= 0xFFFFFFFF;
-		fwrite(data, 1, len, f);
+		if (len > 0)
+			fwrite(data, 1, len, f);
 		uint8 crcBuf[4];
 		writeBE32(crcBuf, crc);
 		fwrite(crcBuf, 1, 4, f);
@@ -308,8 +392,7 @@ static bool SaveFramebufferAsPNG(const uint32 *framebuffer, int w, int h, const 
 		writeChunk("IHDR", ihdr, 13);
 	}
 
-	// IDAT — build raw image data (filter byte 0 + RGB for each row),
-	// then wrap in zlib store blocks.
+	// IDAT — raw image data wrapped in zlib store blocks.
 	// Each row: 1 filter byte + w*3 RGB bytes
 	const uint32 rowBytes = 1 + w * 3;
 	const uint64 rawSize = (uint64)rowBytes * h;
@@ -328,15 +411,15 @@ static bool SaveFramebufferAsPNG(const uint32 *framebuffer, int w, int h, const 
 		}
 	}
 
-	// Wrap in zlib (store blocks) — header(2) + blocks + adler32(4)
-	// Each store block: 5-byte header + up to 65535 data bytes
+	// Adler-32 checksum for zlib
 	uint32 adler_a = 1, adler_b = 0;
 	for (size_t i = 0; i < raw.size(); i++) {
 		adler_a = (adler_a + raw[i]) % 65521;
 		adler_b = (adler_b + adler_a) % 65521;
 	}
-	uint32 adler32 = (adler_b << 16) | adler_a;
+	uint32 adler32val = (adler_b << 16) | adler_a;
 
+	// Wrap in zlib store blocks: header(2) + blocks + adler32(4)
 	size_t numBlocks = (raw.size() + 65534) / 65535;
 	size_t zlibSize = 2 + numBlocks * 5 + raw.size() + 4;
 	std::vector<uint8> zlib(zlibSize);
@@ -360,7 +443,7 @@ static bool SaveFramebufferAsPNG(const uint32 *framebuffer, int w, int h, const 
 		srcPos += blockLen;
 		remaining -= blockLen;
 	}
-	writeBE32(&zlib[zpos], adler32);
+	writeBE32(&zlib[zpos], adler32val);
 	zpos += 4;
 
 	writeChunk("IDAT", zlib.data(), (uint32)zpos);
@@ -375,8 +458,14 @@ static bool SaveFramebufferAsPNG(const uint32 *framebuffer, int w, int h, const 
 // =========================================================================
 // Minimal PDF writer — single page with embedded RGB image
 // =========================================================================
+//
+// The Windows version produces a sophisticated vector PDF with an embedded
+// TrueType font encoding dot patterns, allowing resolution-independent
+// rendering.  This simplified version embeds a rasterized image at 300 DPI,
+// which is adequate for printed output but not resolution-independent.
 
-static bool SaveFramebufferAsPDF(const uint32 *framebuffer, int w, int h, const char *path) {
+static bool SaveFramebufferAsPDF(const uint32 *framebuffer, int w, int h,
+		float docWidthMM, float docHeightMM, const char *path) {
 	FILE *f = fopen(path, "wb");
 	if (!f)
 		return false;
@@ -390,10 +479,10 @@ static bool SaveFramebufferAsPDF(const uint32 *framebuffer, int w, int h, const 
 		rgb[i * 3 + 2] = (uint8)(px);
 	}
 
-	// PDF page size: fit image at 72 DPI scale
-	// We use the actual document DPI that was used for rendering
-	float pageW = (float)w;
-	float pageH = (float)h;
+	// PDF page size in points (72 per inch)
+	static constexpr float mmToPoints = 72.0f / 25.4f;
+	float pageW = docWidthMM * mmToPoints;
+	float pageH = docHeightMM * mmToPoints;
 
 	std::vector<long> objOffsets;
 	auto recordObj = [&]() {
@@ -412,18 +501,26 @@ static bool SaveFramebufferAsPDF(const uint32 *framebuffer, int w, int h, const 
 
 	// Object 3: Page
 	recordObj();
-	fprintf(f, "3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 %g %g] /Contents 4 0 R /Resources << /XObject << /Im0 5 0 R >> >> >>\nendobj\n", pageW, pageH);
+	fprintf(f, "3 0 obj\n<< /Type /Page /Parent 2 0 R "
+		"/MediaBox [0 0 %.2f %.2f] "
+		"/Contents 4 0 R "
+		"/Resources << /XObject << /Im0 5 0 R >> >> >>\nendobj\n",
+		pageW, pageH);
 
-	// Object 4: Page content stream — draw image
+	// Object 4: Page content stream — draw image scaled to page size
 	char contentStr[256];
-	snprintf(contentStr, sizeof(contentStr), "q %g 0 0 %g 0 0 cm /Im0 Do Q", pageW, pageH);
+	snprintf(contentStr, sizeof(contentStr),
+		"q %.2f 0 0 %.2f 0 0 cm /Im0 Do Q", pageW, pageH);
 	int contentLen = (int)strlen(contentStr);
 	recordObj();
-	fprintf(f, "4 0 obj\n<< /Length %d >>\nstream\n%s\nendstream\nendobj\n", contentLen, contentStr);
+	fprintf(f, "4 0 obj\n<< /Length %d >>\nstream\n%s\nendstream\nendobj\n",
+		contentLen, contentStr);
 
 	// Object 5: Image XObject
 	recordObj();
-	fprintf(f, "5 0 obj\n<< /Type /XObject /Subtype /Image /Width %d /Height %d /ColorSpace /DeviceRGB /BitsPerComponent 8 /Length %d >>\nstream\n", w, h, (int)rgb.size());
+	fprintf(f, "5 0 obj\n<< /Type /XObject /Subtype /Image "
+		"/Width %d /Height %d /ColorSpace /DeviceRGB "
+		"/BitsPerComponent 8 /Length %d >>\nstream\n", w, h, (int)rgb.size());
 	fwrite(rgb.data(), 1, rgb.size(), f);
 	fprintf(f, "\nendstream\nendobj\n");
 
@@ -442,7 +539,7 @@ static bool SaveFramebufferAsPDF(const uint32 *framebuffer, int w, int h, const 
 }
 
 // =========================================================================
-// Minimal SVG writer — uses dot patterns like Windows version
+// SVG writer — vector format using dot patterns, matching Windows output
 // =========================================================================
 
 static bool SavePrinterOutputAsSVG(ATPrinterGraphicalOutput& output, const char *path) {
@@ -467,7 +564,8 @@ static bool SavePrinterOutputAsSVG(ATPrinterGraphicalOutput& output, const char 
 		return false;
 
 	fprintf(f, "<?xml version=\"1.0\" standalone=\"yes\"?>\n");
-	fprintf(f, "<!DOCTYPE svg PUBLIC \"-//W3C/DTD/SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n");
+	fprintf(f, "<!DOCTYPE svg PUBLIC \"-//W3C/DTD/SVG 1.1//EN\" "
+		"\"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n");
 	fprintf(f, "<svg width=\"%gmm\" height=\"%gmm\" viewBox=\"0 0 %d %d\" version=\"1.1\""
 		" xmlns=\"http://www.w3.org/2000/svg\" xmlns:l=\"http://www.w3.org/1999/xlink\">\n",
 		roundf(width * kUnitsPerMM) / kUnitsPerMM,
@@ -513,22 +611,57 @@ static bool SavePrinterOutputAsSVG(ATPrinterGraphicalOutput& output, const char 
 		}
 	}
 
-	// Vectors
+	// Vectors — group by color, convert linear RGB to sRGB (matching Windows)
 	vdfastvector<ATPrinterGraphicalOutput::RenderVector> rvectors;
 	output.ExtractVectors(rvectors, docBounds);
 
 	if (!rvectors.empty()) {
-		// Group by color — just use black for simplicity matching most printer output
-		fprintf(f, "<g style=\"stroke:#000000; stroke-width:%d; stroke-linecap:round; fill:none\">\n",
-			dotRadius * 2);
+		// Collect unique colors
+		struct ColorGroup {
+			uint32 linearColor;
+			uint32 srgbRGB;		// 0x00RRGGBB for CSS #RRGGBB format
+		};
+		std::vector<ColorGroup> colors;
+		std::vector<uint32> colorsSeen;
+
 		for (const auto& rv : rvectors) {
-			fprintf(f, "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\"/>\n",
-				(int)roundf((rv.mX1 - docBounds.left) * kUnitsPerMM),
-				(int)roundf((rv.mY1 - docBounds.top) * kUnitsPerMM),
-				(int)roundf((rv.mX2 - docBounds.left) * kUnitsPerMM),
-				(int)roundf((rv.mY2 - docBounds.top) * kUnitsPerMM));
+			bool found = false;
+			for (uint32 c : colorsSeen) {
+				if (c == rv.mLinearColor) { found = true; break; }
+			}
+			if (!found) {
+				// ToRGB8() returns 0x00RRGGBB — correct for CSS #RRGGBB strings
+				uint32 srgb = VDColorRGB(vdfloat32x4::unpacku8(rv.mLinearColor) * (1.0f / 64.0f)).LinearToSRGB().ToRGB8();
+				colors.push_back({rv.mLinearColor, srgb});
+				colorsSeen.push_back(rv.mLinearColor);
+			}
 		}
-		fprintf(f, "</g>\n");
+
+		// Sort by decreasing luminance (matching Windows)
+		std::sort(colors.begin(), colors.end(),
+			[](const ColorGroup& a, const ColorGroup& b) {
+				uint32 la = ((a.srgbRGB >> 16) & 0xFF) + ((a.srgbRGB >> 8) & 0xFF) + (a.srgbRGB & 0xFF);
+				uint32 lb = ((b.srgbRGB >> 16) & 0xFF) + ((b.srgbRGB >> 8) & 0xFF) + (b.srgbRGB & 0xFF);
+				return la > lb;
+			});
+
+		for (const auto& cg : colors) {
+			fprintf(f, "<g style=\"stroke:#%06X; stroke-width:%d; stroke-linecap:round; fill:none\">\n",
+				cg.srgbRGB, dotRadius * 2);
+
+			for (const auto& rv : rvectors) {
+				if (rv.mLinearColor != cg.linearColor)
+					continue;
+
+				fprintf(f, "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\"/>\n",
+					(int)roundf((rv.mX1 - docBounds.left) * kUnitsPerMM),
+					(int)roundf((rv.mY1 - docBounds.top) * kUnitsPerMM),
+					(int)roundf((rv.mX2 - docBounds.left) * kUnitsPerMM),
+					(int)roundf((rv.mY2 - docBounds.top) * kUnitsPerMM));
+			}
+
+			fprintf(f, "</g>\n");
+		}
 	}
 
 	// Defs for dot patterns
@@ -543,7 +676,6 @@ static bool SavePrinterOutputAsSVG(ATPrinterGraphicalOutput& output, const char 
 				while (mask) {
 					int dotIndex = 0;
 					uint32 tmp = mask;
-					// Find lowest set bit index
 					while (!(tmp & 1)) { dotIndex++; tmp >>= 1; }
 					mask &= mask - 1;
 
@@ -566,12 +698,10 @@ static bool SavePrinterOutputAsSVG(ATPrinterGraphicalOutput& output, const char 
 	return true;
 }
 
-// File dialog callback data for async save dialogs
+// File dialog callback for async save dialogs
 struct PrinterSaveRequest {
-	enum class Format { PNG96, PNG300, PDF, SVG, BMP };
+	enum class Format { PNG96, PNG300, PDF, SVG };
 	Format mFormat;
-	ATPrinterGraphicalOutput *mpOutput;
-	float mDotRadiusMM;
 };
 
 static PrinterSaveRequest s_pendingSaveRequest {};
@@ -630,7 +760,7 @@ private:
 	float mViewCenterX = 0;		// document-space center (mm)
 	float mViewCenterY = 0;
 	float mZoomClicks = 0;
-	float mViewPixelsPerMM = 96.0f / 25.4f;	// ~3.78 px/mm at 96 DPI
+	float mViewPixelsPerMM = 96.0f / 25.4f;
 	float mViewMMPerPixel = 25.4f / 96.0f;
 	float mDotRadiusMM = 0;
 	float mPageWidthMM = 0;
@@ -655,7 +785,7 @@ private:
 	bool mbGfxInvalidated = true;
 	vdfunction<void()> mGfxOnInvalidation;
 
-	// Invalidation callback
+	// Invalidation callback for text output
 	vdfunction<void()> mOnInvalidation;
 
 	// Output list (rebuilt on open and on events)
@@ -667,17 +797,21 @@ private:
 	std::vector<OutputInfo> mOutputList;
 	bool mbOutputListDirty = true;
 
-	// Event subscriptions
+	// Event subscriptions for text outputs
 	vdfunction<void(ATPrinterOutput&)> mOnAddedOutput;
 	vdfunction<void(ATPrinterOutput&)> mOnRemovingOutput;
+
+	// Event subscriptions for graphical outputs
+	vdfunction<void(ATPrinterGraphicalOutput&)> mOnAddedGfxOutput;
+	vdfunction<void(ATPrinterGraphicalOutput&)> mOnRemovingGfxOutput;
 };
 
 ATImGuiPrinterOutputPaneImpl::ATImGuiPrinterOutputPaneImpl()
 	: ATImGuiDebuggerPane(kATUIPaneId_PrinterOutput, "Printer Output")
 {
-	// Subscribe to printer output manager events
 	auto& mgr = static_cast<ATPrinterOutputManager&>(g_sim.GetPrinterOutputManager());
 
+	// Text output events
 	mOnAddedOutput = [this](ATPrinterOutput&) {
 		mbOutputListDirty = true;
 	};
@@ -687,17 +821,41 @@ ATImGuiPrinterOutputPaneImpl::ATImGuiPrinterOutputPaneImpl()
 		mbOutputListDirty = true;
 	};
 
+	// Graphical output events
+	mOnAddedGfxOutput = [this](ATPrinterGraphicalOutput&) {
+		mbOutputListDirty = true;
+	};
+	mOnRemovingGfxOutput = [this](ATPrinterGraphicalOutput& output) {
+		if (mpCurrentGfxOutput == &output)
+			DetachFromOutput();
+		mbOutputListDirty = true;
+	};
+
 	mgr.OnAddedOutput.Add(&mOnAddedOutput);
 	mgr.OnRemovingOutput.Add(&mOnRemovingOutput);
+	mgr.OnAddedGraphicalOutput.Add(&mOnAddedGfxOutput);
+	mgr.OnRemovingGraphicalOutput.Add(&mOnRemovingGfxOutput);
 
-	// Auto-attach to first available output
+	// Auto-attach to first available output.
+	// Windows AttachToAnyOutput() prefers graphical over text.
 	RefreshOutputList();
 	if (!mOutputList.empty()) {
+		// First try graphical
 		for (int i = 0; i < (int)mOutputList.size(); ++i) {
-			if (!mOutputList[i].mbIsGraphical) {
-				AttachToTextOutput(mOutputList[i].mIndex);
+			if (mOutputList[i].mbIsGraphical) {
+				AttachToGraphicalOutput(mOutputList[i].mIndex);
 				mCurrentOutputIdx = i;
 				break;
+			}
+		}
+		// If no graphical, try text
+		if (mCurrentOutputIdx < 0) {
+			for (int i = 0; i < (int)mOutputList.size(); ++i) {
+				if (!mOutputList[i].mbIsGraphical) {
+					AttachToTextOutput(mOutputList[i].mIndex);
+					mCurrentOutputIdx = i;
+					break;
+				}
 			}
 		}
 	}
@@ -710,6 +868,8 @@ ATImGuiPrinterOutputPaneImpl::~ATImGuiPrinterOutputPaneImpl() {
 	auto& mgr = static_cast<ATPrinterOutputManager&>(g_sim.GetPrinterOutputManager());
 	mgr.OnAddedOutput.Remove(&mOnAddedOutput);
 	mgr.OnRemovingOutput.Remove(&mOnRemovingOutput);
+	mgr.OnAddedGraphicalOutput.Remove(&mOnAddedGfxOutput);
+	mgr.OnRemovingGraphicalOutput.Remove(&mOnRemovingGfxOutput);
 }
 
 void ATImGuiPrinterOutputPaneImpl::RefreshOutputList() {
@@ -751,7 +911,6 @@ void ATImGuiPrinterOutputPaneImpl::AttachToTextOutput(int index) {
 	mLastTextOffset = 0;
 	mTextBuffer.clear();
 
-	// Set up invalidation callback
 	mOnInvalidation = [this]() {
 		// Text was added — will be picked up next frame
 	};
@@ -783,12 +942,14 @@ void ATImGuiPrinterOutputPaneImpl::AttachToGraphicalOutput(int index) {
 	// Track print head position
 	mpCurrentGfxOutput->SetOnVerticalMove([this](float y) {
 		mViewCursorY = y;
+		mbGfxInvalidated = true;
 	});
 
-	// Reset view
-	mZoomClicks = 0;
-	mViewPixelsPerMM = 96.0f / 25.4f;
-	mViewMMPerPixel = 25.4f / 96.0f;
+	// Reset view — match Windows: start at minimum zoom, center on page
+	mZoomClicks = kZoomMin;
+	float basePixelsPerMM = 96.0f / 25.4f;
+	mViewPixelsPerMM = basePixelsPerMM * powf(2.0f, mZoomClicks / 5.0f);
+	mViewMMPerPixel = 1.0f / mViewPixelsPerMM;
 	mViewCenterX = mPageWidthMM * 0.5f;
 	mViewCenterY = mPageVBorderMM;
 	mViewCursorY = (float)mpCurrentGfxOutput->GetVerticalPos();
@@ -806,6 +967,7 @@ void ATImGuiPrinterOutputPaneImpl::DetachFromOutput() {
 		mpCurrentGfxOutput = nullptr;
 	}
 	mCurrentOutputIdx = -1;
+	mbDragging = false;
 }
 
 void ATImGuiPrinterOutputPaneImpl::UpdateTextBuffer() {
@@ -817,7 +979,6 @@ void ATImGuiPrinterOutputPaneImpl::UpdateTextBuffer() {
 		const wchar_t *text = mpCurrentOutput->GetTextPointer(mLastTextOffset);
 		size_t newChars = len - mLastTextOffset;
 
-		// Convert wchar_t to UTF-8 for ImGui
 		VDStringW wstr(text, newChars);
 		VDStringA utf8 = VDTextWToU8(wstr);
 		mTextBuffer.append(utf8.c_str(), utf8.size());
@@ -862,9 +1023,19 @@ void ATImGuiPrinterOutputPaneImpl::UpdateGraphicalTexture(uint32 w, uint32 h) {
 	vt.mPixelsPerMM = mViewPixelsPerMM;
 	vt.mMMPerPixel = mViewMMPerPixel;
 
-	RenderPrinterOutput(*mpCurrentGfxOutput, vt, mFramebuffer.data(), w, h, mDotRadiusMM);
+	RenderPrinterOutput(*mpCurrentGfxOutput, vt, mFramebuffer.data(), w, h,
+		mDotRadiusMM, mPageWidthMM);
 
-	// Draw print head cursor — gray triangle on left edge
+	// Drain the invalidation state so future Invalidate() calls will
+	// re-trigger the callback.  Without this, mbInvalidated stays true
+	// permanently and the callback never fires again after the first render.
+	{
+		bool all = false;
+		vdrect32f r;
+		mpCurrentGfxOutput->ExtractInvalidationRect(all, r);
+	}
+
+	// Draw print head cursor — gray triangle on left edge (matching Windows)
 	{
 		float cursorPixelY = (mViewCursorY - vt.mOriginY) * vt.mPixelsPerMM;
 		int cy = (int)cursorPixelY;
@@ -943,7 +1114,7 @@ void ATImGuiPrinterOutputPaneImpl::RenderToFramebuffer(float dpi, std::vector<ui
 	outW = std::max(1, (int)ceilf(docBounds.width() * mmToInches * dpi));
 	outH = std::max(1, (int)ceilf(docBounds.height() * mmToInches * dpi));
 
-	// Limit to reasonable size
+	// Limit to reasonable size to prevent OOM
 	if ((int64_t)outW * outH > 64 * 1024 * 1024) {
 		float scale = sqrtf(64.0f * 1024 * 1024 / ((float)outW * outH));
 		outW = (int)(outW * scale);
@@ -958,7 +1129,8 @@ void ATImGuiPrinterOutputPaneImpl::RenderToFramebuffer(float dpi, std::vector<ui
 	vt.mPixelsPerMM = mmToInches * dpi;
 	vt.mMMPerPixel = 1.0f / vt.mPixelsPerMM;
 
-	RenderPrinterOutput(*mpCurrentGfxOutput, vt, fb.data(), outW, outH, mDotRadiusMM);
+	RenderPrinterOutput(*mpCurrentGfxOutput, vt, fb.data(), outW, outH,
+		mDotRadiusMM, mPageWidthMM);
 }
 
 void ATImGuiPrinterOutputPaneImpl::ProcessPendingSave() {
@@ -989,14 +1161,16 @@ void ATImGuiPrinterOutputPaneImpl::ProcessPendingSave() {
 			std::vector<uint32> fb;
 			int w, h;
 			RenderToFramebuffer(300.0f, fb, w, h);
-			if (w > 0 && h > 0)
-				SaveFramebufferAsPDF(fb.data(), w, h, path.c_str());
+			if (w > 0 && h > 0) {
+				vdrect32f bounds = mpCurrentGfxOutput->GetDocumentBounds();
+				float docW = std::max(10.0f, bounds.width());
+				float docH = std::max(10.0f, bounds.height());
+				SaveFramebufferAsPDF(fb.data(), w, h, docW, docH, path.c_str());
+			}
 			break;
 		}
 		case PrinterSaveRequest::Format::SVG:
 			SavePrinterOutputAsSVG(*mpCurrentGfxOutput, path.c_str());
-			break;
-		default:
 			break;
 	}
 }
@@ -1008,7 +1182,16 @@ void ATImGuiPrinterOutputPaneImpl::RenderGraphicalOutput() {
 	// Process any pending save requests
 	ProcessPendingSave();
 
-	// Context menu
+	// Release drag if window lost focus
+	if (mbDragging && !ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows))
+		mbDragging = false;
+
+	// Get available region early — needed by both context menu and rendering
+	ImVec2 avail = ImGui::GetContentRegionAvail();
+	int viewW = std::max(1, (int)avail.x);
+	int viewH = std::max(1, (int)avail.y);
+
+	// Context menu (right-click)
 	if (ImGui::BeginPopupContextWindow("PrinterGfxContext")) {
 		if (ImGui::MenuItem("Clear")) {
 			mpCurrentGfxOutput->Clear();
@@ -1019,8 +1202,6 @@ void ATImGuiPrinterOutputPaneImpl::RenderGraphicalOutput() {
 		if (ImGui::BeginMenu("Save As")) {
 			auto startSave = [&](PrinterSaveRequest::Format fmt, const char *filterName, const char *ext) {
 				s_pendingSaveRequest.mFormat = fmt;
-				s_pendingSaveRequest.mpOutput = mpCurrentGfxOutput;
-				s_pendingSaveRequest.mDotRadiusMM = mDotRadiusMM;
 
 				SDL_DialogFileFilter filter;
 				filter.name = filterName;
@@ -1044,27 +1225,38 @@ void ATImGuiPrinterOutputPaneImpl::RenderGraphicalOutput() {
 		ImGui::Separator();
 
 		if (ImGui::MenuItem("Reset View")) {
-			mZoomClicks = 0;
-			mViewPixelsPerMM = 96.0f / 25.4f;
-			mViewMMPerPixel = 25.4f / 96.0f;
+			mZoomClicks = kZoomMin;
+			float basePixelsPerMM = 96.0f / 25.4f;
+			mViewPixelsPerMM = basePixelsPerMM * powf(2.0f, mZoomClicks / 5.0f);
+			mViewMMPerPixel = 1.0f / mViewPixelsPerMM;
 			mViewCenterX = mPageWidthMM * 0.5f;
 			mViewCenterY = mPageVBorderMM;
 			mbGfxInvalidated = true;
 		}
 
 		if (ImGui::MenuItem("Set Print Position")) {
-			// Jump view to current print head position
-			mViewCenterY = mViewCursorY;
+			// Windows behaviour: set the print head to the Y position where the
+			// user right-clicked.  Convert the right-click screen position to
+			// document space.
+			ImVec2 clickPos = ImGui::GetIO().MouseClickedPos[1];
+
+			// The image occupies the content region below the toolbar/separator.
+			// Its screen-space top = window bottom - viewH (content region height).
+			ImVec2 winPos = ImGui::GetWindowPos();
+			ImVec2 winSize = ImGui::GetWindowSize();
+			float contentTopY = winPos.y + winSize.y - (float)viewH;
+			float relY = clickPos.y - contentTopY;
+
+			float docY = mViewCenterY + (relY - viewH * 0.5f) * mViewMMPerPixel;
+			docY = std::max(0.0f, docY);
+
+			mpCurrentGfxOutput->SetVerticalPos(docY);
+			mViewCursorY = docY;
 			mbGfxInvalidated = true;
 		}
 
 		ImGui::EndPopup();
 	}
-
-	// Get available region
-	ImVec2 avail = ImGui::GetContentRegionAvail();
-	int viewW = std::max(1, (int)avail.x);
-	int viewH = std::max(1, (int)avail.y);
 
 	// Handle zoom (mouse wheel)
 	if (ImGui::IsWindowHovered(ImGuiHoveredFlags_ChildWindows)) {
@@ -1096,7 +1288,7 @@ void ATImGuiPrinterOutputPaneImpl::RenderGraphicalOutput() {
 		}
 	}
 
-	// Handle pan (mouse drag)
+	// Handle pan (left-click drag)
 	if (ImGui::IsWindowHovered(ImGuiHoveredFlags_ChildWindows) &&
 		ImGui::IsMouseClicked(ImGuiMouseButton_Left) &&
 		!ImGui::GetIO().KeyCtrl) {
@@ -1121,7 +1313,7 @@ void ATImGuiPrinterOutputPaneImpl::RenderGraphicalOutput() {
 		}
 	}
 
-	// Keyboard navigation
+	// Keyboard navigation (matching Windows: arrows ±100/±1, PgUp/PgDn, +/-)
 	if (ImGui::IsWindowFocused(ImGuiFocusedFlags_RootAndChildWindows) &&
 		!ImGui::GetIO().WantTextInput) {
 		float scrollStep = ImGui::GetIO().KeyCtrl ? 1.0f : 100.0f;
@@ -1166,8 +1358,8 @@ void ATImGuiPrinterOutputPaneImpl::RenderGraphicalOutput() {
 		}
 	}
 
-	// Render and display
-	if (mbGfxInvalidated)
+	// Render and display — also re-render if viewport size changed
+	if (mbGfxInvalidated || mTexW != viewW || mTexH != viewH)
 		UpdateGraphicalTexture(viewW, viewH);
 
 	void *texID = GetGraphicalImTextureID();
@@ -1199,7 +1391,6 @@ bool ATImGuiPrinterOutputPaneImpl::Render() {
 
 	// Toolbar: output selector + clear button
 	{
-		// Output selector dropdown
 		const char *currentName = (mCurrentOutputIdx >= 0 && mCurrentOutputIdx < (int)mOutputList.size())
 			? mOutputList[mCurrentOutputIdx].mName.c_str()
 			: "(none)";
@@ -1247,10 +1438,8 @@ bool ATImGuiPrinterOutputPaneImpl::Render() {
 	if (isGraphical) {
 		RenderGraphicalOutput();
 	} else if (mpCurrentOutput) {
-		// Update text buffer from printer output
 		UpdateTextBuffer();
 
-		// Text output area
 		if (ImGui::BeginChild("PrinterText", ImVec2(0, 0), ImGuiChildFlags_None,
 				ImGuiWindowFlags_HorizontalScrollbar)) {
 			if (!mTextBuffer.empty())

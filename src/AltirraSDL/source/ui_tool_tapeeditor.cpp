@@ -348,6 +348,12 @@ void ATUIRenderTapeEditor(ATSimulator &sim, ATUIState &state, SDL_Window *window
 	TapeEditorPollFileDialogs();
 	TapeEditorSyncImage();
 
+	// Handle "Go To" request from trace viewer
+	if (g_tapeEditorRequest.hasLocation) {
+		g_tapeEditor.GoToLocation(g_tapeEditorRequest.sample, g_tapeEditorRequest.pixelsPerSample);
+		g_tapeEditorRequest.hasLocation = false;
+	}
+
 	auto& te = g_tapeEditor;
 	ATCassetteEmulator& cas = sim.GetCassette();
 	const bool hasImage = te.mpImage != nullptr;

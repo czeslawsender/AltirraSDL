@@ -226,6 +226,7 @@ struct ATTapeEditorState {
 
 	// ---- Methods (view) ----
 	void SetZoom(sint32 newZoom, sint32 centerClientX, sint32 viewWidth);
+	void GoToLocation(uint32 sample, float pixelsPerSample);
 	void UpdateScrollLimit();
 	uint32 ClientXToSampleEdge(float x, float viewWidth, bool clampToLength) const;
 	uint32 ClientXToSample(float x, float viewWidth) const;
