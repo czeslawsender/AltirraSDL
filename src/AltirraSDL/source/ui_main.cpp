@@ -748,6 +748,25 @@ bool ATUIInit(SDL_Window *window, IDisplayBackend *backend) {
 	ATUIUpdateSystemTheme();
 	ATUIApplyTheme();
 
+#ifdef ALTIRRA_MOBILE
+	// Scale ImGui for high-DPI mobile displays. All text, spacing, and
+	// widget sizes are multiplied by the display content scale so they
+	// remain finger-friendly on phones (typically 2.0-3.0x).
+	{
+		SDL_DisplayID displayID = SDL_GetDisplayForWindow(window);
+		float cs = SDL_GetDisplayContentScale(displayID);
+		if (cs < 1.0f) cs = 1.0f;
+		// Clamp to reasonable range to avoid absurd sizes on exotic devices
+		if (cs > 4.0f) cs = 4.0f;
+		io.FontGlobalScale = cs;
+		// Also scale the default style so spacing, padding, and rounding
+		// match the larger font
+		ImGuiStyle &style = ImGui::GetStyle();
+		style.ScaleAllSizes(cs);
+		fprintf(stderr, "[AltirraSDL] Mobile DPI scale: %.2f\n", cs);
+	}
+#endif
+
 	s_pDisplayBackend = backend;
 
 	if (backend->GetType() == DisplayBackendType::OpenGL33) {

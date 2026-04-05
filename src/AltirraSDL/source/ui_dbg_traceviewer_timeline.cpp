@@ -378,6 +378,14 @@ void ATImGuiTraceViewer_RenderTimeline(ATImGuiTraceViewerContext& ctx) {
 			ImVec2 eventOrigin = ImGui::GetCursorScreenPos();
 			eventOrigin.y -= totalHeight;  // Dummy advanced cursor; back up
 
+			// Place an InvisibleButton over the visible area to consume mouse
+			// input and prevent drag events from propagating to the parent
+			// window (which would cause the entire pane to move).
+			ImGui::SetCursorScreenPos(ImVec2(eventOrigin.x, mainOrigin.y));
+			ImGui::InvisibleButton("##TVEventsInput", ImVec2(eventAreaWidth, viewHeight));
+			bool eventsHovered = ImGui::IsItemHovered();
+			bool eventsActive = ImGui::IsItemActive();
+
 			ImDrawList *drawList = ImGui::GetWindowDrawList();
 
 			// Clip to visible event area
@@ -394,8 +402,7 @@ void ATImGuiTraceViewer_RenderTimeline(ATImGuiTraceViewerContext& ctx) {
 
 			// --- Mouse interaction ---
 			ImVec2 mousePos = ImGui::GetMousePos();
-			bool hovered = (mousePos.x >= eventOrigin.x && mousePos.x < eventOrigin.x + eventAreaWidth &&
-				mousePos.y >= mainOrigin.y && mousePos.y < mainOrigin.y + viewHeight);
+			bool hovered = eventsHovered || eventsActive;
 
 			if (hovered) {
 				ImGui::SetMouseCursor(ctx.mbSelectionMode ? ImGuiMouseCursor_TextInput : ImGuiMouseCursor_Arrow);

@@ -1,6 +1,7 @@
 //	AltirraSDL - Mobile UI (hamburger menu, settings, file browser)
 //	Touch-first UI for Android phones and tablets.
 //	Provides hamburger slide-in menu, streamlined settings, and file browser.
+//	All sizing uses density-independent pixels (dp) scaled by contentScale.
 
 #include <stdafx.h>
 #include <cwctype>
@@ -22,11 +23,24 @@
 #include "simulator.h"
 #include "gtia.h"
 #include "mediamanager.h"
+#include "firmwaremanager.h"
 #include "uiaccessors.h"
 #include "uitypes.h"
 #include "constants.h"
+#include <at/ataudio/audiooutput.h>
 
 extern ATSimulator g_sim;
+
+// Firmware scan function from ui_firmware.cpp
+extern void ExecuteFirmwareScan(ATFirmwareManager *fwm, const VDStringW &scanDir);
+
+// -------------------------------------------------------------------------
+// dp helper — converts density-independent pixels to physical pixels
+// -------------------------------------------------------------------------
+
+static float s_contentScale = 1.0f;
+
+static float dp(float v) { return v * s_contentScale; }
 
 // -------------------------------------------------------------------------
 // File browser state
@@ -36,7 +50,6 @@ struct FileBrowserEntry {
 	VDStringW name;
 	VDStringW fullPath;
 	bool isDirectory;
-	// For sorting: directories first, then alphabetical
 	bool operator<(const FileBrowserEntry &o) const {
 		if (isDirectory != o.isDirectory) return isDirectory > o.isDirectory;
 		return name < o.name;
@@ -47,13 +60,17 @@ static std::vector<FileBrowserEntry> s_fileBrowserEntries;
 static VDStringW s_fileBrowserDir;
 static bool s_fileBrowserNeedsRefresh = true;
 
+// ROM folder browser mode — when true, selecting a folder triggers firmware scan
+static bool s_romFolderMode = false;
+static VDStringW s_romDir;
+static int s_romScanResult = -1;  // -1 = no scan yet, 0+ = number of ROMs found
+
 // Supported file extensions for Atari images
 static bool IsSupportedExtension(const wchar_t *name) {
 	const wchar_t *ext = wcsrchr(name, L'.');
 	if (!ext) return false;
 	ext++;
 
-	// Convert to lowercase for comparison
 	VDStringW extLower;
 	for (const wchar_t *p = ext; *p; ++p)
 		extLower += (wchar_t)towlower(*p);
@@ -76,19 +93,12 @@ static void RefreshFileBrowser(const VDStringW &dir) {
 	s_fileBrowserEntries.clear();
 	s_fileBrowserDir = dir;
 
-	VDStringW pattern = dir;
-	if (!pattern.empty() && pattern.back() != L'/')
-		pattern += L'/';
-	pattern += L'*';
-
 	VDStringA dirU8 = VDTextWToU8(VDStringW(dir));
-
-	// Use SDL3 directory enumeration
-	SDL_EnumerationResult enumCb(void *, const char *, const char *);
 
 	struct EnumCtx {
 		VDStringW baseDir;
 		std::vector<FileBrowserEntry> *entries;
+		bool romMode;
 	};
 
 	EnumCtx ctx;
@@ -96,11 +106,11 @@ static void RefreshFileBrowser(const VDStringW &dir) {
 	if (!ctx.baseDir.empty() && ctx.baseDir.back() != L'/')
 		ctx.baseDir += L'/';
 	ctx.entries = &s_fileBrowserEntries;
+	ctx.romMode = s_romFolderMode;
 
 	auto callback = [](void *userdata, const char *dirname, const char *fname) -> SDL_EnumerationResult {
 		EnumCtx *ctx = (EnumCtx *)userdata;
 
-		// Skip hidden files
 		if (fname[0] == '.')
 			return SDL_ENUM_CONTINUE;
 
@@ -112,7 +122,6 @@ static void RefreshFileBrowser(const VDStringW &dir) {
 		entry.name = std::move(wname);
 		entry.fullPath = std::move(fullPath);
 
-		// Check if directory using SDL3
 		SDL_PathInfo info;
 		if (SDL_GetPathInfo(fullPathU8.c_str(), &info)) {
 			entry.isDirectory = (info.type == SDL_PATHTYPE_DIRECTORY);
@@ -120,18 +129,20 @@ static void RefreshFileBrowser(const VDStringW &dir) {
 			entry.isDirectory = false;
 		}
 
-		// Only show directories and supported file types
-		if (entry.isDirectory || IsSupportedExtension(entry.name.c_str()))
-			ctx->entries->push_back(std::move(entry));
+		// In ROM folder mode, only show directories
+		if (ctx->romMode) {
+			if (entry.isDirectory)
+				ctx->entries->push_back(std::move(entry));
+		} else {
+			if (entry.isDirectory || IsSupportedExtension(entry.name.c_str()))
+				ctx->entries->push_back(std::move(entry));
+		}
 
 		return SDL_ENUM_CONTINUE;
 	};
 
 	SDL_EnumerateDirectory(dirU8.c_str(), callback, &ctx);
-
-	// Sort: directories first, then alphabetical
 	std::sort(s_fileBrowserEntries.begin(), s_fileBrowserEntries.end());
-
 	s_fileBrowserNeedsRefresh = false;
 }
 
@@ -140,7 +151,6 @@ static void RefreshFileBrowser(const VDStringW &dir) {
 // -------------------------------------------------------------------------
 
 void ATMobileUI_Init() {
-	// Set default file browser directory
 #ifdef __ANDROID__
 	s_fileBrowserDir = VDTextU8ToW(VDStringA(SDL_GetUserFolder(SDL_FOLDER_DOWNLOADS)));
 #else
@@ -154,17 +164,14 @@ void ATMobileUI_Init() {
 }
 
 bool ATMobileUI_IsFirstRun() {
-	// Check if any firmware is configured
-	// For now, simple heuristic: check if the built-in kernel is the only option
-	// This will be refined when firmware manager integration is complete
 	return false;
 }
 
 // -------------------------------------------------------------------------
-// Menu button polling (called from event handler)
+// Menu button polling
 // -------------------------------------------------------------------------
 
-extern bool s_menuTapped;  // Defined in touch_controls.cpp
+extern bool s_menuTapped;
 
 static bool ConsumeMenuTap() {
 	if (s_menuTapped) {
@@ -197,14 +204,16 @@ static void RenderHamburgerMenu(ATSimulator &sim, ATUIState &uiState,
 	ATMobileUIState &mobileState, SDL_Window *window)
 {
 	ImGuiIO &io = ImGui::GetIO();
-	float menuW = io.DisplaySize.x * 0.60f;
-	if (menuW < 280.0f) menuW = 280.0f;
-	if (menuW > 400.0f) menuW = 400.0f;
+	float menuW = io.DisplaySize.x * 0.65f;
+	float minW = dp(280.0f);
+	float maxW = dp(400.0f);
+	if (menuW < minW) menuW = minW;
+	if (menuW > maxW) menuW = maxW;
 
 	// Dim background
 	ImGui::GetBackgroundDrawList()->AddRectFilled(
 		ImVec2(0, 0), io.DisplaySize,
-		IM_COL32(0, 0, 0, 120));
+		IM_COL32(0, 0, 0, 128));
 
 	// Menu panel (slides from right)
 	ImGui::SetNextWindowPos(ImVec2(io.DisplaySize.x - menuW, 0));
@@ -215,25 +224,28 @@ static void RenderHamburgerMenu(ATSimulator &sim, ATUIState &uiState,
 		| ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings;
 
 	if (ImGui::Begin("##MobileMenu", nullptr, flags)) {
-		ImGui::PushFont(ImGui::GetIO().Fonts->Fonts[0]); // Default font
-
-		// Title
-		ImGui::SetCursorPosY(ImGui::GetCursorPosY() + 8.0f);
+		// Title bar with close button
+		ImGui::SetCursorPosY(ImGui::GetCursorPosY() + dp(8.0f));
 		ImGui::Text("Altirra");
+		ImGui::SameLine(ImGui::GetWindowWidth() - ImGui::GetStyle().WindowPadding.x - dp(32.0f));
+		if (ImGui::Button("X", ImVec2(dp(32.0f), dp(32.0f))))
+			ATMobileUI_CloseMenu(sim, mobileState);
+
 		ImGui::Separator();
 		ImGui::Spacing();
 
-		float btnH = 48.0f;
+		// Menu button height scaled for touch
+		float btnH = dp(56.0f);
 		ImVec2 btnSize(-1, btnH);
 
-		// Resume / Pause
-		if (ImGui::Button(s_wasPausedBeforeMenu ? "Resume" : "Resume", btnSize)) {
+		// Resume
+		if (ImGui::Button("Resume", btnSize))
 			ATMobileUI_CloseMenu(sim, mobileState);
-		}
 		ImGui::Spacing();
 
 		// Load Game
 		if (ImGui::Button("Load Game", btnSize)) {
+			s_romFolderMode = false;
 			mobileState.currentScreen = ATMobileUIScreen::FileBrowser;
 			s_fileBrowserNeedsRefresh = true;
 		}
@@ -251,7 +263,9 @@ static void RenderHamburgerMenu(ATSimulator &sim, ATUIState &uiState,
 			const char *audioLabel = mobileState.audioMuted ? "Audio: OFF" : "Audio: ON";
 			if (ImGui::Button(audioLabel, btnSize)) {
 				mobileState.audioMuted = !mobileState.audioMuted;
-				// TODO: Wire to actual audio mute via ATSimulator or SDL audio
+				IATAudioOutput *audioOut = g_sim.GetAudioOutput();
+				if (audioOut)
+					audioOut->SetMute(mobileState.audioMuted);
 			}
 		}
 		ImGui::Spacing();
@@ -278,16 +292,15 @@ static void RenderHamburgerMenu(ATSimulator &sim, ATUIState &uiState,
 		ImGui::Separator();
 		ImGui::Spacing();
 
-		// Virtual Keyboard (placeholder)
-		if (ImGui::Button("Virtual Keyboard", btnSize)) {
-			// TODO: Phase 2 — show Atari keyboard overlay
-		}
+		// Virtual Keyboard (Phase 2 placeholder — disabled)
+		ImGui::BeginDisabled(true);
+		ImGui::Button("Virtual Keyboard", btnSize);
+		ImGui::EndDisabled();
 		ImGui::Spacing();
 
 		// Settings
-		if (ImGui::Button("Settings", btnSize)) {
+		if (ImGui::Button("Settings", btnSize))
 			mobileState.currentScreen = ATMobileUIScreen::Settings;
-		}
 		ImGui::Spacing();
 
 		ImGui::Separator();
@@ -298,23 +311,37 @@ static void RenderHamburgerMenu(ATSimulator &sim, ATUIState &uiState,
 			ATMobileUI_CloseMenu(sim, mobileState);
 			uiState.showAboutDialog = true;
 		}
-
-		ImGui::PopFont();
 	}
 	ImGui::End();
 
 	// Tap outside menu to close
 	if (ImGui::IsMouseClicked(ImGuiMouseButton_Left)) {
 		ImVec2 mousePos = ImGui::GetMousePos();
-		if (mousePos.x < io.DisplaySize.x - menuW) {
+		if (mousePos.x < io.DisplaySize.x - menuW)
 			ATMobileUI_CloseMenu(sim, mobileState);
-		}
 	}
 }
 
 // -------------------------------------------------------------------------
 // File browser
 // -------------------------------------------------------------------------
+
+static void NavigateUp() {
+	VDStringW parent = s_fileBrowserDir;
+	while (!parent.empty() && parent.back() == L'/')
+		parent.pop_back();
+	for (size_t i = parent.size(); i > 0; --i) {
+		if (parent[i - 1] == L'/') {
+			if (i > 1)
+				parent.resize(i - 1);
+			else
+				parent.resize(1);  // keep root "/"
+			s_fileBrowserDir = parent;
+			s_fileBrowserNeedsRefresh = true;
+			return;
+		}
+	}
+}
 
 static void RenderFileBrowser(ATSimulator &sim, ATUIState &uiState,
 	ATMobileUIState &mobileState, SDL_Window *window)
@@ -331,46 +358,61 @@ static void RenderFileBrowser(ATSimulator &sim, ATUIState &uiState,
 		| ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings;
 
 	if (ImGui::Begin("##FileBrowser", nullptr, flags)) {
-		// Header
-		if (ImGui::Button("< Back")) {
-			ATMobileUI_CloseMenu(sim, mobileState);
+		// Header bar
+		float headerH = dp(48.0f);
+		ImVec2 backBtnSize(dp(48.0f), headerH);
+
+		if (ImGui::Button("<", backBtnSize)) {
+			if (s_romFolderMode) {
+				s_romFolderMode = false;
+				mobileState.currentScreen = ATMobileUIScreen::Settings;
+			} else {
+				ATMobileUI_CloseMenu(sim, mobileState);
+			}
 		}
 		ImGui::SameLine();
-		ImGui::Text("Load Game");
+
+		const char *title = s_romFolderMode ? "Select ROM Folder" : "Load Game";
+		ImGui::SetCursorPosY(ImGui::GetCursorPosY() + (headerH - ImGui::GetTextLineHeight()) * 0.5f);
+		ImGui::Text("%s", title);
 
 		ImGui::Separator();
 
-		// Current directory display
+		// Current directory
 		VDStringA dirU8 = VDTextWToU8(s_fileBrowserDir);
-		ImGui::TextWrapped("Directory: %s", dirU8.c_str());
+		ImGui::TextWrapped("%s", dirU8.c_str());
 
-		// Go up button
-		if (ImGui::Button(".. (Parent Directory)")) {
-			VDStringW parent = s_fileBrowserDir;
-			// Strip trailing slash
-			while (!parent.empty() && parent.back() == L'/')
-				parent.pop_back();
-			// Find last separator by scanning backwards
-			size_t lastSlash = 0;
-			bool found = false;
-			for (size_t i = parent.size(); i > 0; --i) {
-				if (parent[i - 1] == L'/') {
-					lastSlash = i - 1;
-					found = true;
-					break;
-				}
-			}
-			if (found && lastSlash > 0) {
-				parent.resize(lastSlash);
-				s_fileBrowserDir = parent;
-				s_fileBrowserNeedsRefresh = true;
+		// Navigation row: Up + (in ROM mode) "Select This Folder" button
+		float rowBtnH = dp(48.0f);
+		if (ImGui::Button(".. (Up)", ImVec2(dp(120.0f), rowBtnH)))
+			NavigateUp();
+
+		if (s_romFolderMode) {
+			ImGui::SameLine();
+			if (ImGui::Button("Use This Folder", ImVec2(-1, rowBtnH))) {
+				// Trigger firmware scan on current directory
+				s_romDir = s_fileBrowserDir;
+				ATFirmwareManager *fwm = g_sim.GetFirmwareManager();
+				ExecuteFirmwareScan(fwm, s_romDir);
+
+				// Count detected firmware
+				vdvector<ATFirmwareInfo> fwList;
+				fwm->GetFirmwareList(fwList);
+				s_romScanResult = (int)fwList.size();
+
+				// Reload ROMs after scan so new firmware is active
+				g_sim.LoadROMs();
+
+				// Return to settings
+				s_romFolderMode = false;
+				mobileState.currentScreen = ATMobileUIScreen::Settings;
 			}
 		}
 
 		ImGui::Separator();
 
-		// File list
-		float itemH = 44.0f;
+		// File/directory list
+		float itemH = dp(56.0f);
 		ImGui::BeginChild("FileList", ImVec2(0, 0), ImGuiChildFlags_None);
 
 		for (size_t i = 0; i < s_fileBrowserEntries.size(); i++) {
@@ -391,9 +433,8 @@ static void RenderFileBrowser(ATSimulator &sim, ATUIState &uiState,
 					s_fileBrowserDir = entry.fullPath;
 					s_fileBrowserNeedsRefresh = true;
 					mobileState.selectedFileIdx = -1;
-				} else {
+				} else if (!s_romFolderMode) {
 					mobileState.selectedFileIdx = (int)i;
-					// Boot the image
 					VDStringA pathU8 = VDTextWToU8(VDStringW(entry.fullPath));
 					ATUIPushDeferred(kATDeferred_BootImage, pathU8.c_str());
 					mobileState.gameLoaded = true;
@@ -425,10 +466,12 @@ static void RenderSettings(ATSimulator &sim, ATUIState &uiState,
 		| ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings;
 
 	if (ImGui::Begin("##MobileSettings", nullptr, flags)) {
-		if (ImGui::Button("< Back")) {
+		// Header
+		float headerH = dp(48.0f);
+		if (ImGui::Button("<", ImVec2(dp(48.0f), headerH)))
 			mobileState.currentScreen = ATMobileUIScreen::HamburgerMenu;
-		}
 		ImGui::SameLine();
+		ImGui::SetCursorPosY(ImGui::GetCursorPosY() + (headerH - ImGui::GetTextLineHeight()) * 0.5f);
 		ImGui::Text("Settings");
 
 		ImGui::Separator();
@@ -439,13 +482,13 @@ static void RenderSettings(ATSimulator &sim, ATUIState &uiState,
 		// ---- SYSTEM ----
 		ImGui::SeparatorText("System");
 
-		// Video Standard
+		// Video Standard — PAL / NTSC
 		{
-			int current = (sim.GetVideoStandard() == kATVideoStandard_PAL) ? 1 : 0;
-			const char *items[] = { "NTSC", "PAL" };
-			if (ImGui::Combo("Video Standard", &current, items, 2)) {
-				sim.SetVideoStandard(current ? kATVideoStandard_PAL : kATVideoStandard_NTSC);
-			}
+			int current = (sim.GetVideoStandard() == kATVideoStandard_PAL) ? 0 : 1;
+			const char *items[] = { "PAL", "NTSC" };
+			ImGui::SetNextItemWidth(-1);
+			if (ImGui::Combo("Video Standard", &current, items, 2))
+				sim.SetVideoStandard(current == 0 ? kATVideoStandard_PAL : kATVideoStandard_NTSC);
 		}
 
 		// Memory Size
@@ -463,18 +506,18 @@ static void RenderSettings(ATSimulator &sim, ATUIState &uiState,
 			};
 
 			ATMemoryMode curMode = sim.GetMemoryMode();
-			int curIdx = 2; // default 64K
-			for (int i = 0; i < (int)(sizeof(kMemModes)/sizeof(kMemModes[0])); i++) {
+			int curIdx = 4; // default 320K
+			int count = (int)(sizeof(kMemModes)/sizeof(kMemModes[0]));
+			for (int i = 0; i < count; i++) {
 				if (kMemModes[i].mode == curMode) { curIdx = i; break; }
 			}
 
 			const char *labels[16];
-			int count = (int)(sizeof(kMemModes)/sizeof(kMemModes[0]));
 			for (int i = 0; i < count; i++) labels[i] = kMemModes[i].label;
 
-			if (ImGui::Combo("Memory Size", &curIdx, labels, count)) {
+			ImGui::SetNextItemWidth(-1);
+			if (ImGui::Combo("Memory Size", &curIdx, labels, count))
 				sim.SetMemoryMode(kMemModes[curIdx].mode);
-			}
 		}
 
 		// BASIC toggle
@@ -482,6 +525,13 @@ static void RenderSettings(ATSimulator &sim, ATUIState &uiState,
 			bool basicEnabled = sim.IsBASICEnabled();
 			if (ImGui::Checkbox("BASIC Enabled", &basicEnabled))
 				sim.SetBASICEnabled(basicEnabled);
+		}
+
+		// SIO Patch toggle
+		{
+			bool sioEnabled = sim.IsSIOPatchEnabled();
+			if (ImGui::Checkbox("SIO Patch", &sioEnabled))
+				sim.SetSIOPatchEnabled(sioEnabled);
 		}
 
 		ImGui::Spacing();
@@ -493,12 +543,17 @@ static void RenderSettings(ATSimulator &sim, ATUIState &uiState,
 		{
 			int sz = (int)mobileState.layoutConfig.controlSize;
 			const char *sizes[] = { "Small", "Medium", "Large" };
+			ImGui::SetNextItemWidth(-1);
 			if (ImGui::Combo("Control Size", &sz, sizes, 3))
 				mobileState.layoutConfig.controlSize = (ATTouchControlSize)sz;
 		}
 
-		// Control opacity
-		ImGui::SliderFloat("Opacity", &mobileState.layoutConfig.controlOpacity, 0.1f, 1.0f, "%.0f%%");
+		// Control opacity — fix format to show 10%-100%
+		{
+			int pct = (int)(mobileState.layoutConfig.controlOpacity * 100.0f + 0.5f);
+			if (ImGui::SliderInt("Opacity", &pct, 10, 100, "%d%%"))
+				mobileState.layoutConfig.controlOpacity = pct / 100.0f;
+		}
 
 		// Haptic feedback
 		ImGui::Checkbox("Haptic Feedback", &mobileState.layoutConfig.hapticEnabled);
@@ -519,6 +574,7 @@ static void RenderSettings(ATSimulator &sim, ATUIState &uiState,
 			default: idx = 1; break;
 			}
 			const char *filters[] = { "Sharp (Nearest)", "Bilinear", "Sharp Bilinear" };
+			ImGui::SetNextItemWidth(-1);
 			if (ImGui::Combo("Filter Mode", &idx, filters, 3)) {
 				static const ATDisplayFilterMode kModes[] = {
 					kATDisplayFilterMode_Point,
@@ -535,11 +591,21 @@ static void RenderSettings(ATSimulator &sim, ATUIState &uiState,
 		ImGui::SeparatorText("Firmware");
 
 		{
-			VDStringA dirU8 = VDTextWToU8(s_fileBrowserDir);
-			ImGui::Text("ROM Directory: %s", dirU8.c_str());
-			if (ImGui::Button("Change ROM Directory")) {
-				// Open file browser in directory-selection mode
-				// For now, reuses the standard file browser
+			if (!s_romDir.empty()) {
+				VDStringA dirU8 = VDTextWToU8(s_romDir);
+				ImGui::TextWrapped("ROM Directory: %s", dirU8.c_str());
+			} else {
+				ImGui::Text("ROM Directory: (not set)");
+			}
+
+			if (s_romScanResult >= 0)
+				ImGui::Text("Status: %d ROMs found", s_romScanResult);
+
+			if (ImGui::Button("Select ROM Folder", ImVec2(-1, dp(48.0f)))) {
+				// Switch to file browser in ROM folder selection mode
+				s_romFolderMode = true;
+				s_fileBrowserNeedsRefresh = true;
+				mobileState.currentScreen = ATMobileUIScreen::FileBrowser;
 			}
 		}
 
@@ -555,17 +621,23 @@ static void RenderSettings(ATSimulator &sim, ATUIState &uiState,
 void ATMobileUI_Render(ATSimulator &sim, ATUIState &uiState,
 	ATMobileUIState &mobileState, SDL_Window *window)
 {
+	// Cache content scale for dp() helper
+	s_contentScale = mobileState.layoutConfig.contentScale;
+
 	int w, h;
 	SDL_GetWindowSize(window, &w, &h);
 
-	// Update layout if screen size changed
-	if (w != mobileState.layout.screenW || h != mobileState.layout.screenH)
+	// Update layout if screen size or config changed
+	if (w != mobileState.layout.screenW || h != mobileState.layout.screenH
+		|| mobileState.layoutConfig.controlSize != mobileState.layout.lastControlSize
+		|| mobileState.layoutConfig.contentScale != mobileState.layout.lastContentScale)
+	{
 		ATTouchLayout_Update(mobileState.layout, w, h, mobileState.layoutConfig);
+	}
 
 	// Check for menu button tap
-	if (ConsumeMenuTap() && mobileState.currentScreen == ATMobileUIScreen::None) {
+	if (ConsumeMenuTap() && mobileState.currentScreen == ATMobileUIScreen::None)
 		ATMobileUI_OpenMenu(sim, mobileState);
-	}
 
 	switch (mobileState.currentScreen) {
 	case ATMobileUIScreen::None:
@@ -578,15 +650,16 @@ void ATMobileUI_Render(ATSimulator &sim, ATUIState &uiState,
 			ImVec2 center = io.DisplaySize;
 			center.x *= 0.5f;
 			center.y *= 0.5f;
-			ImVec2 btnSize(200, 60);
+			ImVec2 btnSize(dp(200.0f), dp(56.0f));
 			ImGui::SetNextWindowPos(center, 0, ImVec2(0.5f, 0.5f));
-			ImGui::SetNextWindowSize(ImVec2(btnSize.x + 40, btnSize.y + 40));
+			ImGui::SetNextWindowSize(ImVec2(btnSize.x + dp(40.0f), btnSize.y + dp(40.0f)));
 			ImGui::Begin("##LoadPrompt", nullptr,
 				ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize
 				| ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings
 				| ImGuiWindowFlags_NoBackground);
 			if (ImGui::Button("Load Game", btnSize)) {
 				ATMobileUI_OpenMenu(sim, mobileState);
+				s_romFolderMode = false;
 				mobileState.currentScreen = ATMobileUIScreen::FileBrowser;
 				s_fileBrowserNeedsRefresh = true;
 			}
@@ -619,7 +692,7 @@ void ATMobileUI_Render(ATSimulator &sim, ATUIState &uiState,
 bool ATMobileUI_HandleEvent(const SDL_Event &ev, ATMobileUIState &mobileState) {
 	// If a menu/dialog is open, let ImGui handle everything
 	if (mobileState.currentScreen != ATMobileUIScreen::None)
-		return false;  // ImGui handles it via normal processing
+		return false;
 
 	// Route touch events to touch controls
 	if (ev.type == SDL_EVENT_FINGER_DOWN ||
@@ -633,6 +706,7 @@ bool ATMobileUI_HandleEvent(const SDL_Event &ev, ATMobileUIState &mobileState) {
 }
 
 void ATMobileUI_OpenFileBrowser(ATMobileUIState &mobileState) {
+	s_romFolderMode = false;
 	mobileState.currentScreen = ATMobileUIScreen::FileBrowser;
 	s_fileBrowserNeedsRefresh = true;
 }

@@ -1,6 +1,6 @@
 AltirraSDL — Display/Rendering Parity Checklist
 ================================================
-Updated: 2026-04-04
+Updated: 2026-04-05 (updated after AGENT_PROMPTS implementation pass)
 Reference: PORTING/DISPLAY.md vs actual display_sdl3.cpp + display_backend_gl33.cpp
 
 Legend:
@@ -90,23 +90,25 @@ Legend:
   [100%] Distortion (barrel, etc.)            — GL backend: CRT barrel distortion via
                                                 FEAT_DISTORTION shader + VDDisplay-
                                                 DistortionMapping.
-  [  0%] Custom effect path                   — librashader runtime present but no UI.
-                                                Menu item not yet added.
+  [100%] Custom effect path                   — librashader runtime with preset selector
+                                                UI, parameter panel, mutual exclusion.
+                                                Pending user testing.
 
   Adjust Screen Effects dialog (ui_screenfx.cpp):
   [100%] Main tab - Scanline intensity, H/V distortion sliders
-  [ 80%] Bloom tab - Threshold + enable. Missing: radius, direct/indirect labels
+  [100%] Bloom tab - Enable, radius, direct/indirect intensity, scanline comp
   [  0%] HDR tab - Stub only ("HDR not available" message)
   [100%] Mask tab - Screen mask type, dot pitch
 
   Adjust Colors dialog (ui_display.cpp — IDD_ADJUST_COLORS):
-  [ 50%] Core sliders (hue/brightness/contrast/saturation/gamma) — DONE
-  [ 50%] Core sliders complete. Missing: palette preview swatches,
-         Export Palette, Palette Solver (reference picture import +
-         color matching), Show Red/Green Shifts/Offsets visualization
+  [100%] Core sliders (hue/brightness/contrast/saturation/gamma)
+  [100%] Palette preview (visual color swatches)
+  [100%] Export Palette
+  [100%] Palette Solver (reference picture import + color matching)
+  Note: Adjust Colors features recently implemented, pending user testing.
 
   Note: Full shader-based screen effects require the GL backend.
-  Detailed tracking in PORTING/SHADERS_TODO_LIST.txt (75% complete).
+  Detailed tracking in PORTING/SHADERS_TODO_LIST.txt (89% complete).
   SDL_Renderer fallback shows warning in Adjust Screen Effects dialog.
 
 
@@ -167,18 +169,20 @@ Core display                     6            6      100%
 Scaling/aspect ratio             4            4      100%
 Filter modes                     5            5      100%
 Overscan                         3            3      100%
-Screen effects                   4            6       67%
+Screen effects                   5            6       83%
 Compositor/overlay               3            5       60%
 VSync/frame timing               5            5      100%
 Fullscreen                       2            4       50%
 
 Display pipeline is fully functional with OpenGL 3.3 GPU-accelerated
 post-processing: all 5 filter modes, scanlines, bloom V2, CRT masks,
-barrel distortion, gamma/color correction. Falls back to SDL_Renderer
-(point/bilinear only) when GL is unavailable. Remaining gaps:
+barrel distortion, gamma/color correction, librashader preset support.
+Falls back to SDL_Renderer (point/bilinear only) when GL is unavailable.
+Remaining gaps:
 - HDR output (deferred — needs platform display capabilities)
-- Custom effect path UI (librashader runtime present, no preset browser)
 - On-screen keyboard
 - Fullscreen resolution selection
-- Adjust Colors: palette preview, Export Palette, Palette Solver
-- Bloom: radius/intensity label controls
+
+Many features were recently implemented and are pending user testing,
+particularly: custom shader presets, palette preview/export/solver,
+bloom controls.

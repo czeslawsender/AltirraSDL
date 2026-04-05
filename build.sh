@@ -7,6 +7,7 @@
 #   ./build.sh --debug            Build debug
 #   ./build.sh --android          Build Android APK (debug by default)
 #   ./build.sh --android --release  Build Android APK (release)
+#   ./build.sh --android --sign   Build + sign with debug keystore
 #   ./build.sh --setup-android    Install Android SDK components, then build
 #   ./build.sh --package          Build + create distributable archive
 #   ./build.sh --package --source Also create source archive
@@ -36,6 +37,7 @@ BUILD_TYPE=release
 FRONTEND=sdl
 ANDROID=0
 SETUP_ANDROID=0
+SIGN_APK=0
 CLEAN=0
 PACKAGE=0
 SOURCE_ARCHIVE=0
@@ -48,6 +50,7 @@ while [ $# -gt 0 ]; do
         --debug)    BUILD_TYPE=debug ;;
         --release)  BUILD_TYPE=release ;;
         --android)  ANDROID=1; BUILD_TYPE=debug ;;
+        --sign)     SIGN_APK=1 ;;
         --setup-android) ANDROID=1; SETUP_ANDROID=1; BUILD_TYPE=debug ;;
         --native)   FRONTEND=native ;;
         --sdl)      FRONTEND=sdl ;;
@@ -74,7 +77,7 @@ if [ "$ANDROID" = "1" ]; then
     info "Build type: ${C_BOLD}${BUILD_TYPE}${C_RESET}"
     echo ""
 
-    export ROOT_DIR BUILD_TYPE CLEAN SETUP_ANDROID
+    export ROOT_DIR BUILD_TYPE CLEAN SETUP_ANDROID SIGN_APK
     source "$SCRIPTS_DIR/android.sh"
 
     echo ""

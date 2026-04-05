@@ -187,20 +187,27 @@ bool ATTouchControls_HandleEvent(const SDL_Event &ev, const ATTouchLayout &layou
 
 		// --- CONSOLE KEYS (top bar) ---
 		if (topBarPx.Contains(px, py) && !s_consoleActive) {
-			s_consoleFinger = fid;
-			s_consoleActive = true;
-
+			// Only claim the finger if it actually hits a console button
 			if (layout.btnStart.Contains(px, py)) {
+				s_consoleFinger = fid;
+				s_consoleActive = true;
 				s_startHeld = true;
 				SetConsoleSwitch(0x01, true);
+				return true;
 			} else if (layout.btnSelect.Contains(px, py)) {
+				s_consoleFinger = fid;
+				s_consoleActive = true;
 				s_selectHeld = true;
 				SetConsoleSwitch(0x02, true);
+				return true;
 			} else if (layout.btnOption.Contains(px, py)) {
+				s_consoleFinger = fid;
+				s_consoleActive = true;
 				s_optionHeld = true;
 				SetConsoleSwitch(0x04, true);
+				return true;
 			}
-			return true;
+			// Touch in top bar but not on any button — don't consume
 		}
 
 		// --- JOYSTICK ZONE (left side) ---

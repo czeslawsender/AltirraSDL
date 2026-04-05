@@ -4869,6 +4869,30 @@ __/Altirra/source/xep80.cpp.s:
 	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Altirra/source/xep80.cpp.s
 .PHONY : __/Altirra/source/xep80.cpp.s
 
+__/Dita/source/accel.o: __/Dita/source/accel.cpp.o
+.PHONY : __/Dita/source/accel.o
+
+# target to build an object file
+__/Dita/source/accel.cpp.o:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Dita/source/accel.cpp.o
+.PHONY : __/Dita/source/accel.cpp.o
+
+__/Dita/source/accel.i: __/Dita/source/accel.cpp.i
+.PHONY : __/Dita/source/accel.i
+
+# target to preprocess a source file
+__/Dita/source/accel.cpp.i:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Dita/source/accel.cpp.i
+.PHONY : __/Dita/source/accel.cpp.i
+
+__/Dita/source/accel.s: __/Dita/source/accel.cpp.s
+.PHONY : __/Dita/source/accel.s
+
+# target to generate assembly for a file
+__/Dita/source/accel.cpp.s:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/Dita/source/accel.cpp.s
+.PHONY : __/Dita/source/accel.cpp.s
+
 __/VDDisplay/source/bicubic.o: __/VDDisplay/source/bicubic.cpp.o
 .PHONY : __/VDDisplay/source/bicubic.o
 
@@ -4965,6 +4989,30 @@ __/VDDisplay/source/screenfx.cpp.s:
 	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/__/VDDisplay/source/screenfx.cpp.s
 .PHONY : __/VDDisplay/source/screenfx.cpp.s
 
+source/accel_sdl3.o: source/accel_sdl3.cpp.o
+.PHONY : source/accel_sdl3.o
+
+# target to build an object file
+source/accel_sdl3.cpp.o:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/accel_sdl3.cpp.o
+.PHONY : source/accel_sdl3.cpp.o
+
+source/accel_sdl3.i: source/accel_sdl3.cpp.i
+.PHONY : source/accel_sdl3.i
+
+# target to preprocess a source file
+source/accel_sdl3.cpp.i:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/accel_sdl3.cpp.i
+.PHONY : source/accel_sdl3.cpp.i
+
+source/accel_sdl3.s: source/accel_sdl3.cpp.s
+.PHONY : source/accel_sdl3.s
+
+# target to generate assembly for a file
+source/accel_sdl3.cpp.s:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/accel_sdl3.cpp.s
+.PHONY : source/accel_sdl3.cpp.s
+
 source/commandline_sdl3.o: source/commandline_sdl3.cpp.o
 .PHONY : source/commandline_sdl3.o
 
@@ -4988,6 +5036,30 @@ source/commandline_sdl3.s: source/commandline_sdl3.cpp.s
 source/commandline_sdl3.cpp.s:
 	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/commandline_sdl3.cpp.s
 .PHONY : source/commandline_sdl3.cpp.s
+
+source/commands_sdl3.o: source/commands_sdl3.cpp.o
+.PHONY : source/commands_sdl3.o
+
+# target to build an object file
+source/commands_sdl3.cpp.o:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/commands_sdl3.cpp.o
+.PHONY : source/commands_sdl3.cpp.o
+
+source/commands_sdl3.i: source/commands_sdl3.cpp.i
+.PHONY : source/commands_sdl3.i
+
+# target to preprocess a source file
+source/commands_sdl3.cpp.i:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/commands_sdl3.cpp.i
+.PHONY : source/commands_sdl3.cpp.i
+
+source/commands_sdl3.s: source/commands_sdl3.cpp.s
+.PHONY : source/commands_sdl3.s
+
+# target to generate assembly for a file
+source/commands_sdl3.cpp.s:
+	cd /home/ilm/Documents/GitHub/AltirraSDL/build && $(MAKE) $(MAKESILENT) -f src/AltirraSDL/CMakeFiles/AltirraSDL.dir/build.make src/AltirraSDL/CMakeFiles/AltirraSDL.dir/source/commands_sdl3.cpp.s
+.PHONY : source/commands_sdl3.cpp.s
 
 source/display_backend_gl33.o: source/display_backend_gl33.cpp.o
 .PHONY : source/display_backend_gl33.o
@@ -7268,6 +7340,9 @@ help:
 	@echo "... __/Altirra/source/xep80.o"
 	@echo "... __/Altirra/source/xep80.i"
 	@echo "... __/Altirra/source/xep80.s"
+	@echo "... __/Dita/source/accel.o"
+	@echo "... __/Dita/source/accel.i"
+	@echo "... __/Dita/source/accel.s"
 	@echo "... __/VDDisplay/source/bicubic.o"
 	@echo "... __/VDDisplay/source/bicubic.i"
 	@echo "... __/VDDisplay/source/bicubic.s"
@@ -7280,9 +7355,15 @@ help:
 	@echo "... __/VDDisplay/source/screenfx.o"
 	@echo "... __/VDDisplay/source/screenfx.i"
 	@echo "... __/VDDisplay/source/screenfx.s"
+	@echo "... source/accel_sdl3.o"
+	@echo "... source/accel_sdl3.i"
+	@echo "... source/accel_sdl3.s"
 	@echo "... source/commandline_sdl3.o"
 	@echo "... source/commandline_sdl3.i"
 	@echo "... source/commandline_sdl3.s"
+	@echo "... source/commands_sdl3.o"
+	@echo "... source/commands_sdl3.i"
+	@echo "... source/commands_sdl3.s"
 	@echo "... source/display_backend_gl33.o"
 	@echo "... source/display_backend_gl33.i"
 	@echo "... source/display_backend_gl33.s"

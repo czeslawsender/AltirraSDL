@@ -619,7 +619,7 @@ src/ATEmulation/CMakeFiles/ATEmulation.dir/all: src/system/CMakeFiles/system.dir
 src/ATEmulation/CMakeFiles/ATEmulation.dir/all: src/ATCore/CMakeFiles/ATCore.dir/all
 	$(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=18,19,20 "Built target ATEmulation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=17,18,19 "Built target ATEmulation"
 .PHONY : src/ATEmulation/CMakeFiles/ATEmulation.dir/all
 
 # Build rule for subdir invocation for target.
@@ -636,7 +636,7 @@ ATEmulation: src/ATEmulation/CMakeFiles/ATEmulation.dir/rule
 # codegen rule for target.
 src/ATEmulation/CMakeFiles/ATEmulation.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/ATEmulation/CMakeFiles/ATEmulation.dir/build.make src/ATEmulation/CMakeFiles/ATEmulation.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=18,19,20 "Finished codegen for target ATEmulation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=17,18,19 "Finished codegen for target ATEmulation"
 .PHONY : src/ATEmulation/CMakeFiles/ATEmulation.dir/codegen
 
 # clean rule for target.
@@ -653,12 +653,12 @@ src/ATDevices/CMakeFiles/ATDevices.dir/all: src/ATCore/CMakeFiles/ATCore.dir/all
 src/ATDevices/CMakeFiles/ATDevices.dir/all: src/ATCPU/CMakeFiles/ATCPU.dir/all
 	$(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=14,15,16,17 "Built target ATDevices"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=14,15,16 "Built target ATDevices"
 .PHONY : src/ATDevices/CMakeFiles/ATDevices.dir/all
 
 # Build rule for subdir invocation for target.
 src/ATDevices/CMakeFiles/ATDevices.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATDevices/CMakeFiles/ATDevices.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : src/ATDevices/CMakeFiles/ATDevices.dir/rule
@@ -670,7 +670,7 @@ ATDevices: src/ATDevices/CMakeFiles/ATDevices.dir/rule
 # codegen rule for target.
 src/ATDevices/CMakeFiles/ATDevices.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/ATDevices/CMakeFiles/ATDevices.dir/build.make src/ATDevices/CMakeFiles/ATDevices.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=14,15,16,17 "Finished codegen for target ATDevices"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=14,15,16 "Finished codegen for target ATDevices"
 .PHONY : src/ATDevices/CMakeFiles/ATDevices.dir/codegen
 
 # clean rule for target.
@@ -687,12 +687,12 @@ src/ATIO/CMakeFiles/ATIO.dir/all: src/Kasumi/CMakeFiles/Kasumi.dir/all
 src/ATIO/CMakeFiles/ATIO.dir/all: src/ATCore/CMakeFiles/ATCore.dir/all
 	$(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=21,22,23,24,25,26 "Built target ATIO"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=20,21,22,23,24,25,26 "Built target ATIO"
 .PHONY : src/ATIO/CMakeFiles/ATIO.dir/all
 
 # Build rule for subdir invocation for target.
 src/ATIO/CMakeFiles/ATIO.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 27
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 28
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ATIO/CMakeFiles/ATIO.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles 0
 .PHONY : src/ATIO/CMakeFiles/ATIO.dir/rule
@@ -704,7 +704,7 @@ ATIO: src/ATIO/CMakeFiles/ATIO.dir/rule
 # codegen rule for target.
 src/ATIO/CMakeFiles/ATIO.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/ATIO/CMakeFiles/ATIO.dir/build.make src/ATIO/CMakeFiles/ATIO.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=21,22,23,24,25,26 "Finished codegen for target ATIO"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ilm/Documents/GitHub/AltirraSDL/build/CMakeFiles --progress-num=20,21,22,23,24,25,26 "Finished codegen for target ATIO"
 .PHONY : src/ATIO/CMakeFiles/ATIO.dir/codegen
 
 # clean rule for target.

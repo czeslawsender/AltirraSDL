@@ -24,7 +24,9 @@
 #include <vd2/vdjson/jsonvalue.h>
 #include <vd2/system/file.h>
 #include <vd2/system/text.h>
+#include <vd2/Dita/accel.h>
 #include "uikeyboard.h"
+#include "accel_sdl3.h"
 #include "uiaccessors.h"
 #include "inputdefs.h"
 #include "ui_main.h"
@@ -1046,8 +1048,8 @@ static void InitDialog() {
 	RebuildFilteredList();
 }
 
-// Check if a VK mode mapping conflicts with the hardcoded app shortcuts in
-// main_sdl3.cpp.  Returns a description of the conflict, or nullptr if none.
+// Check if a VK mode mapping conflicts with app shortcuts in the accelerator
+// tables.  Returns the command name of the conflict, or nullptr if none.
 static const char *CheckShortcutConflict(uint32 mapping) {
 	if (mapping & kATUIKeyboardMappingModifier_Cooked)
 		return nullptr;  // character mode can't conflict with VK shortcuts
@@ -1056,22 +1058,15 @@ static const char *CheckShortcutConflict(uint32 mapping) {
 	bool hasShift = (mapping & kATUIKeyboardMappingModifier_Shift) != 0;
 	bool hasCtrl  = (mapping & kATUIKeyboardMappingModifier_Ctrl) != 0;
 	bool hasAlt   = (mapping & kATUIKeyboardMappingModifier_Alt) != 0;
+	bool hasExt   = (mapping & kATUIKeyboardMappingModifier_Extended) != 0;
 
-	// F-key shortcuts consumed by main_sdl3.cpp before reaching input handler
-	if (!hasCtrl && !hasAlt) {
-		switch (vk) {
-		case kATInputCode_KeyF1:  return hasShift ? "Shift+F1 (speed toggle)" : "F1 (turbo/warp)";
-		case kATInputCode_KeyF5:  return hasShift ? "Shift+F5 (cold reset)" : "F5 (warm reset)";
-		case kATInputCode_KeyF8:  return hasShift ? "Shift+F8 (step over)" : "F8 (toggle debugger)";
-		case kATInputCode_KeyF9:  return "F9 (toggle breakpoint)";
-		case kATInputCode_KeyF10: return "F10 (screenshot)";
-		case kATInputCode_KeyF11: return hasShift ? "Shift+F11 (fast boot)" : "F11 (fullscreen)";
-		case kATInputCode_KeyF12: return "F12 (toggle indicators)";
-		default: break;
-		}
+	// Check all accel contexts for any binding with this VK+modifiers
+	for (int ctx = 0; ctx < kATUIAccelContextCount; ++ctx) {
+		const VDAccelTableEntry *e = ATUIFindConflictingVirtKeyMapping(
+			vk, hasAlt, hasCtrl, hasShift, hasExt, (ATUIAccelContext)ctx);
+		if (e)
+			return e->mpCommand;
 	}
-	if (hasCtrl && !hasAlt && !hasShift && vk == kATInputCode_KeyF7)
-		return "Ctrl+F7 (anti-aliased text)";
 
 	return nullptr;
 }

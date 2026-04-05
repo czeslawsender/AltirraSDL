@@ -73,6 +73,7 @@ struct ProfileState {
 
 	struct SortedRecord {
 		uint32 mAddress;
+		uint32 mContext;
 		uint32 mCalls;
 		uint32 mInsns;
 		uint32 mCycles;
@@ -290,6 +291,7 @@ static void RenderCPUHistory(ATImGuiTraceViewerContext& ctx) {
 static void BuildProfile(ATImGuiTraceViewerContext& ctx) {
 	s_profState.mbValid = false;
 	s_profState.mSortedRecords.clear();
+	s_profState.mpMergedFrame.clear();
 
 	if (!ctx.mpCPUHistoryChannel)
 		return;
@@ -298,58 +300,64 @@ static void BuildProfile(ATImGuiTraceViewerContext& ctx) {
 	if (cpuCh.GetEventCount() == 0)
 		return;
 
-	ATCPUProfileBuilder builder;
-	builder.Init(s_profState.mMode, ctx.mProfileCounterModes[0], ctx.mProfileCounterModes[1]);
-	builder.SetGlobalAddressesEnabled(ctx.mbGlobalAddressesEnabled);
+	try {
+		ATCPUProfileBuilder builder;
+		builder.Init(s_profState.mMode, ctx.mProfileCounterModes[0], ctx.mProfileCounterModes[1]);
+		builder.SetGlobalAddressesEnabled(ctx.mbGlobalAddressesEnabled);
 
-	uint32 baseCycle = cpuCh.GetHistoryBaseCycle();
-	const ATCPUTimestampDecoder& tsDecoder = cpuCh.GetTimestampDecoder();
+		const ATCPUTimestampDecoder& tsDecoder = cpuCh.GetTimestampDecoder();
 
-	// Determine range
-	double rangeStart = 0;
-	double rangeEnd = cpuCh.GetDuration();
-	if (ctx.mbSelectionValid) {
-		rangeStart = std::min(ctx.mSelectStart, ctx.mSelectEnd);
-		rangeEnd = std::max(ctx.mSelectStart, ctx.mSelectEnd);
-	}
+		// Determine range
+		double rangeStart = 0;
+		double rangeEnd = cpuCh.GetDuration();
+		if (ctx.mbSelectionValid) {
+			rangeStart = std::min(ctx.mSelectStart, ctx.mSelectEnd);
+			rangeEnd = std::max(ctx.mSelectStart, ctx.mSelectEnd);
+		}
 
-	// Use a zero-based cursor since FindEvent returns absolute positions
-	// and ReadHistoryEvents adds cursor.mIterPos to the offset
-	auto cursor = cpuCh.StartHistoryIteration(0, 0);
-	uint32 startIdx = cpuCh.FindEvent(cursor, rangeStart);
-	uint32 endIdx = cpuCh.FindEvent(cursor, rangeEnd);
-	if (endIdx <= startIdx)
-		endIdx = cpuCh.GetEventCount();
+		// Use a zero-based cursor since FindEvent returns absolute positions
+		// and ReadHistoryEvents adds cursor.mIterPos to the offset
+		auto cursor = cpuCh.StartHistoryIteration(0, 0);
+		uint32 startIdx = cpuCh.FindEvent(cursor, rangeStart);
+		uint32 endIdx = cpuCh.FindEvent(cursor, rangeEnd);
+		if (endIdx <= startIdx)
+			endIdx = cpuCh.GetEventCount();
 
-	// Open a single frame for the whole range
-	const ATCPUHistoryEntry *firstHents[1];
-	if (cpuCh.ReadHistoryEvents(cursor, firstHents, startIdx, 1) == 0)
+		// Open a single frame for the whole range
+		const ATCPUHistoryEntry *firstHents[1];
+		if (cpuCh.ReadHistoryEvents(cursor, firstHents, startIdx, 1) == 0)
+			return;
+		builder.SetS(firstHents[0]->mS);
+		builder.OpenFrame(firstHents[0]->mCycle, firstHents[0]->mCycle, tsDecoder);
+
+		const ATCPUHistoryEntry *hents[257];
+		uint32 pos = startIdx;
+		while (pos < endIdx) {
+			// Read n+1 entries (Update needs overlap of 1)
+			uint32 toRead = std::min<uint32>(endIdx - pos, 256);
+			uint32 n = cpuCh.ReadHistoryEvents(cursor, hents, pos, toRead + 1);
+			if (n <= 1)
+				break;
+
+			builder.Update(tsDecoder, hents, n - 1, ctx.mbGlobalAddressesEnabled);
+			pos += n - 1;
+		}
+
+		// Read one more for the final timestamp
+		const ATCPUHistoryEntry *lastHents[1];
+		if (cpuCh.ReadHistoryEvents(cursor, lastHents, endIdx > 0 ? endIdx - 1 : 0, 1) > 0)
+			builder.CloseFrame(lastHents[0]->mCycle, lastHents[0]->mCycle, true);
+		else
+			builder.CloseFrame(0, 0, true);
+
+		builder.Finalize();
+		builder.TakeSession(s_profState.mSession);
+	} catch (...) {
+		// Protect against crashes in the profiler builder (malformed
+		// history data, overflows, etc.)
+		s_profState.mbNeedsRefresh = false;
 		return;
-	builder.SetS(firstHents[0]->mS);
-	builder.OpenFrame(firstHents[0]->mCycle, firstHents[0]->mCycle, tsDecoder);
-
-	const ATCPUHistoryEntry *hents[257];
-	uint32 pos = startIdx;
-	while (pos < endIdx) {
-		// Read n+1 entries (Update needs overlap of 1)
-		uint32 toRead = std::min<uint32>(endIdx - pos, 256);
-		uint32 n = cpuCh.ReadHistoryEvents(cursor, hents, pos, toRead + 1);
-		if (n <= 1)
-			break;
-
-		builder.Update(tsDecoder, hents, n - 1, ctx.mbGlobalAddressesEnabled);
-		pos += n - 1;
 	}
-
-	// Read one more for the final timestamp
-	const ATCPUHistoryEntry *lastHents[1];
-	if (cpuCh.ReadHistoryEvents(cursor, lastHents, endIdx > 0 ? endIdx - 1 : 0, 1) > 0)
-		builder.CloseFrame(lastHents[0]->mCycle, lastHents[0]->mCycle, true);
-	else
-		builder.CloseFrame(0, 0, true);
-
-	builder.Finalize();
-	builder.TakeSession(s_profState.mSession);
 
 	// Merge all frames
 	if (!s_profState.mSession.mpFrames.empty()) {
@@ -366,6 +374,7 @@ static void BuildProfile(ATImGuiTraceViewerContext& ctx) {
 			for (const auto& rec : mergedRaw->mRecords) {
 				ProfileState::SortedRecord sr;
 				sr.mAddress = rec.mAddress;
+				sr.mContext = rec.mContext;
 				sr.mCalls = rec.mCalls;
 				sr.mInsns = rec.mInsns;
 				sr.mCycles = rec.mCycles;
@@ -388,11 +397,29 @@ static void BuildProfile(ATImGuiTraceViewerContext& ctx) {
 	s_profState.mbNeedsRefresh = false;
 }
 
+static const char *const kCounterModeNames[] = { "Taken", "NotTaken", "PageCross", "Redundant" };
+
+static const char *GetCounterModeName(ATProfileCounterMode cm) {
+	int idx = (int)cm - 1;
+	if (idx >= 0 && idx < (int)(sizeof(kCounterModeNames) / sizeof(kCounterModeNames[0])))
+		return kCounterModeNames[idx];
+	return "?";
+}
+
+static const char *GetContextName(uint32 context) {
+	switch (context) {
+		case kATProfileContext_Main:		return "Main";
+		case kATProfileContext_Interrupt:	return "Interrupt";
+		case kATProfileContext_IRQ:			return "IRQ";
+		case kATProfileContext_VBI:			return "VBI";
+		case kATProfileContext_DLI:			return "DLI";
+		default:							return "";
+	}
+}
+
 static void CopyProfileAsCsv() {
 	if (s_profState.mSortedRecords.empty())
 		return;
-
-	static const char *kCounterModeNames[] = { "Taken", "NotTaken", "PageCross", "Redundant" };
 
 	VDStringA csv;
 
@@ -418,6 +445,7 @@ static void CopyProfileAsCsv() {
 	};
 
 	// Header — matches table columns
+	appendField("Thread");
 	appendField("Address");
 	appendField("Calls");
 	appendField("Clocks");
@@ -430,19 +458,22 @@ static void CopyProfileAsCsv() {
 	for (int i = 0; i < 2; ++i) {
 		ATProfileCounterMode cm = s_profState.mCapturedCounterModes[i];
 		if (cm != kATProfileCounterMode_None) {
-			appendField(kCounterModeNames[cm - 1]);
+			appendField(GetCounterModeName(cm));
 			char buf[64];
-			snprintf(buf, sizeof(buf), "%s%%", kCounterModeNames[cm - 1]);
+			snprintf(buf, sizeof(buf), "%s%%", GetCounterModeName(cm));
 			appendField(buf);
 		}
 	}
 	endLine();
 
-	uint32 totalCycles = s_profState.mpMergedFrame ? s_profState.mpMergedFrame->mTotalCycles : 1;
-	uint32 totalInsns = s_profState.mpMergedFrame ? s_profState.mpMergedFrame->mTotalInsns : 1;
-	uint32 totalUnhaltedCycles = s_profState.mpMergedFrame ? s_profState.mpMergedFrame->mTotalUnhaltedCycles : 1;
+	uint32 totalCycles = s_profState.mpMergedFrame ? std::max(1u, s_profState.mpMergedFrame->mTotalCycles) : 1;
+	uint32 totalInsns = s_profState.mpMergedFrame ? std::max(1u, s_profState.mpMergedFrame->mTotalInsns) : 1;
+	uint32 totalUnhaltedCycles = s_profState.mpMergedFrame ? std::max(1u, s_profState.mpMergedFrame->mTotalUnhaltedCycles) : 1;
 
 	for (const auto& rec : s_profState.mSortedRecords) {
+		// Thread
+		appendField(GetContextName(rec.mContext));
+
 		// Address with symbol
 		IATDebugger *dbg = ATGetDebugger();
 		if (dbg) {
@@ -767,9 +798,8 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 	}
 
 	// Determine column count (base columns + dynamic counter columns)
-	// Base columns: Address, Calls, Clocks, Insns, Clocks%, Insns%, CPUClocks, CPUClocks%, DMA%
-	static const int kBaseColumnCount = 9;
-	static const char *kCounterModeNames[] = { "Taken", "NotTaken", "PageCross", "Redundant" };
+	// Base columns: Thread, Address, Calls, Clocks, Insns, Clocks%, Insns%, CPUClocks, CPUClocks%, DMA%
+	static const int kBaseColumnCount = 10;
 
 	int numCounterCols = 0;
 	for (int i = 0; i < 2; ++i) {
@@ -784,6 +814,7 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 
 	if (ImGui::BeginTable("##CPUProfile", totalColumns, tableFlags)) {
 		ImGui::TableSetupScrollFreeze(0, 1);
+		ImGui::TableSetupColumn("Thread", ImGuiTableColumnFlags_WidthFixed, 65);
 		ImGui::TableSetupColumn("Address", ImGuiTableColumnFlags_WidthFixed | ImGuiTableColumnFlags_DefaultSort, 120);
 		ImGui::TableSetupColumn("Calls", ImGuiTableColumnFlags_WidthFixed, 60);
 		ImGui::TableSetupColumn("Clocks", ImGuiTableColumnFlags_WidthFixed | ImGuiTableColumnFlags_PreferSortDescending, 80);
@@ -798,7 +829,7 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 		for (int i = 0; i < 2; ++i) {
 			ATProfileCounterMode cm = s_profState.mCapturedCounterModes[i];
 			if (cm != kATProfileCounterMode_None) {
-				const char *name = kCounterModeNames[cm - 1];
+				const char *name = GetCounterModeName(cm);
 				char buf[64];
 				snprintf(buf, sizeof(buf), "%s", name);
 				ImGui::TableSetupColumn(buf, ImGuiTableColumnFlags_WidthFixed, 70);
@@ -815,26 +846,27 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 			bool ascending = (spec.SortDirection == ImGuiSortDirection_Ascending);
 
 			// Map column indices to sort keys
-			// 0=Address, 1=Calls, 2=Clocks, 3=Insns, 4=Clocks%, 5=Insns%,
-			// 6=CPUClocks, 7=CPUClocks%, 8=DMA%, 9+=counters
+			// 0=Thread, 1=Address, 2=Calls, 3=Clocks, 4=Insns, 5=Clocks%, 6=Insns%,
+			// 7=CPUClocks, 8=CPUClocks%, 9=DMA%, 10+=counters
 			const int sortCol = spec.ColumnIndex;
 
 			std::sort(s_profState.mSortedRecords.begin(), s_profState.mSortedRecords.end(),
 				[sortCol, ascending](const ProfileState::SortedRecord& a, const ProfileState::SortedRecord& b) {
 					int cmp = 0;
 					switch (sortCol) {
-						case 0: cmp = (a.mAddress < b.mAddress) ? -1 : (a.mAddress > b.mAddress) ? 1 : 0; break;
-						case 1: cmp = (a.mCalls < b.mCalls) ? -1 : (a.mCalls > b.mCalls) ? 1 : 0; break;
-						case 2: // Clocks (sort by cycles)
-						case 4: // Clocks% (same ordering as cycles)
+						case 0: cmp = (a.mContext < b.mContext) ? -1 : (a.mContext > b.mContext) ? 1 : 0; break;
+						case 1: cmp = (a.mAddress < b.mAddress) ? -1 : (a.mAddress > b.mAddress) ? 1 : 0; break;
+						case 2: cmp = (a.mCalls < b.mCalls) ? -1 : (a.mCalls > b.mCalls) ? 1 : 0; break;
+						case 3: // Clocks (sort by cycles)
+						case 5: // Clocks% (same ordering as cycles)
 							cmp = (a.mCycles < b.mCycles) ? -1 : (a.mCycles > b.mCycles) ? 1 : 0; break;
-						case 3: // Insns
-						case 5: // Insns% (same ordering as insns)
+						case 4: // Insns
+						case 6: // Insns% (same ordering as insns)
 							cmp = (a.mInsns < b.mInsns) ? -1 : (a.mInsns > b.mInsns) ? 1 : 0; break;
-						case 6: // CPUClocks
-						case 7: // CPUClocks%
+						case 7: // CPUClocks
+						case 8: // CPUClocks%
 							cmp = (a.mUnhaltedCycles < b.mUnhaltedCycles) ? -1 : (a.mUnhaltedCycles > b.mUnhaltedCycles) ? 1 : 0; break;
-						case 8: // DMA% — sort by (cycles - unhaltedCycles) / cycles
+						case 9: // DMA% — sort by (cycles - unhaltedCycles) / cycles
 							{
 								uint32 dmaA = a.mCycles > a.mUnhaltedCycles ? a.mCycles - a.mUnhaltedCycles : 0;
 								uint32 dmaB = b.mCycles > b.mUnhaltedCycles ? b.mCycles - b.mUnhaltedCycles : 0;
@@ -844,11 +876,11 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 								cmp = (lhs < rhs) ? -1 : (lhs > rhs) ? 1 : 0;
 							}
 							break;
-						case 9:  // Counter0
-						case 10: // Counter0%
+						case 10: // Counter0
+						case 11: // Counter0%
 							cmp = (a.mCounters[0] < b.mCounters[0]) ? -1 : (a.mCounters[0] > b.mCounters[0]) ? 1 : 0; break;
-						case 11: // Counter1
-						case 12: // Counter1%
+						case 12: // Counter1
+						case 13: // Counter1%
 							cmp = (a.mCounters[1] < b.mCounters[1]) ? -1 : (a.mCounters[1] > b.mCounters[1]) ? 1 : 0; break;
 						default: break;
 					}
@@ -858,20 +890,25 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 			sortSpecs->SpecsDirty = false;
 		}
 
-		uint32 totalCycles = s_profState.mpMergedFrame ? s_profState.mpMergedFrame->mTotalCycles : 1;
-		uint32 totalInsns = s_profState.mpMergedFrame ? s_profState.mpMergedFrame->mTotalInsns : 1;
-		uint32 totalUnhaltedCycles = s_profState.mpMergedFrame ? s_profState.mpMergedFrame->mTotalUnhaltedCycles : 1;
+		uint32 totalCycles = s_profState.mpMergedFrame ? std::max(1u, s_profState.mpMergedFrame->mTotalCycles) : 1;
+		uint32 totalInsns = s_profState.mpMergedFrame ? std::max(1u, s_profState.mpMergedFrame->mTotalInsns) : 1;
+		uint32 totalUnhaltedCycles = s_profState.mpMergedFrame ? std::max(1u, s_profState.mpMergedFrame->mTotalUnhaltedCycles) : 1;
+		const int recordCount = (int)s_profState.mSortedRecords.size();
 
 		ImGuiListClipper clipper;
-		clipper.Begin((int)s_profState.mSortedRecords.size());
+		clipper.Begin(recordCount);
 		while (clipper.Step()) {
-			for (int row = clipper.DisplayStart; row < clipper.DisplayEnd; ++row) {
+			for (int row = clipper.DisplayStart; row < clipper.DisplayEnd && row < recordCount; ++row) {
 				const auto& rec = s_profState.mSortedRecords[row];
 
 				ImGui::TableNextRow();
 
-				// Address with symbol
+				// Thread (context)
 				ImGui::TableSetColumnIndex(0);
+				ImGui::TextUnformatted(GetContextName(rec.mContext));
+
+				// Address with symbol
+				ImGui::TableSetColumnIndex(1);
 				{
 					IATDebugger *dbg = ATGetDebugger();
 					if (dbg) {
@@ -882,21 +919,21 @@ static void RenderCPUProfile(ATImGuiTraceViewerContext& ctx) {
 					}
 				}
 
-				ImGui::TableSetColumnIndex(1);
-				ImGui::Text("%u", rec.mCalls);
 				ImGui::TableSetColumnIndex(2);
-				ImGui::Text("%u", rec.mCycles);
+				ImGui::Text("%u", rec.mCalls);
 				ImGui::TableSetColumnIndex(3);
-				ImGui::Text("%u", rec.mInsns);
+				ImGui::Text("%u", rec.mCycles);
 				ImGui::TableSetColumnIndex(4);
-				ImGui::Text("%.2f%%", (float)rec.mCycles / (float)totalCycles * 100.0f);
+				ImGui::Text("%u", rec.mInsns);
 				ImGui::TableSetColumnIndex(5);
-				ImGui::Text("%.2f%%", (float)rec.mInsns / (float)totalInsns * 100.0f);
+				ImGui::Text("%.2f%%", (float)rec.mCycles / (float)totalCycles * 100.0f);
 				ImGui::TableSetColumnIndex(6);
-				ImGui::Text("%u", rec.mUnhaltedCycles);
+				ImGui::Text("%.2f%%", (float)rec.mInsns / (float)totalInsns * 100.0f);
 				ImGui::TableSetColumnIndex(7);
-				ImGui::Text("%.2f%%", (float)rec.mUnhaltedCycles / (float)totalUnhaltedCycles * 100.0f);
+				ImGui::Text("%u", rec.mUnhaltedCycles);
 				ImGui::TableSetColumnIndex(8);
+				ImGui::Text("%.2f%%", (float)rec.mUnhaltedCycles / (float)totalUnhaltedCycles * 100.0f);
+				ImGui::TableSetColumnIndex(9);
 				if (rec.mCycles)
 					ImGui::Text("%.2f%%", 100.0f * (1.0f - (float)rec.mUnhaltedCycles / (float)rec.mCycles));
 

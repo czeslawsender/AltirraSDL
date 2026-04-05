@@ -28,6 +28,7 @@ struct ATTouchLayoutConfig {
 	ATTouchControlSize controlSize = ATTouchControlSize::Medium;
 	float controlOpacity = 0.5f;
 	bool hapticEnabled = true;
+	float contentScale = 1.0f;		// DPI scale factor from SDL_GetDisplayContentScale()
 };
 
 struct ATTouchLayout {
@@ -56,6 +57,10 @@ struct ATTouchLayout {
 	// Joystick parameters
 	float joyMaxRadius;        // Max joystick displacement in pixels
 	float joyDeadZone;         // Dead zone in pixels
+
+	// Last-applied config (for detecting when recalculation is needed)
+	ATTouchControlSize lastControlSize = ATTouchControlSize::Medium;
+	float lastContentScale = 0.0f;
 };
 
 // Recalculate layout for current screen dimensions

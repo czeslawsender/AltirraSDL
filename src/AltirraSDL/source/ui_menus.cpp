@@ -38,6 +38,7 @@
 #include "uiaccessors.h"
 #include "uiconfirm.h"
 #include "uikeyboard.h"
+#include "accel_sdl3.h"
 #include "uiclipboard.h"
 #include "console.h"
 #include "uitypes.h"
@@ -56,6 +57,16 @@ extern ATSimulator g_sim;
 extern ATUIKeyboardOptions g_kbdOpts;
 extern bool g_copyFrameRequested;  // defined in ui_main.cpp
 extern SDL_Window *g_pWindow;      // defined in main_sdl3.cpp
+
+// Right-click context menu for menu items — "Assign Keyboard Shortcut..."
+// Call after ImGui::MenuItem() for items that have an accel command name.
+static void ShortcutContextMenu(const char *command) {
+	if (ImGui::BeginPopupContextItem()) {
+		if (ImGui::MenuItem("Assign Keyboard Shortcut..."))
+			ATUIOpenShortcutEditor(command);
+		ImGui::EndPopup();
+	}
+}
 
 // =========================================================================
 // MRU (Most Recently Used) list — same registry format as Windows
@@ -436,11 +447,13 @@ static const SDL_DialogFileFilter kCasSaveFilters[] = {
 // =========================================================================
 
 static void RenderFileMenu(ATSimulator &sim, ATUIState &state, SDL_Window *window) {
-	if (ImGui::MenuItem("Boot Image...", "Alt+B"))
+	if (ImGui::MenuItem("Boot Image...", ATUIGetShortcutStringForCommand("File.BootImage")))
 		SDL_ShowOpenFileDialog(BootImageCallback, nullptr, window, kImageFilters, 2, nullptr, false);
+	ShortcutContextMenu("File.BootImage");
 
-	if (ImGui::MenuItem("Open Image...", "Alt+O"))
+	if (ImGui::MenuItem("Open Image...", ATUIGetShortcutStringForCommand("File.OpenImage")))
 		ATUIShowOpenImageDialog(window);
+	ShortcutContextMenu("File.OpenImage");
 
 	// Recently Booted (MRU list)
 	uint32 mruCount = ATGetMRUCount();
@@ -477,8 +490,9 @@ static void RenderFileMenu(ATSimulator &sim, ATUIState &state, SDL_Window *windo
 
 	ImGui::Separator();
 
-	if (ImGui::MenuItem("Disk Drives...", "Alt+D"))
+	if (ImGui::MenuItem("Disk Drives...", ATUIGetShortcutStringForCommand("Disk.DrivesDialog")))
 		state.showDiskManager = true;
+	ShortcutContextMenu("Disk.DrivesDialog");
 
 	// Attach Disk submenu (matches Windows: Rotate + D1-D8)
 	if (ImGui::BeginMenu("Attach Disk")) {
@@ -764,7 +778,7 @@ static void RenderFileMenu(ATSimulator &sim, ATUIState &state, SDL_Window *windo
 
 static void RenderViewMenu(ATSimulator &sim, ATUIState &state, SDL_Window *window, IDisplayBackend *backend) {
 	bool isFullscreen = (SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN) != 0;
-	if (ImGui::MenuItem("Full Screen", "Alt+Enter", isFullscreen))
+	if (ImGui::MenuItem("Full Screen", ATUIGetShortcutStringForCommand("View.ToggleFullScreen"), isFullscreen))
 		ATSetFullscreen(!isFullscreen);
 
 	ImGui::Separator();
@@ -979,18 +993,18 @@ static void RenderViewMenu(ATSimulator &sim, ATUIState &state, SDL_Window *windo
 	ImGui::Separator();
 
 	// Copy/Save Frame
-	if (ImGui::MenuItem("Copy Frame to Clipboard", "Alt+Shift+M"))
+	if (ImGui::MenuItem("Copy Frame to Clipboard", ATUIGetShortcutStringForCommand("Edit.CopyFrame")))
 		g_copyFrameRequested = true;
 	ImGui::MenuItem("Copy Frame to Clipboard (True Aspect)", nullptr, false, false);  // placeholder
 
-	if (ImGui::MenuItem("Save Frame...", "Alt+F10"))
+	if (ImGui::MenuItem("Save Frame...", ATUIGetShortcutStringForCommand("Edit.SaveFrame")))
 		ATUIShowSaveFrameDialog(window);
 	ImGui::MenuItem("Save Frame (True Aspect)...", nullptr, false, false);  // placeholder
 
 	// Text Selection submenu
 	if (ImGui::BeginMenu("Text Selection")) {
 		bool hasSelection = ATUIIsTextSelected();
-		if (ImGui::MenuItem("Copy Text", "Alt+Shift+C", false, hasSelection))
+		if (ImGui::MenuItem("Copy Text", ATUIGetShortcutStringForCommand("Edit.CopyText"), false, hasSelection))
 			ATUITextCopy(ATTextCopyMode::ASCII);
 		if (ImGui::MenuItem("Copy Escaped Text", nullptr, false, hasSelection))
 			ATUITextCopy(ATTextCopyMode::Escaped);
@@ -998,12 +1012,12 @@ static void RenderViewMenu(ATSimulator &sim, ATUIState &state, SDL_Window *windo
 			ATUITextCopy(ATTextCopyMode::Hex);
 		if (ImGui::MenuItem("Copy Unicode", nullptr, false, hasSelection))
 			ATUITextCopy(ATTextCopyMode::Unicode);
-		if (ImGui::MenuItem("Paste Text", "Alt+Shift+V"))
+		if (ImGui::MenuItem("Paste Text", ATUIGetShortcutStringForCommand("Edit.PasteText")))
 			ATUIPasteText();
 		ImGui::Separator();
-		if (ImGui::MenuItem("Select All", "Alt+Shift+A"))
+		if (ImGui::MenuItem("Select All", ATUIGetShortcutStringForCommand("Edit.SelectAll")))
 			ATUITextSelectAll();
-		if (ImGui::MenuItem("Deselect", "Alt+Shift+D", false, hasSelection))
+		if (ImGui::MenuItem("Deselect", ATUIGetShortcutStringForCommand("Edit.Deselect"), false, hasSelection))
 			ATUITextDeselect();
 		ImGui::EndMenu();
 	}
@@ -1059,16 +1073,18 @@ static void RenderSystemMenu(ATSimulator &sim, ATUIState &state) {
 		ImGui::EndMenu();
 	}
 
-	if (ImGui::MenuItem("Configure System...", "Alt+S"))
+	if (ImGui::MenuItem("Configure System...", ATUIGetShortcutStringForCommand("System.Configure")))
 		state.showSystemConfig = true;
+	ShortcutContextMenu("System.Configure");
 
 	ImGui::Separator();
 
-	if (ImGui::MenuItem("Warm Reset", "F5")) {
+	if (ImGui::MenuItem("Warm Reset", ATUIGetShortcutStringForCommand("System.WarmReset"))) {
 		sim.WarmReset();
 		sim.Resume();
 	}
-	if (ImGui::MenuItem("Cold Reset", "Shift+F5")) {
+	ShortcutContextMenu("System.WarmReset");
+	if (ImGui::MenuItem("Cold Reset", ATUIGetShortcutStringForCommand("System.ColdReset"))) {
 		sim.ColdReset();
 		sim.Resume();
 		if (!g_kbdOpts.mbAllowShiftOnColdReset)
@@ -1081,10 +1097,12 @@ static void RenderSystemMenu(ATSimulator &sim, ATUIState &state) {
 			sim.GetPokey().SetShiftKeyState(false, true);
 	}
 
+	ShortcutContextMenu("System.ColdReset");
 	bool paused = sim.IsPaused();
-	if (ImGui::MenuItem("Pause", "F9", paused)) {
+	if (ImGui::MenuItem("Pause", ATUIGetShortcutStringForCommand("System.TogglePause"), paused)) {
 		if (paused) sim.Resume(); else sim.Pause();
 	}
+	ShortcutContextMenu("System.TogglePause");
 
 	ImGui::Separator();
 
@@ -1269,7 +1287,7 @@ static void RenderInputMenu(ATSimulator &sim, ATUIState &state) {
 		state.showInputSetup = true;
 
 	// Cycle Quick Maps — cycles through maps marked as quick-cycle
-	if (ImGui::MenuItem("Cycle Quick Maps", "Shift+F1")) {
+	if (ImGui::MenuItem("Cycle Quick Maps", ATUIGetShortcutStringForCommand("Input.CycleQuickMaps"))) {
 		if (pIM) {
 			ATInputMap *pMap = pIM->CycleQuickMaps();
 			if (pMap) {
@@ -1289,7 +1307,7 @@ static void RenderInputMenu(ATSimulator &sim, ATUIState &state) {
 	{
 		bool mouseMapped = pIM && pIM->IsMouseMapped();
 		bool captured = ATUIIsMouseCaptured();
-		if (ImGui::MenuItem("Capture Mouse", "F12", captured, mouseMapped)) {
+		if (ImGui::MenuItem("Capture Mouse", ATUIGetShortcutStringForCommand("Input.CaptureMouse"), captured, mouseMapped)) {
 			if (captured)
 				ATUIReleaseMouse();
 			else
@@ -1331,7 +1349,7 @@ static void RenderInputMenu(ATSimulator &sim, ATUIState &state) {
 // =========================================================================
 
 static void RenderCheatMenu(ATSimulator &sim, ATUIState &state) {
-	if (ImGui::MenuItem("Cheater...", "Alt+Shift+H"))
+	if (ImGui::MenuItem("Cheater...", ATUIGetShortcutStringForCommand("Cheat.CheatDialog")))
 		state.showCheater = true;
 	ImGui::Separator();
 
@@ -1361,7 +1379,7 @@ static void RenderDebugMenu(ATSimulator &sim) {
 		else
 			ATUIDebuggerOpen();
 	}
-	if (ImGui::MenuItem("Open Source File...", "Alt+Shift+O", false, dbgEnabled))
+	if (ImGui::MenuItem("Open Source File...", ATUIGetShortcutStringForCommand("Debug.OpenSourceFile"), false, dbgEnabled))
 		ATUIShowOpenSourceFileDialog(g_pWindow);
 	if (ImGui::MenuItem("Source File List...", nullptr, false, dbgEnabled))
 		ATUIDebuggerShowSourceListDialog();
@@ -1440,22 +1458,34 @@ static void RenderDebugMenu(ATSimulator &sim) {
 
 	ImGui::Separator();
 
-	if (ImGui::MenuItem("Run/Break", "F5/F8", false, dbgEnabled))
-		ATUIDebuggerRunStop();
+	{
+		// Run/Break shows combined hint from Debug.Run (F5) and Debug.RunStop (F8)
+		const char *runKey = ATUIGetShortcutStringForCommand("Debug.Run");
+		const char *stopKey = ATUIGetShortcutStringForCommand("Debug.RunStop");
+		static char runBreakHint[64];
+		if (runKey[0] && stopKey[0])
+			snprintf(runBreakHint, sizeof(runBreakHint), "%s/%s", runKey, stopKey);
+		else if (runKey[0])
+			snprintf(runBreakHint, sizeof(runBreakHint), "%s", runKey);
+		else
+			snprintf(runBreakHint, sizeof(runBreakHint), "%s", stopKey);
+		if (ImGui::MenuItem("Run/Break", runBreakHint, false, dbgEnabled))
+			ATUIDebuggerRunStop();
+	}
 	if (ImGui::MenuItem("Break", nullptr, false, dbgEnabled && dbgRunning))
 		ATUIDebuggerBreak();
 
 	ImGui::Separator();
 
-	if (ImGui::MenuItem("Step Into", "F11", false, dbgEnabled && !dbgRunning))
+	if (ImGui::MenuItem("Step Into", ATUIGetShortcutStringForCommand("Debug.StepInto"), false, dbgEnabled && !dbgRunning))
 		ATUIDebuggerStepInto();
-	if (ImGui::MenuItem("Step Over", "F10", false, dbgEnabled && !dbgRunning))
+	if (ImGui::MenuItem("Step Over", ATUIGetShortcutStringForCommand("Debug.StepOver"), false, dbgEnabled && !dbgRunning))
 		ATUIDebuggerStepOver();
-	if (ImGui::MenuItem("Step Out", "Shift+F11", false, dbgEnabled && !dbgRunning))
+	if (ImGui::MenuItem("Step Out", ATUIGetShortcutStringForCommand("Debug.StepOut"), false, dbgEnabled && !dbgRunning))
 		ATUIDebuggerStepOut();
-	if (ImGui::MenuItem("Toggle Breakpoint", "F9", false, dbgEnabled && !dbgRunning))
+	if (ImGui::MenuItem("Toggle Breakpoint", ATUIGetShortcutStringForCommand("Debug.ToggleBreakpoint"), false, dbgEnabled && !dbgRunning))
 		ATUIDebuggerToggleBreakpoint();
-	if (ImGui::MenuItem("New Breakpoint...", "Ctrl+B", false, dbgEnabled)) {
+	if (ImGui::MenuItem("New Breakpoint...", ATUIGetShortcutStringForCommand("Debug.NewBreakpoint"), false, dbgEnabled)) {
 		ATActivateUIPane(kATUIPaneId_Breakpoints, true, true);
 		ATUIDebuggerShowBreakpointDialog(-1);
 	}

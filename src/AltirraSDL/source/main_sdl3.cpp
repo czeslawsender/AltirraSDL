@@ -43,6 +43,7 @@
 #include "uiaccessors.h"
 #include "inputmanager.h"
 #include "inputdefs.h"
+#include "accel_sdl3.h"
 #include "antic.h"
 #include "gtia.h"
 #include <at/ataudio/pokey.h>
@@ -66,7 +67,7 @@ static IDisplayBackend *g_pBackend = nullptr;
 static IATJoystickManager *g_pJoystickMgr = nullptr;
 static bool g_running = true;
 static bool g_winActive = true;
-static ATUIState g_uiState;
+ATUIState g_uiState;
 #ifdef ALTIRRA_MOBILE
 ATMobileUIState g_mobileState;
 #endif
@@ -294,176 +295,42 @@ static void HandleEvents() {
 				break;
 			}
 
+			// Shortcut capture mode (rebinding UI)
+			if (g_shortcutCaptureActive) {
+				ATUIHandleShortcutCapture(ev.key);
+				break;
+			}
+
 			{
-				// ----------------------------------------------------------
-				// Global context shortcuts (Windows kATDefaultAccelTableGlobal)
-				// Fire regardless of ImGui focus — matches Windows
-				// TranslateAccelerator priority.
-				// ----------------------------------------------------------
-				bool globalHandled = true;
-				SDL_Keymod mod = ev.key.mod;
+				// Accelerator table dispatch (matches Windows ATUIActivateVirtKeyMapping)
+				// Priority: Global → Debugger → Display
+				bool handled = ATUISDLActivateAccelKey(ev.key, false, kATUIAccelContext_Global);
 
-				if (ev.key.key == SDLK_F8 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL | SDL_KMOD_ALT)))
-					ATUIDebuggerRunStop();                          // Debug.RunStop
-				else if (ev.key.key == SDLK_F10 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL | SDL_KMOD_ALT)))
-					ATUIDebuggerStepOver();                         // Debug.StepOver
-				else if (ev.key.key == SDLK_F11 && (mod & SDL_KMOD_SHIFT) && !(mod & (SDL_KMOD_CTRL | SDL_KMOD_ALT)))
-					ATUIDebuggerStepOut();                          // Debug.StepOut
-				else if (ev.key.key == SDLK_F11 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL | SDL_KMOD_ALT)))
-					ATUIDebuggerStepInto();                         // Debug.StepInto
-				else if (ev.key.key == SDLK_PAUSE && (mod & SDL_KMOD_CTRL))
-					ATUIDebuggerBreak();                            // Debug.Break (Ctrl+Pause)
-				// Alt+key dialog openers
-				else if ((mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_B)
-					ATUIShowBootImageDialog(g_pWindow);             // File.BootImage (Alt+B)
-				else if ((mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_O)
-					ATUIShowOpenImageDialog(g_pWindow);             // File.OpenImage (Alt+O)
-				else if ((mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_D)
-					g_uiState.showDiskManager = true;               // Disk.DrivesDialog (Alt+D)
-				else if ((mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_S)
-					g_uiState.showSystemConfig = true;              // System.Configure (Alt+S)
-				else if ((mod & SDL_KMOD_ALT) && (mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_O)
-					ATUIShowOpenSourceFileDialog(g_pWindow);        // Debug.OpenSourceFile (Alt+Shift+O)
-				else if ((mod & SDL_KMOD_ALT) && (mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_H)
-					g_uiState.showCheater = true;                   // Cheat.CheatDialog (Alt+Shift+H)
-				// Alt+1..8: Pane activation shortcuts (only when debugger is open)
-				else if (ATUIDebuggerIsOpen() && (mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_1)
-					ATUIDebuggerFocusDisplay();
-				else if (ATUIDebuggerIsOpen() && (mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_2)
-					ATActivateUIPane(kATUIPaneId_Console, true, true);
-				else if (ATUIDebuggerIsOpen() && (mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_3)
-					ATActivateUIPane(kATUIPaneId_Registers, true, true);
-				else if (ATUIDebuggerIsOpen() && (mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_4)
-					ATActivateUIPane(kATUIPaneId_Disassembly, true, true);
-				else if (ATUIDebuggerIsOpen() && (mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_5)
-					ATActivateUIPane(kATUIPaneId_CallStack, true, true);
-				else if (ATUIDebuggerIsOpen() && (mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_6)
-					ATActivateUIPane(kATUIPaneId_History, true, true);
-				else if (ATUIDebuggerIsOpen() && (mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_7)
-					ATActivateUIPane(kATUIPaneId_MemoryN, true, true);
-				else if (ATUIDebuggerIsOpen() && (mod & SDL_KMOD_ALT) && !(mod & SDL_KMOD_SHIFT) && ev.key.key == SDLK_8)
-					ATActivateUIPane(kATUIPaneId_PrinterOutput, true, true);
-				else
-					globalHandled = false;
+				if (!handled && ATUIDebuggerIsOpen())
+					handled = ATUISDLActivateAccelKey(ev.key, false, kATUIAccelContext_Debugger);
 
-				if (globalHandled)
-					break;
+				if (!handled && !ATUIWantCaptureKeyboard())
+					handled = ATUISDLActivateAccelKey(ev.key, false, kATUIAccelContext_Display);
 
-				// ----------------------------------------------------------
-				// Debugger context shortcuts (Windows kATDefaultAccelTableDebugger)
-				// Override display-context keys (F5, F9) when debugger is open.
-				// ----------------------------------------------------------
-				if (ATUIDebuggerIsOpen()) {
-					bool dbgHandled = true;
-					if (ev.key.key == SDLK_F5 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL | SDL_KMOD_ALT)))
-						ATUIDebuggerRunStop();                      // Debug.Run (F5 in debugger)
-					else if (ev.key.key == SDLK_F9 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL | SDL_KMOD_ALT)))
-						ATUIDebuggerToggleBreakpoint();             // Debug.ToggleBreakpoint
-					else if (ev.key.key == SDLK_B && (mod & SDL_KMOD_CTRL) && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_ALT)))
-						{ ATActivateUIPane(kATUIPaneId_Breakpoints, true, true); ATUIDebuggerShowBreakpointDialog(-1); } // Debug.NewBreakpoint (Ctrl+B)
-					else
-						dbgHandled = false;
-
-					if (dbgHandled)
-						break;
-				}
-
-				// ----------------------------------------------------------
-				// Display context shortcuts (Windows kATDefaultAccelTableDisplay)
-				// Only active when ImGui is not capturing keyboard.
-				// ----------------------------------------------------------
-				if (!ATUIWantCaptureKeyboard()) {
-					bool dispHandled = true;
-
-					if (ev.key.key == SDLK_F1 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_ALT | SDL_KMOD_CTRL))) {
-						ATUISetTurboPulse(true);                    // System.PulseWarpOn (F1 hold)
-					} else if (ev.key.key == SDLK_F1 && (mod & SDL_KMOD_SHIFT) && !(mod & (SDL_KMOD_ALT | SDL_KMOD_CTRL))) {
-						ATInputManager *pIM = g_sim.GetInputManager();
-						if (pIM) pIM->CycleQuickMaps();             // Input.CycleQuickMaps (Shift+F1)
-					} else if (ev.key.key == SDLK_F1 && (mod & SDL_KMOD_ALT) && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL))) {
-						ATUIToggleHoldKeys();                       // Console.HoldKeys (Alt+F1)
-					} else if (ev.key.key == SDLK_F5 && (mod & SDL_KMOD_SHIFT) && !(mod & (SDL_KMOD_CTRL | SDL_KMOD_ALT))) {
-						g_sim.ColdReset();                          // System.ColdReset (Shift+F5)
-						g_sim.Resume();
-						extern ATUIKeyboardOptions g_kbdOpts;
-						if (!g_kbdOpts.mbAllowShiftOnColdReset)
-							g_sim.GetPokey().SetShiftKeyState(false, true);
-					} else if (ev.key.key == SDLK_F5 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL | SDL_KMOD_ALT))) {
-						g_sim.WarmReset();                          // System.WarmReset (F5)
-						g_sim.Resume();
-					} else if (ev.key.key == SDLK_F7 && (mod & SDL_KMOD_CTRL) && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_ALT))) {
-						if (g_sim.GetVideoStandard() == kATVideoStandard_NTSC)
-							g_sim.SetVideoStandard(kATVideoStandard_PAL);
-						else
-							g_sim.SetVideoStandard(kATVideoStandard_NTSC);
-					} else if (ev.key.key == SDLK_F8 && (mod & SDL_KMOD_SHIFT) && !(mod & (SDL_KMOD_CTRL | SDL_KMOD_ALT))) {
-						ATAnticEmulator& antic = g_sim.GetAntic();  // View.NextANTICVisMode (Shift+F8)
-						antic.SetAnalysisMode((ATAnticEmulator::AnalysisMode)
-							(((int)antic.GetAnalysisMode() + 1) % ATAnticEmulator::kAnalyzeModeCount));
-					} else if (ev.key.key == SDLK_F8 && (mod & SDL_KMOD_CTRL) && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_ALT))) {
-						ATGTIAEmulator& gtia = g_sim.GetGTIA();    // View.NextGTIAVisMode (Ctrl+F8)
-						gtia.SetAnalysisMode((ATGTIAEmulator::AnalysisMode)
-							(((int)gtia.GetAnalysisMode() + 1) % ATGTIAEmulator::kAnalyzeCount));
-					} else if (ev.key.key == SDLK_F9 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL | SDL_KMOD_ALT))) {
-						if (g_sim.IsPaused()) g_sim.Resume();       // System.TogglePause (F9)
-						else g_sim.Pause();
-					} else if (ev.key.key == SDLK_F10 && (mod & SDL_KMOD_ALT) && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL))) {
-						ATUIShowSaveFrameDialog(g_pWindow);         // Edit.SaveFrame (Alt+F10)
-					} else if (ev.key.key == SDLK_F12 && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL | SDL_KMOD_ALT))) {
-						ATUICaptureMouse();                         // Input.CaptureMouse (F12)
-					} else if (ev.key.key == SDLK_RETURN && (mod & SDL_KMOD_ALT)) {
-						bool fs = (SDL_GetWindowFlags(g_pWindow) & SDL_WINDOW_FULLSCREEN) != 0;
-						ATSetFullscreen(!fs);                       // View.ToggleFullScreen (Alt+Enter)
-					} else if (ev.key.key == SDLK_BACKSPACE && (mod & SDL_KMOD_ALT) && !(mod & (SDL_KMOD_SHIFT | SDL_KMOD_CTRL))) {
-						ATUISetSlowMotion(!ATUIGetSlowMotion());    // System.ToggleSlowMotion (Alt+Backspace)
-					} else if ((mod & SDL_KMOD_ALT) && (mod & SDL_KMOD_SHIFT) && !(mod & SDL_KMOD_CTRL)) {
-						ATPokeyEmulator& pokey = g_sim.GetPokey();
-						if (ev.key.key == SDLK_1)                  // Audio.ToggleChannel1 (Alt+Shift+1)
-							pokey.SetChannelEnabled(0, !pokey.IsChannelEnabled(0));
-						else if (ev.key.key == SDLK_2)             // Audio.ToggleChannel2 (Alt+Shift+2)
-							pokey.SetChannelEnabled(1, !pokey.IsChannelEnabled(1));
-						else if (ev.key.key == SDLK_3)             // Audio.ToggleChannel3 (Alt+Shift+3)
-							pokey.SetChannelEnabled(2, !pokey.IsChannelEnabled(2));
-						else if (ev.key.key == SDLK_4)             // Audio.ToggleChannel4 (Alt+Shift+4)
-							pokey.SetChannelEnabled(3, !pokey.IsChannelEnabled(3));
-						else if (ev.key.key == SDLK_V)             // Edit.PasteText (Alt+Shift+V)
-							ATUIPasteText();
-						else if (ev.key.key == SDLK_M)             // Edit.CopyFrame (Alt+Shift+M)
-							g_copyFrameRequested = true;
-						else if (ev.key.key == SDLK_C)             // Edit.CopyText (Alt+Shift+C)
-							ATUITextCopy(ATTextCopyMode::ASCII);
-						else if (ev.key.key == SDLK_A)             // Edit.SelectAll (Alt+Shift+A)
-							ATUITextSelectAll();
-						else if (ev.key.key == SDLK_D)             // Edit.Deselect (Alt+Shift+D)
-							ATUITextDeselect();
-						else
-							dispHandled = false;
-					} else
-						dispHandled = false;
-
-					if (!dispHandled)
-						ATInputSDL3_HandleKeyDown(ev.key);
-				}
+				if (!handled && !ATUIWantCaptureKeyboard())
+					ATInputSDL3_HandleKeyDown(ev.key);
 			}
 			break;
 
 		case SDL_EVENT_KEY_UP:
-			// F1 release: turn off pulse warp (System.PulseWarpOff)
-			if (ev.key.key == SDLK_F1 && !(ev.key.mod & (SDL_KMOD_SHIFT | SDL_KMOD_ALT | SDL_KMOD_CTRL)))
-				ATUISetTurboPulse(false);
+			// Dispatch key-up through accel tables (handles PulseWarpOff on F1 release).
+			// Check all contexts symmetrically with key-down dispatch.
+			ATUISDLActivateAccelKey(ev.key, true, kATUIAccelContext_Global);
+			if (ATUIDebuggerIsOpen())
+				ATUISDLActivateAccelKey(ev.key, true, kATUIAccelContext_Debugger);
+			if (!ATUIWantCaptureKeyboard())
+				ATUISDLActivateAccelKey(ev.key, true, kATUIAccelContext_Display);
 
 			if (!ATUIWantCaptureKeyboard()) {
-				bool isHotkey = false;
-				switch (ev.key.key) {
-					case SDLK_F1: case SDLK_F5: case SDLK_F7:
-					case SDLK_F8: case SDLK_F9: case SDLK_F10:
-					case SDLK_F11: case SDLK_F12:
-						isHotkey = true;
-						break;
-					default:
-						break;
-				}
-				if (!isHotkey)
+				// Suppress emulator key-up for keys bound in accel tables
+				// (replaces hardcoded F1/F5/F7/.../F12 list)
+				uint32 upVk = SDLScancodeToVK(ev.key.scancode);
+				if (upVk == kATInputCode_None || !ATUIFindBoundKey(upVk, ev.key.mod, ev.key.scancode))
 					ATInputSDL3_HandleKeyUp(ev.key);
 			}
 			break;
@@ -1314,6 +1181,16 @@ int main(int argc, char *argv[]) {
 
 #ifdef ALTIRRA_MOBILE
 	ATMobileUI_Init();
+
+	// Query display content scale for DPI-aware touch control sizing.
+	{
+		SDL_DisplayID displayID = SDL_GetDisplayForWindow(g_pWindow);
+		float cs = SDL_GetDisplayContentScale(displayID);
+		if (cs < 1.0f) cs = 1.0f;
+		if (cs > 4.0f) cs = 4.0f;
+		g_mobileState.layoutConfig.contentScale = cs;
+		fprintf(stderr, "[AltirraSDL] Touch controls content scale: %.2f\n", cs);
+	}
 #endif
 
 	// Register device extended commands (copy/paste, explore disk, mount VHD, etc.)
@@ -1355,6 +1232,21 @@ int main(int argc, char *argv[]) {
 		| kATSettingsCategory_InputMaps
 	));
 
+#ifdef ALTIRRA_MOBILE
+	// On first run (no saved settings), default to PAL for mobile.
+	// ATSettingsLoadLastProfile sets NTSC in ATSettingsExchangeStartupConfig;
+	// override to PAL when "Defaults inited" was just created this session
+	// (ATLoadDefaultProfiles above will have set it on first boot).
+	// We detect first run by checking a mobile-specific flag we set ourselves.
+	{
+		VDRegistryAppKey key("", true);
+		if (!key.getBool("Mobile defaults applied")) {
+			g_sim.SetVideoStandard(kATVideoStandard_PAL);
+			key.setBool("Mobile defaults applied", true);
+		}
+	}
+#endif
+
 	// Register the options update callback for accelerated screen FX.
 	// This mirrors Windows main.cpp — mbDisplayAccelScreenFX defaults to
 	// true in ATOptions, and ATLoadSettings loads the persisted value.
@@ -1392,6 +1284,15 @@ int main(int argc, char *argv[]) {
 	// Initialize the virtual key map from loaded keyboard options
 	// (matches Windows main.cpp:3857).
 	ATUIInitVirtualKeyMap(g_kbdOpts);
+
+	// Initialize command handlers and accelerator tables for keyboard shortcuts.
+	// Must be called after settings are loaded so custom shortcuts are restored.
+	{
+		extern void ATUIInitSDL3Commands();
+		ATUIInitSDL3Commands();
+		ATUIInitDefaultAccelTables();
+		ATUILoadAccelTables();
+	}
 
 	// Create the native audio device now that settings have been loaded
 	// (SetApi, SetLatency, etc. may have been called during ATLoadSettings).

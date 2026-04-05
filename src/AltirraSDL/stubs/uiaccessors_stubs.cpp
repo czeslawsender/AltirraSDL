@@ -584,7 +584,5 @@ ATUIManager& ATUIGetManager() { return g_ATUIManager; }
 // are now provided by debugger.cpp (no longer excluded from SDL3 build).
 
 // ATUIGetCommandManager — needed by debuggerautotest.cpp.
-// ATUICommandManager implementation is now compiled from ATUI/source/uicommandmanager.cpp.
-#include <at/atui/uicommandmanager.h>
-static ATUICommandManager s_cmdMgr;
-ATUICommandManager& ATUIGetCommandManager() { return s_cmdMgr; }
+// The real global instance (g_ATUICommandMgr) and ATUIGetCommandManager()
+// are defined in commands_sdl3.cpp.

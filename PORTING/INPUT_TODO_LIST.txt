@@ -132,6 +132,6 @@ mouse (relative + absolute + beam + pad + virtual stick + buttons + wheel),
 full input mapping editor, input setup, port assignment, quick map cycling.
 
 Remaining architectural note: the virtual key map system (ATUIInitVirtualKeyMap)
-is stubbed — keyboard layout customization and arrow key mode options take
-effect through settings.cpp but not through the full VKeyMap dispatch.
-The scancode path in input_sdl3.cpp handles the standard cases correctly.
+was stubbed but keyboard layout customization has now been implemented.
+Arrow key mode options take effect through settings.cpp. The keyboard
+customize dialog and shortcut rebinding are functional but pending user testing.

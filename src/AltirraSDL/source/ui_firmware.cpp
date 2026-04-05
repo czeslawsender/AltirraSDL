@@ -399,8 +399,9 @@ static void FirmwareScanFolderCallback(void *userdata, const char * const *filel
 	g_fwPendingScan.path = VDTextU8ToW(VDStringA(filelist[0]));
 }
 
-// Execute firmware scan on main thread (called when folder dialog result arrives)
-static void ExecuteFirmwareScan(ATFirmwareManager *fwm, const VDStringW &scanDir) {
+// Execute firmware scan on main thread (called when folder dialog result arrives).
+// Non-static: also called from ui_mobile.cpp for mobile ROM folder selection.
+void ExecuteFirmwareScan(ATFirmwareManager *fwm, const VDStringW &scanDir) {
 	VDStringW pattern = scanDir;
 	if (!pattern.empty() && pattern.back() != L'/' && pattern.back() != L'\\')
 		pattern += L'/';

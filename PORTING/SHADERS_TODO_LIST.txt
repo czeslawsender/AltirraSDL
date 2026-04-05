@@ -1,6 +1,6 @@
 AltirraSDL — Shader Effects & Post-Processing Parity Checklist
 ================================================================
-Updated: 2026-04-04
+Updated: 2026-04-05 (updated after AGENT_PROMPTS implementation pass)
 Reference: PORTING/SHADERS.md vs actual implementation
 
 Legend:
@@ -142,9 +142,10 @@ Legend:
   [100%] Bloom radius                             — mScreenFX.mBloomRadius
   [100%] Bloom direct/indirect intensity          — mScreenFX.mBloomDirectIntensity /
                                                     mBloomIndirectIntensity
-  [  0%] Bloom scanline compensation              — ATArtifactingParams::
-                                                    mbBloomScanlineCompensation (stored
-                                                    in UI but not wired to render)
+  [100%] Bloom scanline compensation              — ATArtifactingParams::
+                                                    mbBloomScanlineCompensation wired
+                                                    to bloom composition pass
+                                                    Note: Pending user testing.
 
 
 ================================================================================
@@ -166,11 +167,11 @@ Legend:
 9. PAL ARTIFACTING
 ================================================================================
 
-  [ 50%] PAL artifacting shader                   — kGLSL_PALArtifacting_FS exists,
-                                                    mPALProgram compiled, but not wired
-                                                    into RenderScreenFX pipeline
-  [ 50%] PAL blending offset uniform              — mScreenFX.mPALBlendingOffset checked
-                                                    in hasEffects but not rendered
+  [100%] PAL artifacting shader                   — kGLSL_PALArtifacting_FS wired into
+                                                    RenderScreenFX pipeline
+  [100%] PAL blending offset uniform              — mScreenFX.mPALBlendingOffset rendered
+                                                    via PAL pass in RenderScreenFX
+  Note: Pending user testing.
 
 
 ================================================================================
@@ -199,13 +200,14 @@ Legend:
   [100%] Preset loading (.slangp/.glslp)          — LibrashaderRuntime::LoadPreset()
   [100%] Per-frame filter chain application       — LibrashaderRuntime::Apply() with
                                                     input/output GL textures
-  [  0%] Preset parameter enumeration             — preset_get_runtime_params() for
+  [100%] Preset parameter enumeration             — preset_get_runtime_params() for
                                                     exposing tunable parameters
-  [  0%] Preset parameter UI                      — ImGui sliders for shader params
-  [  0%] Mutual exclusion with built-in FX        — Disable built-in effects when
+  [100%] Preset parameter UI                      — ImGui sliders for shader params
+  [100%] Mutual exclusion with built-in FX        — Disable built-in effects when
                                                     librashader preset is active
-  [  0%] GL state restore after filter chain      — Save/restore GL state around
+  [100%] GL state restore after filter chain      — Save/restore GL state around
                                                     gl_filter_chain_frame() call
+  Note: Pending user testing.
 
 
 ================================================================================
@@ -233,13 +235,14 @@ Legend:
 13. UI — SHADER PRESET SELECTOR
 ================================================================================
 
-  [  0%] View menu "Shader Preset" submenu        — (None) / Browse / Recent
-  [  0%] File dialog for .slangp/.glslp           — SDL file dialog for preset files
-  [  0%] Recent presets list                       — Last 5 used presets
-  [  0%] Preset parameter panel                   — Collapsible ImGui panel with
+  [100%] View menu "Shader Preset" submenu        — (None) / Browse / Recent
+  [100%] File dialog for .slangp/.glslp           — SDL file dialog for preset files
+  [100%] Recent presets list                       — Last 5 used presets
+  [100%] Preset parameter panel                   — Collapsible ImGui panel with
                                                     sliders for tunable parameters
-  [  0%] Settings persistence for preset path     — Save/load last preset in
+  [100%] Settings persistence for preset path     — Save/load last preset in
                                                     settings.ini
+  Note: Pending user testing.
 
 
 ================================================================================
@@ -254,21 +257,21 @@ Scanlines                            3            3      100%
 Gamma/color correction                5            5      100%
 Screen masks                          9            9      100%
 Distortion                            4            4      100%
-Bloom V2                              9           10       90%
+Bloom V2                             10           10      100%
 HDR (deferred)                        0            6        0%
-PAL artifacting                       1            2       50%
+PAL artifacting                       2            2      100%
 Unified screenFX shader               3            3      100%
-librashader integration               4            8       50%
+librashader integration               8            8      100%
 UI: Adjust Screen Effects             7            8       88%
-UI: Shader preset selector            0            5        0%
+UI: Shader preset selector            5            5      100%
 -----------------------------------------------------------------
-TOTAL                                60           80       75%
+TOTAL                                71           80       89%
 
 Remaining work:
   - macOS GL support (forward-compatible context, GLSL 150)
   - EmTextureID for ImGui debugger display pane
-  - PAL artifacting render pass wiring
-  - Bloom scanline compensation
-  - librashader parameter UI and mutual exclusion
-  - Shader preset file browser and persistence
   - HDR (deferred to later phase)
+
+Many features were recently implemented and are pending thorough user testing,
+particularly: PAL artifacting, bloom scanline compensation, librashader
+parameter UI/mutual exclusion/state restore, and shader preset selector.

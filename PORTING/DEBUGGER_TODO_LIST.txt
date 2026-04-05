@@ -1,6 +1,6 @@
 DEBUGGER TODO LIST
 ==================
-Updated: 2026-04-04 (verified against actual source code)
+Updated: 2026-04-05 (updated after AGENT_PROMPTS implementation pass)
 
 Phase 1: Enable debugger.cpp compilation               [DONE]
   [x] Create stub header stubs/at/atnativeui/uiframe.h
@@ -106,7 +106,7 @@ Phase 8: Specialized panes                              [DONE]
   [x] ui_dbg_debugdisplay.cpp - ANTIC/GTIA register visualization
   [x] ui_dbg_printer.cpp - printer device output
 
-Phase 9: Debug menu completion                          [MOSTLY DONE]
+Phase 9: Debug menu completion                          [DONE]
   [x] Window submenu - All panes wired: Console, Registers, Disassembly,
       History, Memory 1-4, Call Stack, Breakpoints, Watch 1-4, Targets,
       Debug Display, Source, Printer Output
@@ -114,7 +114,7 @@ Phase 9: Debug menu completion                          [MOSTLY DONE]
   [x] Source File List - ImGui dialog
   [x] Options: Auto-Reload ROMs on Cold Reset
   [x] Options: Randomize Memory On EXE Load
-  [ ] Options: Change Font
+  [N/A] Options: Change Font — not suitable for SDL/ImGui (no system font picker)
   [x] F9 - Toggle Breakpoint (ATUIDebuggerToggleBreakpoint)
   [x] Configure System > Debugger page (symbol loading, script auto-load,
       system/kernel symbols, debug link)
@@ -144,21 +144,21 @@ Phase 9b: Context menu gaps                             [DONE]
       Unhalted Cycles, Tape Position (Samples/Seconds)
   [x] Copy Visible to Clipboard
 
-  Console context menu (ui_dbg_console.cpp) — DONE (Copy All + Clear All)
+  Console context menu (ui_dbg_console.cpp) — DONE (Copy + Copy All + Clear All)
   Debug Display context menu — DONE (Force Update, Filter Mode, Palette)
   Source context menu — DONE (including Open In > File Explorer, Default Editor)
 
-Phase 10: Verifier and breakpoint editor                [PARTIAL]
+Phase 10: Verifier and breakpoint editor                [DONE]
   [x] ui_dbg_verifier.cpp - 11 verification checks (IMPLEMENTED)
       Full dialog with ATUIShowDialogVerifier() + ATUIRenderVerifierDialog()
       All 11 flags with checkboxes, OK/Cancel buttons
-      NOTE: Not yet wired to Debug menu item (menu stub still disabled)
-  [ ] Wire verifier dialog to Debug.VerifierDialog menu item
-  [ ] Breakpoint editor dialog (add/edit) - location type (PC address),
+  [x] Wire verifier dialog to Debug.VerifierDialog menu item
+  [x] Breakpoint editor dialog (add/edit) - location type (PC address),
       condition editor (expression), action (stop/trace), command-on-hit
-  [ ] Enable cpuheatmap trap commands
+  [x] Enable cpuheatmap trap commands
+  Note: Implemented but not yet fully user-tested.
 
-Phase 11: Profiler and trace viewer                     [MOSTLY DONE]
+Phase 11: Profiler and trace viewer                     [DONE]
   [x] ui_dbg_traceviewer.cpp - Performance Analyzer (IMPLEMENTED):
       - Main pane registered as kATUIPaneId_Profiler ("Performance Analyzer")
       - Menu bar: File (Open/Import Atari800 trace), View, Settings
@@ -189,9 +189,10 @@ Phase 11: Profiler and trace viewer                     [MOSTLY DONE]
   [x] Wire trace viewer to Debug menu — "Performance Analyzer..." at line 1435
       calls ATActivateUIPane(kATUIPaneId_Profiler, true). "Profile View" also
       wired at line 1430. Both are functional menu items.
-  [ ] Profile list CSV export context menu
-  [ ] Profiler boundary rule dialog
-  [ ] "Go To Tape Editor" in trace viewer tape menu
+  [x] Profile list CSV export context menu
+  [x] Profiler boundary rule dialog
+  [x] "Go To Tape Editor" in trace viewer tape menu
+  Note: Implemented but not yet fully user-tested.
 
 Phase 12: Tape Editor                                   [DONE]
   [x] ui_tool_tapeeditor.cpp (795 lines) - Main window and UI
@@ -205,9 +206,9 @@ Phase 12: Tape Editor                                   [DONE]
       - Persistent state management
   Note: Disk Explorer is already in ui_tools.cpp (not a debugger tool)
 
-Phase 13: Polish                                        [TODO]
-  [ ] Debug font dialog (IDD_DEBUG_CHOOSE_FONT)
-  [ ] Wire verifier to menu (change `false` to `true` at ui_menus.cpp:1434,
-      call ATUIShowDialogVerifier, render via ATUIRenderVerifierDialog)
-  [ ] Debugger settings persistence verification
-  [ ] Autotest command compilation verification
+Phase 13: Polish                                        [MOSTLY DONE]
+  [N/A] Debug font dialog (IDD_DEBUG_CHOOSE_FONT) — not suitable for SDL/ImGui
+  [x] Wire verifier to menu
+  [x] Debugger settings persistence verification
+  [x] Autotest command compilation verification
+  Note: All items implemented or resolved. Pending thorough user testing.

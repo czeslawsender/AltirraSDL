@@ -341,7 +341,7 @@ Common fixes:
   - Java errors: ensure JAVA_HOME points to JDK $MIN_JAVA_VERSION+"
 
 # =========================================================================
-# Step 6: Report
+# Step 6: Sign APK (optional, --sign flag)
 # =========================================================================
 
 if [ "$BUILD_TYPE" = "release" ]; then
@@ -353,6 +353,70 @@ else
 fi
 
 APK_PATH="$APK_DIR/$APK_NAME"
+
+if [ "${SIGN_APK:-0}" = "1" ] && [ -f "$APK_PATH" ]; then
+    KEYSTORE="$HOME/.altirra-debug.jks"
+    KS_PASS="altirra-debug"
+    KS_ALIAS="altirra"
+
+    # ── Find apksigner in build-tools ────────────────────────────────
+    APKSIGNER=""
+    for bt_dir in $(ls -d "$ANDROID_HOME/build-tools/"* 2>/dev/null | sort -V -r); do
+        if [ -x "$bt_dir/apksigner" ]; then
+            APKSIGNER="$bt_dir/apksigner"
+            break
+        fi
+    done
+    if [ -z "$APKSIGNER" ]; then
+        die "apksigner not found in $ANDROID_HOME/build-tools/*/
+Install build-tools: sdkmanager --install 'build-tools;${REQUIRED_BUILD_TOOLS}'"
+    fi
+
+    # ── Find keytool ─────────────────────────────────────────────────
+    KEYTOOL=""
+    if command -v keytool &>/dev/null; then
+        KEYTOOL="keytool"
+    elif [ -n "${JAVA_HOME:-}" ] && [ -x "$JAVA_HOME/bin/keytool" ]; then
+        KEYTOOL="$JAVA_HOME/bin/keytool"
+    fi
+    if [ -z "$KEYTOOL" ]; then
+        die "keytool not found. Ensure Java JDK is installed and on PATH."
+    fi
+
+    # ── Generate debug keystore if it doesn't exist ──────────────────
+    if [ ! -f "$KEYSTORE" ]; then
+        info "Generating debug keystore at $KEYSTORE ..."
+        "$KEYTOOL" -genkey -v \
+            -keystore "$KEYSTORE" \
+            -keyalg RSA -keysize 2048 \
+            -validity 10000 \
+            -alias "$KS_ALIAS" \
+            -storepass "$KS_PASS" \
+            -keypass "$KS_PASS" \
+            -dname "CN=Altirra Debug,O=Altirra,C=US" \
+            2>&1 | tail -1
+        ok "Debug keystore created"
+    fi
+
+    # ── Sign the APK ─────────────────────────────────────────────────
+    info "Signing APK..."
+    "$APKSIGNER" sign \
+        --ks "$KEYSTORE" \
+        --ks-pass "pass:$KS_PASS" \
+        --ks-key-alias "$KS_ALIAS" \
+        --key-pass "pass:$KS_PASS" \
+        "$APK_PATH" \
+        || die "APK signing failed"
+
+    # apksigner renames the file in-place; update the name for report
+    APK_NAME="app-release-unsigned.apk"
+    APK_PATH="$APK_DIR/$APK_NAME"
+    ok "APK signed (debug keystore)"
+fi
+
+# =========================================================================
+# Step 7: Report
+# =========================================================================
 
 echo ""
 if [ -f "$APK_PATH" ]; then

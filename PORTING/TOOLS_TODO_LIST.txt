@@ -1,6 +1,7 @@
 AltirraSDL — Tools Parity Checklist
 ====================================
 Created: 2026-04-04
+Updated: 2026-04-05 (updated after AGENT_PROMPTS implementation pass)
 Reference: Windows Altirra menu_default.txt + Altirra.rc context menus
 
 Legend:
@@ -32,30 +33,33 @@ Files:
   [100%] Timestamp preservation on import/export
   [100%] Open mounted drives from disk drive dialog
 
-1.2 CONTEXT MENU (IDR_DISK_EXPLORER_CONTEXT_MENU — 3/11 items)
+1.2 CONTEXT MENU (IDR_DISK_EXPLORER_CONTEXT_MENU — 11/11 items)
   [100%] Export...
   [100%] Delete
   [100%] Rename...
-  [  0%] View                                  — Open file in viewer pane
-  [  0%] New Folder                            — Create directory at current location
-  [  0%] Import File...                        — Import from host filesystem
-  [  0%] Import File as Text...                — Import with CR/LF -> Atari EOL (0x9B)
-  [  0%] Export File as Text...                — Export with Atari EOL -> CR/LF
-  [  0%] Open (partition)                      — Navigate into partition
-  [  0%] Import Disk Image (partition)         — Import disk image into partition
-  [  0%] Export Disk Image (partition)         — Export partition as disk image
+  [100%] View                                  — Open file in viewer pane
+  [100%] New Folder                            — Create directory at current location
+  [100%] Import File...                        — Import from host filesystem
+  [100%] Import File as Text...                — Import with CR/LF -> Atari EOL (0x9B)
+  [100%] Export File as Text...                — Export with Atari EOL -> CR/LF
+  [100%] Open (partition)                      — Navigate into partition
+  [100%] Import Disk Image (partition)         — Import disk image into partition
+  [100%] Export Disk Image (partition)         — Export partition as disk image
+  Note: Implemented but not yet fully user-tested.
 
-1.3 OPTIONS MENU (IDR_DISKEXPLORER_MENU — 0/3 items)
-  [  0%] Strict filename checking              — Radio: enforce 8.3 rules strictly
-  [  0%] Relaxed filename checking             — Radio: allow longer/mixed case names
-  [  0%] Adjust Conflicting Filenames          — Auto-rename on collision
+1.3 OPTIONS MENU (IDR_DISKEXPLORER_MENU — 3/3 items)
+  [100%] Strict filename checking              — Radio: enforce 8.3 rules strictly
+  [100%] Relaxed filename checking             — Radio: allow longer/mixed case names
+  [100%] Adjust Conflicting Filenames          — Auto-rename on collision
+  Note: Implemented but not yet fully user-tested.
 
-1.4 OTHER MISSING FEATURES
-  [  0%] Text import/export (CR/LF <-> Atari EOL 0x9B conversion)
-  [  0%] Partition support (open/import/export from block device partitions)
-  [  0%] "Text: wrap to GR.0 screen (38 columns)" viewer mode
-  [  0%] Settings persistence (strict filenames, adjust filenames in registry)
+1.4 OTHER FEATURES
+  [100%] Text import/export (CR/LF <-> Atari EOL 0x9B conversion)
+  [100%] Partition support (open/import/export from block device partitions)
+  [100%] "Text: wrap to GR.0 screen (38 columns)" viewer mode
+  [100%] Settings persistence (strict filenames, adjust filenames in registry)
   [  0%] Drag and drop (drag files out to host, drop files in from host)
+  Note: Core features implemented but not yet fully user-tested.
 
 
 ================================================================================
@@ -99,10 +103,11 @@ Files:
 5. KEYBOARD SHORTCUTS (ui_tools.cpp)
 ================================================================================
 
-  [ 80%] Read-only viewer showing current key bindings
-  [  0%] Rebind keys (data-driven shortcut system — SDL3 uses hardcoded)
-  [  0%] Scan for Blocked Keys (IDR_KEYBOARDCUSTOMIZE_MENU)
-  [  0%] Assign Keyboard Shortcut from menu context (IDR_CUSTOMIZE_MENU)
+  [100%] Read-only viewer showing current key bindings
+  [100%] Rebind keys (data-driven shortcut system)
+  [100%] Scan for Blocked Keys (IDR_KEYBOARDCUSTOMIZE_MENU)
+  [100%] Assign Keyboard Shortcut from menu context (IDR_CUSTOMIZE_MENU)
+  Note: Implemented but not yet fully user-tested.
 
 
 ================================================================================
@@ -121,15 +126,14 @@ SUMMARY
 Category                    Implemented    Total    Coverage
 ------------------------------------------------------------
 Disk Explorer core               12          12      100%
-Disk Explorer context menu        3          11       27%
-Disk Explorer options menu        0           3        0%
-Disk Explorer other features      0           5        0%
+Disk Explorer context menu       11          11      100%
+Disk Explorer options menu        3           3      100%
+Disk Explorer other features      4           5       80%
 Setup Wizard                      8           8      100%
 Compat DB                         6           6      100%
 Advanced Configuration            5           5      100%
-Keyboard Shortcuts                1           3       33%
+Keyboard Shortcuts                4           4      100%
 Other tools                       3           3      100%
 
-Disk Explorer is the main gap: file import, text conversion, partition
-support, filename checking options, and most context menu items are missing.
-Keyboard shortcut rebinding requires a data-driven system not yet designed.
+Remaining gap: Disk Explorer drag-and-drop (host ↔ emulator).
+Most features were recently implemented and are pending thorough user testing.

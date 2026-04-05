@@ -205,6 +205,7 @@ sdkmanager --licenses
 ```bash
 ./build.sh --android                # debug APK
 ./build.sh --android --release      # release APK
+./build.sh --android --release --sign  # release APK, signed with debug keystore
 ./build.sh --android --clean        # clean + rebuild
 
 # Or auto-install SDK components + build:
@@ -218,7 +219,31 @@ android/app/build/outputs/apk/debug/app-debug.apk
 android/app/build/outputs/apk/release/app-release-unsigned.apk
 ```
 
-Install on a connected device: `adb install -r <path-to-apk>`
+### Install
+
+**Via USB (ADB):**
+
+```bash
+adb install -r <path-to-apk>
+```
+
+**Via file transfer (release APK):**
+
+The release APK is unsigned and must be signed before Android will
+install it. The easiest way is to use the `--sign` flag:
+
+```bash
+./build.sh --android --release --sign
+```
+
+This automatically creates a debug keystore (at `~/.altirra-debug.jks`)
+on first use and signs the APK. Then copy the signed APK to your phone
+and open it. You will need to
+enable **Install from unknown sources** in Android settings (Settings →
+Security, or Settings → Apps → Special access → Install unknown apps).
+
+The debug APK (`app-debug.apk`) is already signed with the Android debug
+key and can be installed directly.
 
 ### Troubleshooting
 

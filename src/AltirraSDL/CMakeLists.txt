@@ -170,6 +170,13 @@ target_sources(AltirraSDL PRIVATE
     # ATUICommandManager (from ATUI library, no Win32 deps — needed by debuggerautotest.cpp)
     ${CMAKE_SOURCE_DIR}/src/ATUI/source/uicommandmanager.cpp
 
+    # VDAccelTableDefinition (from Dita library, no Win32 deps — accelerator tables)
+    ${CMAKE_SOURCE_DIR}/src/Dita/source/accel.cpp
+
+    # SDL3 accelerator table management and command handlers
+    source/accel_sdl3.cpp
+    source/commands_sdl3.cpp
+
     # Stub implementations replacing Win32-only files
     stubs/console_stubs.cpp
     stubs/oshelper_stubs.cpp
