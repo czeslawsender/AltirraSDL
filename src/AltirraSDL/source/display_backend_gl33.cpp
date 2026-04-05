@@ -293,7 +293,20 @@ void DisplayBackendGL33::RenderFrame(float dstX, float dstY, float dstW, float d
 			mLibrashaderOutFBO.Create(vpW, vpH, GL_RGBA8);
 		}
 
-		mLibrashader.Apply(mLibrashaderFBO.tex, mLibrashaderOutFBO.tex,
+		// Our built-in shaders render top-down (Y=0 at top, SDL/ImGui
+		// convention) into mLibrashaderFBO, but librashader expects
+		// standard OpenGL orientation (Y=0 at bottom).  Blit with a Y
+		// flip into mLibrashaderOutFBO, then use that as librashader
+		// input and mLibrashaderFBO as output.
+		glBindFramebuffer(GL_READ_FRAMEBUFFER, mLibrashaderFBO.fbo);
+		glBindFramebuffer(GL_DRAW_FRAMEBUFFER, mLibrashaderOutFBO.fbo);
+		glBlitFramebuffer(
+			0, vpH, vpW, 0,        // src: flip Y
+			0, 0, vpW, vpH,        // dst: standard GL orientation
+			GL_COLOR_BUFFER_BIT, GL_NEAREST);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+		mLibrashader.Apply(mLibrashaderOutFBO.tex, mLibrashaderFBO.tex,
 			vpW, vpH, vpW, vpH, mFrameCounter);
 
 		// Restore GL state after librashader — some presets may enable
@@ -306,16 +319,15 @@ void DisplayBackendGL33::RenderFrame(float dstX, float dstY, float dstW, float d
 		glDisable(GL_FRAMEBUFFER_SRGB);
 		glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
 
-		// Blit librashader output to the screen using glBlitFramebuffer.
-		// librashader renders with standard OpenGL convention (Y=0 at bottom),
-		// while our screen uses SDL/ImGui convention (Y=0 at top).  Swapping
-		// the source Y coordinates flips the image correctly.
+		// Blit librashader output to the screen.  librashader output is
+		// in standard GL orientation (Y=0 at bottom); the screen uses
+		// SDL convention (Y=0 at top).  Flip src Y to compensate.
 		int scrX = (int)dstX;
 		int scrY = savedWinH - (int)(dstY + dstH);
-		glBindFramebuffer(GL_READ_FRAMEBUFFER, mLibrashaderOutFBO.fbo);
+		glBindFramebuffer(GL_READ_FRAMEBUFFER, mLibrashaderFBO.fbo);
 		glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
 		glBlitFramebuffer(
-			0, vpH, vpW, 0,                          // src: flip Y (top-to-bottom)
+			0, vpH, vpW, 0,                          // src: flip Y (bottom-up → top-down)
 			scrX, scrY, scrX + vpW, scrY + vpH,      // dst: screen position
 			GL_COLOR_BUFFER_BIT, GL_NEAREST);
 		glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
