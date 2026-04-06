@@ -393,8 +393,10 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
             pos     = cas_st.get("position", 0.0)
             length  = cas_st.get("length",   0.0)
             pc      = cpu_st.get("pc", 0)
-            # PORTB ($D301 on XL/XE): bit 0 = OS+self-test ROM enabled.
-            # Defaults to 0xFF (all ROMs on) if the emulator doesn't report it
+            # PORTB ($D301 on XL/XE):
+            #   bit 0 = 1: OS+self-test ROM enabled
+            #   bit 7 = 0: self-test ROM mapped to $5000-$57FF (1 = RAM there)
+            # Defaults to 0xFF (all bits set) if the emulator doesn't report it
             # yet (old build without the memory section in query_state).
             portb   = mem_st.get("portb", 0xFF)
 
@@ -408,17 +410,19 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
 
             # ---- PC-based crash detection -----------------------------------
 
-            # XL/XE self-test ROM is mapped to $5000-$57FF only when the OS
-            # ROM is enabled (PORTB bit 0 = 1).  If PORTB bit 0 = 0 the OS is
-            # banked out and RAM is visible there — a legitimate program may
-            # run under those addresses, so we must NOT flag it as self-test.
-            os_rom_enabled = bool(portb & 0x01)
-            if 0x5000 <= pc <= 0x57FF and os_rom_enabled:
+            # XL/XE self-test ROM is mapped to $5000-$57FF only when BOTH:
+            #   - PORTB bit 0 = 1  (OS ROM enabled — self-test is part of OS)
+            #   - PORTB bit 7 = 0  (self-test ROM banked in at $5000-$57FF)
+            # When bit 7 = 1, ordinary RAM is visible at $5000-$57FF and a
+            # program loaded from tape may legitimately execute there.
+            os_rom_enabled   = bool(portb & 0x01)
+            self_test_mapped = not bool(portb & 0x80)  # bit 7: 0=self-test, 1=RAM
+            if 0x5000 <= pc <= 0x57FF and os_rom_enabled and self_test_mapped:
                 result["outcome"]      = "crash"
                 result["crash_reason"] = (
                     f"SELF TEST detected "
                     f"(PC=${pc:04X}, in $5000-$57FF, OS ROM enabled, "
-                    f"PORTB=${portb:02X})"
+                    f"self-test banked in, PORTB=${portb:02X})"
                 )
                 break
 
