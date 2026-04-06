@@ -7,7 +7,11 @@
 #include "logging.h"
 
 // Define all function pointer globals
+#ifndef __APPLE__
 #define GL_FUNC(ret, name, ...) PFN_##name name = nullptr;
+#else
+#define GL_FUNC(ret, name, ...)
+#endif
 
 GL_FUNC(void, glEnable, GLenum cap)
 GL_FUNC(void, glDisable, GLenum cap)
@@ -71,10 +75,14 @@ GL_FUNC(void, glDrawBuffers, GLsizei n, const GLenum *bufs)
 bool GLLoadFunctions() {
 	bool ok = true;
 
+#ifndef __APPLE__
 #define GL_LOAD(name) do { \
 	name = (PFN_##name)SDL_GL_GetProcAddress(#name); \
 	if (!name) { LOG_ERROR("GL", "Failed to load: %s", #name); ok = false; } \
 } while(0)
+#else
+#define GL_LOAD(name) /* macOS: framework provides 'name' directly */
+#endif
 
 	GL_LOAD(glEnable);
 	GL_LOAD(glDisable);
