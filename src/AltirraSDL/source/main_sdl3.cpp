@@ -1294,36 +1294,8 @@ int main(int argc, char *argv[]) {
 
 	phase = "window/GL";
 
-#ifdef __ANDROID__
-	// Allow any orientation. If we don't set this, SDL infers the
-	// orientation from the requested window size (1280x720 -> landscape)
-	// and calls Activity.setRequestedOrientation() during window creation,
-	// which triggers a configuration change / surface recreation while
-	// our native thread is still deep in init. The Java UI thread then
-	// blocks waiting for the native thread to ack the pause, and we hit
-	// a 5-second Input-dispatch ANR before we ever reach the event loop.
-	SDL_SetHint(SDL_HINT_ORIENTATIONS,
-		"LandscapeLeft LandscapeRight Portrait PortraitUpsideDown");
-
-	// Use the device's actual display size rather than a fixed logical
-	// size. SDL on Android honors the values passed to SDL_CreateWindow
-	// for orientation inference even though the backing surface always
-	// matches the device, so we must supply matching dimensions.
-	int kDefaultWidth = 1280;
-	int kDefaultHeight = 720;
-	{
-		SDL_DisplayID primary = SDL_GetPrimaryDisplay();
-		SDL_Rect bounds{};
-		if (primary && SDL_GetDisplayUsableBounds(primary, &bounds)
-			&& bounds.w > 0 && bounds.h > 0) {
-			kDefaultWidth = bounds.w;
-			kDefaultHeight = bounds.h;
-		}
-	}
-#else
 	const int kDefaultWidth = 1280;
 	const int kDefaultHeight = 720;
-#endif
 
 	// Try OpenGL 3.3 first, fall back to SDL_Renderer
 	bool useGL = false;
@@ -1336,11 +1308,7 @@ int main(int argc, char *argv[]) {
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	g_pWindow = SDL_CreateWindow("AltirraSDL", kDefaultWidth, kDefaultHeight,
-		SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL
-#ifdef __ANDROID__
-		| SDL_WINDOW_FULLSCREEN
-#endif
-		);
+		SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 	if (g_pWindow) {
 		glContext = SDL_GL_CreateContext(g_pWindow);
 		if (glContext) {
@@ -1361,12 +1329,7 @@ int main(int argc, char *argv[]) {
 	// If GL failed, recreate window without OPENGL flag for SDL_Renderer
 	if (!useGL) {
 		if (g_pWindow) SDL_DestroyWindow(g_pWindow);
-		g_pWindow = SDL_CreateWindow("AltirraSDL", kDefaultWidth, kDefaultHeight,
-			SDL_WINDOW_RESIZABLE
-#ifdef __ANDROID__
-			| SDL_WINDOW_FULLSCREEN
-#endif
-			);
+		g_pWindow = SDL_CreateWindow("AltirraSDL", kDefaultWidth, kDefaultHeight, SDL_WINDOW_RESIZABLE);
 		if (!g_pWindow) { LOG_INFO("Main", "CreateWindow: %s", SDL_GetError()); SDL_Quit(); return 1; }
 	}
 
@@ -1723,6 +1686,16 @@ int main(int argc, char *argv[]) {
 		g_pDisplay->PrepareFrame();
 
 		const bool turbo = g_sim.IsTurboModeEnabled();
+
+		// Toggle GL swap interval when turbo state changes.
+		// With vsync on (interval=1), SDL_GL_SwapWindow blocks at the display
+		// refresh rate even in turbo mode — capping warp speed to ~60fps.
+		// Disabling it while turbo is active lets the GPU swap as fast as it can.
+		static bool s_lastTurbo = false;
+		if (turbo != s_lastTurbo) {
+			s_lastTurbo = turbo;
+			SDL_GL_SetSwapInterval(turbo ? 0 : 1);
+		}
 
 		if (s_diagFrameCount < 5)
 			LOG_INFO("Main", "MainLoop: advance=%d hadFrame=%d running=%d paused=%d", (int)result, hadFrame, g_sim.IsRunning(), g_sim.IsPaused());
