@@ -368,6 +368,18 @@ bool ATProcessCommandLineSDL3(int argc, char **argv) {
 			continue;
 		}
 
+		// ---- Turbo / warp speed ----
+		if (MatchSwitch(sw, "warp")) {
+			consumed[i] = true;
+			g_sim.SetTurboModeEnabled(true);
+			continue;
+		}
+		if (MatchSwitch(sw, "nowarp")) {
+			consumed[i] = true;
+			g_sim.SetTurboModeEnabled(false);
+			continue;
+		}
+
 		// ---- Fast boot ----
 		if (MatchSwitch(sw, "fastboot")) {
 			consumed[i] = true;
