@@ -2070,7 +2070,7 @@ void ATArtifactingEngine::RecomputeNTSCTables(ATConsoleOutput *debugOut) {
 		VDStringA s;
 
 		for(int channel = 0; channel < 3; ++channel) {
-			vdfloat3 channelSelect(channel == 0, channel == 1, channel == 2);
+			vdfloat3 channelSelect{float(channel == 0), float(channel == 1), float(channel == 2)};
 
 			for(int phase = 0; phase < 2; ++phase) {
 				for(int hue = 0; hue < 16; ++hue) {

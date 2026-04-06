@@ -634,6 +634,7 @@ uint8 ATAnticEmulator::AdvanceSpecial() {
 				if (busActive)
 					mActivityMap[mY][mX] |= 1;
 				break;
+			default: break;
 			}
 		}
 
@@ -733,6 +734,7 @@ uint8 ATAnticEmulator::AdvanceSpecial() {
 				if (busActive)
 					mActivityMap[mY][mX] |= 1;
 				break;
+			default: break;
 			}
 		}
 
