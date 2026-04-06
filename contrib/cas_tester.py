@@ -3,6 +3,8 @@
 cas_tester.py  —  Batch .cas file tester for Altirra SDL (macOS / Linux)
 =========================================================================
 
+Author: krap/NG <maciej.grzeszczuk@fhkd.pl>
+
 Launches Altirra in test-mode IPC for each .cas file, boots it, monitors
 cassette motor state, takes screenshots every N emulator frames (default
 50 = 1 PAL second), and decides:
@@ -89,8 +91,10 @@ HAS_FFMPEG = shutil.which("ffmpeg") is not None
 # ---------------------------------------------------------------------------
 FRAMES_PER_SHOT      = 50     # emulator frames between screenshots (50 = 1s PAL)
 MOTOR_START_TIMEOUT  = 90.0   # wall-clock seconds to wait for motor to first run
-MOTOR_STOP_GRACE     = 10     # emulator-seconds after motor stops before success
+MOTOR_STOP_GRACE     = 20     # emulator-seconds after motor stops before success
+TAPE_END_GRACE       = 10     # consecutive polls past end-of-tape with motor still on
 OVERALL_TIMEOUT      = 1200.0 # hard wall-clock cap per CAS (20 min)
+EMU_TIMEOUT_S        = 1320.0 # emulated-seconds cap per CAS (22 min of machine time)
 SOCKET_WAIT_TIMEOUT  = 15.0   # seconds to wait for Altirra socket
 FROZEN_THRESHOLD     = 5      # consecutive identical screenshots -> frozen
 VIDEO_FPS            = 10     # output video framerate
@@ -244,11 +248,11 @@ def _image_vector(path: str):
     if not HAS_PILLOW:
         return None
     try:
-        return list(
-            Image.open(path).convert("L")
-                 .resize(_THUMB_SIZE, Image.LANCZOS)
-                 .getdata()
-        )
+        # tobytes() returns one byte per pixel for L-mode images and is
+        # stable across Pillow versions; getdata() is deprecated in 11+
+        # and slated for removal in 14.
+        thumb = Image.open(path).convert("L").resize(_THUMB_SIZE, Image.LANCZOS)
+        return list(thumb.tobytes())
     except Exception:
         return None
 
@@ -380,6 +384,42 @@ def postprocess_cas_dir(cas_dir: Path, *,
 
 
 # ---------------------------------------------------------------------------
+# mp3 → wav conversion (ffmpeg)
+# ---------------------------------------------------------------------------
+def convert_mp3_to_wav(mp3_path: str, wav_path: str) -> bool:
+    """Convert an MP3 tape capture to mono 44.1 kHz WAV via ffmpeg.
+
+    Returns True on success, False on failure.  Altirra reads WAV tape
+    captures directly via --tape, so after conversion the wav path can be
+    passed unchanged into the normal test pipeline.
+    """
+    if not HAS_FFMPEG:
+        print("  [mp3] ffmpeg not found in PATH — cannot convert")
+        return False
+
+    cmd = [
+        "ffmpeg", "-y",
+        "-i",  mp3_path,
+        "-ar", "44100",   # 44.1 kHz — ample for Atari FSK (3995/5327 Hz NTSC)
+        "-ac", "1",       # mono — Atari tape is single-channel
+        "-loglevel", "error",
+        wav_path,
+    ]
+    print(f"  [mp3] ffmpeg -i {Path(mp3_path).name} → {Path(wav_path).name}")
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f"  [mp3] ffmpeg failed (exit {r.returncode})")
+        if r.stderr.strip():
+            for line in r.stderr.strip().splitlines():
+                print(f"    {line}")
+        return False
+    if not os.path.exists(wav_path):
+        print(f"  [mp3] ffmpeg exit 0 but {wav_path} missing")
+        return False
+    return True
+
+
+# ---------------------------------------------------------------------------
 # ffmpeg video assembly
 # ---------------------------------------------------------------------------
 def make_video(cas_dir: Path, fps: int):
@@ -469,15 +509,34 @@ def make_video(cas_dir: Path, fps: int):
 # ---------------------------------------------------------------------------
 def test_one_cas(altirra, cas_path, out_dir, extra_args,
                  frames_per_shot, motor_stop_grace, video_fps,
-                 panel_opts=None):
+                 panel_opts=None, with_basic=False, source_info=None):
 
-    cas_name = Path(cas_path).stem
+    # When the input is a file Altirra reads directly (.cas/.wav), cas_path
+    # IS the source.  When the caller has pre-converted something else (e.g.
+    # .mp3 → .wav), cas_path points at the converted file and source_info
+    # carries the original metadata.
+    if source_info is None:
+        ext = Path(cas_path).suffix.lower().lstrip(".")
+        source_info = {
+            "tape_format":   ext if ext else "cas",
+            "original_path": cas_path,
+            "converted":     False,
+        }
+
+    # The result stem uses the ORIGINAL filename so mp3-sourced runs show up
+    # under their real name, not the temp wav.
+    original_path = source_info.get("original_path", cas_path)
+    cas_name = Path(original_path).stem
     cas_dir  = out_dir / cas_name
     cas_dir.mkdir(parents=True, exist_ok=True)
 
     result = {
-        "cas":              cas_path,
+        "cas":              original_path,
         "stem":             cas_name,
+        "tape_format":      source_info["tape_format"],
+        "converted":        source_info.get("converted", False),
+        "converted_to":     source_info.get("converted_to"),
+        "with_basic":       with_basic,
         "outcome":          "unknown",
         "motor_stopped_at": None,
         "motor_started":    False,
@@ -499,17 +558,27 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
         "--nosiopatch",
         "--tape",   cas_path,
         "--casautoboot",
-        "--nobasic",
-    ] + extra_args
+    ]
+    # BASIC toggle: without --nobasic, the cart is left enabled and the user
+    # must press only START to boot the tape (no OPTION to disable BASIC).
+    # Some tape loaders expect BASIC to be available.
+    if not with_basic:
+        cmd.append("--nobasic")
+    cmd += extra_args
 
     proc = None
     ipc  = None
     t_start = time.monotonic()
-    motor_was_on    = False
-    motor_off_count = 0    # consecutive polls with motor off after first run
-    last_motor_pos  = 0.0  # last known tape position while motor was on
-    last_hashes    = []
-    iteration      = 0
+    motor_was_on     = False
+    motor_off_count  = 0    # consecutive polls with motor off after first run
+    end_of_tape_cnt  = 0    # consecutive polls with motor on at end-of-tape
+    last_motor_pos   = 0.0  # last known tape position while motor was on
+    last_hashes      = []
+    iteration        = 0
+    # Emulated seconds elapsed.  We advance frames_per_shot frames per poll,
+    # so sim time ≈ iteration * frames_per_shot / fps.  PAL = 50, NTSC = 60.
+    fps              = 60 if "--ntsc" in extra_args else 50
+    sim_elapsed      = 0.0
 
     dbg(f"Launching: {' '.join(cmd)}")
 
@@ -530,12 +599,20 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
         print("  IPC connected.")
 
         while True:
-            elapsed = time.monotonic() - t_start
-            iteration += 1
+            elapsed     = time.monotonic() - t_start
+            sim_elapsed = iteration * frames_per_shot / fps
+            iteration  += 1
 
             if elapsed > OVERALL_TIMEOUT:
                 result["outcome"]      = "crash"
                 result["crash_reason"] = f"Overall timeout ({OVERALL_TIMEOUT:.0f}s)"
+                break
+
+            if sim_elapsed > EMU_TIMEOUT_S:
+                result["outcome"]      = "crash"
+                result["crash_reason"] = (
+                    f"Emulated time cap ({EMU_TIMEOUT_S:.0f}s of machine time)"
+                )
                 break
 
             # ---- Query state ------------------------------------------------
@@ -651,6 +728,25 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
                 motor_off_count = 0
                 if pos > 0.0:
                     last_motor_pos = pos
+
+                # End-of-tape with motor still running: the loader is almost
+                # certainly stuck (no more data coming).  Wait for TAPE_END_GRACE
+                # consecutive samples to be sure, then declare crash.
+                if length > 0.0 and pos >= length - 0.001:
+                    end_of_tape_cnt += 1
+                    if end_of_tape_cnt == 1:
+                        print(f"\n  Tape end reached ({pos:.3f}/{length:.3f}s) "
+                              f"with motor still running — "
+                              f"need {TAPE_END_GRACE} consecutive samples…")
+                    if end_of_tape_cnt >= TAPE_END_GRACE:
+                        result["outcome"]      = "crash"
+                        result["crash_reason"] = (
+                            f"Tape ended ({pos:.3f}/{length:.3f}s) "
+                            f"without motor stop"
+                        )
+                        break
+                else:
+                    end_of_tape_cnt = 0
             elif motor_was_on:
                 motor_off_count += 1
                 if motor_off_count == 1:
@@ -685,6 +781,42 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
                 break
 
         print()
+
+        # ---- Final screenshot ---------------------------------------------
+        # Capture one last frame AFTER the termination decision so the very
+        # last screen state (BOOT ERROR, SELF TEST, success screen, etc.) is
+        # always in the record — even if the crash-detection break fired
+        # before a screenshot could be taken this iteration.
+        try:
+            final_state = ipc.query_state()
+            if final_state and final_state.get("ok"):
+                fs   = final_state.get("state", {})
+                fcas = fs.get("cassette", {})
+                fcpu = fs.get("cpu",      {})
+                fmem = fs.get("memory",   {})
+                fpos   = fcas.get("position", 0.0)
+                fmotor = fcas.get("motor", False)
+                fpc    = fcpu.get("pc", 0)
+                fportb = fmem.get("portb", 0xFF)
+                iteration += 1
+                bmp_name = f"frame_{iteration:04d}_t{fpos:07.3f}.bmp"
+                ipc.screenshot(str(cas_dir / bmp_name))
+                result["screenshots"].append({
+                    "seq":      iteration,
+                    "file":     bmp_name,
+                    "tape_pos": round(fpos, 3),
+                    "motor":    fmotor,
+                    "pc":       f"${fpc:04X}",
+                    "portb":    f"${fportb:02X}",
+                    "elapsed":  round(time.monotonic() - t_start, 1),
+                    "final":    True,
+                })
+                # Let the emulator actually render the screenshot before we
+                # tear down the process — screenshots are queued on the next
+                # rendered frame.
+                ipc.wait_frames(2, timeout=5.0)
+        except Exception as e:
+            dbg(f"final screenshot failed: {e}")
 
     except KeyboardInterrupt:
         result["outcome"]      = "aborted"
@@ -732,16 +864,16 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
 # ---------------------------------------------------------------------------
 def main():
     global FRAMES_PER_SHOT, MOTOR_START_TIMEOUT, MOTOR_STOP_GRACE
-    global OVERALL_TIMEOUT, VIDEO_FPS, _debug_enabled
+    global OVERALL_TIMEOUT, EMU_TIMEOUT_S, VIDEO_FPS, _debug_enabled
 
     ap = argparse.ArgumentParser(
-        description="Batch .cas file tester for Altirra SDL",
+        description="Batch .cas/.wav file tester for Altirra SDL",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     ap.add_argument("--altirra",   help="Path to AltirraSDL (required for testing)")
     ap.add_argument("--output",    required=True, help="Output directory")
     ap.add_argument("--list",      metavar="FILE",
-                    help="Text file with one .cas path per line")
+                    help="Text file with one .cas/.wav path per line")
 
     # Emulation tuning
     ap.add_argument("--frames",    type=int, default=FRAMES_PER_SHOT,
@@ -752,11 +884,17 @@ def main():
                     help=f"Emulator-seconds motor off for success (default {MOTOR_STOP_GRACE})")
     ap.add_argument("--timeout",   type=float, default=OVERALL_TIMEOUT,
                     help=f"Wall-clock hard cap per CAS (default {OVERALL_TIMEOUT})")
+    ap.add_argument("--emu-timeout", type=float, default=EMU_TIMEOUT_S,
+                    help=f"Emulated-seconds hard cap per CAS "
+                         f"(default {EMU_TIMEOUT_S} = 22 min of machine time)")
     ap.add_argument("--video-fps", type=int, default=VIDEO_FPS,
                     help=f"Output video fps (default {VIDEO_FPS})")
     ap.add_argument("--no-video",  action="store_true", help="Skip ffmpeg")
     ap.add_argument("--ntsc",      action="store_true", help="Force NTSC")
     ap.add_argument("--pal",       action="store_true", help="Force PAL")
+    ap.add_argument("--with-basic", action="store_true",
+                    help="Boot with BASIC enabled (only START pressed, "
+                         "no OPTION).  Default: BASIC disabled via --nobasic")
     ap.add_argument("--debug",     action="store_true",
                     help="Print every IPC send/recv line (verbose)")
 
@@ -779,18 +917,21 @@ def main():
 
     # Post-run actions
     ap.add_argument("--move-cas",  action="store_true",
-                    help="Move each .cas to a done/ folder after testing")
+                    help="Move each tape file (.cas/.wav/.mp3) to a done/ "
+                         "folder after testing")
     ap.add_argument("--postprocess-results", action="store_true",
                     help="Re-run panel generation on existing result dirs "
                          "(no emulator needed)")
 
-    ap.add_argument("cas_files",   nargs="*", help=".cas files to test")
+    ap.add_argument("cas_files",   nargs="*",
+                    help=".cas, .wav, or .mp3 files to test")
     args = ap.parse_args()
 
     FRAMES_PER_SHOT     = args.frames
     MOTOR_START_TIMEOUT = args.motor_timeout
     MOTOR_STOP_GRACE    = args.grace
     OVERALL_TIMEOUT     = args.timeout
+    EMU_TIMEOUT_S       = args.emu_timeout
     VIDEO_FPS           = args.video_fps
     _debug_enabled      = args.debug
 
@@ -851,7 +992,8 @@ def main():
     print(f"Altirra:     {args.altirra}")
     print(f"Output:      {out_dir.resolve()}")
     print(f"Frames/shot: {FRAMES_PER_SHOT}  Grace: {MOTOR_STOP_GRACE}s  "
-          f"Timeout: {OVERALL_TIMEOUT}s")
+          f"Wall-timeout: {OVERALL_TIMEOUT}s  Emu-timeout: {EMU_TIMEOUT_S}s")
+    print(f"BASIC:       {'on (START only)' if args.with_basic else 'off (--nobasic)'}")
     print(f"Pillow:      {'yes' if HAS_PILLOW else 'no'}")
     print(f"pytesseract: {'yes' if HAS_TESSERACT else 'no'}")
     print(f"ffmpeg:      {'yes' if HAS_FFMPEG and vfps > 0 else 'no'}")
@@ -860,24 +1002,72 @@ def main():
              f"gap={args.min_gap}s width={args.panel_width}px"
              if panel_opts else ""))
     print(f"Keep source: {'yes' if args.keep_source else 'no'}")
-    print(f"Move CAS:    {'yes' if args.move_cas else 'no'}")
+    print(f"MP3 input:   {'auto-convert (ffmpeg)' if HAS_FFMPEG else 'disabled (no ffmpeg)'}")
+    print(f"Move tape:   {'yes' if args.move_cas else 'no'}")
     print(f"Debug IPC:   {'yes' if _debug_enabled else 'no'}")
     print(f"Files: {len(cas_files)}")
     print()
 
     results = []
-    for i, cas in enumerate(cas_files, 1):
-        cas = os.path.expanduser(cas)
-        if not os.path.exists(cas):
-            print(f"[{i}/{len(cas_files)}] SKIP {cas}  (not found)")
-            results.append({"cas": cas, "outcome": "skipped",
+    for i, tape in enumerate(cas_files, 1):
+        tape = os.path.expanduser(tape)
+        if not os.path.exists(tape):
+            print(f"[{i}/{len(cas_files)}] SKIP {tape}  (not found)")
+            results.append({"cas": tape, "outcome": "skipped",
                              "crash_reason": "file not found"})
             continue
 
-        print(f"[{i}/{len(cas_files)}] {cas}")
-        r = test_one_cas(args.altirra, cas, out_dir, extra,
-                         FRAMES_PER_SHOT, MOTOR_STOP_GRACE, vfps,
-                         panel_opts=panel_opts)
+        print(f"[{i}/{len(cas_files)}] {tape}")
+
+        ext         = Path(tape).suffix.lower().lstrip(".")
+        source_info = None
+        test_path   = tape   # what actually gets fed to Altirra
+        temp_wav    = None   # track for cleanup
+
+        # ---- MP3 handling --------------------------------------------------
+        # Auto-convert if ffmpeg is available; skip cleanly if it isn't.
+        if ext == "mp3":
+            if not HAS_FFMPEG:
+                print(f"  SKIP: mp3 input requires ffmpeg in PATH")
+                results.append({"cas": tape, "outcome": "skipped",
+                                 "tape_format": "mp3",
+                                 "crash_reason": "mp3 input: ffmpeg not available"})
+                print()
+                continue
+
+            # Convert to a temp wav next to the output dir so it cleans up
+            # with the run even if the script dies mid-test.
+            temp_wav = out_dir / f".{Path(tape).stem}.converted.wav"
+            if not convert_mp3_to_wav(tape, str(temp_wav)):
+                results.append({"cas": tape, "outcome": "skipped",
+                                 "tape_format": "mp3",
+                                 "crash_reason": "mp3 → wav conversion failed"})
+                print()
+                continue
+
+            test_path   = str(temp_wav)
+            source_info = {
+                "tape_format":   "mp3",
+                "converted":     True,
+                "converted_to":  "wav",
+                "original_path": tape,
+            }
+
+        try:
+            r = test_one_cas(args.altirra, test_path, out_dir, extra,
+                             FRAMES_PER_SHOT, MOTOR_STOP_GRACE, vfps,
+                             panel_opts=panel_opts,
+                             with_basic=args.with_basic,
+                             source_info=source_info)
+        finally:
+            # Always clean up the temp wav, even if the test blew up.
+            if temp_wav is not None and temp_wav.exists():
+                try:
+                    temp_wav.unlink()
+                    print(f"  [mp3] removed temp {temp_wav.name}")
+                except OSError:
+                    pass
+
         results.append(r)
 
         icon   = "\u2713" if r["outcome"] == "success" else "\u2717"
@@ -887,12 +1077,14 @@ def main():
         print(f"  {icon} {r['outcome'].upper()}  {detail}  "
               f"({r['duration_s']:.1f}s, {len(r.get('screenshots',[]))} frames)")
 
-        # ---- Move .cas to done/ -------------------------------------------
+        # ---- Move original tape file to done/ -----------------------------
+        # Works uniformly for .cas/.wav/.mp3 — we always move the ORIGINAL
+        # file the user pointed us at, never a temp conversion artefact.
         if args.move_cas and r["outcome"] in ("success", "crash"):
             done_dir.mkdir(parents=True, exist_ok=True)
-            dest = done_dir / Path(cas).name
+            dest = done_dir / Path(tape).name
             try:
-                shutil.move(cas, str(dest))
+                shutil.move(tape, str(dest))
                 print(f"  Moved → {dest}")
             except OSError as e:
                 print(f"  [move-cas] failed: {e}")

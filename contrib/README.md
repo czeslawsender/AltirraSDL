@@ -4,9 +4,11 @@ Utility scripts for working with AltirraSDL from the outside.
 
 ---
 
-## cas_tester.py — Batch .cas tape tester
+## cas_tester.py — Batch .cas / .wav / .mp3 tape tester
 
-Automated batch-testing of Atari 8-bit cassette images (`.cas` files).
+Automated batch-testing of Atari 8-bit cassette images. Accepts FUJI-chunk
+`.cas` digital dumps, `.wav` analogue captures of real tapes, and `.mp3`
+files (transparently converted to WAV via ffmpeg).
 The script launches AltirraSDL for each file, boots it, monitors tape
 motor state and CPU/memory state via the built-in IPC channel, captures
 BMP screenshots every N emulator frames (default 50 = 1 PAL second),
@@ -22,7 +24,7 @@ panel and an upscaled final screenshot from the deduplicated frames.
 | Python 3.8+ | Standard library only for core operation |
 | `Pillow` *(optional)* | `pip install Pillow` — enables frozen-screen detection and panel generation |
 | `pytesseract` + `tesseract` *(optional)* | `pip install pytesseract` + system tesseract — enables OCR crash detection |
-| `ffmpeg` *(optional)* | In `PATH` — enables video assembly from screenshots |
+| `ffmpeg` *(optional)* | In `PATH` — enables video assembly and MP3 → WAV conversion |
 
 ### Quick start
 
@@ -61,14 +63,16 @@ python3 contrib/cas_tester.py \
 |---|---|---|
 | `--altirra PATH` | *(required for testing)* | Path to AltirraSDL executable |
 | `--output DIR` | *(required)* | Root output directory |
-| `--list FILE` | — | Text file with one `.cas` path per line |
+| `--list FILE` | — | Text file with one `.cas` or `.wav` path per line |
 | `--frames N` | 50 | Emulator frames between screenshots (50 = 1 s PAL, 60 = 1 s NTSC) |
 | `--motor-timeout S` | 90 | Wall-clock seconds to wait for tape motor to start before declaring crash |
-| `--grace S` | 10 | Emulator-seconds motor must stay off before declaring success |
+| `--grace S` | 20 | Emulator-seconds motor must stay off before declaring success |
 | `--timeout S` | 1200 | Hard wall-clock cap per CAS (20 min) |
+| `--emu-timeout S` | 1320 | Hard emulated-seconds cap per CAS (22 min of machine time) |
 | `--video-fps N` | 10 | Output video framerate |
 | `--no-video` | — | Skip ffmpeg video assembly |
 | `--ntsc` / `--pal` | — | Override video standard |
+| `--with-basic` | — | Boot with BASIC enabled (only START pressed, no OPTION). Default is BASIC off via `--nobasic` |
 | `--debug` | — | Print every IPC send/recv line (verbose) |
 
 #### Panel / post-processing
@@ -87,7 +91,7 @@ python3 contrib/cas_tester.py \
 
 | Flag | Default | Description |
 |---|---|---|
-| `--move-cas` | — | After testing, move each `.cas` file to a `done/` folder (created as a sibling of `--output`) |
+| `--move-cas` | — | After testing, move each tape file (`.cas`, `.wav`, or `.mp3`) to a `done/` folder (created as a sibling of `--output`). For MP3 runs the original MP3 is moved, not the temp WAV |
 
 Altirra is launched with `--warp`, `--novsync`, `--nosiopatch`, `--nobasic`,
 and `--casautoboot` automatically. SIO patches are explicitly disabled so that
@@ -115,10 +119,15 @@ done/                         ← tested .cas files land here (--move-cas)
 | Field | Description |
 |---|---|
 | `outcome` | `"success"`, `"crash"`, `"skipped"`, or `"aborted"` |
+| `cas` | Path to the **original** input file (for MP3 runs, the `.mp3` not the temp `.wav`) |
+| `tape_format` | `"cas"`, `"wav"`, or `"mp3"` — auto-detected from file extension |
+| `converted` | Boolean: whether the input was transcoded before testing |
+| `converted_to` | `"wav"` when `converted=true`, otherwise `null` |
+| `with_basic` | Boolean: whether the run was booted with BASIC enabled |
 | `motor_stopped_at` | Tape position (seconds) when motor last stopped (success only) |
 | `motor_started` | Whether the tape motor ever ran |
 | `crash_reason` | Human-readable description of why it was classified as a crash |
-| `screenshots` | Array of `{seq, file, tape_pos, motor, pc, portb, elapsed}` entries |
+| `screenshots` | Array of `{seq, file, tape_pos, motor, pc, portb, elapsed}` entries. The last entry also carries `"final": true` — captured after the termination decision to guarantee the terminal screen state is recorded |
 | `video` | Filename of assembled video, or `null` |
 | `duration_s` | Total wall-clock time for this run |
 | `timestamp` | ISO 8601 timestamp of the run |
@@ -248,11 +257,37 @@ polling iteration in the following order:
 7. **Motor timeout** — the tape motor never started within
    `--motor-timeout` seconds.
 
-8. **Hard timeout** — the `--timeout` value is a safety net for tapes that
-   loop indefinitely or trigger an infinite-load condition.
+8. **Tape end with motor running** — the tape position has reached the
+   end (`pos >= length`) but the motor is still on. The loader is almost
+   certainly stuck waiting for more data that will never come. The script
+   waits for 10 consecutive samples in this state before declaring a
+   crash, to avoid false positives from minor tape-length rounding.
 
-9. **`wait_frames` timeout** — the emulator did not advance the requested
-   number of frames within 30 seconds (emulator frozen or hung).
+9. **Wall-clock timeout** — `--timeout` seconds (default 1200 = 20 min)
+   of real time, safety net for anything that loops indefinitely.
+
+10. **Emulated-time timeout** — `--emu-timeout` seconds (default 1320 =
+    22 min) of emulated machine time. Independent of wall-clock; since the
+    emulator runs in `--warp` mode, one real second can equal many
+    emulated seconds, so this cap catches genuinely long runs regardless
+    of warp speed.
+
+11. **`wait_frames` timeout** — the emulator did not advance the requested
+    number of frames within 30 seconds (emulator frozen or hung).
+
+### Final screenshot guarantee
+
+After the main polling loop exits — for **any** reason (success, crash,
+or timeout) — one last screenshot is captured and appended to
+`result.screenshots` with a `"final": true` marker. This ensures the
+terminal screen state (BOOT ERROR message, SELF TEST display, success
+screen, etc.) is always recorded, even if the crash-detection `break`
+fired before that iteration's regular screenshot could be taken.
+
+The panel generator also always force-includes the last frame, so this
+final screenshot is guaranteed to appear in `panel.png` and to be the
+source image for `final.png`, even if it happens to resemble earlier
+frames closely enough to otherwise be filtered out.
 
 ### Success detection
 
@@ -260,7 +295,7 @@ polling iteration in the following order:
 
 1. The tape motor has run at least once (tape was read), **and**
 2. The motor has been continuously off for `--grace` consecutive polling
-   iterations (default 10) without restarting.
+   iterations (default 20) without restarting.
 
 This corresponds to the program finishing its load phase and the OS releasing
 the cassette port. The Atari OS keeps the motor running across adjacent
@@ -269,6 +304,40 @@ positives during normal multi-record loads.
 
 The tape position at the moment the motor last stopped is recorded in
 `motor_stopped_at`.
+
+### Tape format support
+
+Three input formats are accepted:
+
+- **`.cas`** — FUJI-chunk digital dump. Passed directly to Altirra via `--tape`.
+- **`.wav`** — analogue capture of a real cassette (any sample rate
+  Altirra accepts). Passed directly via `--tape`.
+- **`.mp3`** — automatically converted when ffmpeg is available in PATH.
+  The script invokes `ffmpeg -i input.mp3 -ar 44100 -ac 1 output.wav` to
+  produce a mono 44.1 kHz temp WAV next to the output directory (44.1 kHz
+  is ample for Atari's FSK tones at 3995 Hz and 5327 Hz on NTSC), tests
+  that, then deletes it. The result records `tape_format="mp3"`,
+  `converted=true`, and `converted_to="wav"`, while `cas` still points
+  at the original MP3.
+
+If ffmpeg is not available, `.mp3` inputs are skipped with an
+explanatory message (they're not silently ignored).
+
+Format is auto-detected from the file extension and logged in
+`result.json`, which is useful when batch-testing mixed inputs or
+comparing loader behaviour between digital and analogue sources.
+
+### BASIC boot mode
+
+By default the script launches Altirra with `--nobasic`, which
+disables the built-in BASIC cartridge — equivalent to holding OPTION
+during boot on real hardware. This is the standard way to boot
+machine-language tape loaders on XL/XE.
+
+Pass `--with-basic` to leave BASIC enabled (only START pressed during
+boot). This is needed for tapes that load BASIC programs via
+`CLOAD`/`ENTER`, or for loaders that expect BASIC ROM to be present.
+The boot mode is logged in `result.json` as `with_basic: true/false`.
 
 ### PORTB ($D301) reference — 130XE memory banking
 
@@ -350,3 +419,10 @@ The protocol is simple line-oriented text over a stream socket:
 
 All available IPC commands can be listed at runtime by sending `help\n` to
 the socket.
+
+---
+
+## Author
+
+`cas_tester.py` and the `tape-testing-automation` branch changes by
+**krap/NG** — &lt;maciej.grzeszczuk@fhkd.pl&gt;
