@@ -651,7 +651,7 @@ def main():
               f"({r['duration_s']:.1f}s, {len(r.get('screenshots',[]))} frames)")
         print()
 
-    report = {
+    run = {
         "generated": datetime.now().isoformat(),
         "altirra":   args.altirra,
         "total":     len(results),
@@ -661,12 +661,41 @@ def main():
         "aborted":   sum(1 for r in results if r["outcome"] == "aborted"),
         "results":   results,
     }
+
     rp = out_dir / "report.json"
+
+    # Load existing report and append this run, or start fresh.
+    report = {"runs": []}
+    if rp.exists():
+        try:
+            existing = json.loads(rp.read_text())
+            if isinstance(existing, dict) and "runs" in existing:
+                report = existing
+            else:
+                # Migrate a legacy single-run report into the new format.
+                report["runs"].append(existing)
+        except (json.JSONDecodeError, OSError):
+            pass
+
+    report["runs"].append(run)
+
+    # Recompute lifetime totals across all runs.
+    all_results = [r for rn in report["runs"] for r in rn.get("results", [])]
+    report["total"]   = len(all_results)
+    report["success"] = sum(1 for r in all_results if r.get("outcome") == "success")
+    report["crash"]   = sum(1 for r in all_results if r.get("outcome") == "crash")
+    report["skipped"] = sum(1 for r in all_results if r.get("outcome") == "skipped")
+    report["aborted"] = sum(1 for r in all_results if r.get("outcome") == "aborted")
+    report["updated"] = run["generated"]
+
     rp.write_text(json.dumps(report, indent=2))
 
     print("=" * 60)
-    print(f"  success={report['success']}  crash={report['crash']}  "
-          f"skipped={report['skipped']}  aborted={report['aborted']}")
+    print(f"  This run:  success={run['success']}  crash={run['crash']}  "
+          f"skipped={run['skipped']}  aborted={run['aborted']}")
+    print(f"  All runs:  success={report['success']}  crash={report['crash']}  "
+          f"skipped={report['skipped']}  aborted={report['aborted']}  "
+          f"({len(report['runs'])} run(s))")
     print(f"  Report: {rp}")
     print("=" * 60)
 
