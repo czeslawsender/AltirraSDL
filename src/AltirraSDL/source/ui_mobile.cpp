@@ -30,6 +30,7 @@
 #include <at/ataudio/audiooutput.h>
 
 extern ATSimulator g_sim;
+extern VDStringA ATGetConfigDir();
 
 // Firmware scan function from ui_firmware.cpp
 extern void ExecuteFirmwareScan(ATFirmwareManager *fwm, const VDStringW &scanDir);
@@ -152,7 +153,22 @@ static void RefreshFileBrowser(const VDStringW &dir) {
 
 void ATMobileUI_Init() {
 #ifdef __ANDROID__
-	s_fileBrowserDir = VDTextU8ToW(VDStringA(SDL_GetUserFolder(SDL_FOLDER_DOWNLOADS)));
+	// SDL_GetUserFolder returns NULL on Android because scoped storage
+	// requires explicit MANAGE_EXTERNAL_STORAGE / SAF permissions we do
+	// not have. Fall back to the public Downloads directory (readable
+	// with READ_EXTERNAL_STORAGE on API<=32, via MediaStore on newer
+	// versions) and finally to the app's private external files dir,
+	// which is always writable without any permission.
+	const char *dl = SDL_GetUserFolder(SDL_FOLDER_DOWNLOADS);
+	if (dl && *dl) {
+		s_fileBrowserDir = VDTextU8ToW(VDStringA(dl));
+	} else {
+		const char *ext = SDL_GetAndroidExternalStoragePath();
+		if (ext && *ext)
+			s_fileBrowserDir = VDTextU8ToW(VDStringA(ext));
+		else
+			s_fileBrowserDir = VDTextU8ToW(ATGetConfigDir());
+	}
 #else
 	const char *home = SDL_GetUserFolder(SDL_FOLDER_HOME);
 	if (home)

@@ -48,3 +48,5 @@ android/app/src/main/java/org/libsdl
 *.exe
 *.out
 *.app
+/android/build
+/android/build/reports

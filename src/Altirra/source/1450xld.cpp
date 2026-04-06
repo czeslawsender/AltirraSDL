@@ -386,6 +386,8 @@ AT1450XLDiskDevice::AT1450XLDiskDevice(bool full, bool tong)
 		mpFullEmulation = new FullEmulation(*this, tong);
 }
 
+AT1450XLDiskDevice::~AT1450XLDiskDevice() = default;
+
 void *AT1450XLDiskDevice::AsInterface(uint32 iid) {
 	if (mpFullEmulation) {
 		auto *p = mpFullEmulation->AsInterface(iid);

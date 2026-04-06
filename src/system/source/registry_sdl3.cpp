@@ -18,6 +18,11 @@
 #include <vd2/system/VDString.h>
 #include <vd2/system/text.h>
 
+#ifdef __ANDROID__
+#include <SDL3/SDL_filesystem.h>
+#include <SDL3/SDL_stdinc.h>
+#endif
+
 // Forward-declare the INI load/save functions from uiregistry.cpp.
 // These work with whichever IVDRegistryProvider is currently active.
 void ATUILoadRegistry(const wchar_t *path);
@@ -32,9 +37,28 @@ static VDStringW s_configPath;
 
 VDStringA ATGetConfigDir() {
 	if (s_configDir.empty()) {
+		VDStringA dir;
+#ifdef __ANDROID__
+		// On Android the only reliable writable location is the app's
+		// internal storage directory.  $HOME is unset or points inside
+		// the APK.  SDL_GetPrefPath returns
+		// /data/user/0/org.altirra.app/files/Altirra/AltirraSDL/ —
+		// guaranteed writable, survives upgrades, cleaned on uninstall.
+		{
+			char *p = SDL_GetPrefPath("Altirra", "AltirraSDL");
+			if (p && *p) {
+				dir = p;
+				if (!dir.empty() && dir.back() == '/')
+					dir.pop_back();
+				SDL_free(p);
+			} else {
+				if (p) SDL_free(p);
+				dir = "/data/local/tmp/altirra";
+			}
+		}
+#else
 		// XDG Base Directory: use $XDG_CONFIG_HOME or ~/.config
 		const char *xdgConfig = getenv("XDG_CONFIG_HOME");
-		VDStringA dir;
 		if (xdgConfig && *xdgConfig) {
 			dir = xdgConfig;
 		} else {
@@ -47,6 +71,7 @@ VDStringA ATGetConfigDir() {
 			}
 		}
 		dir += "/altirra";
+#endif
 
 		// Ensure directory exists
 		mkdir(dir.c_str(), 0755);

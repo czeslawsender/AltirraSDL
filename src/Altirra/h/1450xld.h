@@ -31,6 +31,7 @@ public:
 	static constexpr uint32 kTypeID = "AT1450XLDiskDevice"_vdtypeid;
 
 	AT1450XLDiskDevice(bool full, bool tong);
+	~AT1450XLDiskDevice();
 
 	void *AsInterface(uint32 iid) override;
 
