@@ -35,6 +35,15 @@ Notes:
   - Timing is emulator-frame-based via wait_frames IPC command.
     --frames 50 = 1 PAL second, --frames 60 = 1 NTSC second.
   - Altirra is launched with --warp and --novsync automatically.
+  - SIO patches are explicitly disabled (--nosiopatch) for authentic
+    OS-level tape loading behaviour.
+
+IPC protocol note — screenshot response MUST be consumed:
+  The screenshot command sends a JSON acknowledgement back over the socket.
+  Failing to read it desynchronises the response stream: every subsequent
+  command reads the PREVIOUS command's response instead of its own — causing
+  motor=false / pos=0.0 / pc=0x0000 to appear on 2 out of every 3 polls.
+  AltirraIPC.screenshot() now calls command() (send + recv) not just send().
 """
 
 import argparse
@@ -80,6 +89,17 @@ VIDEO_FPS            = 10     # output video framerate
 CRASH_KEYWORDS = ["BOOT ERROR", "SELF TEST", "MEMO PAD", "BOOT ERRO"]
 
 # ---------------------------------------------------------------------------
+# Debug helpers
+# ---------------------------------------------------------------------------
+_debug_enabled = False
+
+def dbg(msg: str):
+    """Print a debug line when --debug is active."""
+    if _debug_enabled:
+        print(f"  [DBG] {msg}", flush=True)
+
+
+# ---------------------------------------------------------------------------
 # IPC controller
 # ---------------------------------------------------------------------------
 class AltirraIPC:
@@ -97,6 +117,7 @@ class AltirraIPC:
                     s.connect(sock_path)
                     s.setblocking(False)
                     self._sock = s
+                    dbg(f"Connected to {sock_path}")
                     return
                 except OSError:
                     pass
@@ -104,6 +125,7 @@ class AltirraIPC:
         raise RuntimeError(f"Timed out waiting for socket: {sock_path}")
 
     def send(self, cmd: str):
+        dbg(f"-> {cmd!r}")
         self._sock.sendall((cmd + "\n").encode())
 
     def _recv_line(self, timeout: float = 5.0):
@@ -121,29 +143,49 @@ class AltirraIPC:
             if nl >= 0:
                 line = self._buf[:nl].rstrip("\r")
                 self._buf = self._buf[nl + 1:]
+                dbg(f"<- {line!r}")
                 return line
             time.sleep(0.02)
+        dbg("_recv_line: timeout")
         return None
 
     def command(self, cmd: str, timeout: float = 5.0):
+        """Send cmd and return the parsed JSON response, or None on error."""
         try:
             self.send(cmd)
             line = self._recv_line(timeout)
             if line is None:
+                dbg(f"command({cmd!r}): no response (timeout)")
                 return None
             return json.loads(line)
-        except (OSError, json.JSONDecodeError):
+        except (OSError, json.JSONDecodeError) as e:
+            dbg(f"command({cmd!r}): error {e}")
             return None
 
     def query_state(self):
         return self.command("query_state")
 
     def screenshot(self, path: str):
-        self.send(f'screenshot "{path}"')
+        """
+        Request a screenshot and consume the acknowledgement response.
+
+        CRITICAL: the emulator sends {"ok":true,"path":"..."} for every
+        screenshot command.  This response MUST be read here.  If we only
+        call send() the ack sits in the socket buffer, and the next call
+        (e.g. query_state) reads it instead of its own reply — fully
+        desynchronising the response stream.  This was causing motor=false,
+        pos=0.0, pc=$0000 on 2 of every 3 polling iterations.
+        """
+        resp = self.command(f'screenshot "{path}"')
+        if resp is None or not resp.get("ok"):
+            dbg(f"screenshot: unexpected response: {resp}")
 
     def wait_frames(self, n: int, timeout: float = 30.0) -> bool:
         resp = self.command(f"wait_frames {n}", timeout=timeout)
-        return resp is not None and resp.get("ok", False)
+        ok = resp is not None and resp.get("ok", False)
+        if not ok:
+            dbg(f"wait_frames({n}): failed or timeout — resp={resp}")
+        return ok
 
     def close(self):
         if self._sock:
@@ -180,32 +222,85 @@ def _ocr_for_crash(path: str):
 # ffmpeg video assembly
 # ---------------------------------------------------------------------------
 def make_video(cas_dir: Path, fps: int):
-    if not HAS_FFMPEG or fps <= 0:
+    if not HAS_FFMPEG:
+        print("  [video] ffmpeg not found in PATH — skipping")
         return None
+    if fps <= 0:
+        return None
+
+    # Give async screenshots a moment to flush to disk.
+    # Screenshots are queued via IPC and written on the next rendered frame;
+    # the last one may still be in-flight when we arrive here.
+    time.sleep(0.5)
 
     bmps = sorted(cas_dir.glob("frame_*.bmp"))
     if not bmps:
+        print(f"  [video] No BMP frames found in {cas_dir.resolve()} — skipping")
         return None
 
-    concat = cas_dir / "_ffmpeg_list.txt"
+    # IMPORTANT: use a relative output filename (just the basename), not an
+    # absolute or script-relative path.  ffmpeg resolves both -i and the
+    # output path relative to cwd.  Passing an absolute path that was built
+    # from a relative out_dir causes "No such file or directory" because
+    # ffmpeg tries to CREATE that absolute path from within cwd, which would
+    # require the entire parent chain to already exist under cwd.
+    out_name = "video.mp4"
+    out      = cas_dir / out_name          # for existence-check after the run
+
+    print(f"  [video] {len(bmps)} frames @ {fps}fps")
+    print(f"  [video] output : {out.resolve()}")
+    print(f"  [video] cwd    : {cas_dir.resolve()}")
+
+    # Concat demuxer list — all filenames relative to cas_dir
+    concat   = cas_dir / "_ffmpeg_list.txt"
     duration = 1.0 / fps
     with open(concat, "w") as f:
         for p in bmps:
             f.write(f"file '{p.name}'\n")
             f.write(f"duration {duration:.6f}\n")
 
-    out = cas_dir / "video.mp4"
+    cmd = [
+        "ffmpeg", "-y",
+        "-f", "concat", "-safe", "0",
+        "-i", concat.name,       # relative to cwd — lives in cas_dir
+        "-c:v", "libx264",
+        "-pix_fmt", "yuv420p",
+        "-loglevel", "warning",  # warnings + errors; switch to "verbose" if needed
+        out_name,                # relative to cwd — resolves to cas_dir/video.mp4
+    ]
+
+    print(f"  [video] cmd: {' '.join(cmd)}")
+
     r = subprocess.run(
-        ["ffmpeg", "-y", "-f", "concat", "-safe", "0",
-         "-i", str(concat),
-         "-c:v", "libx264", "-pix_fmt", "yuv420p",
-         "-loglevel", "error",
-         str(out)],
-        cwd=str(cas_dir),
+        cmd,
+        cwd=str(cas_dir),        # both -i and output resolve relative to here
         capture_output=True,
+        text=True,
     )
+
     concat.unlink(missing_ok=True)
-    return str(out) if r.returncode == 0 and out.exists() else None
+
+    # Print ffmpeg output unconditionally so failures are always diagnosable
+    if r.stdout.strip():
+        print("  [ffmpeg stdout]")
+        for line in r.stdout.strip().splitlines():
+            print(f"    {line}")
+    if r.stderr.strip():
+        print("  [ffmpeg stderr]")
+        for line in r.stderr.strip().splitlines():
+            print(f"    {line}")
+
+    if r.returncode != 0:
+        print(f"  [video] ffmpeg failed (exit code {r.returncode})")
+        return None
+
+    if not out.exists():
+        print(f"  [video] ffmpeg exit 0 but {out.resolve()} missing — bug")
+        return None
+
+    size_kb = out.stat().st_size // 1024
+    print(f"  [video] OK — {size_kb} KB")
+    return str(out)
 
 
 # ---------------------------------------------------------------------------
@@ -236,6 +331,10 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
         "--test-mode",
         "--warp",
         "--novsync",
+        # Disable SIO acceleration patches — we want the OS to drive tape
+        # loading via real SIO routines so motor timing, IRG handling and
+        # error recovery behave exactly as on real hardware.
+        "--nosiopatch",
         "--tape",   cas_path,
         "--casautoboot",
         "--nobasic",
@@ -245,9 +344,12 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
     ipc  = None
     t_start = time.monotonic()
     motor_was_on    = False
-    motor_off_count = 0    # consecutive polls with motor off
+    motor_off_count = 0    # consecutive polls with motor off after first run
+    last_motor_pos  = 0.0  # last known tape position while motor was on
     last_hashes    = []
     iteration      = 0
+
+    dbg(f"Launching: {' '.join(cmd)}")
 
     try:
         proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL,
@@ -274,7 +376,7 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
                 result["crash_reason"] = f"Overall timeout ({OVERALL_TIMEOUT:.0f}s)"
                 break
 
-            # Query state
+            # ---- Query state ------------------------------------------------
             state = ipc.query_state()
             if state is None or not state.get("ok"):
                 result["outcome"]      = "crash"
@@ -283,45 +385,71 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
 
             sim_st  = state.get("state", {}).get("sim", {})
             cas_st  = state.get("state", {}).get("cassette", {})
+            mem_st  = state.get("state", {}).get("memory", {})
+            cpu_st  = state.get("state", {}).get("cpu", {})
+
             running = sim_st.get("running", True)
             motor   = cas_st.get("motor", False)
             pos     = cas_st.get("position", 0.0)
             length  = cas_st.get("length",   0.0)
+            pc      = cpu_st.get("pc", 0)
+            # PORTB ($D301 on XL/XE): bit 0 = OS+self-test ROM enabled.
+            # Defaults to 0xFF (all ROMs on) if the emulator doesn't report it
+            # yet (old build without the memory section in query_state).
+            portb   = mem_st.get("portb", 0xFF)
+
+            dbg(f"iter={iteration:04d} elapsed={elapsed:.2f}s motor={motor} "
+                f"pos={pos:.3f} pc=${pc:04X} portb=${portb:02X}")
 
             if not running:
                 result["outcome"]      = "crash"
                 result["crash_reason"] = "Machine halted (sim.running = false)"
                 break
 
-            # PC-based crash detection
-            cpu_st = state.get("state", {}).get("cpu", {})
-            pc = cpu_st.get("pc", 0)
-            # Atari XL/XE self-test ROM maps to $5000-$57FF.
-            # If PC lands there, the boot failed and self-test took over.
-            if 0x5000 <= pc <= 0x57FF:
+            # ---- PC-based crash detection -----------------------------------
+
+            # XL/XE self-test ROM is mapped to $5000-$57FF only when the OS
+            # ROM is enabled (PORTB bit 0 = 1).  If PORTB bit 0 = 0 the OS is
+            # banked out and RAM is visible there — a legitimate program may
+            # run under those addresses, so we must NOT flag it as self-test.
+            os_rom_enabled = bool(portb & 0x01)
+            if 0x5000 <= pc <= 0x57FF and os_rom_enabled:
                 result["outcome"]      = "crash"
-                result["crash_reason"] = f"SELF TEST detected (PC=${pc:04X}, in $5000-$57FF)"
-                break
-            # BOOT ERROR display loop lives in $C400-$C4FF in the XL OS.
-            # If the motor never started and PC is stuck there, it is a boot error.
-            if not motor_was_on and elapsed > 10.0 and 0xC400 <= pc <= 0xC4FF:
-                result["outcome"]      = "crash"
-                result["crash_reason"] = f"BOOT ERROR detected (PC=${pc:04X}, motor never ran)"
+                result["crash_reason"] = (
+                    f"SELF TEST detected "
+                    f"(PC=${pc:04X}, in $5000-$57FF, OS ROM enabled, "
+                    f"PORTB=${portb:02X})"
+                )
                 break
 
-            # Screenshot (always BMP regardless of extension)
+            # BOOT ERROR handler in the XL OS lives around $C400-$C4FF.
+            # Only flag this if the motor never ran (genuine boot failure, not
+            # code loaded into $C400 area by the tape).
+            if not motor_was_on and elapsed > 10.0 and 0xC400 <= pc <= 0xC4FF:
+                result["outcome"]      = "crash"
+                result["crash_reason"] = (
+                    f"BOOT ERROR detected "
+                    f"(PC=${pc:04X}, motor never ran, elapsed {elapsed:.1f}s)"
+                )
+                break
+
+            # ---- Screenshot -------------------------------------------------
             bmp_name = f"frame_{iteration:04d}_t{pos:07.3f}.bmp"
             bmp_path = str(cas_dir / bmp_name)
+            # Must call screenshot() via command(), not send(), so the ack
+            # response is consumed and the stream stays synchronised.
             ipc.screenshot(bmp_path)
             result["screenshots"].append({
                 "seq":      iteration,
                 "file":     bmp_name,
                 "tape_pos": round(pos, 3),
                 "motor":    motor,
+                "pc":       f"${pc:04X}",
+                "portb":    f"${portb:02X}",
                 "elapsed":  round(elapsed, 1),
             })
 
-            # Frozen-screen detection (check file from previous iteration)
+            # ---- Frozen-screen detection (needs Pillow) ---------------------
             if len(result["screenshots"]) >= 2:
                 prev = str(cas_dir / result["screenshots"][-2]["file"])
                 h = _file_hash(prev)
@@ -337,7 +465,7 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
                         result["crash_reason"] = "Frozen screen + motor never started"
                         break
 
-            # OCR (optional)
+            # ---- OCR (optional) ---------------------------------------------
             if HAS_TESSERACT and len(result["screenshots"]) >= 2:
                 prev = str(cas_dir / result["screenshots"][-2]["file"])
                 kw = _ocr_for_crash(prev)
@@ -346,23 +474,29 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
                     result["crash_reason"] = f"OCR detected: {kw}"
                     break
 
-            # Motor state machine — consecutive off-polls required
+            # ---- Motor state machine ----------------------------------------
+            # The Atari OS keeps the motor running across adjacent records when
+            # the inter-record gap is short (the motor relay is never de-asserted
+            # between them).  We therefore require motor_stop_grace *consecutive*
+            # off-polls before declaring success, to avoid false positives during
+            # normal multi-record loads.
             if motor:
-                # Motor running: reset consecutive-off counter
                 motor_was_on    = True
                 motor_off_count = 0
+                if pos > 0.0:
+                    last_motor_pos = pos
             elif motor_was_on:
-                # Motor was on, now off — count consecutive off-polls
                 motor_off_count += 1
                 if motor_off_count == 1:
                     print(f"\n  Motor off at tape {pos:.3f}s "
                           f"(elapsed {elapsed:.1f}s) — "
                           f"need {motor_stop_grace} consecutive off-polls…")
                 elif motor_off_count % 5 == 0:
-                    print(f"  Still off: {motor_off_count}/{motor_stop_grace} polls", end="\r", flush=True)
+                    print(f"  Still off: {motor_off_count}/{motor_stop_grace} polls",
+                          end="\r", flush=True)
                 if motor_off_count >= motor_stop_grace:
                     result["outcome"]          = "success"
-                    result["motor_stopped_at"] = round(pos, 3)
+                    result["motor_stopped_at"] = round(last_motor_pos, 3)
                     break
             elif not motor_was_on and elapsed > MOTOR_START_TIMEOUT:
                 result["outcome"]      = "crash"
@@ -375,7 +509,10 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
             print(f"  [{elapsed:6.1f}s] {mc} {pos:.3f}/{length:.3f}s  "
                   f"iter={iteration:04d}", end="\r", flush=True)
 
-            # Wait N emulator frames (pacing by emulator time, not wall clock)
+            # Pace to emulator time: block until the emulator has rendered
+            # another frames_per_shot frames.  In --warp mode the emulator
+            # runs much faster than real time, so we're really pacing to
+            # emulated seconds, not wall-clock seconds.
             if not ipc.wait_frames(frames_per_shot, timeout=30.0):
                 result["outcome"]      = "crash"
                 result["crash_reason"] = "wait_frames timed out (emulator frozen?)"
@@ -389,7 +526,7 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
 
     finally:
         result["duration_s"]    = round(time.monotonic() - t_start, 1)
-        result["motor_started"] = motor_was_on  # type: ignore
+        result["motor_started"] = motor_was_on
 
         if ipc:
             ipc.close()
@@ -408,8 +545,9 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
                 except OSError:
                     pass
 
-    # Video assembly
+    # ---- Video assembly -----------------------------------------------------
     if result["outcome"] in ("success", "crash") and video_fps > 0:
+        print(f"  [video] assembling {len(result['screenshots'])} frames…")
         vid = make_video(cas_dir, video_fps)
         if vid:
             result["video"] = os.path.basename(vid)
@@ -424,7 +562,7 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
 # ---------------------------------------------------------------------------
 def main():
     global FRAMES_PER_SHOT, MOTOR_START_TIMEOUT, MOTOR_STOP_GRACE
-    global OVERALL_TIMEOUT, VIDEO_FPS
+    global OVERALL_TIMEOUT, VIDEO_FPS, _debug_enabled
 
     ap = argparse.ArgumentParser(
         description="Batch .cas file tester for Altirra SDL",
@@ -447,6 +585,8 @@ def main():
     ap.add_argument("--no-video",  action="store_true", help="Skip ffmpeg")
     ap.add_argument("--ntsc",      action="store_true", help="Force NTSC")
     ap.add_argument("--pal",       action="store_true", help="Force PAL")
+    ap.add_argument("--debug",     action="store_true",
+                    help="Print every IPC send/recv line (verbose)")
     ap.add_argument("cas_files",   nargs="*", help=".cas files to test")
     args = ap.parse_args()
 
@@ -455,6 +595,7 @@ def main():
     MOTOR_STOP_GRACE    = args.grace
     OVERALL_TIMEOUT     = args.timeout
     VIDEO_FPS           = args.video_fps
+    _debug_enabled      = args.debug
 
     cas_files = list(args.cas_files)
     if args.list:
@@ -474,11 +615,13 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"Altirra:     {args.altirra}")
-    print(f"Output:      {out_dir}")
-    print(f"Frames/shot: {FRAMES_PER_SHOT}  Grace: {MOTOR_STOP_GRACE}s  Timeout: {OVERALL_TIMEOUT}s")
+    print(f"Output:      {out_dir.resolve()}")
+    print(f"Frames/shot: {FRAMES_PER_SHOT}  Grace: {MOTOR_STOP_GRACE}s  "
+          f"Timeout: {OVERALL_TIMEOUT}s")
     print(f"Pillow:      {'yes' if HAS_PILLOW else 'no'}")
     print(f"pytesseract: {'yes' if HAS_TESSERACT else 'no'}")
     print(f"ffmpeg:      {'yes' if HAS_FFMPEG and vfps > 0 else 'no'}")
+    print(f"Debug IPC:   {'yes' if _debug_enabled else 'no'}")
     print(f"Files: {len(cas_files)}")
     print()
 

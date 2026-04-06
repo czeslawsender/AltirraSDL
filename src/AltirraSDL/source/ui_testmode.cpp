@@ -286,6 +286,24 @@ static std::string BuildStateJson(ATSimulator &sim, ATUIState &state) {
 		json += "}";
 	}
 
+	// Memory configuration — PORTB ($D301) on XL/XE hardware.
+	// Bit 0 of PORTB controls whether the OS ROM (including the self-test
+	// ROM at $5000-$57FF) is mapped.  When bit 0 = 0 the OS is banked out
+	// and RAM appears at those addresses, so a PC in $5000-$57FF does NOT
+	// mean self-test — it may be loaded code running in RAM.
+	// sim.DebugReadByte() reads through the full hardware address decode,
+	// returning the live value of the hardware register at that address.
+	// On non-XL hardware $D301 is not a PIA register and the value is
+	// undefined, but the self-test check in cas_tester.py only gates on it
+	// when the machine is XL/XE (hardwareMode != 0/1).
+	{
+		uint8_t portb = sim.DebugReadByte(0xD301U);
+		json += ",\"memory\":{";
+		json += "\"portb\":";
+		json += std::to_string((int)portb);
+		json += "}";
+	}
+
 	// Visible windows
 	json += ",\"windows\":[";
 	ImGuiContext &g = *ImGui::GetCurrentContext();
