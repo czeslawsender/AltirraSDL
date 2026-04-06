@@ -120,6 +120,7 @@ static void RenderOverviewCategory(ATSimulator &sim) {
 		case kATVideoStandard_PAL:    vsName = "PAL"; break;
 		case kATVideoStandard_PAL60:  vsName = "PAL60"; break;
 		case kATVideoStandard_SECAM:  vsName = "SECAM"; break;
+		default: break;
 	}
 
 	const char *modelName = "?";
@@ -131,6 +132,7 @@ static void RenderOverviewCategory(ATSimulator &sim) {
 		case kATHardwareMode_1200XL: modelName = "1200XL"; break;
 		case kATHardwareMode_130XE:  modelName = "130XE"; break;
 		case kATHardwareMode_1400XL: modelName = "1400XL"; break;
+		default: break;
 	}
 
 	const char *memStr = "?";
@@ -150,6 +152,7 @@ static void RenderOverviewCategory(ATSimulator &sim) {
 		case kATMemoryMode_576K:        memStr = "576K"; break;
 		case kATMemoryMode_576K_Compy:  memStr = "576K Compy"; break;
 		case kATMemoryMode_1088K:       memStr = "1088K"; break;
+		default: break;
 	}
 
 	if (ImGui::BeginTable("##OverviewTable", 2, ImGuiTableFlags_SizingStretchProp)) {
