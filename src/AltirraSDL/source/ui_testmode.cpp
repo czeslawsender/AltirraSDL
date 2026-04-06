@@ -17,6 +17,7 @@
 #include "ui_testmode.h"
 #include "ui_main.h"
 #include "simulator.h"
+#include "cassette.h"
 #include "gtia.h"
 #include "logging.h"
 
@@ -257,6 +258,24 @@ static std::string BuildStateJson(ATSimulator &sim, ATUIState &state) {
 	json += std::to_string((int)hwMode);
 
 	json += "}";
+
+	// Cassette state
+	{
+		auto &cas = sim.GetCassette();
+		json += ",\"cassette\":{";
+		json += "\"motor\":";
+		json += cas.IsMotorRunning() ? "true" : "false";
+		json += ",\"position\":";
+		// position in seconds, 3 decimal places
+		char posbuf[32];
+		snprintf(posbuf, sizeof(posbuf), "%.3f", cas.GetPosition());
+		json += posbuf;
+		json += ",\"length\":";
+		char lenbuf[32];
+		snprintf(lenbuf, sizeof(lenbuf), "%.3f", cas.GetLength());
+		json += lenbuf;
+		json += "}";
+	}
 
 	// Visible windows
 	json += ",\"windows\":[";
