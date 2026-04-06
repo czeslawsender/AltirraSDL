@@ -12,23 +12,31 @@ cassette motor state, takes screenshots every N emulator frames (default
   CRASH   : machine halted, motor never started, frozen screen,
             OCR hit (pytesseract), or overall timeout exceeded.
 
-After each CAS run, optionally stitches screenshots into a video via ffmpeg.
+After each CAS run, optionally stitches screenshots into a video via ffmpeg,
+then generates a summary panel PNG from deduplicated frames and an upscaled
+final screenshot.
 
 Output layout:
   <out>/
     <cas_stem>/
-      frame_0001_t0.000.bmp
+      frame_0001_t0.000.bmp   (removed by default; --keep-source to retain)
       frame_0002_t1.000.bmp
       ...
       result.json
       video.mp4          (if ffmpeg available)
-    report.json
+      panel.png          (filtered contact sheet)
+      final.png          (last frame, upscaled)
+    report.json          (cumulative across runs)
 
 Requirements:
   Python 3.8+
-  Optional: Pillow      (pip install Pillow)     — frozen-screen detection
+  Optional: Pillow      (pip install Pillow)     — frozen-screen + panel
   Optional: pytesseract (pip install pytesseract) — OCR crash detection
   Optional: ffmpeg in PATH                        — video assembly
+
+Standalone post-processing mode (no emulator needed):
+  python3 cas_tester.py --output ./results --postprocess-results \\
+      --similarity 0.8 --panel-cols 6
 
 Notes:
   - Screenshots are BMP (SDL_SaveBMP). Extension .bmp is used explicitly.
@@ -49,6 +57,7 @@ IPC protocol note — screenshot response MUST be consumed:
 import argparse
 import hashlib
 import json
+import math
 import os
 import shutil
 import socket
@@ -85,6 +94,12 @@ OVERALL_TIMEOUT      = 1200.0 # hard wall-clock cap per CAS (20 min)
 SOCKET_WAIT_TIMEOUT  = 15.0   # seconds to wait for Altirra socket
 FROZEN_THRESHOLD     = 5      # consecutive identical screenshots -> frozen
 VIDEO_FPS            = 10     # output video framerate
+
+PANEL_COLS           = 3      # images per row in the summary panel
+PANEL_SIMILARITY     = 0.7    # cosine similarity threshold; frames above this vs. the
+                              # previously selected frame are skipped (0.0 = keep all)
+PANEL_MIN_GAP        = 0.0    # min seconds between selected frames (0 = off)
+PANEL_WIDTH          = 1280   # final screenshot width in pixels (panel is not resized)
 
 CRASH_KEYWORDS = ["BOOT ERROR", "SELF TEST", "MEMO PAD", "BOOT ERRO"]
 
@@ -219,6 +234,152 @@ def _ocr_for_crash(path: str):
 
 
 # ---------------------------------------------------------------------------
+# Panel helpers — similarity filtering + contact-sheet assembly
+# ---------------------------------------------------------------------------
+_THUMB_SIZE = (32, 24)          # thumbnail for cosine-similarity comparison
+
+
+def _image_vector(path: str):
+    """Load image → greyscale thumbnail → flat pixel list."""
+    if not HAS_PILLOW:
+        return None
+    try:
+        return list(
+            Image.open(path).convert("L")
+                 .resize(_THUMB_SIZE, Image.LANCZOS)
+                 .getdata()
+        )
+    except Exception:
+        return None
+
+
+def _cosine_sim(a, b):
+    """Cosine similarity between two equal-length numeric lists."""
+    dot  = sum(x * y for x, y in zip(a, b))
+    ma   = math.sqrt(sum(x * x for x in a))
+    mb   = math.sqrt(sum(x * x for x in b))
+    if ma == 0.0 or mb == 0.0:
+        return 0.0
+    return dot / (ma * mb)
+
+
+def _tape_pos_from_bmp(name: str) -> float:
+    """Extract tape position from a filename like frame_0012_t003.456.bmp."""
+    try:
+        return float(name.rsplit("_t", 1)[1].rsplit(".bmp", 1)[0])
+    except (IndexError, ValueError):
+        return 0.0
+
+
+def postprocess_cas_dir(cas_dir: Path, *,
+                        panel_cols: int    = PANEL_COLS,
+                        similarity: float  = PANEL_SIMILARITY,
+                        min_gap: float     = PANEL_MIN_GAP,
+                        panel_width: int   = PANEL_WIDTH,
+                        keep_source: bool  = False):
+    """
+    Post-process a single CAS result directory:
+      1. Filter BMP frames by cosine similarity (+ optional min time gap).
+      2. Build a contact-sheet PNG panel from the surviving frames.
+      3. Upscale the *last* frame to panel_width as the "final" screenshot.
+      4. Remove source BMPs (unless keep_source).
+
+    Requires Pillow.  Silently skips if not available.
+    """
+    if not HAS_PILLOW:
+        print("  [panel] Pillow not installed — skipping")
+        return
+
+    bmps = sorted(cas_dir.glob("frame_*.bmp"))
+    if not bmps:
+        return
+
+    # ---- 1. Filter by similarity + optional time gap -----------------------
+    selected = [bmps[0]]
+    ref_vec  = _image_vector(str(bmps[0]))
+    ref_pos  = _tape_pos_from_bmp(bmps[0].name)
+
+    for bmp in bmps[1:]:
+        cur_pos = _tape_pos_from_bmp(bmp.name)
+
+        # Enforce minimum time gap
+        if min_gap > 0.0 and (cur_pos - ref_pos) < min_gap:
+            continue
+
+        cur_vec = _image_vector(str(bmp))
+        if ref_vec is not None and cur_vec is not None:
+            sim = _cosine_sim(ref_vec, cur_vec)
+            if sim >= similarity:
+                continue            # too similar to the last selected frame
+
+        selected.append(bmp)
+        ref_vec = cur_vec
+        ref_pos = cur_pos
+
+    # Always include the very last frame even if it was filtered out
+    if selected[-1] != bmps[-1]:
+        selected.append(bmps[-1])
+
+    print(f"  [panel] {len(bmps)} frames → {len(selected)} unique "
+          f"(similarity={similarity}, min_gap={min_gap}s)")
+
+    # ---- 2. Build contact-sheet panel --------------------------------------
+    thumbs = []
+    for p in selected:
+        try:
+            thumbs.append(Image.open(str(p)))
+        except Exception:
+            pass
+
+    if not thumbs:
+        return
+
+    tw, th = thumbs[0].size         # all screenshots are the same size
+    cols   = min(panel_cols, len(thumbs))
+    rows   = math.ceil(len(thumbs) / cols)
+    panel  = Image.new("RGB", (cols * tw, rows * th))
+
+    for idx, img in enumerate(thumbs):
+        r, c = divmod(idx, cols)
+        panel.paste(img, (c * tw, r * th))
+
+    panel_path = cas_dir / "panel.png"
+    panel.save(str(panel_path))
+    print(f"  [panel] {panel_path.name}  "
+          f"{panel.width}×{panel.height}  ({cols}×{rows} grid)")
+
+    # ---- 3. Upscale last frame ---------------------------------------------
+    try:
+        last = Image.open(str(bmps[-1]))
+        lw, lh = last.size
+        ls     = panel_width / lw
+        last   = last.resize(
+            (panel_width, round(lh * ls)),
+            Image.LANCZOS,
+        )
+        final_path = cas_dir / "final.png"
+        last.save(str(final_path))
+        print(f"  [panel] {final_path.name}  {last.width}×{last.height}")
+    except Exception as e:
+        print(f"  [panel] final frame upscale failed: {e}")
+
+    # Close images before deleting source files
+    for img in thumbs:
+        img.close()
+
+    # ---- 4. Optionally remove source BMPs ----------------------------------
+    if not keep_source:
+        removed = 0
+        for bmp in bmps:
+            try:
+                bmp.unlink()
+                removed += 1
+            except OSError:
+                pass
+        print(f"  [panel] removed {removed} source BMP(s)")
+
+
+# ---------------------------------------------------------------------------
 # ffmpeg video assembly
 # ---------------------------------------------------------------------------
 def make_video(cas_dir: Path, fps: int):
@@ -307,7 +468,8 @@ def make_video(cas_dir: Path, fps: int):
 # Single CAS test
 # ---------------------------------------------------------------------------
 def test_one_cas(altirra, cas_path, out_dir, extra_args,
-                 frames_per_shot, motor_stop_grace, video_fps):
+                 frames_per_shot, motor_stop_grace, video_fps,
+                 panel_opts=None):
 
     cas_name = Path(cas_path).stem
     cas_dir  = out_dir / cas_name
@@ -557,6 +719,10 @@ def test_one_cas(altirra, cas_path, out_dir, extra_args,
             result["video"] = os.path.basename(vid)
             print(f"  Video: {vid}")
 
+    # ---- Panel / cleanup ----------------------------------------------------
+    if result["outcome"] in ("success", "crash") and panel_opts is not None:
+        postprocess_cas_dir(cas_dir, **panel_opts)
+
     (cas_dir / "result.json").write_text(json.dumps(result, indent=2))
     return result
 
@@ -572,10 +738,12 @@ def main():
         description="Batch .cas file tester for Altirra SDL",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    ap.add_argument("--altirra",   required=True, help="Path to AltirraSDL")
+    ap.add_argument("--altirra",   help="Path to AltirraSDL (required for testing)")
     ap.add_argument("--output",    required=True, help="Output directory")
     ap.add_argument("--list",      metavar="FILE",
                     help="Text file with one .cas path per line")
+
+    # Emulation tuning
     ap.add_argument("--frames",    type=int, default=FRAMES_PER_SHOT,
                     help=f"Emulator frames/screenshot (default {FRAMES_PER_SHOT} = 1s PAL)")
     ap.add_argument("--motor-timeout", type=float, default=MOTOR_START_TIMEOUT,
@@ -591,6 +759,31 @@ def main():
     ap.add_argument("--pal",       action="store_true", help="Force PAL")
     ap.add_argument("--debug",     action="store_true",
                     help="Print every IPC send/recv line (verbose)")
+
+    # Panel / post-processing
+    ap.add_argument("--panel-cols", type=int, default=PANEL_COLS,
+                    help=f"Images per row in summary panel (default {PANEL_COLS})")
+    ap.add_argument("--similarity", type=float, default=PANEL_SIMILARITY,
+                    help=f"Cosine similarity threshold 0.0–1.0; higher = more "
+                         f"filtering (default {PANEL_SIMILARITY})")
+    ap.add_argument("--min-gap",   type=float, default=PANEL_MIN_GAP,
+                    help=f"Min seconds between selected panel frames "
+                         f"(default {PANEL_MIN_GAP}, 0 = off)")
+    ap.add_argument("--panel-width", type=int, default=PANEL_WIDTH,
+                    help=f"Final screenshot width in pixels "
+                         f"(default {PANEL_WIDTH})")
+    ap.add_argument("--keep-source", action="store_true",
+                    help="Keep source BMP frames (default: delete after panel)")
+    ap.add_argument("--no-panel",  action="store_true",
+                    help="Skip panel generation and BMP cleanup entirely")
+
+    # Post-run actions
+    ap.add_argument("--move-cas",  action="store_true",
+                    help="Move each .cas to a done/ folder after testing")
+    ap.add_argument("--postprocess-results", action="store_true",
+                    help="Re-run panel generation on existing result dirs "
+                         "(no emulator needed)")
+
     ap.add_argument("cas_files",   nargs="*", help=".cas files to test")
     args = ap.parse_args()
 
@@ -600,6 +793,41 @@ def main():
     OVERALL_TIMEOUT     = args.timeout
     VIDEO_FPS           = args.video_fps
     _debug_enabled      = args.debug
+
+    out_dir = Path(args.output)
+
+    # ---- Build panel options dict ------------------------------------------
+    panel_opts = None
+    if not args.no_panel:
+        panel_opts = dict(
+            panel_cols  = args.panel_cols,
+            similarity  = args.similarity,
+            min_gap     = args.min_gap,
+            panel_width = args.panel_width,
+            keep_source = args.keep_source,
+        )
+
+    # ---- Postprocess-only mode ---------------------------------------------
+    if args.postprocess_results:
+        if not out_dir.is_dir():
+            ap.error(f"Output directory does not exist: {out_dir}")
+        if panel_opts is None:
+            ap.error("--postprocess-results requires panel generation "
+                     "(don't combine with --no-panel)")
+
+        subdirs = sorted(d for d in out_dir.iterdir()
+                         if d.is_dir() and (d / "result.json").exists())
+        print(f"Post-processing {len(subdirs)} result dir(s) in {out_dir}")
+        for i, sd in enumerate(subdirs, 1):
+            print(f"[{i}/{len(subdirs)}] {sd.name}")
+            postprocess_cas_dir(sd, **panel_opts)
+        print("Done.")
+        return
+
+    # ---- Normal test mode --------------------------------------------------
+    if not args.altirra:
+        ap.error("--altirra is required for testing "
+                 "(use --postprocess-results to re-process existing output)")
 
     cas_files = list(args.cas_files)
     if args.list:
@@ -615,8 +843,10 @@ def main():
 
     vfps = 0 if args.no_video else VIDEO_FPS
 
-    out_dir = Path(args.output)
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    # done/ sits next to the output dir, e.g. results/ → done/
+    done_dir = out_dir.parent / "done"
 
     print(f"Altirra:     {args.altirra}")
     print(f"Output:      {out_dir.resolve()}")
@@ -625,6 +855,12 @@ def main():
     print(f"Pillow:      {'yes' if HAS_PILLOW else 'no'}")
     print(f"pytesseract: {'yes' if HAS_TESSERACT else 'no'}")
     print(f"ffmpeg:      {'yes' if HAS_FFMPEG and vfps > 0 else 'no'}")
+    print(f"Panel:       {'yes' if panel_opts else 'no'}"
+          + (f"  cols={args.panel_cols} sim={args.similarity} "
+             f"gap={args.min_gap}s width={args.panel_width}px"
+             if panel_opts else ""))
+    print(f"Keep source: {'yes' if args.keep_source else 'no'}")
+    print(f"Move CAS:    {'yes' if args.move_cas else 'no'}")
     print(f"Debug IPC:   {'yes' if _debug_enabled else 'no'}")
     print(f"Files: {len(cas_files)}")
     print()
@@ -640,7 +876,8 @@ def main():
 
         print(f"[{i}/{len(cas_files)}] {cas}")
         r = test_one_cas(args.altirra, cas, out_dir, extra,
-                         FRAMES_PER_SHOT, MOTOR_STOP_GRACE, vfps)
+                         FRAMES_PER_SHOT, MOTOR_STOP_GRACE, vfps,
+                         panel_opts=panel_opts)
         results.append(r)
 
         icon   = "\u2713" if r["outcome"] == "success" else "\u2717"
@@ -649,6 +886,17 @@ def main():
                   else r.get("crash_reason", ""))
         print(f"  {icon} {r['outcome'].upper()}  {detail}  "
               f"({r['duration_s']:.1f}s, {len(r.get('screenshots',[]))} frames)")
+
+        # ---- Move .cas to done/ -------------------------------------------
+        if args.move_cas and r["outcome"] in ("success", "crash"):
+            done_dir.mkdir(parents=True, exist_ok=True)
+            dest = done_dir / Path(cas).name
+            try:
+                shutil.move(cas, str(dest))
+                print(f"  Moved → {dest}")
+            except OSError as e:
+                print(f"  [move-cas] failed: {e}")
+
         print()
 
     run = {
@@ -672,14 +920,12 @@ def main():
             if isinstance(existing, dict) and "runs" in existing:
                 report = existing
             else:
-                # Migrate a legacy single-run report into the new format.
                 report["runs"].append(existing)
         except (json.JSONDecodeError, OSError):
             pass
 
     report["runs"].append(run)
 
-    # Recompute lifetime totals across all runs.
     all_results = [r for rn in report["runs"] for r in rn.get("results", [])]
     report["total"]   = len(all_results)
     report["success"] = sum(1 for r in all_results if r.get("outcome") == "success")

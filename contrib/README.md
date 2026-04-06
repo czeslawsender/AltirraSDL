@@ -10,8 +10,9 @@ Automated batch-testing of Atari 8-bit cassette images (`.cas` files).
 The script launches AltirraSDL for each file, boots it, monitors tape
 motor state and CPU/memory state via the built-in IPC channel, captures
 BMP screenshots every N emulator frames (default 50 = 1 PAL second),
-classifies each run as **success** or **crash**, and optionally stitches
-the screenshots into an MP4 video.
+classifies each run as **success** or **crash**, optionally stitches
+the screenshots into an MP4 video, then generates a summary contact-sheet
+panel and an upscaled final screenshot from the deduplicated frames.
 
 ### Prerequisites
 
@@ -19,7 +20,7 @@ the screenshots into an MP4 video.
 |---|---|
 | AltirraSDL (this repo) | Built from `tape-testing-automation` branch or later |
 | Python 3.8+ | Standard library only for core operation |
-| `Pillow` *(optional)* | `pip install Pillow` — enables frozen-screen detection |
+| `Pillow` *(optional)* | `pip install Pillow` — enables frozen-screen detection and panel generation |
 | `pytesseract` + `tesseract` *(optional)* | `pip install pytesseract` + system tesseract — enables OCR crash detection |
 | `ffmpeg` *(optional)* | In `PATH` — enables video assembly from screenshots |
 
@@ -43,13 +44,22 @@ python3 contrib/cas_tester.py \
     --altirra ./AltirraSDL \
     --output  ./results \
     --list    my_tapes.txt
+
+# Re-generate panels for existing results (no emulator needed)
+python3 contrib/cas_tester.py \
+    --output ./results \
+    --postprocess-results \
+    --similarity 0.8 \
+    --panel-cols 6
 ```
 
 ### Options
 
+#### Emulation
+
 | Flag | Default | Description |
 |---|---|---|
-| `--altirra PATH` | *(required)* | Path to AltirraSDL executable |
+| `--altirra PATH` | *(required for testing)* | Path to AltirraSDL executable |
 | `--output DIR` | *(required)* | Root output directory |
 | `--list FILE` | — | Text file with one `.cas` path per line |
 | `--frames N` | 50 | Emulator frames between screenshots (50 = 1 s PAL, 60 = 1 s NTSC) |
@@ -61,6 +71,24 @@ python3 contrib/cas_tester.py \
 | `--ntsc` / `--pal` | — | Override video standard |
 | `--debug` | — | Print every IPC send/recv line (verbose) |
 
+#### Panel / post-processing
+
+| Flag | Default | Description |
+|---|---|---|
+| `--panel-cols N` | 3 | Images per row in the summary panel |
+| `--similarity F` | 0.7 | Cosine similarity threshold (0.0–1.0). Consecutive frames with similarity ≥ this value vs. the last selected frame are filtered out. Higher = more aggressive filtering |
+| `--min-gap S` | 0 | Minimum time distance in seconds between selected panel frames (0 = off) |
+| `--panel-width PX` | 1280 | Width of the upscaled final screenshot in pixels (height scales proportionally). The panel itself is not resized |
+| `--keep-source` | — | Keep source BMP frames after panel generation (default: delete them) |
+| `--no-panel` | — | Skip panel generation and BMP cleanup entirely |
+| `--postprocess-results` | — | Re-run panel generation on existing result directories (no emulator needed, `--altirra` not required) |
+
+#### Post-run actions
+
+| Flag | Default | Description |
+|---|---|---|
+| `--move-cas` | — | After testing, move each `.cas` file to a `done/` folder (created as a sibling of `--output`) |
+
 Altirra is launched with `--warp`, `--novsync`, `--nosiopatch`, `--nobasic`,
 and `--casautoboot` automatically. SIO patches are explicitly disabled so that
 the OS drives tape loading via real SIO routines — motor timing, IRG handling,
@@ -71,12 +99,15 @@ and error recovery behave exactly as on real hardware.
 ```
 results/
   game_name/
-    frame_0001_t000.000.bmp   ← frame sequence + tape position in filename
+    frame_0001_t000.000.bmp   ← source frames (deleted by default; --keep-source to retain)
     frame_0002_t002.341.bmp
     ...
     result.json               ← full per-CAS data (outcome, tape position, etc.)
     video.mp4                 ← assembled timelapse (if ffmpeg available)
+    panel.png                 ← contact sheet of deduplicated frames
+    final.png                 ← last frame, upscaled to --panel-width
   report.json                 ← cumulative summary across all runs
+done/                         ← tested .cas files land here (--move-cas)
 ```
 
 ### `result.json` fields
@@ -128,6 +159,60 @@ array with per-invocation detail:
 If the script encounters a legacy single-run `report.json` (from an older
 version without the `runs` array), it is automatically migrated into the
 new format as the first entry.
+
+### Panel generation
+
+After video assembly (or independently via `--postprocess-results`), the
+script builds two PNG outputs from the captured BMP frames:
+
+**`panel.png`** — a contact-sheet grid of visually distinct frames. The
+filtering pipeline works as follows:
+
+1. The first frame is always selected.
+2. Each subsequent frame is compared to the last *selected* frame using
+   cosine similarity on downscaled greyscale thumbnails (32×24 pixels).
+3. If the similarity is ≥ `--similarity` (default 0.7), the frame is
+   skipped as a near-duplicate.
+4. If `--min-gap` is set, frames closer than that many seconds (by tape
+   position) to the last selected frame are also skipped.
+5. The last frame is always included regardless of similarity.
+6. Surviving frames are tiled into a grid of `--panel-cols` columns
+   (default 3) and as many rows as needed, at their original
+   resolution.
+
+**`final.png`** — the very last captured frame, upscaled to
+`--panel-width` pixels wide (default 1280) with proportional height.
+This represents the final state of the emulated screen at the end of
+the test.
+
+After panel generation, source BMP files are deleted unless
+`--keep-source` is specified. The `.mp4` video is never affected.
+
+Use `--no-panel` to skip panel generation entirely and leave all BMPs
+in place.
+
+### Postprocess mode
+
+`--postprocess-results` re-runs panel generation across all existing
+result subdirectories under `--output` without launching the emulator.
+This is useful for re-tuning `--similarity`, `--panel-cols`, or
+`--panel-width` after a batch run, or for generating panels from
+results that were originally created with `--no-panel`.
+
+```bash
+# Regenerate all panels with tighter filtering and wider output
+python3 contrib/cas_tester.py \
+    --output ./results \
+    --postprocess-results \
+    --similarity 0.85 \
+    --panel-width 960 \
+    --panel-cols 5
+```
+
+The mode scans for subdirectories containing a `result.json` and
+processes each one. Existing `panel.png` and `final.png` files are
+overwritten. If `--keep-source` is not set and BMP frames still exist,
+they are removed.
 
 ### Crash detection
 
