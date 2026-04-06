@@ -136,7 +136,7 @@ struct ATUpdateFeedNodeIter {
 };
 
 inline ATUpdateFeedNodeIter ATUpdateFeedNodeRef::begin() const {
-	return ATUpdateFeedNodeIter(**this);
+	return ATUpdateFeedNodeIter{**this};
 }
 
 inline ATUpdateFeedNodeIter ATUpdateFeedNodeRef::end() const {
