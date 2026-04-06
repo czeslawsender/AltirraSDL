@@ -17,6 +17,7 @@
 #include "ui_testmode.h"
 #include "ui_main.h"
 #include "simulator.h"
+#include "cpu.h"
 #include "cassette.h"
 #include "gtia.h"
 #include "logging.h"
@@ -259,6 +260,15 @@ static std::string BuildStateJson(ATSimulator &sim, ATUIState &state) {
 
 	json += "}";
 
+	// CPU state — PC is the primary crash-detection signal
+	{
+		uint16 pc = sim.GetCPU().GetPC();
+		json += ",\"cpu\":{";
+		json += "\"pc\":";
+		json += std::to_string((int)pc);
+		json += "}";
+	}
+
 	// Cassette state
 	{
 		auto &cas = sim.GetCassette();
@@ -266,7 +276,6 @@ static std::string BuildStateJson(ATSimulator &sim, ATUIState &state) {
 		json += "\"motor\":";
 		json += cas.IsMotorRunning() ? "true" : "false";
 		json += ",\"position\":";
-		// position in seconds, 3 decimal places
 		char posbuf[32];
 		snprintf(posbuf, sizeof(posbuf), "%.3f", cas.GetPosition());
 		json += posbuf;
