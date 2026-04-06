@@ -920,7 +920,10 @@ static SDL_Surface *ReadFramebufferToSurface(IDisplayBackend *backend) {
 	if (w <= 0 || h <= 0)
 		return nullptr;
 
-	SDL_Surface *surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_RGBA8888);
+	// glReadPixels(GL_RGBA, GL_UNSIGNED_BYTE) writes bytes R,G,B,A in memory.
+	// SDL_PIXELFORMAT_RGBA8888 on little-endian stores them A,B,G,R — wrong.
+	// SDL_PIXELFORMAT_ABGR8888 stores them R,G,B,A — matches glReadPixels.
+	SDL_Surface *surface = SDL_CreateSurface(w, h, SDL_PIXELFORMAT_ABGR8888);
 	if (!surface)
 		return nullptr;
 
