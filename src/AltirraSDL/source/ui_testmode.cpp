@@ -20,6 +20,7 @@
 #include "cpu.h"
 #include "cassette.h"
 #include "gtia.h"
+#include <at/ataudio/pokey.h>
 #include "logging.h"
 
 bool g_testModeEnabled = false;
@@ -554,6 +555,75 @@ static std::string DispatchCommand(std::string cmd, ATSimulator &sim, ATUIState 
 		return JsonOk();
 	}
 
+	// --- Atari input injection (keyboard / console / joystick) ---
+	//
+	// keydown <name> / keyup <name>.  Added so the external test harness
+	// (cas_tester.py motor-stop key sequence) can actually press keys: the
+	// harness was already sending these verbs, but they were never
+	// implemented here, so Altirra rejected them and NO key was ever pressed.
+	//
+	// Routing by name:
+	//   keyboard  (space return esc y n)  -> POKEY PushKey(KBCODE).  A press
+	//             is a self-timed tap, so we act only on keydown; keyup is a
+	//             recognised no-op.  KBCODEs match input_sdl3 SDLScancodeToAtari.
+	//   console   (start select option)   -> GTIA SetConsoleSwitch(bit, down),
+	//             held down between keydown and keyup (the OS polls the switch).
+	//   joystick  (fire)                  -> GTIA SetControllerTrigger(0, down),
+	//             port-0 trigger, held between keydown and keyup.
+	//   shift                             -> recognised no-op (the Atari SHIFT
+	//             has no standalone KBCODE; it is a modifier bit).
+	//
+	// Direct sim.* calls are safe here -- this dispatcher already calls
+	// sim.ColdReset()/Pause()/Resume() inline, on the same thread the SDL
+	// input handler uses for PushKey/SetConsoleSwitch.
+	if (verb == "keydown" || verb == "keyup") {
+		std::string name = NextToken(cmd);
+		for (char &ch : name) {
+			if (ch >= 'A' && ch <= 'Z')
+				ch = (char)(ch - 'A' + 'a');
+		}
+		if (name.empty())
+			return JsonError("usage: " + verb + " <key>");
+		const bool down = (verb == "keydown");
+
+		// Keyboard keys (Atari KBCODE).
+		uint8 kb = 0xFF;
+		if      (name == "space")                 kb = 0x21;
+		else if (name == "return")                kb = 0x0C;
+		else if (name == "esc" || name == "escape") kb = 0x1C;
+		else if (name == "y")                     kb = 0x2B;
+		else if (name == "n")                     kb = 0x23;
+		if (kb != 0xFF) {
+			if (down)
+				sim.GetPokey().PushKey(kb, false);
+			return JsonOk();
+		}
+
+		// Console switches (START / SELECT / OPTION), held while down.
+		uint8 sw = 0;
+		if      (name == "start")  sw = 0x01;
+		else if (name == "select") sw = 0x02;
+		else if (name == "option") sw = 0x04;
+		if (sw) {
+			sim.GetGTIA().SetConsoleSwitch(sw, down);
+			return JsonOk();
+		}
+
+		// Joystick port-0 fire (TRIG0), held while down.
+		if (name == "fire") {
+			sim.GetGTIA().SetControllerTrigger(0, down);
+			return JsonOk();
+		}
+
+		// SHIFT alone is a modifier bit with no standalone KBCODE -- accept it
+		// as a no-op so existing key sequences (e.g. space->shift->return) run
+		// without an error.
+		if (name == "shift")
+			return JsonOk();
+
+		return JsonError("unknown key: " + name);
+	}
+
 	if (verb == "boot_image") {
 		std::string path = RestOfLine(cmd);
 		if (path.empty())
@@ -605,6 +675,8 @@ static std::string DispatchCommand(std::string cmd, ATSimulator &sim, ATUIState 
 			"\"warm_reset\","
 			"\"pause\","
 			"\"resume\","
+			"\"keydown <key>\","
+			"\"keyup <key>\","
 			"\"boot_image <path>\","
 			"\"attach_disk <drive> <path>\","
 			"\"load_state <path>\","
